@@ -508,6 +508,37 @@ public void SelectingPlant() {
 		Button.click("Click Remove Button",driver.findElement(By.xpath("(.//*[text()='Remove'])[9]")));
 		System.out.println("plant get removed");
 	}
-}
+	public void selectLocationCode()
+	{
+		/*WebElement dropdown =driver.findElement(By.xpath("//*[text()='Item Deposit Group Code']/../div/div/select"));
+		Select LocationCodeDropDown= new Select(dropdown);
+		LocationCodeDropDown.selectByVisibleText("DZ01, Brewery Rouiba");
+*/		
+		Sync.waitUntilObjectDisappears(driver, "Wait for Location Code Select", By.xpath(".//*[@id='mxui_widget_Progress_0']/div[2]"));
+		Sync.waitForSeconds(Constants.WAIT_5);
+		WebElement dropdown =driver.findElement(By.xpath("//*[text()='Location Code']/../div/div/select"));
+		Sync.waitForObject(driver, "Wait for Location Code Select", dropdown);
+		Button.click("Wait for Location Code Select", dropdown);
+		Select roundVATPostingGroupDown= new Select(dropdown);
+		roundVATPostingGroupDown.selectByVisibleText("DZ01, Brewery Rouiba");
+	}
+	
+	public void selectReplenishmentSystem()
+	{
+//		WebElement dropdown =driver.findElement(By.xpath("//*[text()='Replenishment System']/../div/div/select"));
+//		Select LocationCodeDropDown= new Select(dropdown);
+//		LocationCodeDropDown.selectByVisibleText("2, Transfer");
+		
+		Sync.waitUntilObjectDisappears(driver, "Wait for Replenishment System", By.xpath(".//*[@id='mxui_widget_Progress_0']/div[2]"));
+		Sync.waitForSeconds(Constants.WAIT_5);
+		WebElement dropdown =driver.findElement(By.xpath("//*[text()='Replenishment System']/../div/div/select"));
+		Sync.waitForObject(driver, "Wait for Location Code Select", dropdown);
+		Button.click("Wait for Location Code Select", dropdown);
+		Select roundVATPostingGroupDown= new Select(dropdown);
+		roundVATPostingGroupDown.selectByVisibleText("2, Transfer");
+		
+	}
+	
+	}
 
 

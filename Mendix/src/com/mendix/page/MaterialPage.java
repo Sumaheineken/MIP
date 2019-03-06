@@ -17,6 +17,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.Point;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -56,6 +57,40 @@ public class MaterialPage {
 		PageFactory.initElements(driver, this);
 		this.driver=driver;
 	}
+
+
+	//**********************************Global Actions*****************************************************************
+
+	
+	@FindBy(how=How.XPATH, using="//*[text()='My record is not a duplicate! Submit.']")
+	WebElement btnDuplicateSubmit;
+	
+	@FindBy(how=How.XPATH, using=".//span[@class='glyphicon glyphicon-copy']")
+	WebElement duplicateBtn;
+	
+	@FindBy(how=How.XPATH, using=".//span[@class='glyphicon glyphicon-check']")
+	WebElement validateDuplicate;
+
+	//*************************************************************************************************
+	@FindBy(how=How.XPATH, using=".modal-body.mx-dialog-body>p")
+	WebElement msgRequestSuccessMsg;
+	
+	 @FindBy(how=How.XPATH, using="//*[text()='Reject Global Request']")
+		WebElement btnRejectGlobalRequest;
+	
+		@FindBy(how=How.XPATH,using="((.//*[text()='Edit Comments'])/../../div[2]/div/div/div/div/div/div[1]/div/div/div/div/div/textarea)")
+		WebElement textAreaComment;
+
+	/*@FindBy(how=How.XPATH, using="//*[text()='Created On']/../../tr[3]td[4]/div/div/div/input")
+	WebElement txtboxCreateOnEnter;
+*/		
+	@FindBy(how=How.XPATH, using=".//span[@class='glyphicon glyphicon-ban-circle']")
+	WebElement btnDiscardCreate;
+	
+	@FindBy(how=How.XPATH, using="//*[text()='OK']")
+	WebElement btnOK;
+	
+	
 
 	@FindBy(how=How.XPATH, using="//a[contains(text(),'Materials')]")
 	WebElement textMaterial;
@@ -182,11 +217,7 @@ public class MaterialPage {
 	@FindBy(how=How.XPATH, using="//*[text()='Duplicate Check']")
 	WebElement btnDuplicateCheck;
 
-	@FindBy(how=How.XPATH, using="//*[text()='Reject Global Request']")
-	WebElement btnRejectGlobalRequest;
 
-	@FindBy(how=How.XPATH, using="//*[text()='Discard Create']")
-	WebElement btnDiscardCreate;
 
 
 	//*************************************************************************************************
@@ -196,8 +227,6 @@ public class MaterialPage {
 	@FindBy(how=How.XPATH, using="//*[text()='No matches / possible duplicates have been found.']")
 	WebElement msgDuplicateInfo;
 
-	@FindBy(how=How.XPATH, using="//*[text()='OK']")
-	WebElement btnOK;
 
 	@FindBy(how=How.CSS, using=".btn.btn-primary")
 	WebElement btnMsgReqIdOk;
@@ -318,6 +347,15 @@ public class MaterialPage {
 
 	@FindBy(how=How.XPATH, using="//button[@class='btn mx-button mx-name-actionButton8 btn-success']")
 	WebElement btnok;
+	
+	
+	
+	@FindBy(how=How.XPATH, using="//*[@class='close mx-dialog-close']")
+	WebElement btnClose; 
+	
+	@FindBy(how=How.XPATH,using=".//*[text()='Open Record']")
+	
+	WebElement openRecord;
 
 
 
@@ -1276,18 +1314,7 @@ public class MaterialPage {
 	}
 
 
-	public void DiscardCreateGDA() throws InterruptedException {
-
-		Sync.waitForSeconds(Constants.WAIT_5);
-		Button.click("Local Actions button click", btnLocalActions);
-		Sync.waitForSeconds(Constants.WAIT_5);
-		Sync.waitForObject(driver, btnDiscardCreate);
-		Textbox.click("Click on discard button in locl action", btnDiscardCreate);
-		Sync.waitForSeconds(Constants.WAIT_5);
-		Sync.waitForObject(driver, btnOK);
-		Button.click("Click On OK button", btnOK);
-		Sync.waitForSeconds(Constants.WAIT_5);
-	}
+	
 	/*public void SaveAsDraft() throws InterruptedException {
 
 		Sync.waitForSeconds(Constants.WAIT_5);
@@ -1301,155 +1328,8 @@ public class MaterialPage {
 		Sync.waitForSeconds(Constants.WAIT_5);
 	}
 	 */
-	public void RejectGDA() throws InterruptedException, AWTException {
 
-		System.out.println("Scrolling action");
-
-		Sync.waitForSeconds(Constants.WAIT_6);
-		System.out.println("Scrolling");
-		Sync.waitForSeconds(Constants.WAIT_5);
-		Sync.waitForSeconds(Constants.WAIT_5);
-		String test = driver.findElement(By.xpath(".//*[@id='mxui_widget_TextInput_3']/p")).getText();
-		driver.findElement(By.xpath(".//*[@id='mxui_widget_TextInput_3']/p")).click();
-		System.out.println(test);
-
-
-		Sync.waitForSeconds(Constants.WAIT_5);
-		Robot robot = new Robot();  // Robot class throws AWT Exception	
-		Thread.sleep(4000); // Thread.sleep throws InterruptedException	
-		robot.keyPress(KeyEvent.VK_DOWN);
-		Thread.sleep(2000);
-		robot.keyRelease(KeyEvent.VK_DOWN);
-
-		Actions action = new Actions(driver);
-		action.sendKeys(Keys.PAGE_DOWN).build().perform();
-		Thread.sleep(1000);
-
-		action.sendKeys(Keys.PAGE_DOWN).build().perform();
-		Thread.sleep(1000);
-
-		action.sendKeys(Keys.PAGE_DOWN).build().perform();
-		Thread.sleep(1000);
-
-		action.sendKeys(Keys.PAGE_DOWN).build().perform();
-		Thread.sleep(1000);
-
-		Sync.waitForObject(driver, btnCommentNew);
-		Sync.waitForSeconds(Constants.WAIT_5);
-		System.out.println("checking for new button");
-		Sync.waitForSeconds(Constants.WAIT_5);
-		String text1=driver.findElement(By.xpath(".//*[@id='mxui_widget_NumberInput_3']/p")).getText();
-		System.out.println(text1);
-		String text2=driver.findElement(By.xpath("(.//*[@class='btn mx-button mx-name-newButton2 btn-default'])[1]")).getText();
-		System.out.println(text2);
-		Sync.waitForSeconds(Constants.WAIT_5);
-		Sync.waitForSeconds(Constants.WAIT_5);
-
-		driver.findElement(By.xpath("(.//*[@class='btn mx-button mx-name-newButton2 btn-default'])[1]")).click();
-
-		System.out.println("clicked new button");
-		Sync.waitForSeconds(Constants.WAIT_5);
-		Sync.waitForSeconds(Constants.WAIT_5);
-
-		Textbox.enterValue("typing comment", textComment, "material data");
-		Textbox.click("Click on Save Button", btnSave);
-
-		Sync.waitForSeconds(Constants.WAIT_5);
-		Sync.waitForSeconds(Constants.WAIT_5);
-
-		Button.click("Local Actions button click", btnLocalActions);
-
-		Sync.waitForObject(driver, btnRejectGlobalRequest);
-		Textbox.click("Click on reject button in locl action", btnRejectGlobalRequest);
-		Sync.waitForSeconds(Constants.WAIT_5);
-		Sync.waitForObject(driver, btnOK);
-		Button.click("Click On OK button", btnOK);
-		Sync.waitForSeconds(Constants.WAIT_5);
-	}
-	public void RejectLocalRequest() {
-		Sync.waitForSeconds(Constants.WAIT_5);
-		Sync.waitForObject(driver, driver.findElement(By.xpath("(.//*[@class='btn mx-button mx-name-newButton2 btn-default'])[2]")));
-
-		driver.findElement(By.xpath("(.//*[@class='btn mx-button mx-name-newButton2 btn-default'])[2]")).click();
-		System.out.println("clicked new button");
-		Sync.waitForSeconds(Constants.WAIT_5);
-		Sync.waitForSeconds(Constants.WAIT_5);
-
-		Textbox.enterValue("typing comment", textComment, "material data");
-		Textbox.click("Click on Save Button", btnSave);
-
-		Sync.waitForObject(driver, "Wait for Reject Local Request", driver.findElement(By.xpath(".//*[text()='Reject Local Request']")));
-		Sync.waitForElementToBeClickable(driver, driver.findElement(By.xpath(".//*[text()='Reject Local Request']")));
-		Button.click("Click  Reject Local Request", driver.findElement(By.xpath(".//*[text()='Reject Local Request']")));
-		//		Button.click("Click Global submit Global Request", driver.findElement(By.xpath("(//span[@class='glyphicon glyphicon-save'])[2]")));
-		Sync.waitForSeconds(Constants.WAIT_2);
-		Sync.waitForSeconds(Constants.WAIT_5);
-	}
-
-	public boolean clickOkToHandlePopup()
-	{
-		Sync.waitForSeconds(Constants.WAIT_5);
-		WebElement popUp = driver.findElement(By.xpath("//*[@class='close mx-dialog-close']"));
-		return Button.jsclick("Click on Popup", popUp, driver);
-		//Sync.waitForSeconds(Constants.WAIT_1);
-		// Button.jsclick("Click ok on info Popup", btnOkay, driver);
-	} 
-	public boolean clickCreateRequestPopup() 
-	{
-		Sync.waitForSeconds(Constants.WAIT_5);
-
-		Sync.waitForSeconds(Constants.WAIT_5);
-		//WebElement popUp = driver.findElement(By.xpath("//*[@class='close mx-dialog-close']"));
-		Sync.waitForObject(driver, checkBoxPlant);
-		return Button.jsclick("Click on Edit Checkbox",checkBoxPlant , driver);
-	}
-	public boolean clickCreateRequestSelectAllPopup() 
-	{
-		Sync.waitForSeconds(Constants.WAIT_5);
-
-		Sync.waitForSeconds(Constants.WAIT_5);
-		//WebElement popUp = driver.findElement(By.xpath("//*[@class='close mx-dialog-close']"));
-		Sync.waitForObject(driver, checkBoxPlant);
-		return Button.jsclick("Click on Edit Checkbox",selectAllButton , driver);
-	}
-	public boolean clickCreateRequestButton() 
-	{
-		Sync.waitForSeconds(Constants.WAIT_5);
-		Sync.waitForSeconds(Constants.WAIT_1);
-		//WebElement popUp = driver.findElement(By.xpath("//*[@class='close mx-dialog-close']"));
-		Sync.waitForObject(driver, createRequest);
-		return Button.jsclick("Click on Create Request Button",createRequest , driver);
-	}
-	public boolean SubmitLocalRequst() 
-	{
-		Sync.waitForSeconds(Constants.WAIT_5);
-		Sync.waitForSeconds(Constants.WAIT_1);
-		//WebElement popUp = driver.findElement(By.xpath("//*[@class='close mx-dialog-close']"));
-		Sync.waitForObject(driver, createRequest);
-		return Button.jsclick("Click on Create Request Button",createRequest , driver);
-	}
-	public String getRequestId_CreateNew()
-			throws InterruptedException, FileNotFoundException, IOException {
-
-		Sync.waitForSeconds(Constants.WAIT_2);
-		WebDriverWait wait = new WebDriverWait(driver,80);
-
-		Sync.waitForObject(driver, "Wait of Dialog Box Success Message", msgRequestSuccess);
-		String reqId=driver.findElement(By.xpath(".//*[@id='mxui_widget_DialogMessage_0']/div[1]/div[2]/p")).getText();
-		String[] parts = reqId.split(" ");
-		String Id = parts[2];
-		System.out.println(Id);
-		String IdNum = Id.replaceAll("\\.", "");
-		System.out.println("RequestId is: " +Id);
-		// ExcelUtil.excelWrite(IdNum);
-		//ExcelUtil.setCellDataNew("TestPlan",4,11,Id);
-		ExcelUtil.setCellData_New("TestPlan", "RequestId", Id);
-		System.out.println("RequestId is: " +IdNum);
-		Sync.waitForSeconds(Constants.WAIT_3);
-		Sync.waitForElementToBeClickable(driver, btnMsgReqIdOkdraft);
-		// Button.click("Click Ok Button", btnMsgReqIdOkdraft);
-		return Id;
-	} 
+	
 	public boolean clickGlobalDataButton() throws InterruptedException 
 	{
 		boolean isButtonClicked=false;
@@ -1618,5 +1498,564 @@ public class MaterialPage {
 		Button.click("Click Search button", btnReqIdEnter);
 		Sync.waitForSeconds(Constants.WAIT_5); 
 	} 
+	public void DiscardCreateGDA() throws InterruptedException {
+
+		Sync.waitForSeconds(Constants.WAIT_5);
+		Button.click("Local Actions button click", btnLocalActions);
+		Sync.waitForSeconds(Constants.WAIT_5);
+		Sync.waitForObject(driver, btnDiscardCreate);
+		Textbox.click("Click on discard button in locl action", btnDiscardCreate);
+		Sync.waitForSeconds(Constants.WAIT_5);
+		Sync.waitForObject(driver, btnOK);
+		Button.click("Click On OK button", btnOK);
+		Sync.waitForSeconds(Constants.WAIT_5);
+	}
+	/*public void SaveAsDraft() throws InterruptedException {
+
+		Sync.waitForSeconds(Constants.WAIT_5);
+		Button.click("Local Actions button click", btnLocalActions);
+		Sync.waitForSeconds(Constants.WAIT_5);
+		Sync.waitForObject(driver, btnDiscardCreate);
+		Textbox.click("Click on discard button in locl action", btnDiscardCreate);
+		Sync.waitForSeconds(Constants.WAIT_5);
+		Sync.waitForObject(driver, btnOK);
+		Button.click("Click On OK button", btnOK);
+		Sync.waitForSeconds(Constants.WAIT_5);
+	}
+	*/
+	public void RejectGDA() throws InterruptedException, AWTException {
+
+		System.out.println("Scrolling action");
+
+		Sync.waitForSeconds(Constants.WAIT_6);
+		System.out.println("Scrolling");
+		Sync.waitForSeconds(Constants.WAIT_5);
+		Sync.waitForSeconds(Constants.WAIT_5);
+		String test = driver.findElement(By.xpath(".//*[@id='mxui_widget_TextInput_3']/p")).getText();
+		driver.findElement(By.xpath(".//*[@id='mxui_widget_TextInput_3']/p")).click();
+		System.out.println(test);
+		
+				
+		Sync.waitForSeconds(Constants.WAIT_5);
+		Robot robot = new Robot();  // Robot class throws AWT Exception	
+        Thread.sleep(4000); // Thread.sleep throws InterruptedException	
+        robot.keyPress(KeyEvent.VK_DOWN);
+        Thread.sleep(2000);
+        robot.keyRelease(KeyEvent.VK_DOWN);
+        
+        Actions action = new Actions(driver);
+		action.sendKeys(Keys.PAGE_DOWN).build().perform();
+		Thread.sleep(1000);
+	
+		action.sendKeys(Keys.PAGE_DOWN).build().perform();
+		Thread.sleep(1000);
+		
+		action.sendKeys(Keys.PAGE_DOWN).build().perform();
+		Thread.sleep(1000);
+		
+		action.sendKeys(Keys.PAGE_DOWN).build().perform();
+		Thread.sleep(1000);
+        
+		Sync.waitForObject(driver, btnCommentNew);
+		Sync.waitForSeconds(Constants.WAIT_5);
+		System.out.println("checking for new button");
+		Sync.waitForSeconds(Constants.WAIT_5);
+		String text1=driver.findElement(By.xpath(".//*[@id='mxui_widget_NumberInput_3']/p")).getText();
+		System.out.println(text1);
+		String text2=driver.findElement(By.xpath("(.//*[@class='btn mx-button mx-name-newButton2 btn-default'])[1]")).getText();
+		System.out.println(text2);
+		Sync.waitForSeconds(Constants.WAIT_5);
+		Sync.waitForSeconds(Constants.WAIT_5);
+		
+		driver.findElement(By.xpath("(.//*[@class='btn mx-button mx-name-newButton2 btn-default'])[1]")).click();
+		
+		System.out.println("clicked new button");
+		Sync.waitForSeconds(Constants.WAIT_5);
+		WebDriverWait wait = new WebDriverWait(driver,100);
+
+		Textbox.enterValue("typing comment", textComment, "material data");
+		Textbox.click("Click on Save Button", btnSave);
+	
+		Sync.waitForSeconds(Constants.WAIT_5);
+		Sync.waitForSeconds(Constants.WAIT_5);
+		
+		Button.click("Local Actions button click", btnLocalActions);
+		
+		Sync.waitForObject(driver, btnRejectGlobalRequest);
+		Textbox.click("Click on reject button in locl action", btnRejectGlobalRequest);
+		Sync.waitForSeconds(Constants.WAIT_5);
+		Sync.waitForObject(driver, btnOK);
+		Button.click("Click On OK button", btnOK);
+		Sync.waitForSeconds(Constants.WAIT_5);
+	}
+	public void RejectLocalRequest() {
+		Sync.waitForSeconds(Constants.WAIT_5);
+
+
+
+     WebDriverWait wait = new WebDriverWait(driver,50);
+     wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(.//*[@class='btn mx-button mx-name-newButton2 btn-default'])[2]")));
+		Sync.waitForObject(driver, driver.findElement(By.xpath("(.//*[@class='btn mx-button mx-name-newButton2 btn-default'])[2]")));
+
+		driver.findElement(By.xpath("(.//*[@class='btn mx-button mx-name-newButton2 btn-default'])[2]")).click();
+		System.out.println("clicked new button");
+		Sync.waitForSeconds(Constants.WAIT_5);
+		Sync.waitForSeconds(Constants.WAIT_5);
+
+		Textbox.enterValue("typing comment", textComment, "material data");
+		Textbox.click("Click on Save Button", btnSave);
+		 WebDriverWait wait1 = new WebDriverWait(driver,20);
+	     wait1.until(ExpectedConditions.elementToBeClickable(By.xpath(".//*[text()='Reject Local Request']")));
+		Sync.waitForObject(driver, "Wait for Reject Local Request", driver.findElement(By.xpath(".//*[text()='Reject Local Request']")));
+		Sync.waitForElementToBeClickable(driver, driver.findElement(By.xpath(".//*[text()='Reject Local Request']")));
+		Button.click("Click  Reject Local Request", driver.findElement(By.xpath(".//*[text()='Reject Local Request']")));
+//		Button.click("Click Global submit Global Request", driver.findElement(By.xpath("(//span[@class='glyphicon glyphicon-save'])[2]")));
+		Sync.waitForSeconds(Constants.WAIT_2);
+		Sync.waitForSeconds(Constants.WAIT_5);
+	}
+	public void rejectVendorLocalRequest() {
+		Sync.waitForSeconds(Constants.WAIT_5);
+
+
+
+     WebDriverWait wait = new WebDriverWait(driver,50);
+     wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(.//*[@class='btn mx-button mx-name-newButton2 btn-default'])[2]")));
+		Sync.waitForObject(driver, driver.findElement(By.xpath("(.//*[@class='btn mx-button mx-name-newButton2 btn-default'])[2]")));
+
+		driver.findElement(By.xpath("(.//*[@class='btn mx-button mx-name-newButton2 btn-default'])[2]")).click();
+		System.out.println("clicked new button");
+		Sync.waitForSeconds(Constants.WAIT_5);
+	//	WebDriverWait wait1 = new WebDriverWait(driver,80);
+	   //  wait1.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(.//*[text()='Edit Comments'])/../../div[2]/div/div/div/div/div/div[1]/div/div/div/div/div/textarea")));
+
+		Textbox.enterValue("typing comment", textAreaComment, "Material data");
+		Sync.waitForSeconds(Constants.WAIT_5);
+		Textbox.click("Click on Save Button", btnSave);
+		 WebDriverWait wait2 = new WebDriverWait(driver,20);
+	     wait2.until(ExpectedConditions.elementToBeClickable(By.xpath(".//*[text()='Reject Local Request']")));
+		Sync.waitForObject(driver, "Wait for Reject Local Request", driver.findElement(By.xpath(".//*[text()='Reject Local Request']")));
+		Sync.waitForElementToBeClickable(driver, driver.findElement(By.xpath(".//*[text()='Reject Local Request']")));
+		Button.click("Click  Reject Local Request", driver.findElement(By.xpath(".//*[text()='Reject Local Request']")));
+//		Button.click("Click Global submit Global Request", driver.findElement(By.xpath("(//span[@class='glyphicon glyphicon-save'])[2]")));
+		Sync.waitForSeconds(Constants.WAIT_2);
+		Sync.waitForSeconds(Constants.WAIT_5);
+	}
+
+	public boolean clickOkToHandlePopup()
+	{
+	Sync.waitForSeconds(Constants.WAIT_5);
+	Sync.waitForSeconds(Constants.WAIT_2);
+	WebElement popUp = driver.findElement(By.xpath("//*[@class='close mx-dialog-close']"));
+	return Button.jsclick("Click on Popup", popUp, driver);
+	//Sync.waitForSeconds(Constants.WAIT_1);
+   // Button.jsclick("Click ok on info Popup", btnOkay, driver);
+	} 
+	public boolean clickCreateRequestPopup() 
+	{
+		Sync.waitForSeconds(Constants.WAIT_5);
+		
+		Sync.waitForSeconds(Constants.WAIT_5);
+		//WebElement popUp = driver.findElement(By.xpath("//*[@class='close mx-dialog-close']"));
+		Sync.waitForObject(driver, checkBoxPlant);
+		return Button.jsclick("Click on Edit Checkbox",checkBoxPlant , driver);
+	}
+	public boolean clickCreateRequestSelectAllPopup() 
+	{
+		Sync.waitForSeconds(Constants.WAIT_5);
+		
+		Sync.waitForSeconds(Constants.WAIT_5);
+		//WebElement popUp = driver.findElement(By.xpath("//*[@class='close mx-dialog-close']"));
+		Sync.waitForObject(driver, checkBoxPlant);
+		return Button.jsclick("Click on Edit Checkbox",selectAllButton , driver);
+	}
+	public boolean clickCreateRequestButton() 
+	{
+		Sync.waitForSeconds(Constants.WAIT_5);
+		Sync.waitForSeconds(Constants.WAIT_1);
+		//WebElement popUp = driver.findElement(By.xpath("//*[@class='close mx-dialog-close']"));
+		Sync.waitForObject(driver, createRequest);
+		return Button.jsclick("Click on Create Request Button",createRequest , driver);
+	}
+	public boolean SubmitLocalRequst() 
+	{
+		Sync.waitForSeconds(Constants.WAIT_5);
+		Sync.waitForSeconds(Constants.WAIT_1);
+		//WebElement popUp = driver.findElement(By.xpath("//*[@class='close mx-dialog-close']"));
+		Sync.waitForObject(driver, createRequest);
+		return Button.jsclick("Click on Create Request Button",createRequest , driver);
+	}
+	public String getRequestId_CreateNew()
+			throws InterruptedException, FileNotFoundException, IOException {
+
+			Sync.waitForSeconds(Constants.WAIT_5);
+			WebDriverWait wait = new WebDriverWait(driver,140);
+			wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".modal-body.mx-dialog-body>p")));
+
+			Sync.waitForObject(driver, "Wait of Dialog Box Success Message", msgRequestSuccessMsg);
+			//String reqId=driver.findElement(By.xpath(".//*[@id='mxui_widget_DialogMessage_0']/div[1]/div[2]/p")).getText();
+			String reqId=driver.findElement(By.cssSelector(".modal-body.mx-dialog-body>p")).getText();
+			String[] parts = reqId.split(" ");
+			String Id = parts[2];
+			System.out.println(Id);
+			String IdNum = Id.replaceAll("\\.", "");
+			System.out.println("RequestId is: " +Id);
+			// ExcelUtil.excelWrite(IdNum);
+			//ExcelUtil.setCellDataNew("TestPlan",4,11,Id);
+			ExcelUtil.setCellData_New("TestPlan", "RequestId", Id);
+			System.out.println("RequestId is: " +IdNum);
+			Sync.waitForSeconds(Constants.WAIT_3);
+			Sync.waitForElementToBeClickable(driver, btnMsgReqIdOkdraft);
+			// Button.click("Click Ok Button", btnMsgReqIdOkdraft);
+			return Id;
+	} 
+
+	public void duplicateCheck() {
+		try {
+		// Sync.waitUntilObjectDisappears(driver, "Wait for Duplicate check", By.xpath(".//*[@id='mxui_widget_Progress_0']/div[2]"));
+        Sync.waitForSeconds(Constants.WAIT_5);
+       // Sync.waitForSeconds(Constants.WAIT_5);
+		WebElement waitElement = null;
+		FluentWait<WebDriver> fwait = new FluentWait<WebDriver>(driver)
+		.withTimeout(Duration.ofMinutes(3))
+		.pollingEvery(Duration.ofSeconds(600))
+		.ignoring(NoSuchElementException.class)
+		.ignoring(TimeoutException.class);
+
+		//First checking to see if the loading indicator is found
+		// we catch and throw no exception here in case they aren't ignored
+		try {
+		waitElement = fwait.until(new Function<WebDriver, WebElement>() {
+		public WebElement apply(WebDriver driver) {
+		return driver.findElement(By.xpath(".//*[@id='mxui_widget_Progress_0']"));
+		}
+		});
+		} catch (Exception e) {
+		}
+
+		//checking if loading indicator was found and if so we wait for it to
+		//disappear
+		if (waitElement != null) {
+		WebDriverWait wait = new WebDriverWait(driver, 180);
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(".//*[text()='Open Record']")));
+	    System.out.println("Clicked on Open Record");
+		
+		}
+
+		driver.manage().window().setPosition(new Point(-2000, 0)) ;
+		driver.findElement(By.xpath(".//*[text()='Open Record']")).sendKeys(Keys.TAB);
+		Sync.waitForSeconds(Constants.WAIT_2);
+		driver.findElement(By.xpath(".//*[text()='Extend Selected']")).sendKeys(Keys.TAB);
+		Sync.waitForSeconds(Constants.WAIT_2);
+		driver.findElement(By.xpath("//*[text()='Export to Excel']")).sendKeys(Keys.TAB);
+		Sync.waitForSeconds(Constants.WAIT_2);
+		driver.findElement(By.xpath("//*[text()='My record is not a duplicate! Submit.']")).sendKeys(Keys.RETURN);
+		Sync.waitForSeconds(Constants.WAIT_2);
+		driver.findElement(By.xpath("//*[text()='Proceed']")).click();
+		Sync.waitForSeconds(Constants.WAIT_3);
+		System.out.println("Clicked on proceed");
+
+
+		driver.manage().window().maximize();
+		Actions actions = new Actions(driver);
+		actions.moveToElement(btnMsgReqIdOk);
+		actions.perform();
+
+		Button.click("Click Ok Button", btnMsgReqIdOk);
+
+		/*try
+		{
+		if(btnMsgReqIdOkdraft.isEnabled())
+		{
+		Button.click("Click Ok Button", btnMsgReqIdOkdraft);
+		System.out.println("Button is Clicked");
+		}
+
+		}
+		catch(Exception e) {
+		System.err.println(e.getMessage());
+
+
+		}*/
+
+		}
+		catch(Exception e) {
+		System.err.println(e.getMessage());
+
+
+		}
+		} 
+
+
+	public void duplicateCheck_New() {
+		try {
+		// Sync.waitUntilObjectDisappears(driver, "Wait for Duplicate check", By.xpath(".//*[@id='mxui_widget_Progress_0']/div[2]"));
+        Sync.waitForSeconds(Constants.WAIT_5);
+       // Sync.waitForSeconds(Constants.WAIT_5);
+		/*WebElement waitElement = null;
+		FluentWait<WebDriver> fwait = new FluentWait<WebDriver>(driver)
+		.withTimeout(Duration.ofMinutes(3))
+		.pollingEvery(Duration.ofSeconds(600))
+		.ignoring(NoSuchElementException.class)
+		.ignoring(TimeoutException.class);
+
+		//First checking to see if the loading indicator is found
+		// we catch and throw no exception here in case they aren't ignored
+		try {
+		waitElement = fwait.until(new Function<WebDriver, WebElement>() {
+		public WebElement apply(WebDriver driver) {
+		return driver.findElement(By.xpath(".//*[@id='mxui_widget_Progress_0']"));
+		}
+		});
+		} catch (Exception e) {
+		}
+
+		//checking if loading indicator was found and if so we wait for it to
+		//disappear
+		if (waitElement != null) {
+*/		WebDriverWait wait = new WebDriverWait(driver, 100);
+        
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(".//*[text()='Open Record']")));
+	    System.out.println("Clicked on Open Record");
+		
+		//}
+
+		driver.manage().window().setPosition(new Point(-2000, 0)) ;
+		driver.findElement(By.xpath(".//*[text()='Open Record']")).sendKeys(Keys.TAB);
+		Sync.waitForSeconds(Constants.WAIT_2);
+		driver.findElement(By.xpath(".//*[text()='Extend Selected']")).sendKeys(Keys.TAB);
+		Sync.waitForSeconds(Constants.WAIT_2);
+		driver.findElement(By.xpath("//*[text()='Export to Excel']")).sendKeys(Keys.TAB);
+		Sync.waitForSeconds(Constants.WAIT_2);
+		driver.findElement(By.xpath("//*[text()='My record is not a duplicate! Submit.']")).sendKeys(Keys.RETURN);
+		Sync.waitForSeconds(Constants.WAIT_2);
+		driver.findElement(By.xpath("//*[text()='Proceed']")).click();
+		Sync.waitForSeconds(Constants.WAIT_3);
+		System.out.println("Clicked on proceed");
+
+
+		driver.manage().window().maximize();
+		Actions actions = new Actions(driver);
+		actions.moveToElement(btnMsgReqIdOk);
+		actions.perform();
+
+		Button.click("Click Ok Button", btnMsgReqIdOk);
+
+		/*try
+		{
+		if(btnMsgReqIdOkdraft.isEnabled())
+		{
+		Button.click("Click Ok Button", btnMsgReqIdOkdraft);
+		System.out.println("Button is Clicked");
+		}
+
+		}
+		catch(Exception e) {
+		System.err.println(e.getMessage());
+
+
+		}*/
+
+		}
+		catch(Exception e) {
+		System.err.println(e.getMessage());
+
+
+		}
+		} 
+	public void duplicateCheck_New_ExtendSelected() {
+		try {
+		// Sync.waitUntilObjectDisappears(driver, "Wait for Duplicate check", By.xpath(".//*[@id='mxui_widget_Progress_0']/div[2]"));
+        Sync.waitForSeconds(Constants.WAIT_5);
+       // Sync.waitForSeconds(Constants.WAIT_5);
+		/*WebElement waitElement = null;
+		FluentWait<WebDriver> fwait = new FluentWait<WebDriver>(driver)
+		.withTimeout(Duration.ofMinutes(3))
+		.pollingEvery(Duration.ofSeconds(600))
+		.ignoring(NoSuchElementException.class)
+		.ignoring(TimeoutException.class);
+
+		//First checking to see if the loading indicator is found
+		// we catch and throw no exception here in case they aren't ignored
+		try {
+		waitElement = fwait.until(new Function<WebDriver, WebElement>() {
+		public WebElement apply(WebDriver driver) {
+		return driver.findElement(By.xpath(".//*[@id='mxui_widget_Progress_0']"));
+		}
+		});
+		} catch (Exception e) {
+		}
+
+		//checking if loading indicator was found and if so we wait for it to
+		//disappear
+		if (waitElement != null) {
+*/		WebDriverWait wait = new WebDriverWait(driver, 50);
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(".//*[text()='Open Record']")));
+
+        
+		
+	    System.out.println("Clicked on Open Record");
+		
+		//}
+	    if(Button.verifyObject(openRecord)) {
+        driver.findElement(By.xpath(" (.//*[@class='mx-datagrid-body']/tr[1]/td[3])[2]")).click();
+		driver.manage().window().setPosition(new Point(-2000, 0)) ;
+		driver.findElement(By.xpath(".//*[text()='Open Record']")).sendKeys(Keys.TAB);
+		Sync.waitForSeconds(Constants.WAIT_2);
+		driver.findElement(By.xpath(".//*[text()='Extend Selected']")).sendKeys(Keys.RETURN);
+		Sync.waitForSeconds(Constants.WAIT_2);
+/*		driver.findElement(By.xpath("//*[text()='Export to Excel']")).sendKeys(Keys.TAB);
+		Sync.waitForSeconds(Constants.WAIT_2);
+		driver.findElement(By.xpath("//*[text()='My record is not a duplicate! Submit.']")).sendKeys(Keys.RETURN);
+		Sync.waitForSeconds(Constants.WAIT_2);*/
+		driver.findElement(By.xpath("//*[text()='Proceed']")).click();
+		Sync.waitForSeconds(Constants.WAIT_3);
+		System.out.println("Clicked on proceed");
+
+       
+		driver.manage().window().maximize();
+		Actions actions = new Actions(driver);
+		actions.moveToElement(btnMsgReqIdOk);
+		actions.perform();
+
+		Button.click("Click Ok Button", btnMsgReqIdOk);
+	    }
+	    else {
+	    	Button.click("Click Ok Button", btnMsgReqIdOk);
+	    }
+
+		/*try
+		{
+		if(btnMsgReqIdOkdraft.isEnabled())
+		{
+		Button.click("Click Ok Button", btnMsgReqIdOkdraft);
+		System.out.println("Button is Clicked");
+		}
+
+		}
+		catch(Exception e) {
+		System.err.println(e.getMessage());
+
+
+		}*/
+
+		}
+		catch(Exception e) {
+		System.err.println(e.getMessage());
+
+
+		}
+		} 
+
+	public void duplicateCheckButton() {
+		Sync.waitForSeconds(Constants.WAIT_5);
+		WebDriverWait wait = new WebDriverWait(driver, 100);
+		 Sync.waitUntilObjectDisappears(driver, "Wait for Duplicate check", By.xpath(".//*[@id='mxui_widget_Progress_0']/div[2]"));
+		if(Button.verifyObject(duplicateBtn)) {
+			Sync.waitForObject(driver, "Wait for the duplicate button", duplicateBtn);
+			Button.click("Click on Duplicate button", duplicateBtn);
+		}
+		else {
+			Button.click("Clicked on Duplicate button", duplicateBtn);
+		}
+	}
+
+     public void clickDuplicateCheck() 
+     {
+    	 Sync.waitUntilObjectDisappears(driver, "Wait for Duplicate check", By.xpath(".//*[@id='mxui_widget_Progress_0']/div[2]"));
+    	 Sync.waitForSeconds(Constants.WAIT_5);
+    	 WebDriverWait wait = new WebDriverWait(driver,50);
+    	 wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[text()='My record is not a duplicate! Submit.']")));
+    	 
+    	 if(Button.verifyObject(btnDuplicateSubmit)) 
+    	 {
+    		 Sync.waitForSeconds(Constants.WAIT_5);
+    		 duplicateCheck_New();
+    	 }
+    	 else if(Button.verifyObject(btnClose))
+    	 {
+
+    		 Sync.waitForSeconds(Constants.WAIT_5);
+    		 Sync.waitForObject(driver, "Wait for the information PopUp", msgRequestSuccess);
+
+    		 clickOkToHandlePopup();
+    	 }
+     }
+     public void clickDuplicateCheckDuplicateFound() 
+     {
+    	 Sync.waitUntilObjectDisappears(driver, "Wait for Duplicate check", By.xpath(".//*[@id='mxui_widget_Progress_0']/div[2]"));
+    	 Sync.waitForSeconds(Constants.WAIT_5);
+    	 WebDriverWait wait = new WebDriverWait(driver,50);
+    	 wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[text()='My record is not a duplicate! Submit.']")));
+
+    	 if(Button.verifyObject(btnDuplicateSubmit)) 
+    	 {
+    		 Sync.waitForSeconds(Constants.WAIT_5);
+    		 duplicateCheck_New_ExtendSelected();
+    	 }
+    	 else if(Button.verifyObject(btnClose))
+    	 {
+
+    		 Sync.waitForSeconds(Constants.WAIT_5);
+    		 Sync.waitForObject(driver, "Wait for the information PopUp", msgRequestSuccess);
+
+    		 clickOkToHandlePopup();
+    	 }
+     }
+     public void clickDuplicateCheck_GlobalLocal() 
+     {
+    	 Sync.waitUntilObjectDisappears(driver, "Wait for Duplicate check", By.xpath(".//*[@id='mxui_widget_Progress_0']/div[2]"));
+    	 Sync.waitForSeconds(Constants.WAIT_5);
+    	 
+    	 if(Button.verifyObject(btnDuplicateSubmit)) 
+    	 {
+    		 Sync.waitForSeconds(Constants.WAIT_5);
+    		 duplicateCheck_New();
+    	 }
+    	 else 
+    	 {
+
+    		 Sync.waitForSeconds(Constants.WAIT_5);
+    		// Sync.waitForObject(driver, "Wait for the information PopUp", msgRequestSuccess);
+
+    	
+    	 }
+     }
+     
+     public void validateDuplicateCheck() {
+    	 Sync.waitUntilObjectDisappears(driver, "Wait for Duplicate check", By.xpath(".//*[@id='mxui_widget_Progress_0']/div[2]"));
+    	 Sync.waitForSeconds(Constants.WAIT_5);
+    	 if(Button.verifyObject(validateDuplicate)) {
+    		 Sync.waitForSeconds(Constants.WAIT_5);
+    		 Button.click("Click on Validate and duplicate check", validateDuplicate);
+    	 }
+    	 else if(Button.verifyObject(btnClose))    	 {
+
+    		 Sync.waitForSeconds(Constants.WAIT_5);   		 
+
+    		 Button.click("Click on Validate and duplicate check", validateDuplicate);
+    	 }
+     }
+     
+     public boolean clickCloseButtonToPopUp()
+     {
+     if(Button.verifyObject(btnClose))
+     {
+
+     Sync.waitForSeconds(Constants.WAIT_5);
+     Sync.waitForObject(driver, "Wait for the information PopUp", msgRequestSuccess);
+     //WebElement popUp = driver.findElement(By.xpath("//*[@class='close mx-dialog-close']"));
+     return Button.jsclick("Click close PopUp", btnClose, driver);
+
+     }
+     else
+     {
+     Sync.waitForSeconds(Constants.WAIT_5);
+     Sync.waitForObject(driver, "Wait for the information PopUp", msgRequestSuccess);
+     return Button.jsclick("Click close PopUp", btnClose, driver);
+     }
+     //Sync.waitForSeconds(Constants.WAIT_3);
+     //return Button.jsclick("Click ok on info Popup", btnOkay, driver);
+     } 
+
 
 }

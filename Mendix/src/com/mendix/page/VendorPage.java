@@ -159,6 +159,8 @@ public class VendorPage {
 	
 	@FindBy(how=How.XPATH, using="//*[text()='Discard Create']")
 	WebElement btnDiscardCreate;
+	@FindBy(how=How.XPATH,using="((.//*[text()='Edit Comments'])/../../div[2]/div/div/div/div/div/div[1]/div/div/div/div/div/textarea)")
+	WebElement textAreaComment;
 	
 	//****************************************************************************************************************
 	
@@ -242,6 +244,8 @@ public class VendorPage {
 	
 	@FindBy(how=How.XPATH, using="//button[@class='btn mx-button mx-name-actionButton8 btn-success']")
 	WebElement btnok;
+	@FindBy(how=How.XPATH, using="(.//*[starts-with(@id,'uniqName') And text()='New'])[1]")
+	WebElement btnCommentNewLBDA;
 /**********************************************************************************************************
 	/**
 	/**
@@ -1320,6 +1324,74 @@ public boolean discardLocalButtonClick() throws InterruptedException
 
 		}
 	}
+ public void rejectLBDAVendor() throws InterruptedException, AWTException {
+
+		System.out.println("Scrolling action");
+
+		Sync.waitForSeconds(Constants.WAIT_6);
+		System.out.println("Scrolling");
+		Sync.waitForSeconds(Constants.WAIT_5);
+		Sync.waitForSeconds(Constants.WAIT_5);
+		//String test = driver.findElement(By.xpath(".//*[@id='mxui_widget_TextInput_3']/p")).getText();
+		//driver.findElement(By.xpath(".//*[@id='mxui_widget_TextInput_3']/p")).click();
+		//System.out.println(test);
+		
+				
+		Sync.waitForSeconds(Constants.WAIT_5);
+		Robot robot = new Robot();  // Robot class throws AWT Exception	
+     Thread.sleep(4000); // Thread.sleep throws InterruptedException	
+     robot.keyPress(KeyEvent.VK_DOWN);
+     Thread.sleep(2000);
+     robot.keyRelease(KeyEvent.VK_DOWN);
+     
+     Actions action = new Actions(driver);
+		action.sendKeys(Keys.PAGE_DOWN).build().perform();
+		Thread.sleep(1000);
+	
+		action.sendKeys(Keys.PAGE_DOWN).build().perform();
+		Thread.sleep(1000);
+		
+		action.sendKeys(Keys.PAGE_DOWN).build().perform();
+		Thread.sleep(1000);
+		
+		action.sendKeys(Keys.PAGE_DOWN).build().perform();
+		Thread.sleep(1000);
+     
+		Sync.waitForObject(driver, btnCommentNewLBDA);
+		Sync.waitForSeconds(Constants.WAIT_5);
+		System.out.println("checking for new button");
+		Sync.waitForSeconds(Constants.WAIT_5);
+		//String text1=driver.findElement(By.xpath(".//*[@id='mxui_widget_NumberInput_3']/p")).getText();
+		//System.out.println(text1);
+		//String text2=driver.findElement(By.xpath("(.//*[@class='btn mx-button mx-name-newButton2 btn-default'])[1]")).getText();
+		//System.out.println(text2);
+		Sync.waitForSeconds(Constants.WAIT_5);
+		Sync.waitForSeconds(Constants.WAIT_5);
+		
+		driver.findElement(By.xpath("(.//*[@class='btn mx-button mx-name-newButton2 btn-default'])[1]")).click();
+		
+		System.out.println("clicked new button");
+		Sync.waitForSeconds(Constants.WAIT_5);
+		WebDriverWait wait = new WebDriverWait(driver,50);
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(.//*[text()='Edit Comments']/../../div[2]/div/div/div/div/div/div[1]/div/div/div/div/div/textarea)")));
+
+		Textbox.enterValue("typing comment", textAreaComment, "material data");
+		Textbox.click("Click on Save Button", btnSave);
+	
+		Sync.waitForSeconds(Constants.WAIT_5);
+		Sync.waitForSeconds(Constants.WAIT_5);
+		
+		Button.click("Local Actions button click", btnLocalActions);
+		
+		Sync.waitForObject(driver, btnRejectGlobalRequest);
+		Textbox.click("Click on reject button in locl action", btnRejectGlobalRequest);
+		Sync.waitForSeconds(Constants.WAIT_5);
+		Sync.waitForObject(driver, btnOK);
+		Button.click("Click On OK button", btnOK);
+		Sync.waitForSeconds(Constants.WAIT_5);
+	}
+ 	
+	
 }
 
 
