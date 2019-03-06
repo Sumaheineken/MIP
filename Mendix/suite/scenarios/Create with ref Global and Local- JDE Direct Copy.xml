@@ -7,36 +7,36 @@
 				<methods>
 					<include name="tasKill" />
 					<include name="openBrowser" />
-					<include name="loginAsLDR" />
+					<include name="loginAsSZLDR" />
 				</methods>
 			</class>
 		</classes>
 	</test>
-	<test name="Material_Create_Fill in questionnaire">
+	<test name="Material_Create_With_Ref_Process">
 		<classes>
-			<class name="com.mendix.test.MaterialScript">
+			<class name="com.mendix.test.MaterialChangeScript">
 				<methods>
-					<include name="Material_Create_Fill_In_Questionnaire" />
+					<include name="Material_Create_With_Ref" />
 				</methods>
 			</class>
 		</classes>
 	</test>
-	<test name="Material_Create_Fill_In_Data">
+	<test name="Material_Edit_Desc">
 		<classes>
-			<class name="com.mendix.test.MaterialNavScript">
+			<class name="com.mendix.test.MaterialChangeScript">
 				<methods>
-					<include name="Material_Create_Fill_In_Data" />
+					<include name="Material_Edit_Desc_JDE" />
 				</methods>
 			</class>
 		</classes>
 	</test>
-	<test name="Material_Create_Fill_In_Data_Local_JDE">
+	
+	<test name="Material_Validate_Data_Local_JDE">
 		<classes>
-			<class name="com.mendix.test.MaterialNavScript">
+			<class name="com.mendix.test.MaterialJDEScript">
 				<methods>
-					<include name="Material_Create_Fill_In_Data_JDE_Planning" />
-					<include name="Material_Create_Fill_In_Data_JDE_Finance" />
-					<include name="Material_Create_Fill_In_Data_JDE_Site" />
+					<include name="Material_Validate_LocalData_JDE" />
+					
 				</methods>
 			</class>
 		</classes>
@@ -55,7 +55,7 @@
 			<class name="com.mendix.test.LoginScript">
 				<methods>
 					<include name="openBrowser" />
-					<include name="loginAsLDS" />
+					<include name="loginAsSGLDS" />
 				</methods>
 			</class>
 		</classes>
@@ -79,7 +79,7 @@
 			</class>
 		</classes>
 	</test>
-	<test name="HeiPort_Login_LBDA">
+	<!-- <test name="HeiPort_Login_LBDA">
 		<classes>
 			<class name="com.mendix.test.LoginScript">
 				<methods>
@@ -108,7 +108,7 @@
 			</class>
 		</classes>
 	</test>
-	<test name="HeiPort_Login_GDA">
+	 --><test name="HeiPort_Login_GDA">
 		<classes>
 			<class name="com.mendix.test.LoginScript">
 				<methods>
@@ -132,7 +132,7 @@
 		<classes>
 			<class name="com.mendix.test.MaterialNavScript">
 				<methods>
-					<include name="Process_Information_Check_Syndication" />
+					<include name="Process_Information_Check_GlobalID" />
 				</methods>
 			</class>
 		</classes>
@@ -142,7 +142,7 @@
 			<class name="com.mendix.test.LoginScript">
 				<methods>
 					<include name="openBrowser" />
-					<include name="loginAsLDR" />
+					<include name="loginAsSZLDR" />
 				</methods>
 			</class>
 		</classes>
@@ -151,7 +151,7 @@
 		<classes>
 			<class name="com.mendix.test.MaterialScript">
 				<methods>
-					<include name="Material_Create_Syndication_Check" />
+					<include name="Material_Create_Syndication_Checking" />
 				</methods>
 			</class>
 		</classes>
