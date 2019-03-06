@@ -34,7 +34,8 @@ public class MaterialNavScript {
 		SharedDriver.pageContainer.materialPage.netWeightEnterTest(dataMap.get("Net Weight Base UoM"));
 		SharedDriver.pageContainer.materialPage.uomPrimarySelectionTest();
 //		SharedDriver.pageContainer.materialNavPage.clickLocalAction();
-//		SharedDriver.pageContainer.materialPage.validateTestCreate();
+//		SharedDriver.pageContainer.materialPage.validateTestCreate();hi
+		
 	}
 	@Test(dataProvider="CreateMaterial_Fill_In_Nav",dataProviderClass=staticProviderClass.class)
 	public void Material_Create_Fill_In_Data_JDE_Planning(Map<String,String> dataMap) throws InterruptedException, FileNotFoundException, IOException, AWTException 

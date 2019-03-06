@@ -311,7 +311,8 @@ public class VendorScript_NAV {
 		SharedDriver.pageContainer.vendorPageNAV.getRequestId();
 		
 		SharedDriver.pageContainer.vendorPageNAV.submitBankRequest();
-	}	
+	}
+	
 	
 }
 

@@ -523,6 +523,7 @@ public void Happy_Flag_Deletion(Map<String,String> dataMap) throws InterruptedEx
 SharedDriver.pageContainer.materialPage.clickflagDeletion();
 SharedDriver.pageContainer.materialPage.clickOkToHandlePopup();
 }
+
 }
 
 

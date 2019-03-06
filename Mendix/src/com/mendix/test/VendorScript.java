@@ -9,7 +9,9 @@ import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import com.mendix.tool.Constants;
 import com.mendix.tool.SharedDriver;
+import com.mendix.tool.Sync;
 import com.mendix.util.DataProviderUtil.staticProviderClass;
 
 public class VendorScript {
@@ -337,6 +339,31 @@ public class VendorScript {
 	SharedDriver.pageContainer.vendorPage.checkGlobalIdYes();
 	
 	}
+	@Test(dataProvider="Process_Information_Check",dataProviderClass=staticProviderClass.class)
+	public void vendor_Create_Review_Global_Data_Approve_LBDA(Map<String,String> dataMap) throws InterruptedException, FileNotFoundException, IOException 
+	{
+		Assert.assertTrue(SharedDriver.pageContainer.homePage.navigateToWorkflow());
+		SharedDriver.pageContainer.materialPage.switchToPopup();
+		SharedDriver.pageContainer.materialApprovalPage.reqIdSearchMyTasks(dataMap.get("RequestId"));
+		SharedDriver.pageContainer.materialApprovalPage.approvalBtnClick();
+		Sync.waitForSeconds(Constants.WAIT_10);
+		SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
+		SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
+		//SharedDriver.pageContainer.materialPage.browserClose();
+
+	}
 	
+	@Test(dataProvider="Process_Information_Check",dataProviderClass=staticProviderClass.class)
+	public void vendor_Create_Review_Global_Data_Reject_LBDA(Map<String,String> dataMap) throws InterruptedException, FileNotFoundException, IOException, AWTException 
+	{
+		Assert.assertTrue(SharedDriver.pageContainer.homePage.navigateToWorkflow());
+		SharedDriver.pageContainer.materialPage.switchToPopup();
+		SharedDriver.pageContainer.materialApprovalPage.reqIdSearchMyTasks(dataMap.get("RequestId"));
+		SharedDriver.pageContainer.vendorPage.rejectLBDAVendor();
+		Sync.waitForSeconds(Constants.WAIT_10);
+		SharedDriver.pageContainer.materialApprovalPage.submitRequestOkButtonClick();
+		//SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
+		//SharedDriver.pageContainer.materialPage.browserClose();
+	}
 }
 
