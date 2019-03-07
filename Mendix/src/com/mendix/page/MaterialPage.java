@@ -354,8 +354,10 @@ public class MaterialPage {
 	WebElement btnClose; 
 	
 	@FindBy(how=How.XPATH,using=".//*[text()='Open Record']")
-	
 	WebElement openRecord;
+	
+	@FindBy(how=How.XPATH, using="(//*[text()='Submit Global and Local Request'])[2]")
+	WebElement btnGlobalLocalRequest;
 
 
 
@@ -2056,6 +2058,27 @@ public class MaterialPage {
      //Sync.waitForSeconds(Constants.WAIT_3);
      //return Button.jsclick("Click ok on info Popup", btnOkay, driver);
      } 
+     
+     public void validateAndsubmitGlobalLocalRequest()
+ 	{
+ 		Sync.waitForSeconds(Constants.WAIT_1);
+ 		Button.click("Local Actions button", btnLocalActions);
+ 		Sync.waitForSeconds(Constants.WAIT_6);
+ 		Button.click("Validate Local Data", btnValidateLocalRequest);
+ 		Sync.waitForSeconds(Constants.WAIT_6);
+ 		Sync.waitForObject(driver, "Verify Validate message", txtValidationMsg);
+ 		Sync.waitForSeconds(Constants.WAIT_5);
+
+// 		Sync.waitForSeconds(Constants.WAIT_5);
+// 		Sync.waitForObject(driver, "Verify Validate message", txtValidationMsg);
+// 		Sync.waitForSeconds(Constants.WAIT_5);
+ 		Sync.waitForSeconds(Constants.WAIT_5);
+ 		//Sync.waitForObject(driver, textLocalData);
+ 		Button.click("Click Global and Local submit Request", btnGlobalLocalRequest);
+ 		Sync.waitForSeconds(Constants.WAIT_5);
+
+ 	}
+ 	
 
 
 }
