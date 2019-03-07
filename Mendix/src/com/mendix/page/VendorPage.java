@@ -211,7 +211,7 @@ public class VendorPage {
 	@FindBy(how=How.XPATH, using="(.//*[starts-with(@id,'uniqName') And text()='New'])[4]")
 	WebElement btnCommentNew;
 	
-	@FindBy(how=How.XPATH, using="(.//*[starts-with(@id,'mxui_widget_TextArea')])[5]")
+	@FindBy(how=How.XPATH, using="((.//*[text()='Edit Comments'])/../../div[2]/div/div/div/div/div/div[1]/div/div/div/div/div/textarea)")
 	WebElement textComment;
 	
 	@FindBy(how=How.XPATH, using="//*[text()='Save']")
