@@ -108,6 +108,18 @@ public class Material_Nav_Page {
 	@FindBy(how = How.XPATH, using = "(//*[text()='New'])[5]")
 	WebElement btnNavLocalPlantNewCreate;
 
+	@FindBy(how = How.XPATH, using = "//*[@class='mx-datagrid-body']/tr/td[3]")
+	WebElement btnRowSelect;
+
+	@FindBy(how = How.XPATH, using = "//button[text()='Edit']")
+	WebElement btnSitesSelectEdit;
+	
+	@FindBy(how = How.XPATH, using = "//*[text()='Global Data']")
+	WebElement textGlobalData;
+
+	@FindBy(how = How.XPATH, using = "//*[text()='Confirm Extension']")
+	WebElement btnConfirmExtension;
+
 	public void enterLocalData() {
 		WebDriverWait wait = new WebDriverWait(driver, 120);
 		Sync.waitForSeconds(Constants.WAIT_6);
@@ -726,5 +738,75 @@ public class Material_Nav_Page {
 		}
 
 	}
+
+	public void selectingRow() {
+		Sync.waitForSeconds(Constants.WAIT_5);
+		WebDriverWait wait = new WebDriverWait(driver, 30);
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(".//*[@class='mx-name-index-0']")));
+		Sync.waitForObject(driver, "Waiting for selecting Row",
+				driver.findElement(By.xpath(".//*[@class='mx-name-index-0']")));
+		Sync.waitForSeconds(Constants.WAIT_10);
+		if (Button.verifyObject(btnRowSelect)) {
+			Sync.waitForObject(driver, btnRowSelect);
+			Button.jsclick("Select the row in Sites tab", btnRowSelect, driver);
+			Sync.waitForSeconds(Constants.WAIT_5);
+		} else {
+			Sync.waitForObject(driver, btnRowSelect);
+			Button.jsclick("Select the row in Sites tab", btnRowSelect, driver);
+			Sync.waitForSeconds(Constants.WAIT_5);
+		}
+		// driver.findElement(By.xpath("//*[@class='mx-datagrid-body']/tr/td[3]")).click();
+		/*
+		 * if(driver.findElement(By.xpath(".//*[@class='mx-name-index-0']")).isSelected(
+		 * )) { Sync.waitForSeconds(Constants.WAIT_10); } else {
+		 * driver.findElement(By.xpath(".//*[@class='mx-name-index-0']")).click(); }
+		 */
+
+		Sync.waitForObject(driver, driver.findElement(By.xpath("//button[text()='Edit']")));
+	}
+
+	public void clickSiteEditButton() {
+		Sync.waitForSeconds(Constants.WAIT_5);
+		WebDriverWait wait = new WebDriverWait(driver, 50);
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//button[text()='Edit']")));
+		Sync.waitForObject(driver, "Wait for Site New Button", driver.findElement(By.xpath("//button[text()='Edit']")));
+		if (Button.verifyObject(btnSitesSelectEdit)) {
+			Sync.waitForObject(driver, btnSitesSelectEdit);
+			Button.jsclick("Click on Sites Edit Button after selecting the site", btnSitesSelectEdit, driver);
+			Sync.waitForSeconds(Constants.WAIT_10);
+		} else {
+			Sync.waitForObject(driver, btnSitesSelectEdit);
+			Button.jsclick("Click on Sites Edit Button after selecting the site", btnSitesSelectEdit, driver);
+			Sync.waitForSeconds(Constants.WAIT_10);
+		}
+		// Sync.waitForSeconds(Constants.WAIT_2);
+		// Button.click("Click Edit Button",
+		// driver.findElement(By.xpath("//button[text()='Edit']")));
+		// Sync.waitForSeconds(Constants.WAIT_2);
+	}
+	
+	public void confirmExtensionNav() {
+		// Sync.waitForSeconds(Constants.WAIT_6);
+		Sync.waitForSeconds(Constants.WAIT_5);
+		// Sync.waitUntilObjectDisappears(driver, "Wait for Save button",
+		// By.xpath(".//*[@id='mxui_widget_Progress_0']/div[2]"));
+		Sync.waitForObject(driver, txtValidationMsg);
+		Sync.waitForObject(driver, textGlobalData);
+		Sync.waitForSeconds(Constants.WAIT_6);
+		Button.jsclick("Switch to Global Data tab", textGlobalData, driver);
+		Sync.waitForSeconds(Constants.WAIT_5);
+		if (Button.verifyObject(btnConfirmExtension)) {
+			Sync.waitForSeconds(Constants.WAIT_10);
+			Sync.waitForObject(driver, btnConfirmExtension);
+			Button.jsclick("Click confirm Extension", btnConfirmExtension, driver);
+			Sync.waitForSeconds(Constants.WAIT_10);
+		} else {
+			Sync.waitForSeconds(Constants.WAIT_10);
+			Sync.waitForObject(driver, btnConfirmExtension);
+			Button.jsclick("Click confirm Extension", btnConfirmExtension, driver);
+			Sync.waitForSeconds(Constants.WAIT_10);
+		}
+	}
+
 
 }
