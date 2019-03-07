@@ -26,7 +26,6 @@ import com.mendix.tool.Constants;
 import com.mendix.tool.DropDown;
 import com.mendix.tool.Sync;
 
-
 public class Material_Nav_Page {
 
 	/** The driver. */
@@ -35,662 +34,697 @@ public class Material_Nav_Page {
 	/**
 	 * Instantiates a new home page changes
 	 *
-	 * @param driver the driver
+	 * @param driver
+	 *            the driver
 	 */
-	public Material_Nav_Page(WebDriver driver){
+	public Material_Nav_Page(WebDriver driver) {
 		PageFactory.initElements(driver, this);
-		this.driver=driver;
+		this.driver = driver;
 	}
 
-	
-
-	@FindBy(how=How.XPATH, using="//*[text()='Local Data']")
+	@FindBy(how = How.XPATH, using = "//*[text()='Local Data']")
 	WebElement textLocalData;
-	
-	@FindBy(how=How.XPATH, using="//*[text()='Global Data']")
+
+	@FindBy(how = How.XPATH, using = "//*[text()='Global Data']")
 	WebElement btnGlobalData;
-	
-	@FindBy(how=How.XPATH, using="(.//*[@class='glyphicon glyphicon-edit'])[5]")
+
+	@FindBy(how = How.XPATH, using = "(.//*[@class='glyphicon glyphicon-edit'])[5]")
 	WebElement BtnEditPlantData;
-	
-	@FindBy(how=How.XPATH, using="(.//*[@class='glyphicon glyphicon-new-window'])[6]")
+
+	@FindBy(how = How.XPATH, using = "(.//*[@class='glyphicon glyphicon-new-window'])[6]")
 	WebElement BtnAddPlantData;
-	
-	@FindBy(how=How.XPATH, using="//button[text()='Select']")
+
+	@FindBy(how = How.XPATH, using = "//button[text()='Select']")
 	WebElement BtnPlantSelect;
-	
-	@FindBy(how=How.XPATH, using="(.//button[text()='Edit'])[1]")
+
+	@FindBy(how = How.XPATH, using = "(.//button[text()='Edit'])[1]")
 	WebElement BtnPlantEdit;
-	
-	@FindBy(how=How.CSS, using=".btn.btn-primary")
+
+	@FindBy(how = How.CSS, using = ".btn.btn-primary")
 	WebElement btnMsgReqIdOk;
-	
-	@FindBy(how=How.XPATH,using=".//*[text()='Validate Local Request']")
+
+	@FindBy(how = How.XPATH, using = ".//*[text()='Validate Local Request']")
 	WebElement btnValidateLocalRequest;
-	
-	@FindBy(how=How.XPATH, using="//*[@class='btn mx-button mx-name-actionButton2 btn-default']")
+
+	@FindBy(how = How.XPATH, using = "//*[@class='btn mx-button mx-name-actionButton2 btn-default']")
 	WebElement btnSelectAllOnPopUpPlants;
-	
-	@FindBy(how=How.XPATH, using="//button[text()='Select all']")
+
+	@FindBy(how = How.XPATH, using = "//button[text()='Select all']")
 	WebElement btnSelectAll;
-	
-	@FindBy(how=How.XPATH, using="//*[@class='btn mx-button mx-name-actionButton5 btn-default']")
+
+	@FindBy(how = How.XPATH, using = "//*[@class='btn mx-button mx-name-actionButton5 btn-default']")
 	WebElement btnSelectAllOnPopUpSalesOrg;
-	
-	@FindBy(how=How.XPATH, using="//*[@class='btn mx-button mx-name-actionButton1 btn-success']")
+
+	@FindBy(how = How.XPATH, using = "//*[@class='btn mx-button mx-name-actionButton1 btn-success']")
 	WebElement btnCreateRequestOnPopUp;
-	
-	@FindBy(how=How.XPATH, using="(//*[text()='Edit'])[5]")
+
+	@FindBy(how = How.XPATH, using = "(//*[text()='Edit'])[5]")
 	WebElement btnNavLocalPlantEdit;
-	
-	@FindBy(how=How.XPATH, using=".//*[contains(text(),'Rounding Precision')]/../div/div/select")
+
+	@FindBy(how = How.XPATH, using = ".//*[contains(text(),'Rounding Precision')]/../div/div/select")
 	WebElement dropdownPlantRoundingPrecisionValue;
-	
-	@FindBy(how=How.XPATH, using=".//*[@class='mx-layoutcontainer-wrapper mx-scrollcontainer-wrapper']/div[2]/button/span")
-	WebElement	btnLocalActions;
-	
-	@FindBy(how=How.XPATH, using="//*[text()='Validate Local Data']")
+
+	@FindBy(how = How.XPATH, using = ".//*[@class='mx-layoutcontainer-wrapper mx-scrollcontainer-wrapper']/div[2]/button/span")
+	WebElement btnLocalActions;
+
+	@FindBy(how = How.XPATH, using = "//*[text()='Validate Local Data']")
 	WebElement btnValidateLocalData;
-	
-	@FindBy(how=How.XPATH, using="//*[text()='Save']")
+
+	@FindBy(how = How.XPATH, using = "//*[text()='Save']")
 	WebElement btnSaveLocalData;
-	
-	@FindBy(how=How.XPATH, using=".//*[text()='Request complies to all Validations']")
+
+	@FindBy(how = How.XPATH, using = ".//*[text()='Request complies to all Validations']")
 	WebElement txtValidationMsg;
-	
-	@FindBy(how=How.XPATH, using=".//*[text()='Finance']")
+
+	@FindBy(how = How.XPATH, using = ".//*[text()='Finance']")
 	WebElement btnNavFinance;
-	
-	@FindBy(how=How.XPATH, using="(//*[text()='Edit'])[3]")
+
+	@FindBy(how = How.XPATH, using = "(//*[text()='Edit'])[3]")
 	WebElement btnNavLocalFinanceEditExtend;
-	
-	@FindBy(how=How.XPATH, using=".//*[contains(text(),'VAT Prod. Posting Group')]/../div/div/select")
+
+	@FindBy(how = How.XPATH, using = ".//*[contains(text(),'VAT Prod. Posting Group')]/../div/div/select")
 	WebElement dropDownFinanceVATPostingGroup;
 
+	@FindBy(how = How.XPATH, using = "(//*[text()='New'])[5]")
+	WebElement btnNavLocalPlantNewCreate;
 
-	
 	public void enterLocalData() {
-		WebDriverWait wait = new WebDriverWait(driver,120);
+		WebDriverWait wait = new WebDriverWait(driver, 120);
 		Sync.waitForSeconds(Constants.WAIT_6);
-	
-		Sync.waitUntilObjectDisappears(driver, "Waiting of Create page to Load", By.xpath(".//*[@id='mxui_widget_Progress_0']/div[2]"));
+
+		Sync.waitUntilObjectDisappears(driver, "Waiting of Create page to Load",
+				By.xpath(".//*[@id='mxui_widget_Progress_0']/div[2]"));
 		Sync.waitForSeconds(Constants.WAIT_3);
 		Sync.waitForObject(driver, textLocalData);
 		Button.click("Local Data", textLocalData);
-		//Sync.waitForObject(driver, BtnAddPlantData);
-		/*return Button.click("Click Edit button", BtnAddPlantData);*/
-		
+		// Sync.waitForObject(driver, BtnAddPlantData);
+		/* return Button.click("Click Edit button", BtnAddPlantData); */
+
 	}
-	
+
 	public boolean clickAddPlantData() {
 
 		Sync.waitForObject(driver, BtnAddPlantData);
 		return Button.click("Click Edit button", BtnAddPlantData);
-		
+
 	}
-	
-	
+
 	public boolean enterPlantData(String strValue) {
 
 		Sync.waitForSeconds(Constants.WAIT_6);
-		Sync.waitUntilObjectDisappears(driver, "Waiting of Create page to Load", By.xpath(".//*[@id='mxui_widget_Progress_0']/div[2]"));
+		Sync.waitUntilObjectDisappears(driver, "Waiting of Create page to Load",
+				By.xpath(".//*[@id='mxui_widget_Progress_0']/div[2]"));
 		Sync.waitForObject(driver, BtnAddPlantData);
 		Button.click("Local Plant Data", BtnAddPlantData);
-		
-		
-		WebDriverWait wait= new WebDriverWait(driver, 10);
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[text()='"+strValue+"']")));
-		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[text()='"+strValue+"']")));
+
+		WebDriverWait wait = new WebDriverWait(driver, 10);
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[text()='" + strValue + "']")));
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[text()='" + strValue + "']")));
 		driver.findElement(By.xpath("//div[text()='DZ10']")).click();
 		return Button.click("Click Select Button", BtnPlantSelect);
-	
+
 	}
-	
-	public void clickEditPlanningData() throws AWTException, IOException
-	{
+
+	public void clickEditPlanningData() throws AWTException, IOException {
 		Sync.waitForSeconds(Constants.WAIT_6);
 		driver.findElement(By.xpath("(//button[text()='Edit'])[5]")).click();
 		Sync.waitForSeconds(Constants.WAIT_3);
-		Sync.waitUntilObjectDisappears(driver, "Wait for Materials", By.xpath((".//*[@id='mxui_widget_Progress_0']/div[2]")));
-		/*JavascriptExecutor jse = (JavascriptExecutor)driver;
-		Sync.waitForSeconds(Constants.WAIT_6);
-		jse.executeScript("arguments[0].click()", driver.findElement(By.xpath("(//*[text()='OK'])[2]")));
-		Sync.waitForSeconds(Constants.WAIT_3);
-		jse.executeScript("arguments[0].click()", driver.findElement(By.xpath("(//*[text()='OK'])[1]")));*/
+		Sync.waitUntilObjectDisappears(driver, "Wait for Materials",
+				By.xpath((".//*[@id='mxui_widget_Progress_0']/div[2]")));
+		/*
+		 * JavascriptExecutor jse = (JavascriptExecutor)driver;
+		 * Sync.waitForSeconds(Constants.WAIT_6);
+		 * jse.executeScript("arguments[0].click()",
+		 * driver.findElement(By.xpath("(//*[text()='OK'])[2]")));
+		 * Sync.waitForSeconds(Constants.WAIT_3);
+		 * jse.executeScript("arguments[0].click()",
+		 * driver.findElement(By.xpath("(//*[text()='OK'])[1]")));
+		 */
 	}
-	
-	public void selectRoundingPrecision(String strValue)
-	{
-		
-		WebElement dropdown =driver.findElement(By.xpath(".//*[text()='Rounding Precision']/../div/div/select"));
+
+	public void selectRoundingPrecision(String strValue) {
+
+		WebElement dropdown = driver.findElement(By.xpath(".//*[text()='Rounding Precision']/../div/div/select"));
 		Sync.waitForObjectFluent(driver, dropdown);
-		Select roundPrecisiondropDown= new Select(dropdown);
+		Select roundPrecisiondropDown = new Select(dropdown);
 		roundPrecisiondropDown.selectByVisibleText(strValue);
-		
+
 	}
-	public void clickLocalAction()
-	{
+
+	public void clickLocalAction() {
 		Sync.waitForSeconds(Constants.WAIT_3);
 		WebElement waitElement = null;
-		FluentWait<WebDriver> fwait = new FluentWait<WebDriver>(driver)
-		        .withTimeout(Duration.ofMinutes(3))
-		        .pollingEvery(Duration.ofSeconds(600))
-		        .ignoring(NoSuchElementException.class)
-		        .ignoring(TimeoutException.class);
-		 
-		//First checking to see if the loading indicator is found
+		FluentWait<WebDriver> fwait = new FluentWait<WebDriver>(driver).withTimeout(Duration.ofMinutes(3))
+				.pollingEvery(Duration.ofSeconds(600)).ignoring(NoSuchElementException.class)
+				.ignoring(TimeoutException.class);
+
+		// First checking to see if the loading indicator is found
 		// we catch and throw no exception here in case they aren't ignored
 		try {
-		  waitElement = fwait.until(new Function<WebDriver, WebElement>() {
-		   public WebElement apply(WebDriver driver) {
-		      return driver.findElement(By.xpath(".//*[@id='mxui_widget_Progress_0']"));
-		   }
-		 });
-		    } catch (Exception e) {
-		   }
-		 
-		//checking if loading indicator was found and if so we wait for it to
-		//disappear
-		  if (waitElement != null) {
-		      WebDriverWait wait = new WebDriverWait(driver, 120);
-		      wait.until(ExpectedConditions.visibilityOfElementLocated(
-		    		  By.xpath(".//*[@class='glyphicon glyphicon-flash']"))
-		            );
-		        }
-//		Sync.waitUntilObjectDisappears(driver, "Wait for Materials", By.xpath((".//*[@id='mxui_widget_Progress_0']/div[2]")));
-		Sync.waitForElementToBeClickable(driver, driver.findElement(By.xpath(".//*[@class='glyphicon glyphicon-flash']")));
+			waitElement = fwait.until(new Function<WebDriver, WebElement>() {
+				public WebElement apply(WebDriver driver) {
+					return driver.findElement(By.xpath(".//*[@id='mxui_widget_Progress_0']"));
+				}
+			});
+		} catch (Exception e) {
+		}
+
+		// checking if loading indicator was found and if so we wait for it to
+		// disappear
+		if (waitElement != null) {
+			WebDriverWait wait = new WebDriverWait(driver, 120);
+			wait.until(ExpectedConditions
+					.visibilityOfElementLocated(By.xpath(".//*[@class='glyphicon glyphicon-flash']")));
+		}
+		// Sync.waitUntilObjectDisappears(driver, "Wait for Materials",
+		// By.xpath((".//*[@id='mxui_widget_Progress_0']/div[2]")));
+		Sync.waitForElementToBeClickable(driver,
+				driver.findElement(By.xpath(".//*[@class='glyphicon glyphicon-flash']")));
 		driver.findElement(By.xpath(".//*[@class='glyphicon glyphicon-flash']")).click();
 	}
-	
-	public void clickValidatLocalData()
-	{
-		WebDriverWait wait = new WebDriverWait(driver,50);
+
+	public void clickValidatLocalData() {
+		WebDriverWait wait = new WebDriverWait(driver, 50);
 		Sync.waitForSeconds(Constants.WAIT_5);
-		
+
 		driver.findElement(By.xpath(".//*[@class='glyphicon glyphicon-check']")).click();
-		
-	
+
 	}
+
 	public void clickValidatLocalRequest() {
-		WebDriverWait wait = new WebDriverWait(driver,50);
+		WebDriverWait wait = new WebDriverWait(driver, 50);
 		Sync.waitForSeconds(Constants.WAIT_5);
-		
+
 		driver.findElement(By.xpath(".//*[text()='Validate Local Request']")).click();
 	}
-	
-	public void clickValidateLocalData_Planning()
-	{
-		
+
+	public void clickValidateLocalData_Planning() {
+
 		Sync.waitForSeconds(Constants.WAIT_5);
-		Sync.waitForObject(driver, "Wait for Planning Data to Load", driver.findElement(By.xpath(".//*[@class='glyphicon glyphicon-check']")));
+		Sync.waitForObject(driver, "Wait for Planning Data to Load",
+				driver.findElement(By.xpath(".//*[@class='glyphicon glyphicon-check']")));
 		driver.findElement(By.xpath(".//*[@class='glyphicon glyphicon-check']")).click();
-		
-	
+
 	}
-	
-	public void clickSaveButton()
-	{
+
+	public void clickSaveButton() {
 		Sync.WaitForPageLoad(driver);
 		Sync.waitForSeconds(Constants.WAIT_5);
-		Sync.waitUntilObjectDisappears(driver, "Wait for Save button", By.xpath(".//*[@id='mxui_widget_Progress_0']/div[2]"));
-		Sync.waitForObject(driver, "Wait for Click Save button", driver.findElement(By.xpath(".//button[text()='Save']")));
+		Sync.waitUntilObjectDisappears(driver, "Wait for Save button",
+				By.xpath(".//*[@id='mxui_widget_Progress_0']/div[2]"));
+		Sync.waitForObject(driver, "Wait for Click Save button",
+				driver.findElement(By.xpath(".//button[text()='Save']")));
 		Button.jsclick("Click Save Button", driver.findElement(By.xpath(".//button[text()='Save']")), driver);
-	
+
 	}
-	
-	public void clickPlanningSaveButton()
-	{
+
+	public void clickPlanningSaveButton() {
 		Sync.WaitForPageLoad(driver);
 		Sync.waitForSeconds(Constants.WAIT_5);
-		Sync.waitUntilObjectDisappears(driver, "Wait for Save button", By.xpath(".//*[@id='mxui_widget_Progress_0']/div[2]"));
-		Sync.waitForObject(driver, "Wait for Click Save button", driver.findElement(By.xpath(".//button[text()='Save']")));
+		Sync.waitUntilObjectDisappears(driver, "Wait for Save button",
+				By.xpath(".//*[@id='mxui_widget_Progress_0']/div[2]"));
+		Sync.waitForObject(driver, "Wait for Click Save button",
+				driver.findElement(By.xpath(".//button[text()='Save']")));
 		Button.jsclick("Click Save Button", driver.findElement(By.xpath(".//button[text()='Save']")), driver);
-	
+
 	}
-	
-	
-	
-	public void clickFinancetab() throws InterruptedException
-	{
-		Sync.waitUntilObjectDisappears(driver, "Wait for Save button", By.xpath(".//*[@id='mxui_widget_Progress_0']/div[2]"));
+
+	public void clickFinancetab() throws InterruptedException {
+		Sync.waitUntilObjectDisappears(driver, "Wait for Save button",
+				By.xpath(".//*[@id='mxui_widget_Progress_0']/div[2]"));
 		Sync.WaitForPageLoad(driver);
 		Sync.waitForSeconds(Constants.WAIT_6);
-		Sync.waitUntilObjectDisappears(driver, "Wait for Save button", By.xpath(".//*[@id='mxui_widget_Progress_0']/div[2]"));
-//		Sync.waitForObject(driver, "Wait for Click element", driver.findElement(By.cssSelector("div[id^='mxui_widget_TabContainer']:nth-child(1) > ul:nth-child(1) >li:nth-child(2)>a")));
-		Sync.waitForElementToBeClickable(driver, driver.findElement(By.cssSelector("div[id^='mxui_widget_TabContainer']:nth-child(1) > ul:nth-child(1) >li:nth-child(2)>a")));
-//		Sync.waitForElementToBeClickable(driver, driver.findElement(By.cssSelector("div[id^='mxui_widget_TabContainer']:nth-child(1) >ul >li:nth-child(9)")));
-		Button.jsclick("Click Finance Tab", driver.findElement(By.cssSelector("div[id^='mxui_widget_TabContainer']:nth-child(1) > ul:nth-child(1) >li:nth-child(2)>a")), driver);
+		Sync.waitUntilObjectDisappears(driver, "Wait for Save button",
+				By.xpath(".//*[@id='mxui_widget_Progress_0']/div[2]"));
+		// Sync.waitForObject(driver, "Wait for Click element",
+		// driver.findElement(By.cssSelector("div[id^='mxui_widget_TabContainer']:nth-child(1)
+		// > ul:nth-child(1) >li:nth-child(2)>a")));
+		Sync.waitForElementToBeClickable(driver, driver.findElement(By
+				.cssSelector("div[id^='mxui_widget_TabContainer']:nth-child(1) > ul:nth-child(1) >li:nth-child(2)>a")));
+		// Sync.waitForElementToBeClickable(driver,
+		// driver.findElement(By.cssSelector("div[id^='mxui_widget_TabContainer']:nth-child(1)
+		// >ul >li:nth-child(9)")));
+		Button.jsclick("Click Finance Tab",
+				driver.findElement(By.cssSelector(
+						"div[id^='mxui_widget_TabContainer']:nth-child(1) > ul:nth-child(1) >li:nth-child(2)>a")),
+				driver);
 	}
-	
-	public void clickEditFinanceData() throws AWTException, IOException
-	{
+
+	public void clickEditFinanceData() throws AWTException, IOException {
 		Sync.waitForSeconds(Constants.WAIT_5);
-		Sync.waitUntilObjectDisappears(driver, "Wait for Save button", By.xpath(".//*[@id='mxui_widget_Progress_0']/div[2]"));
-		Sync.waitForElementToBeClickable(driver, driver.findElement(By.xpath("(//*[text()='Add'])[2]/../button[2]/span")));
-//		Button.jsclick("Click Edit Finance Button", driver.findElement(By.xpath("(//*[text()='Add'])[2]/../button[2]/span")), driver);
+		Sync.waitUntilObjectDisappears(driver, "Wait for Save button",
+				By.xpath(".//*[@id='mxui_widget_Progress_0']/div[2]"));
+		Sync.waitForElementToBeClickable(driver,
+				driver.findElement(By.xpath("(//*[text()='Add'])[2]/../button[2]/span")));
+		// Button.jsclick("Click Edit Finance Button",
+		// driver.findElement(By.xpath("(//*[text()='Add'])[2]/../button[2]/span")),
+		// driver);
 		Button.jsclick("Click Edit Finance Button", driver.findElement(By.xpath("(//*[text()='Edit'])[6]")), driver);
-//		driver.findElement(By.xpath("(//*[text()='Add'])[2]/../button[2]/span")).click();
-		/*Sync.waitForSeconds(Constants.WAIT_3);
-		Sync.waitUntilObjectDisappears(driver, "Wait for Materials", By.xpath((".//*[@id='mxui_widget_Progress_0']/div[2]")));
-		JavascriptExecutor jse = (JavascriptExecutor)driver;
-		Sync.waitForSeconds(Constants.WAIT_6);
-		jse.executeScript("arguments[0].click()", driver.findElement(By.xpath("(//*[text()='OK'])[2]")));
-		Sync.waitForSeconds(Constants.WAIT_3);
-		jse.executeScript("arguments[0].click()", driver.findElement(By.xpath("(//*[text()='OK'])[1]")));*/
+		// driver.findElement(By.xpath("(//*[text()='Add'])[2]/../button[2]/span")).click();
+		/*
+		 * Sync.waitForSeconds(Constants.WAIT_3); Sync.waitUntilObjectDisappears(driver,
+		 * "Wait for Materials",
+		 * By.xpath((".//*[@id='mxui_widget_Progress_0']/div[2]"))); JavascriptExecutor
+		 * jse = (JavascriptExecutor)driver; Sync.waitForSeconds(Constants.WAIT_6);
+		 * jse.executeScript("arguments[0].click()",
+		 * driver.findElement(By.xpath("(//*[text()='OK'])[2]")));
+		 * Sync.waitForSeconds(Constants.WAIT_3);
+		 * jse.executeScript("arguments[0].click()",
+		 * driver.findElement(By.xpath("(//*[text()='OK'])[1]")));
+		 */
 	}
-	
-	public void clickBackAction()
-	{
+
+	public void clickBackAction() {
 		Sync.waitForSeconds(Constants.WAIT_2);
 		driver.findElement(By.cssSelector("glyphicon glyphicon-backward")).click();
 	}
-	
-	
-	
-	
-	public void selectVATPostingGroup(String strValue)
-	{
+
+	public void selectVATPostingGroup(String strValue) {
 		Sync.waitForSeconds(Constants.WAIT_5);
 		Sync.waitForSeconds(Constants.WAIT_3);
-		WebElement dropdown =driver.findElement(By.xpath("//*[text()='VAT Prod. Posting Group']/../div/div/select"));
+		WebElement dropdown = driver.findElement(By.xpath("//*[text()='VAT Prod. Posting Group']/../div/div/select"));
 		Sync.waitForObject(driver, "Wait for VAT posting group Select", dropdown);
 		Sync.waitForElementToBeClickable(driver, dropdown);
 		Button.click("Wait for VAT posting group Select", dropdown);
-		Select roundVATPostingGroupDown= new Select(dropdown);
+		Select roundVATPostingGroupDown = new Select(dropdown);
 		roundVATPostingGroupDown.selectByVisibleText(strValue);
-		
+
 	}
-	public void selectGenProdPostingGroup(String strValue)
-	{
+
+	public void selectGenProdPostingGroup(String strValue) {
 		Sync.waitForSeconds(Constants.WAIT_5);
 		Sync.waitForSeconds(Constants.WAIT_3);
-		WebElement dropdown =driver.findElement(By.xpath("//*[text()='Gen. Prod. Posting Group']/../div/div/select"));
+		WebElement dropdown = driver.findElement(By.xpath("//*[text()='Gen. Prod. Posting Group']/../div/div/select"));
 		Sync.waitForObject(driver, "Wait for VAT posting group Select", dropdown);
 		Sync.waitForElementToBeClickable(driver, dropdown);
 		Button.click("Wait for VAT posting group Select", dropdown);
-		Select roundVATPostingGroupDown= new Select(dropdown);
+		Select roundVATPostingGroupDown = new Select(dropdown);
 		roundVATPostingGroupDown.selectByVisibleText(strValue);
-		
+
 	}
-	
-	
-	public void selectItemDepositGroupCode(String strValue)
-	{
-		WebElement dropdown =driver.findElement(By.xpath("//*[text()='Item Deposit Group Code']/../div/div/select"));
-		Select roundVATPostingGroupDown= new Select(dropdown);
+
+	public void selectItemDepositGroupCode(String strValue) {
+		WebElement dropdown = driver.findElement(By.xpath("//*[text()='Item Deposit Group Code']/../div/div/select"));
+		Select roundVATPostingGroupDown = new Select(dropdown);
 		roundVATPostingGroupDown.selectByVisibleText(strValue);
-		
+
 	}
-	
+
 	public void submitGlobalRequestTest() throws InterruptedException {
 
-//		Sync.waitForSeconds(Constants.WAIT_5);
+		// Sync.waitForSeconds(Constants.WAIT_5);
 		Sync.WaitForPageLoad(driver);
-//		Sync.waitForObject(driver, "Wait for Submit Global Request", driver.findElement(By.xpath("//*[text()='Local Actions:']/../div[2]/div[2]/div[1]/div[1]/div/div[1]/div[1]/div/div/div/div[1]/div/button/span")));
-		Sync.waitForElementToBeClickable(driver, driver.findElement(By.xpath("//*[text()='Local Actions:']/../div[2]/div[2]/div[1]/div[1]/div/div[1]/div[1]/div/div/div/div[1]/div/button/span")));
-		Button.jsclick("Click Global submit Global Request", driver.findElement(By.xpath("//*[text()='Local Actions:']/../div[2]/div[2]/div[1]/div[1]/div/div[1]/div[1]/div/div/div/div[1]/div/button/span")), driver);
+		// Sync.waitForObject(driver, "Wait for Submit Global Request",
+		// driver.findElement(By.xpath("//*[text()='Local
+		// Actions:']/../div[2]/div[2]/div[1]/div[1]/div/div[1]/div[1]/div/div/div/div[1]/div/button/span")));
+		Sync.waitForElementToBeClickable(driver, driver.findElement(By.xpath(
+				"//*[text()='Local Actions:']/../div[2]/div[2]/div[1]/div[1]/div/div[1]/div[1]/div/div/div/div[1]/div/button/span")));
+		Button.jsclick("Click Global submit Global Request", driver.findElement(By.xpath(
+				"//*[text()='Local Actions:']/../div[2]/div[2]/div[1]/div[1]/div/div[1]/div[1]/div/div/div/div[1]/div/button/span")),
+				driver);
 		Sync.waitForSeconds(Constants.WAIT_2);
 		Sync.waitForSeconds(Constants.WAIT_5);
-		
+
 	}
-	
+
 	public void submitGlobalLocalRequestTest() throws InterruptedException {
 
 		TimeUnit.MINUTES.sleep(2);
-		Sync.waitForObject(driver, "Wait for Submit Global Request", driver.findElement(By.xpath("(//span[@class='glyphicon glyphicon-save'])[2]")));
-		Sync.waitForElementToBeClickable(driver, driver.findElement(By.xpath("(//span[@class='glyphicon glyphicon-save'])[2]")));
-		Button.jsclick("Click Global submit Global Request", driver.findElement(By.xpath("(//span[@class='glyphicon glyphicon-save'])[2]")), driver);
-//		Button.click("Click Global submit Global Request", driver.findElement(By.xpath("(//span[@class='glyphicon glyphicon-save'])[2]")));
+		Sync.waitForObject(driver, "Wait for Submit Global Request",
+				driver.findElement(By.xpath("(//span[@class='glyphicon glyphicon-save'])[2]")));
+		Sync.waitForElementToBeClickable(driver,
+				driver.findElement(By.xpath("(//span[@class='glyphicon glyphicon-save'])[2]")));
+		Button.jsclick("Click Global submit Global Request",
+				driver.findElement(By.xpath("(//span[@class='glyphicon glyphicon-save'])[2]")), driver);
+		// Button.click("Click Global submit Global Request",
+		// driver.findElement(By.xpath("(//span[@class='glyphicon
+		// glyphicon-save'])[2]")));
 		Sync.waitForSeconds(Constants.WAIT_2);
 		Sync.waitForSeconds(Constants.WAIT_5);
-		
+
 	}
-	
-	public boolean submitRequestOkBtnClick()
-	{
+
+	public boolean submitRequestOkBtnClick() {
 
 		Sync.waitForSeconds(Constants.WAIT_2);
 		WebElement waitElement = null;
-		FluentWait<WebDriver> fwait = new FluentWait<WebDriver>(driver)
-		        .withTimeout(Duration.ofMinutes(3))
-		        .pollingEvery(Duration.ofSeconds(600))
-		        .ignoring(NoSuchElementException.class)
-		        .ignoring(TimeoutException.class);
-		 
-		//First checking to see if the loading indicator is found
+		FluentWait<WebDriver> fwait = new FluentWait<WebDriver>(driver).withTimeout(Duration.ofMinutes(3))
+				.pollingEvery(Duration.ofSeconds(600)).ignoring(NoSuchElementException.class)
+				.ignoring(TimeoutException.class);
+
+		// First checking to see if the loading indicator is found
 		// we catch and throw no exception here in case they aren't ignored
 		try {
-		  waitElement = fwait.until(new Function<WebDriver, WebElement>() {
-		   public WebElement apply(WebDriver driver) {
-		      return driver.findElement(By.xpath(".//*[@id='mxui_widget_Progress_0']"));
-		   }
-		 });
-		    } catch (Exception e) {
-		   }
-		 
-		//checking if loading indicator was found and if so we wait for it to
-		//disappear
-		  if (waitElement != null) {
-		      WebDriverWait wait = new WebDriverWait(driver, 60);
-		      wait.until(ExpectedConditions.visibilityOfElementLocated(
-		    		  By.cssSelector(".btn.btn-primary"))
-		            );
-		        }
-		
-/*		Wait<WebDriver> wait = new FluentWait<WebDriver>(driver)                            
-				.withTimeout(Duration.ofSeconds(300))          
-				.pollingEvery(Duration.ofMillis(600))          
-				.ignoring(NoSuchElementException.class);
+			waitElement = fwait.until(new Function<WebDriver, WebElement>() {
+				public WebElement apply(WebDriver driver) {
+					return driver.findElement(By.xpath(".//*[@id='mxui_widget_Progress_0']"));
+				}
+			});
+		} catch (Exception e) {
+		}
 
-		WebElement btnMsgReqIdOk=wait.until(new Function<WebDriver, WebElement>() {       
-			public WebElement apply(WebDriver driver) { 
-				return driver.findElement(By.cssSelector(".btn.btn-primary"));     
-			}  
-		});*/
+		// checking if loading indicator was found and if so we wait for it to
+		// disappear
+		if (waitElement != null) {
+			WebDriverWait wait = new WebDriverWait(driver, 60);
+			wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".btn.btn-primary")));
+		}
 
+		/*
+		 * Wait<WebDriver> wait = new FluentWait<WebDriver>(driver)
+		 * .withTimeout(Duration.ofSeconds(300)) .pollingEvery(Duration.ofMillis(600))
+		 * .ignoring(NoSuchElementException.class);
+		 * 
+		 * WebElement btnMsgReqIdOk=wait.until(new Function<WebDriver, WebElement>() {
+		 * public WebElement apply(WebDriver driver) { return
+		 * driver.findElement(By.cssSelector(".btn.btn-primary")); } });
+		 */
 
-/*		Actions btnselect = new Actions(driver);
-		btnselect.moveToElement(btnMsgReqIdOk);
-		btnselect.build();
-		btnselect.perform();*/
-//		System.out.println(btnMsgReqIdOk.getCssValue("color"));
+		/*
+		 * Actions btnselect = new Actions(driver);
+		 * btnselect.moveToElement(btnMsgReqIdOk); btnselect.build();
+		 * btnselect.perform();
+		 */
+		// System.out.println(btnMsgReqIdOk.getCssValue("color"));
 		return Button.click("Click Ok Button", btnMsgReqIdOk);
 	}
-	
-	
-	public void clickSiteNewTab(){
-		
 
-		Sync.waitUntilObjectDisappears(driver, "Wait for Save button", By.xpath(".//*[@id='mxui_widget_Progress_0']/div[2]"));
+	public void clickSiteNewTab() {
+
+		Sync.waitUntilObjectDisappears(driver, "Wait for Save button",
+				By.xpath(".//*[@id='mxui_widget_Progress_0']/div[2]"));
 		Sync.WaitForPageLoad(driver);
 		Sync.waitForSeconds(Constants.WAIT_5);
-		Sync.waitUntilObjectDisappears(driver, "Wait for Save button", By.xpath(".//*[@id='mxui_widget_Progress_0']/div[2]"));
-//		Sync.waitForObjectFluent(driver, driver.findElement(By.cssSelector("div[id^='mxui_widget_TabContainer']:nth-child(1) > ul:nth-child(1) >li:nth-child(3)>a")));
-		Button.jsclick("Click Site Tab", driver.findElement(By.cssSelector("div[id^='mxui_widget_TabContainer']:nth-child(1) > ul:nth-child(1) >li:nth-child(3)>a")), driver);
+		Sync.waitUntilObjectDisappears(driver, "Wait for Save button",
+				By.xpath(".//*[@id='mxui_widget_Progress_0']/div[2]"));
+		// Sync.waitForObjectFluent(driver,
+		// driver.findElement(By.cssSelector("div[id^='mxui_widget_TabContainer']:nth-child(1)
+		// > ul:nth-child(1) >li:nth-child(3)>a")));
+		Button.jsclick("Click Site Tab",
+				driver.findElement(By.cssSelector(
+						"div[id^='mxui_widget_TabContainer']:nth-child(1) > ul:nth-child(1) >li:nth-child(3)>a")),
+				driver);
 	}
-	
-	public void clickSiteNewButton(){
+
+	public void clickSiteNewButton() {
 
 		Sync.waitForObject(driver, "Wait for Site New Button", driver.findElement(By.xpath("//button[text()='New']")));
 		Sync.waitForSeconds(Constants.WAIT_2);
 		Button.click("Click New Button", driver.findElement(By.xpath("//button[text()='New']")));
 		Sync.waitForSeconds(Constants.WAIT_2);
-	
-	}
-	
-	public void selectLocationCode(String strValue)
-	{
-		/*WebElement dropdown =driver.findElement(By.xpath("//*[text()='Item Deposit Group Code']/../div/div/select"));
-		Select LocationCodeDropDown= new Select(dropdown);
-		LocationCodeDropDown.selectByVisibleText("DZ01, Brewery Rouiba");
-*/		
-		Sync.waitUntilObjectDisappears(driver, "Wait for Location Code Select", By.xpath(".//*[@id='mxui_widget_Progress_0']/div[2]"));
-		Sync.waitForSeconds(Constants.WAIT_5);
-		WebElement dropdown =driver.findElement(By.xpath("//*[text()='Location Code']/../div/div/select"));
-		Sync.waitForObject(driver, "Wait for Location Code Select", dropdown);
-		Button.click("Wait for Location Code Select", dropdown);
-		Select roundVATPostingGroupDown= new Select(dropdown);
-		roundVATPostingGroupDown.selectByVisibleText(strValue);
-	}
-	
-	public void selectReplenishmentSystem(String strValue)
-	{
-//		WebElement dropdown =driver.findElement(By.xpath("//*[text()='Replenishment System']/../div/div/select"));
-//		Select LocationCodeDropDown= new Select(dropdown);
-//		LocationCodeDropDown.selectByVisibleText("2, Transfer");
-		
-		Sync.waitUntilObjectDisappears(driver, "Wait for Replenishment System", By.xpath(".//*[@id='mxui_widget_Progress_0']/div[2]"));
-		Sync.waitForSeconds(Constants.WAIT_5);
-		WebElement dropdown =driver.findElement(By.xpath("//*[text()='Replenishment System']/../div/div/select"));
-		Sync.waitForObject(driver, "Wait for Location Code Select", dropdown);
-		Button.click("Wait for Location Code Select", dropdown);
-		Select roundVATPostingGroupDown= new Select(dropdown);
-		roundVATPostingGroupDown.selectByVisibleText(strValue);
-		
-	}
-	
-	public void clickSiteValidateButton(){
 
+	}
+
+	public void selectLocationCode(String strValue) {
+		/*
+		 * WebElement dropdown =driver.findElement(By.
+		 * xpath("//*[text()='Item Deposit Group Code']/../div/div/select")); Select
+		 * LocationCodeDropDown= new Select(dropdown);
+		 * LocationCodeDropDown.selectByVisibleText("DZ01, Brewery Rouiba");
+		 */
+		Sync.waitUntilObjectDisappears(driver, "Wait for Location Code Select",
+				By.xpath(".//*[@id='mxui_widget_Progress_0']/div[2]"));
+		Sync.waitForSeconds(Constants.WAIT_5);
+		WebElement dropdown = driver.findElement(By.xpath("//*[text()='Location Code']/../div/div/select"));
+		Sync.waitForObject(driver, "Wait for Location Code Select", dropdown);
+		Button.click("Wait for Location Code Select", dropdown);
+		Select roundVATPostingGroupDown = new Select(dropdown);
+		roundVATPostingGroupDown.selectByVisibleText(strValue);
+	}
+
+	public void selectReplenishmentSystem(String strValue) {
+		// WebElement dropdown =driver.findElement(By.xpath("//*[text()='Replenishment
+		// System']/../div/div/select"));
+		// Select LocationCodeDropDown= new Select(dropdown);
+		// LocationCodeDropDown.selectByVisibleText("2, Transfer");
+
+		Sync.waitUntilObjectDisappears(driver, "Wait for Replenishment System",
+				By.xpath(".//*[@id='mxui_widget_Progress_0']/div[2]"));
+		Sync.waitForSeconds(Constants.WAIT_5);
+		WebElement dropdown = driver.findElement(By.xpath("//*[text()='Replenishment System']/../div/div/select"));
+		Sync.waitForObject(driver, "Wait for Location Code Select", dropdown);
+		Button.click("Wait for Location Code Select", dropdown);
+		Select roundVATPostingGroupDown = new Select(dropdown);
+		roundVATPostingGroupDown.selectByVisibleText(strValue);
+
+	}
+
+	public void clickSiteValidateButton() {
 
 		Sync.waitForSeconds(Constants.WAIT_2);
 		Sync.waitForElementToBeClickable(driver, driver.findElement(By.xpath("//*[text()='Validate Local Data']")));
 		Button.click("Click New Button", driver.findElement(By.xpath("//*[text()='Validate Local Data']")));
 		Sync.waitForSeconds(Constants.WAIT_2);
-	
+
 	}
-	
-	public void clickSiteSaveButton(){
+
+	public void clickSiteSaveButton() {
 
 		Sync.waitForSeconds(Constants.WAIT_2);
 		Sync.waitForElementToBeClickable(driver, driver.findElement(By.cssSelector(".glyphicon.glyphicon-ok")));
 		Button.click("Click New Button", driver.findElement(By.cssSelector(".glyphicon.glyphicon-ok")));
 		Sync.waitForSeconds(Constants.WAIT_2);
-	
+
 	}
-	
+
 	public void scrolltoRoundingPrecision() throws InterruptedException {
-		
-		Point hoverItem =driver.findElement(By.xpath(".//*[text()='Rounding Precision']")).getLocation();
-		((JavascriptExecutor)driver).executeScript("return window.title;");    
+
+		Point hoverItem = driver.findElement(By.xpath(".//*[text()='Rounding Precision']")).getLocation();
+		((JavascriptExecutor) driver).executeScript("return window.title;");
 		Thread.sleep(6000);
-		((JavascriptExecutor)driver).executeScript("window.scrollBy(0,"+(hoverItem.getY())+");");
+		((JavascriptExecutor) driver).executeScript("window.scrollBy(0," + (hoverItem.getY()) + ");");
 	}
-	
-	public void clickEditSiteData() throws AWTException, IOException
-	{
+
+	public void clickEditSiteData() throws AWTException, IOException {
 		Sync.waitForSeconds(Constants.WAIT_5);
-		Sync.waitUntilObjectDisappears(driver, "Wait for Location Code Select", By.xpath(".//*[@id='mxui_widget_Progress_0']/div[2]"));
-//		Sync.waitForElementToBeClickable(driver, driver.findElement(By.xpath("(//*[text()='Add'])[3]/../button[2]/span")));
-		Button.jsclick("Click Edit Site Button", driver.findElement(By.xpath("(//*[text()='Add'])[3]/../button[2]/span")), driver);
-//		driver.findElement(By.xpath("(//*[text()='Add'])[3]/../button[2]/span")).click();
+		Sync.waitUntilObjectDisappears(driver, "Wait for Location Code Select",
+				By.xpath(".//*[@id='mxui_widget_Progress_0']/div[2]"));
+		// Sync.waitForElementToBeClickable(driver,
+		// driver.findElement(By.xpath("(//*[text()='Add'])[3]/../button[2]/span")));
+		Button.jsclick("Click Edit Site Button",
+				driver.findElement(By.xpath("(//*[text()='Add'])[3]/../button[2]/span")), driver);
+		// driver.findElement(By.xpath("(//*[text()='Add'])[3]/../button[2]/span")).click();
 	}
-	
-	/*public void selectLocationCode(String strValue)
-	{
-		Sync.waitUntilObjectDisappears(driver, "Wait for Location Code Select", By.xpath(".//*[@id='mxui_widget_Progress_0']/div[2]"));
-		Sync.waitForSeconds(Constants.WAIT_5);
-		WebElement dropdown =driver.findElement(By.xpath("//*[text()='Location Code']/../div/div/select"));
-		Sync.waitForObject(driver, "Wait for Location Code Select", dropdown);
-		Button.click("Wait for Location Code Select", dropdown);
-		Select roundVATPostingGroupDown= new Select(dropdown);
-		roundVATPostingGroupDown.selectByVisibleText(strValue);//"DZ01, Brewery Rouiba"
-	}*/
-	
-	/*public void selectReplenishmentSystem()
-	{
-		
-		Sync.waitUntilObjectDisappears(driver, "Wait for Replenishment System", By.xpath(".//*[@id='mxui_widget_Progress_0']/div[2]"));
-		Sync.waitForSeconds(Constants.WAIT_5);
-		WebElement dropdown =driver.findElement(By.xpath("//*[text()='Replenishment System']/../div/div/select"));
-		Sync.waitForObject(driver, "Wait for Location Code Select", dropdown);
-		Button.click("Wait for Location Code Select", dropdown);
-		Select roundVATPostingGroupDown= new Select(dropdown);
-		roundVATPostingGroupDown.selectByVisibleText("2, Transfer");
-		
-	}*/
-		public void submitLocalRequest() {
+
+	/*
+	 * public void selectLocationCode(String strValue) {
+	 * Sync.waitUntilObjectDisappears(driver, "Wait for Location Code Select",
+	 * By.xpath(".//*[@id='mxui_widget_Progress_0']/div[2]"));
+	 * Sync.waitForSeconds(Constants.WAIT_5); WebElement dropdown
+	 * =driver.findElement(By.xpath("//*[text()='Location Code']/../div/div/select")
+	 * ); Sync.waitForObject(driver, "Wait for Location Code Select", dropdown);
+	 * Button.click("Wait for Location Code Select", dropdown); Select
+	 * roundVATPostingGroupDown= new Select(dropdown);
+	 * roundVATPostingGroupDown.selectByVisibleText(strValue);/
+	 * /"DZ01, Brewery Rouiba" }
+	 */
+
+	/*
+	 * public void selectReplenishmentSystem() {
+	 * 
+	 * Sync.waitUntilObjectDisappears(driver, "Wait for Replenishment System",
+	 * By.xpath(".//*[@id='mxui_widget_Progress_0']/div[2]"));
+	 * Sync.waitForSeconds(Constants.WAIT_5); WebElement dropdown
+	 * =driver.findElement(By.
+	 * xpath("//*[text()='Replenishment System']/../div/div/select"));
+	 * Sync.waitForObject(driver, "Wait for Location Code Select", dropdown);
+	 * Button.click("Wait for Location Code Select", dropdown); Select
+	 * roundVATPostingGroupDown= new Select(dropdown);
+	 * roundVATPostingGroupDown.selectByVisibleText("2, Transfer");
+	 * 
+	 * }
+	 */
+	public void submitLocalRequest() {
 		Sync.waitForSeconds(Constants.WAIT_3);
-		Sync.waitForObject(driver, "Wait for Submit Local Request", driver.findElement(By.xpath(".//*[text()='Submit Local Request']")));
+		Sync.waitForObject(driver, "Wait for Submit Local Request",
+				driver.findElement(By.xpath(".//*[text()='Submit Local Request']")));
 		Sync.waitForElementToBeClickable(driver, driver.findElement(By.xpath(".//*[text()='Submit Local Request']")));
-		Button.click("Click  Submit Local Request", driver.findElement(By.xpath(".//*[text()='Submit Local Request']")));
-//		Button.click("Click Global submit Global Request", driver.findElement(By.xpath("(//span[@class='glyphicon glyphicon-save'])[2]")));
+		Button.click("Click  Submit Local Request",
+				driver.findElement(By.xpath(".//*[text()='Submit Local Request']")));
+		// Button.click("Click Global submit Global Request",
+		// driver.findElement(By.xpath("(//span[@class='glyphicon
+		// glyphicon-save'])[2]")));
 		Sync.waitForSeconds(Constants.WAIT_2);
 		Sync.waitForSeconds(Constants.WAIT_5);
 	}
-		public boolean clickGlobalDataButton() throws InterruptedException 
-		{
-		  // boolean isButtonClicked=false;
-			    System.out.println("Click on global id");
-			    Sync.waitForSeconds(Constants.WAIT_10);
-			   
-			    //WebDriverWait wait = new WebDriverWait(driver,150);
-			    Sync.waitUntilObjectDisappears(driver, "Wait for Materials", By.xpath((".//*[@id='mxui_widget_Progress_0']/div[2]")));
-				/*WebElement el = driver.findElement(By.cssSelector(".mx-name-tabPageGlobal"));
-				((JavascriptExecutor)driver).executeScript("arguments[0].click()", el);*/
-			    Sync.waitForSeconds(Constants.WAIT_10);
-			    System.out.println("Ready to click on Global id");
-				if(Button.verifyObject(btnGlobalData)) 
-				{
-					 System.out.println("Ready to click on Global id");
-					Sync.waitForSeconds(Constants.WAIT_6);
-					Sync.waitForElementToBeClickable(driver, driver.findElement(By.xpath(".//*[text()='Global Data']")));
-				   Sync.waitForObject(driver ,"Global Data", btnGlobalData);
-				   Sync.waitForSeconds(Constants.WAIT_6); 
-				  return Button.jsclick("Clicked on Global Data", btnGlobalData, driver);
-				}
-				else{
-					Sync.waitForObject(driver ,"Global Data", btnGlobalData);
-					Sync.waitForSeconds(Constants.WAIT_10); 
-					return Button.jsclick("Clicked on Global Data", btnGlobalData, driver);
-				}
-		}
-		public boolean clickValidateLocalRequest() {
-			WebDriverWait wait = new WebDriverWait(driver,90);
-			 Sync.waitForObject(driver ,"Click Validate Local Request", btnValidateLocalRequest);
-			 if(Button.verifyObject(btnGlobalData)) 
-				{
-				   Sync.waitForObject(driver ,"click on validate local request button",btnValidateLocalRequest);
-				   Sync.waitForSeconds(Constants.WAIT_5); 
-				  return Button.click("Click Validate Local Request", btnValidateLocalRequest);
-				}
-				else{
-					 Sync.waitForSeconds(Constants.WAIT_6); 
-				  return Button.click("Click Validate Local Request", btnValidateLocalRequest);
-				}
-		}	
-		
-		public void createWithReferenceRequestforNav()
-		{
-			Sync.waitForElementToBeClickable(driver, btnSelectAllOnPopUpPlants);
-			Button.jsclick("Select all listed elements for GlobalId", btnSelectAll, driver);
-			Sync.waitForSeconds(Constants.WAIT_2);
-//			Button.jsclick("Select all listed elements for GlobalId", btnSelectAllOnPopUpPlants, driver);
-			Button.jsclick("Select All for Sales Organizations", btnSelectAllOnPopUpSalesOrg, driver);
-			Button.jsclick("Create Request Button for Nav", btnCreateRequestOnPopUp, driver);
+
+	public boolean clickGlobalDataButton() throws InterruptedException {
+		// boolean isButtonClicked=false;
+		System.out.println("Click on global id");
+		Sync.waitForSeconds(Constants.WAIT_10);
+
+		// WebDriverWait wait = new WebDriverWait(driver,150);
+		Sync.waitUntilObjectDisappears(driver, "Wait for Materials",
+				By.xpath((".//*[@id='mxui_widget_Progress_0']/div[2]")));
+		/*
+		 * WebElement el = driver.findElement(By.cssSelector(".mx-name-tabPageGlobal"));
+		 * ((JavascriptExecutor)driver).executeScript("arguments[0].click()", el);
+		 */
+		Sync.waitForSeconds(Constants.WAIT_10);
+		System.out.println("Ready to click on Global id");
+		if (Button.verifyObject(btnGlobalData)) {
+			System.out.println("Ready to click on Global id");
 			Sync.waitForSeconds(Constants.WAIT_6);
-			
-		}
-		
-		public void switchToLocal()
-		{
-			Sync.waitForSeconds(Constants.WAIT_5);
-			Button.jsclick("Local Data", textLocalData, driver);
-			Sync.waitForSeconds(Constants.WAIT_5);	
-		}
-		
-		public void localEditPlantNav()
-		{
-			if(Button.verifyObject(btnNavLocalPlantEdit))
-			{
-				Sync.waitForObject(driver, btnNavLocalPlantEdit);
-				Button.jsclick("Adding new Plant for Nav", btnNavLocalPlantEdit, driver);
-				Sync.waitForSeconds(Constants.WAIT_10);
-			}
-			else
-			{
-				Sync.waitForSeconds(Constants.WAIT_10);
-				Sync.waitForObject(driver, btnNavLocalPlantEdit);
-				Button.jsclick("Adding new Plant for Nav", btnNavLocalPlantEdit, driver);
-				Sync.waitForSeconds(Constants.WAIT_10);
-			}
-		}
-		
-		public void selectLocalPlantRoundingPrecisionValueDropDown(String strValue) throws InterruptedException
-		{
-			//Sync.waitForObject(driver, driver.findElement(By.xpath(".//*[contains(text(),'Edit Local Data Planning')]")));
-			Sync.waitForSeconds(Constants.WAIT_5);
-			if(DropDown.verifyObject(dropdownPlantRoundingPrecisionValue)){
-				Sync.waitForObject(driver ,"Wait for Sales UOM Select", dropdownPlantRoundingPrecisionValue);
-				Sync.waitForSeconds(Constants.WAIT_5);
-				Sync.waitForSeconds(Constants.WAIT_5);
-				Button.click("Click on Sales UOM Select", dropdownPlantRoundingPrecisionValue);
-				Select rpValueDropDownSelect= new Select(dropdownPlantRoundingPrecisionValue);
-				rpValueDropDownSelect.selectByVisibleText(strValue);
-				
-			}else{
-				Sync.waitForSeconds(Constants.WAIT_5);
-				Sync.waitForSeconds(Constants.WAIT_5);
-				Button.click("Click on Sales UOM Select", dropdownPlantRoundingPrecisionValue);
-				Select rpValueDropDownSelect= new Select(dropdownPlantRoundingPrecisionValue);
-				rpValueDropDownSelect.selectByVisibleText(strValue);
-			}
-			
-		}
-		
-		public void clickAndSelectRoundingPrecisionValueDropDown(String strValue) throws InterruptedException
-		{
-			Sync.waitForSeconds(Constants.WAIT_5);
-			this.selectLocalPlantRoundingPrecisionValueDropDown(strValue);
-		}
-		
-		public void validateAndSaveLocalData()
-		{
-			Sync.waitForObject(driver, btnLocalActions);
-			Button.click("Local Actions button", btnLocalActions);
+			Sync.waitForElementToBeClickable(driver, driver.findElement(By.xpath(".//*[text()='Global Data']")));
+			Sync.waitForObject(driver, "Global Data", btnGlobalData);
 			Sync.waitForSeconds(Constants.WAIT_6);
-			Button.click("Validate Local Data", btnValidateLocalData);
-			Sync.waitForSeconds(Constants.WAIT_6);
-			Sync.waitForObject(driver, "Verify Validate message", txtValidationMsg);
-			Sync.waitForSeconds(Constants.WAIT_5);
-			Sync.waitForSeconds(Constants.WAIT_5);
-			Button.click("Save Local Data", btnSaveLocalData);
-			Sync.waitForSeconds(Constants.WAIT_5);
+			return Button.jsclick("Clicked on Global Data", btnGlobalData, driver);
+		} else {
+			Sync.waitForObject(driver, "Global Data", btnGlobalData);
+			Sync.waitForSeconds(Constants.WAIT_10);
+			return Button.jsclick("Clicked on Global Data", btnGlobalData, driver);
 		}
-		
-		public void localEditFinanceDataNav()
-		{
-			
-			Sync.waitForObject(driver, btnNavFinance);
-			Button.jsclick("Click on the Finance Button in Local Data", btnNavFinance, driver);
+	}
+
+	public boolean clickValidateLocalRequest() {
+		WebDriverWait wait = new WebDriverWait(driver, 90);
+		Sync.waitForObject(driver, "Click Validate Local Request", btnValidateLocalRequest);
+		if (Button.verifyObject(btnGlobalData)) {
+			Sync.waitForObject(driver, "click on validate local request button", btnValidateLocalRequest);
+			Sync.waitForSeconds(Constants.WAIT_5);
+			return Button.click("Click Validate Local Request", btnValidateLocalRequest);
+		} else {
+			Sync.waitForSeconds(Constants.WAIT_6);
+			return Button.click("Click Validate Local Request", btnValidateLocalRequest);
+		}
+	}
+
+	public void createWithReferenceRequestforNav() {
+		Sync.waitForElementToBeClickable(driver, btnSelectAllOnPopUpPlants);
+		Button.jsclick("Select all listed elements for GlobalId", btnSelectAll, driver);
+		Sync.waitForSeconds(Constants.WAIT_2);
+		// Button.jsclick("Select all listed elements for GlobalId",
+		// btnSelectAllOnPopUpPlants, driver);
+		Button.jsclick("Select All for Sales Organizations", btnSelectAllOnPopUpSalesOrg, driver);
+		Button.jsclick("Create Request Button for Nav", btnCreateRequestOnPopUp, driver);
+		Sync.waitForSeconds(Constants.WAIT_6);
+
+	}
+
+	public void switchToLocal() {
+		Sync.waitForSeconds(Constants.WAIT_5);
+		Button.jsclick("Local Data", textLocalData, driver);
+		Sync.waitForSeconds(Constants.WAIT_5);
+	}
+
+	public void localEditPlantNav() {
+		if (Button.verifyObject(btnNavLocalPlantEdit)) {
+			Sync.waitForObject(driver, btnNavLocalPlantEdit);
+			Button.jsclick("Adding new Plant for Nav", btnNavLocalPlantEdit, driver);
+			Sync.waitForSeconds(Constants.WAIT_10);
+		} else {
+			Sync.waitForSeconds(Constants.WAIT_10);
+			Sync.waitForObject(driver, btnNavLocalPlantEdit);
+			Button.jsclick("Adding new Plant for Nav", btnNavLocalPlantEdit, driver);
+			Sync.waitForSeconds(Constants.WAIT_10);
+		}
+	}
+
+	public void selectLocalPlantRoundingPrecisionValueDropDown(String strValue) throws InterruptedException {
+		// Sync.waitForObject(driver,
+		// driver.findElement(By.xpath(".//*[contains(text(),'Edit Local Data
+		// Planning')]")));
+		Sync.waitForSeconds(Constants.WAIT_5);
+		if (DropDown.verifyObject(dropdownPlantRoundingPrecisionValue)) {
+			Sync.waitForObject(driver, "Wait for Sales UOM Select", dropdownPlantRoundingPrecisionValue);
+			Sync.waitForSeconds(Constants.WAIT_5);
+			Sync.waitForSeconds(Constants.WAIT_5);
+			Button.click("Click on Sales UOM Select", dropdownPlantRoundingPrecisionValue);
+			Select rpValueDropDownSelect = new Select(dropdownPlantRoundingPrecisionValue);
+			rpValueDropDownSelect.selectByVisibleText(strValue);
+
+		} else {
+			Sync.waitForSeconds(Constants.WAIT_5);
+			Sync.waitForSeconds(Constants.WAIT_5);
+			Button.click("Click on Sales UOM Select", dropdownPlantRoundingPrecisionValue);
+			Select rpValueDropDownSelect = new Select(dropdownPlantRoundingPrecisionValue);
+			rpValueDropDownSelect.selectByVisibleText(strValue);
+		}
+
+	}
+
+	public void clickAndSelectRoundingPrecisionValueDropDown(String strValue) throws InterruptedException {
+		Sync.waitForSeconds(Constants.WAIT_5);
+		this.selectLocalPlantRoundingPrecisionValueDropDown(strValue);
+	}
+
+	public void validateAndSaveLocalData() {
+		Sync.waitForObject(driver, btnLocalActions);
+		Button.click("Local Actions button", btnLocalActions);
+		Sync.waitForSeconds(Constants.WAIT_6);
+		Button.click("Validate Local Data", btnValidateLocalData);
+		Sync.waitForSeconds(Constants.WAIT_6);
+		Sync.waitForObject(driver, "Verify Validate message", txtValidationMsg);
+		Sync.waitForSeconds(Constants.WAIT_5);
+		Sync.waitForSeconds(Constants.WAIT_5);
+		Button.click("Save Local Data", btnSaveLocalData);
+		Sync.waitForSeconds(Constants.WAIT_5);
+	}
+
+	public void localEditFinanceDataNav() {
+
+		Sync.waitForObject(driver, btnNavFinance);
+		Button.jsclick("Click on the Finance Button in Local Data", btnNavFinance, driver);
+		Sync.waitForSeconds(Constants.WAIT_5);
+		Sync.waitForObject(driver, btnNavLocalFinanceEditExtend);
+		if (Button.verifyObject(btnNavLocalFinanceEditExtend)) {
 			Sync.waitForSeconds(Constants.WAIT_5);
 			Sync.waitForObject(driver, btnNavLocalFinanceEditExtend);
-			if(Button.verifyObject(btnNavLocalFinanceEditExtend))
-			{
-				Sync.waitForSeconds(Constants.WAIT_5);
-				Sync.waitForObject(driver, btnNavLocalFinanceEditExtend);
-				Button.jsclick("Click edit to add data in Finance", btnNavLocalFinanceEditExtend, driver);
-				Sync.waitForSeconds(Constants.WAIT_10);
+			Button.jsclick("Click edit to add data in Finance", btnNavLocalFinanceEditExtend, driver);
+			Sync.waitForSeconds(Constants.WAIT_10);
 
-			}
-			else
-			{
-				Sync.waitForSeconds(Constants.WAIT_5);
-				Sync.waitForSeconds(Constants.WAIT_6);
-				Button.jsclick("Click edit to add data in Finance", btnNavLocalFinanceEditExtend, driver);
-				Sync.waitForSeconds(Constants.WAIT_10);
-			}
-			
-		}
-		
-		public void selectLocalFinanceVATProdPostingGroupDropDown(String strValue) throws InterruptedException
-		{
-			//Sync.waitForObject(driver, textFinanceTabNav);
+		} else {
 			Sync.waitForSeconds(Constants.WAIT_5);
-			if(DropDown.verifyObject(dropDownFinanceVATPostingGroup)){
-				Sync.waitForSeconds(Constants.WAIT_5);
-				Sync.waitForSeconds(Constants.WAIT_5);
-				Sync.waitForObject(driver ,"Wait for VAT Prod. Posting Group Select", dropDownFinanceVATPostingGroup);
-				Sync.waitForSeconds(Constants.WAIT_5);		
-				Button.click("Click on VAT Prod. Posting Group Select", dropDownFinanceVATPostingGroup);
-				Select vatPGDropDownSelect= new Select(dropDownFinanceVATPostingGroup);
-				vatPGDropDownSelect.selectByVisibleText(strValue);
-				
-			}else{
-				Sync.waitForSeconds(Constants.WAIT_5);
-				Sync.waitForSeconds(Constants.WAIT_5);
-				Button.click("Click on VAT Prod. Posting Group Select", dropDownFinanceVATPostingGroup);
-				Select vatPGDropDownSelect= new Select(dropDownFinanceVATPostingGroup);
-				vatPGDropDownSelect.selectByVisibleText(strValue);
-			}
-			
+			Sync.waitForSeconds(Constants.WAIT_6);
+			Button.jsclick("Click edit to add data in Finance", btnNavLocalFinanceEditExtend, driver);
+			Sync.waitForSeconds(Constants.WAIT_10);
 		}
-		
-		public void clickAndSelectVATPostingGroupDropDown(String strValue) throws InterruptedException
-		{
+
+	}
+
+	public void selectLocalFinanceVATProdPostingGroupDropDown(String strValue) throws InterruptedException {
+		// Sync.waitForObject(driver, textFinanceTabNav);
+		Sync.waitForSeconds(Constants.WAIT_5);
+		if (DropDown.verifyObject(dropDownFinanceVATPostingGroup)) {
 			Sync.waitForSeconds(Constants.WAIT_5);
-			this.selectLocalFinanceVATProdPostingGroupDropDown(strValue);
+			Sync.waitForSeconds(Constants.WAIT_5);
+			Sync.waitForObject(driver, "Wait for VAT Prod. Posting Group Select", dropDownFinanceVATPostingGroup);
+			Sync.waitForSeconds(Constants.WAIT_5);
+			Button.click("Click on VAT Prod. Posting Group Select", dropDownFinanceVATPostingGroup);
+			Select vatPGDropDownSelect = new Select(dropDownFinanceVATPostingGroup);
+			vatPGDropDownSelect.selectByVisibleText(strValue);
+
+		} else {
+			Sync.waitForSeconds(Constants.WAIT_5);
+			Sync.waitForSeconds(Constants.WAIT_5);
+			Button.click("Click on VAT Prod. Posting Group Select", dropDownFinanceVATPostingGroup);
+			Select vatPGDropDownSelect = new Select(dropDownFinanceVATPostingGroup);
+			vatPGDropDownSelect.selectByVisibleText(strValue);
 		}
-	
+
+	}
+
+	public void clickAndSelectVATPostingGroupDropDown(String strValue) throws InterruptedException {
+		Sync.waitForSeconds(Constants.WAIT_5);
+		this.selectLocalFinanceVATProdPostingGroupDropDown(strValue);
+	}
+
+	public void localAddInNewPlantNav() {
+
+		Sync.waitForSeconds(Constants.WAIT_10);
+		Sync.waitForObject(driver, textLocalData);
+
+		if (Button.verifyObject(btnNavLocalPlantNewCreate)) {
+			Sync.waitForObject(driver, btnNavLocalPlantNewCreate);
+			Button.jsclick("Adding new Plant for Nav", btnNavLocalPlantNewCreate, driver);
+			Sync.waitForSeconds(Constants.WAIT_10);
+		} else {
+			Sync.waitForSeconds(Constants.WAIT_10);
+			Sync.waitForObject(driver, btnNavLocalPlantNewCreate);
+			Button.jsclick("Adding new Plant for Nav", btnNavLocalPlantNewCreate, driver);
+			Sync.waitForSeconds(Constants.WAIT_10);
+		}
+
+	}
+
 }
-	
-	

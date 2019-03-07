@@ -159,5 +159,19 @@ public class MaterialNavScript {
 		SharedDriver.pageContainer.processInfoPage.browserClose();	
 //		SharedDriver.pageContainer.materialApprovalPage.launchUFT();
 	}
+	
+	//========================================Material Create Fill In Local Data Adding New Plant======================================================
+	
+		@Test(dataProvider="CreateMaterial_Fill_In_Local",dataProviderClass=staticProviderClass.class)
+		public void material_Local_Plant_Data_Fill_In_Nav(Map<String, String> dataMap) throws InterruptedException
+		{
+			SharedDriver.pageContainer.materialNavPage.localAddInNewPlantNav();
+			//SharedDriver.pageContainer.materialNavPage.clickAndSelectPurchaseUOMValueDropDown(dataMap.get("Purch. Unit of Measure"));
+			//SharedDriver.pageContainer.materialNavPage.clickAndSelectProdUOMValueDropDown(dataMap.get("Production Unit of Measure"));
+			//SharedDriver.pageContainer.materialNavPage.clickAndSelectSalesUOMValueDropDown(dataMap.get("Sales Unit of Measure"));
+			SharedDriver.pageContainer.materialNavPage.clickAndSelectRoundingPrecisionValueDropDown(dataMap.get("Rounding Precision"));
+			//SharedDriver.pageContainer.materialNavPage.clickAndSelectInventoryUOMValueDropDown(dataMap.get("Inventory Unit of Measure"));
+			SharedDriver.pageContainer.materialNavPage.validateAndSaveLocalData();
+		}
 }
 
