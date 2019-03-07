@@ -196,8 +196,6 @@ public class MaterialPage {
 	WebElement txtValidationMsg;
 
 
-
-
 	//**********************************Global Actions*****************************************************************
 
 	@FindBy(how=How.XPATH, using=".//button[text()='Submit Global Request']")
