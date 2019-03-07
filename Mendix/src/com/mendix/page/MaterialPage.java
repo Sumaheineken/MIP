@@ -186,9 +186,6 @@ public class MaterialPage {
 	@FindBy(how=How.XPATH, using="//*[text()='UoM - Primary']/../div[1]/div/select")
 	WebElement slctUOMPrimary;
 
-	/*@FindBy(how=How.XPATH, using="//*[text()='Validate']")
-	WebElement btnValidate;*/
-
 	@FindBy(how=How.XPATH, using="//*[text()='Validate Local Request']")
 	WebElement btnValidateLocalRequest;
 
