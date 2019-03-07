@@ -23,6 +23,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.mendix.tool.Button;
 import com.mendix.tool.Constants;
+import com.mendix.tool.DropDown;
 import com.mendix.tool.Sync;
 
 
@@ -67,6 +68,46 @@ public class Material_Nav_Page {
 	@FindBy(how=How.XPATH,using=".//*[text()='Validate Local Request']")
 	WebElement btnValidateLocalRequest;
 	
+	@FindBy(how=How.XPATH, using="//*[@class='btn mx-button mx-name-actionButton2 btn-default']")
+	WebElement btnSelectAllOnPopUpPlants;
+	
+	@FindBy(how=How.XPATH, using="//button[text()='Select all']")
+	WebElement btnSelectAll;
+	
+	@FindBy(how=How.XPATH, using="//*[@class='btn mx-button mx-name-actionButton5 btn-default']")
+	WebElement btnSelectAllOnPopUpSalesOrg;
+	
+	@FindBy(how=How.XPATH, using="//*[@class='btn mx-button mx-name-actionButton1 btn-success']")
+	WebElement btnCreateRequestOnPopUp;
+	
+	@FindBy(how=How.XPATH, using="(//*[text()='Edit'])[5]")
+	WebElement btnNavLocalPlantEdit;
+	
+	@FindBy(how=How.XPATH, using=".//*[contains(text(),'Rounding Precision')]/../div/div/select")
+	WebElement dropdownPlantRoundingPrecisionValue;
+	
+	@FindBy(how=How.XPATH, using=".//*[@class='mx-layoutcontainer-wrapper mx-scrollcontainer-wrapper']/div[2]/button/span")
+	WebElement	btnLocalActions;
+	
+	@FindBy(how=How.XPATH, using="//*[text()='Validate Local Data']")
+	WebElement btnValidateLocalData;
+	
+	@FindBy(how=How.XPATH, using="//*[text()='Save']")
+	WebElement btnSaveLocalData;
+	
+	@FindBy(how=How.XPATH, using=".//*[text()='Request complies to all Validations']")
+	WebElement txtValidationMsg;
+	
+	@FindBy(how=How.XPATH, using=".//*[text()='Finance']")
+	WebElement btnNavFinance;
+	
+	@FindBy(how=How.XPATH, using="(//*[text()='Edit'])[3]")
+	WebElement btnNavLocalFinanceEditExtend;
+	
+	@FindBy(how=How.XPATH, using=".//*[contains(text(),'VAT Prod. Posting Group')]/../div/div/select")
+	WebElement dropDownFinanceVATPostingGroup;
+
+
 	
 	public void enterLocalData() {
 		WebDriverWait wait = new WebDriverWait(driver,120);
@@ -517,6 +558,138 @@ public class Material_Nav_Page {
 				  return Button.click("Click Validate Local Request", btnValidateLocalRequest);
 				}
 		}	
+		
+		public void createWithReferenceRequestforNav()
+		{
+			Sync.waitForElementToBeClickable(driver, btnSelectAllOnPopUpPlants);
+			Button.jsclick("Select all listed elements for GlobalId", btnSelectAll, driver);
+			Sync.waitForSeconds(Constants.WAIT_2);
+//			Button.jsclick("Select all listed elements for GlobalId", btnSelectAllOnPopUpPlants, driver);
+			Button.jsclick("Select All for Sales Organizations", btnSelectAllOnPopUpSalesOrg, driver);
+			Button.jsclick("Create Request Button for Nav", btnCreateRequestOnPopUp, driver);
+			Sync.waitForSeconds(Constants.WAIT_6);
+			
+		}
+		
+		public void switchToLocal()
+		{
+			Sync.waitForSeconds(Constants.WAIT_5);
+			Button.jsclick("Local Data", textLocalData, driver);
+			Sync.waitForSeconds(Constants.WAIT_5);	
+		}
+		
+		public void localEditPlantNav()
+		{
+			if(Button.verifyObject(btnNavLocalPlantEdit))
+			{
+				Sync.waitForObject(driver, btnNavLocalPlantEdit);
+				Button.jsclick("Adding new Plant for Nav", btnNavLocalPlantEdit, driver);
+				Sync.waitForSeconds(Constants.WAIT_10);
+			}
+			else
+			{
+				Sync.waitForSeconds(Constants.WAIT_10);
+				Sync.waitForObject(driver, btnNavLocalPlantEdit);
+				Button.jsclick("Adding new Plant for Nav", btnNavLocalPlantEdit, driver);
+				Sync.waitForSeconds(Constants.WAIT_10);
+			}
+		}
+		
+		public void selectLocalPlantRoundingPrecisionValueDropDown(String strValue) throws InterruptedException
+		{
+			//Sync.waitForObject(driver, driver.findElement(By.xpath(".//*[contains(text(),'Edit Local Data Planning')]")));
+			Sync.waitForSeconds(Constants.WAIT_5);
+			if(DropDown.verifyObject(dropdownPlantRoundingPrecisionValue)){
+				Sync.waitForObject(driver ,"Wait for Sales UOM Select", dropdownPlantRoundingPrecisionValue);
+				Sync.waitForSeconds(Constants.WAIT_5);
+				Sync.waitForSeconds(Constants.WAIT_5);
+				Button.click("Click on Sales UOM Select", dropdownPlantRoundingPrecisionValue);
+				Select rpValueDropDownSelect= new Select(dropdownPlantRoundingPrecisionValue);
+				rpValueDropDownSelect.selectByVisibleText(strValue);
+				
+			}else{
+				Sync.waitForSeconds(Constants.WAIT_5);
+				Sync.waitForSeconds(Constants.WAIT_5);
+				Button.click("Click on Sales UOM Select", dropdownPlantRoundingPrecisionValue);
+				Select rpValueDropDownSelect= new Select(dropdownPlantRoundingPrecisionValue);
+				rpValueDropDownSelect.selectByVisibleText(strValue);
+			}
+			
+		}
+		
+		public void clickAndSelectRoundingPrecisionValueDropDown(String strValue) throws InterruptedException
+		{
+			Sync.waitForSeconds(Constants.WAIT_5);
+			this.selectLocalPlantRoundingPrecisionValueDropDown(strValue);
+		}
+		
+		public void validateAndSaveLocalData()
+		{
+			Sync.waitForObject(driver, btnLocalActions);
+			Button.click("Local Actions button", btnLocalActions);
+			Sync.waitForSeconds(Constants.WAIT_6);
+			Button.click("Validate Local Data", btnValidateLocalData);
+			Sync.waitForSeconds(Constants.WAIT_6);
+			Sync.waitForObject(driver, "Verify Validate message", txtValidationMsg);
+			Sync.waitForSeconds(Constants.WAIT_5);
+			Sync.waitForSeconds(Constants.WAIT_5);
+			Button.click("Save Local Data", btnSaveLocalData);
+			Sync.waitForSeconds(Constants.WAIT_5);
+		}
+		
+		public void localEditFinanceDataNav()
+		{
+			
+			Sync.waitForObject(driver, btnNavFinance);
+			Button.jsclick("Click on the Finance Button in Local Data", btnNavFinance, driver);
+			Sync.waitForSeconds(Constants.WAIT_5);
+			Sync.waitForObject(driver, btnNavLocalFinanceEditExtend);
+			if(Button.verifyObject(btnNavLocalFinanceEditExtend))
+			{
+				Sync.waitForSeconds(Constants.WAIT_5);
+				Sync.waitForObject(driver, btnNavLocalFinanceEditExtend);
+				Button.jsclick("Click edit to add data in Finance", btnNavLocalFinanceEditExtend, driver);
+				Sync.waitForSeconds(Constants.WAIT_10);
+
+			}
+			else
+			{
+				Sync.waitForSeconds(Constants.WAIT_5);
+				Sync.waitForSeconds(Constants.WAIT_6);
+				Button.jsclick("Click edit to add data in Finance", btnNavLocalFinanceEditExtend, driver);
+				Sync.waitForSeconds(Constants.WAIT_10);
+			}
+			
+		}
+		
+		public void selectLocalFinanceVATProdPostingGroupDropDown(String strValue) throws InterruptedException
+		{
+			//Sync.waitForObject(driver, textFinanceTabNav);
+			Sync.waitForSeconds(Constants.WAIT_5);
+			if(DropDown.verifyObject(dropDownFinanceVATPostingGroup)){
+				Sync.waitForSeconds(Constants.WAIT_5);
+				Sync.waitForSeconds(Constants.WAIT_5);
+				Sync.waitForObject(driver ,"Wait for VAT Prod. Posting Group Select", dropDownFinanceVATPostingGroup);
+				Sync.waitForSeconds(Constants.WAIT_5);		
+				Button.click("Click on VAT Prod. Posting Group Select", dropDownFinanceVATPostingGroup);
+				Select vatPGDropDownSelect= new Select(dropDownFinanceVATPostingGroup);
+				vatPGDropDownSelect.selectByVisibleText(strValue);
+				
+			}else{
+				Sync.waitForSeconds(Constants.WAIT_5);
+				Sync.waitForSeconds(Constants.WAIT_5);
+				Button.click("Click on VAT Prod. Posting Group Select", dropDownFinanceVATPostingGroup);
+				Select vatPGDropDownSelect= new Select(dropDownFinanceVATPostingGroup);
+				vatPGDropDownSelect.selectByVisibleText(strValue);
+			}
+			
+		}
+		
+		public void clickAndSelectVATPostingGroupDropDown(String strValue) throws InterruptedException
+		{
+			Sync.waitForSeconds(Constants.WAIT_5);
+			this.selectLocalFinanceVATProdPostingGroupDropDown(strValue);
+		}
 	
 }
 	
