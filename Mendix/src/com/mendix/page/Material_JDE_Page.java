@@ -493,7 +493,7 @@ public class Material_JDE_Page {
 		Sync.waitUntilObjectDisappears(driver, "Wait for Location Code Select", By.xpath(".//*[@id='mxui_widget_Progress_0']/div[2]"));
 		Button.jsclick("Click Edit Site Button", driver.findElement(By.xpath("(//*[text()='Add'])[3]/../button[2]/span")), driver);
 	}
-public void SelectingPlant() {
+   public void SelectingPlant() {
 		WebDriverWait wait = new WebDriverWait(driver,100);
 		Sync.waitForSeconds(Constants.WAIT_5);
 		//Sync.waitForSeconds(Constants.WAIT_2);

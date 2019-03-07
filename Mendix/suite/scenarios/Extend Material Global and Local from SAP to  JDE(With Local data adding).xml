@@ -69,7 +69,39 @@
 			</class>
 		</classes>
 	</test>
-	<test name="HeiPort_Login_GBDA">
+	<test name="Process_Information_Check_Syndication">
+		<classes>
+			<class name="com.mendix.test.MaterialNavScript">
+				<methods>
+					<include name="Process_Information_Check_GlobalID" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	
+	
+	<test name="HeiPort_Login_LDR_Syndication">
+		<classes>
+			<class name="com.mendix.test.LoginScript">
+				<methods>
+					<include name="openBrowser" />
+					<include name="loginAsSGLDR" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	<test name="Material_Create_Syndication_Check">
+		<classes>
+			<class name="com.mendix.test.MaterialScript">
+				<methods>
+					<include name="Material_Create_Syndication_Checking" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	
+	<!-- Present there is no need of Approvals from these -->
+	<!-- <test name="HeiPort_Login_GBDA">
 		<classes>
 			<class name="com.mendix.test.LoginScript">
 				<methods>
@@ -98,7 +130,35 @@
 			</class>
 		</classes>
 	</test>
-	
+	<test name="HeiPort_Login_GDA">
+		<classes>
+			<class name="com.mendix.test.LoginScript">
+				<methods>
+					<include name="openBrowser" />
+					<include name="loginAsGDA" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	<test name="Material_Create_Review_Global_Data_Approve_GDA">
+		<classes>
+			<class name="com.mendix.test.MaterialNavScript">
+				<methods>
+					<include
+						name="Material_Create_Review_Global_Data_Approve_GDA" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	<test name="Process_Information_Check_Syndication">
+		<classes>
+			<class name="com.mendix.test.MaterialNavScript">
+				<methods>
+					<include name="Process_Information_Check_GlobalID" />
+				</methods>
+			</class>
+		</classes>
+	</test>
 	<test name="Process_Information_Check_LBDA">
 		<classes>
 			<class name="com.mendix.test.MaterialNavScript">
@@ -137,54 +197,8 @@
 			</class>
 		</classes>
 	</test>
-	<test name="HeiPort_Login_GDA">
-		<classes>
-			<class name="com.mendix.test.LoginScript">
-				<methods>
-					<include name="openBrowser" />
-					<include name="loginAsGDA" />
-				</methods>
-			</class>
-		</classes>
-	</test>
-	<test name="Material_Create_Review_Global_Data_Approve_GDA">
-		<classes>
-			<class name="com.mendix.test.MaterialNavScript">
-				<methods>
-					<include
-						name="Material_Create_Review_Global_Data_Approve_GDA" />
-				</methods>
-			</class>
-		</classes>
-	</test>
-	<test name="Process_Information_Check_Syndication">
-		<classes>
-			<class name="com.mendix.test.MaterialNavScript">
-				<methods>
-					<include name="Process_Information_Check_GlobalID" />
-				</methods>
-			</class>
-		</classes>
-	</test>
-	<test name="HeiPort_Login_LDR_Syndication">
-		<classes>
-			<class name="com.mendix.test.LoginScript">
-				<methods>
-					<include name="openBrowser" />
-					<include name="loginAsSGLDR" />
-				</methods>
-			</class>
-		</classes>
-	</test>
-	<test name="Material_Create_Syndication_Check">
-		<classes>
-			<class name="com.mendix.test.MaterialScript">
-				<methods>
-					<include name="Material_Create_Syndication_Checking" />
-				</methods>
-			</class>
-		</classes>
-	</test>
+	 -->
+	
 </suite> 
 
 
