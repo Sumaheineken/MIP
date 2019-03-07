@@ -365,5 +365,15 @@ public class VendorScript {
 		//SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
 		//SharedDriver.pageContainer.materialPage.browserClose();
 	}
+	
+	@Test(dataProvider="Process_Information_Check",dataProviderClass=staticProviderClass.class)
+	public void vendor_Confirm_Extension_Nav(Map<String,String> dataMap) throws InterruptedException, FileNotFoundException, IOException
+	{
+		SharedDriver.pageContainer.vendorPageNAV.switchToGlobal();
+		SharedDriver.pageContainer.materialPage.clickLocalAction();
+		SharedDriver.pageContainer.vendorPage.clickConfirmExtension();
+		SharedDriver.pageContainer.vendorPage.getRequestId();
+		SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
+	}
 }
 

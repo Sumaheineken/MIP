@@ -257,6 +257,8 @@ public class VendorPage_NAV {
 	@FindBy(how=How.XPATH, using="//*[text()='Reject Local Request']")
 	WebElement btnRejectLocalRequest;
 
+	@FindBy(how=How.XPATH, using="//*[text()='Global Data']")
+	WebElement txtGlobalData;
 /**********************************************************************************************************
 	/**
 	 * Instantiates a new home page.
@@ -1122,5 +1124,23 @@ public class VendorPage_NAV {
 		Sync.waitForSeconds(Constants.WAIT_2);
 	}
 	
+	public void switchToGlobal() {
+		// TODO Auto-generated method stub
+		Sync.waitForObject(driver, txtGlobalData);
+		if(Button.verifyObject(txtGlobalData))
+		{
+			Sync.waitForSeconds(Constants.WAIT_5);
+			Button.jsclick("Switch to Global Data", txtGlobalData, driver);
+			Sync.waitForSeconds(Constants.WAIT_6);
+		}
+		else
+		{
+			Sync.waitForSeconds(Constants.WAIT_5);
+			Button.jsclick("Switch to Global Data", txtGlobalData, driver);
+			Sync.waitForSeconds(Constants.WAIT_6);
+		}
+		
 	}
+	
+}
 

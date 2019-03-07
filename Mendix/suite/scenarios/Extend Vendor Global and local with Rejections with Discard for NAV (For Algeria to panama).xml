@@ -19,7 +19,7 @@
 					<include name="vendor_Extend_Global_Nav_With_Rejections"/>
 					 <include name="vendor_Create_Fill_In_Local_Finance_Tab"/>
 					<include name="vendor_Create_Fill_In_Local_Purchasing_Tab"/>
-					<include name="vendor_Confirm_Extension_Sap"/> 
+					<include name="vendor_Confirm_Extension_Nav"/> 
 				</methods>
 			</class>
 		</classes>
