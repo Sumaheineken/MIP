@@ -36,6 +36,7 @@ import org.testng.annotations.Test;
 
 import com.mendix.tool.Button;
 import com.mendix.tool.Constants;
+import com.mendix.tool.DropDown;
 import com.mendix.tool.Sync;
 import com.mendix.tool.Textbox;
 import com.mendix.util.ExcelUtil;
@@ -296,9 +297,7 @@ public class MaterialPage {
 		WebElement btnRejectGlobalRequest;
 	 */	
 	/****************************************Local Actions*********************************/
-	@FindBy(how=How.XPATH, using=".//button[@title='Submission of both Global and loca JDE data']")
-	WebElement btnLocalRequest;
-
+	
 
 	@FindBy(how=How.XPATH, using="//*[text()='Save']")
 	WebElement btnSave;
@@ -354,8 +353,30 @@ public class MaterialPage {
 	@FindBy(how=How.XPATH, using="(//*[text()='Submit Global and Local Request'])[2]")
 	WebElement btnGlobalLocalRequest;
 
+	@FindBy(how=How.XPATH, using=".//*[text()='Finance']")
+	WebElement btnFinance;
+	
+	@FindBy(how=How.XPATH, using="(.//*[text()='Edit'])[6]")
+	WebElement btnEdit;
+	
+	@FindBy(how=How.XPATH, using=".//*[contains(text(),'WHT Product Posting Group')]/../div/div/select")
+	WebElement dropdownWHTValue;
 
-
+	@FindBy(how=How.XPATH, using="//*[text()='Validate Local Data']")
+	WebElement btnValidateLocalData;
+	
+	@FindBy(how=How.XPATH, using="//*[text()='Save']")
+	WebElement btnSaveLocalData;
+	
+	@FindBy(how=How.XPATH, using="(.//*[starts-with(@id,'uniqName') And text()='New'])[8]")
+	WebElement btnCommentLocalNewNav;
+	
+	@FindBy(how=How.XPATH, using="//*[text()='Reject Local Request']")
+	WebElement btnRejectLocalRequest;
+	
+	@FindBy(how=How.XPATH, using=".//button[text()='Submit Local Request']")
+	WebElement btnLocalRequest;
+	
 	/**
 	 * Enter UserName.
 	 * Enter Password
@@ -2073,7 +2094,122 @@ public class MaterialPage {
  		Sync.waitForSeconds(Constants.WAIT_5);
 
  	}
- 	
+     
+     public void validateLocalDataForNAVCreateRef(String strValue) throws InterruptedException
+ 	{
+ 		Sync.waitForSeconds(Constants.WAIT_5);
+ 		Button.jsclick("Local Data", textLocalData, driver);
+ 		//Button.click("Local Actions button", btnLocalActions);
+ 		Button.click("Validate Local Data", btnValidateLocalRequest);
+ 		Sync.waitForSeconds(Constants.WAIT_5);
+ 		Sync.waitForSeconds(Constants.WAIT_5);
+ 		
+ 		WebElement popUp = driver.findElement(By.xpath("//*[@class='close mx-dialog-close']"));
+ 		Button.jsclick("Click on Popup", popUp, driver);
+
+ 		Sync.waitForSeconds(Constants.WAIT_5);
+ 		Button.click("Local Data", textLocalData);
+
+ 		//Sync.waitForObject(driver, "Verify Validate message", txtValidationMsg);
+ 		Sync.waitForSeconds(Constants.WAIT_5);
+ 		Button.jsclick("Local Data Finance", btnFinance, driver);
+ 		Button.click("Click on Edit", btnEdit);
+ 		Sync.waitForSeconds(Constants.WAIT_5);
+ 		Sync.waitForSeconds(Constants.WAIT_5);
+// 		WebElement dropdownWHTValue =driver.findElement(By.xpath(".//*[contains(text(),'WHT Product Posting Group')]/../div/div/select"));
+ 		//Sync.waitForObject(driver, "Wait for WHT posting group Select", dropdownWHTValue);
+ 		//Sync.waitForElementToBeClickable(driver, dropdownWHTValue);
+// 		Button.click("Wait for WHT posting group Select", dropdownWHTValue);
+// 		Select roundVATPostingGroupDown= new Select(dropdownWHTValue);
+// 		roundVATPostingGroupDown.selectByVisibleText(strValue);
+ 		
+ 		this.selectWHTValueInDropDown(strValue);
+ 		Sync.waitForSeconds(Constants.WAIT_1);
+ 		Button.click("Local Actions button", btnLocalActions);
+ 		Sync.waitForSeconds(Constants.WAIT_6);
+ 		Button.click("Validate Local Data", btnValidateLocalData);
+ 		Sync.waitForSeconds(Constants.WAIT_6);
+ 		Sync.waitForObject(driver, "Verify Validate message", txtValidationMsg);
+ 		Sync.waitForSeconds(Constants.WAIT_5);
+ 		Sync.waitForSeconds(Constants.WAIT_5);
+ 		Button.click("Save Local Data", btnSaveLocalData);
+ 		Sync.waitForSeconds(Constants.WAIT_5);
+ 		
+ 	}
+     
+     public void selectWHTValueInDropDown(String strValue) throws InterruptedException 
+ 	{
+
+		if(DropDown.verifyObject(dropdownWHTValue)){
+ 			Sync.waitForObject(driver ,"Wait for WHT posting group Select", dropdownWHTValue);
+ 			Sync.waitForSeconds(Constants.WAIT_5);		
+ 			Button.click("Wait for WHT posting group Select", dropdownWHTValue);
+ 			Select roundVATPostingGroupDown= new Select(dropdownWHTValue);
+ 			roundVATPostingGroupDown.selectByVisibleText(strValue);
+ 			
+ 		}else{
+ 			Button.click("Wait for WHT posting group Select", dropdownWHTValue);
+ 			Select roundVATPostingGroupDown= new Select(dropdownWHTValue);
+ 			roundVATPostingGroupDown.selectByVisibleText(strValue);
+ 		}
+ 	} 
+
+
+     public void rejectLDS() throws AWTException
+ 	{
+
+ 		System.out.println("Scrolling action");
+ 		
+ 		Sync.waitForSeconds(Constants.WAIT_2);
+ 		System.out.println("Scrolling");
+         
+ 		Sync.waitForObject(driver, btnCommentLocalNewNav);
+ 		Sync.waitForSeconds(Constants.WAIT_2);
+ 		System.out.println("checking for new button");
+ 		
+ 		String text1=driver.findElement(By.xpath("(.//*[@class='btn mx-button mx-name-newButton2 btn-default'])[2]")).getText();
+ 		System.out.println(text1);
+ 		
+ 		driver.findElement(By.xpath("(.//*[@class='btn mx-button mx-name-newButton2 btn-default'])[2]")).click();
+ 		//Button.jsclick("Click on New Button TO Add comment", btnCommentLocalNewNav, driver);
+ 		System.out.println("clicked new button");
+ 		Sync.waitForSeconds(Constants.WAIT_2);
+ 		Sync.waitForObject(driver, textComment);
+ 		Textbox.enterValue("typing comment", textComment, "material data");
+ 		Textbox.click("Click on Save Button", btnSave);
+ 		Sync.waitForSeconds(Constants.WAIT_2);
+ 		Sync.waitForObject(driver, btnLocalActions);
+ 		Button.click("Local Actions button click", btnLocalActions);
+ 		Sync.waitForSeconds(Constants.WAIT_2);
+ 		Sync.waitForObject(driver, btnRejectLocalRequest);
+ 		Textbox.click("Click on reject button in locl action", btnRejectLocalRequest);
+ 		Sync.waitForSeconds(Constants.WAIT_2);
+ 		Sync.waitForObject(driver, btnOK);
+ 		Button.click("Click On OK button", btnOK);
+ 		Sync.waitForSeconds(Constants.WAIT_5);
+ 		Sync.waitForSeconds(Constants.WAIT_2);
+
+ 	}
+     
+     public void submitLocalRequestTest() throws InterruptedException {
+
+ 		if(Button.verifyObject(btnLocalRequest))
+ 		{
+ 		Sync.waitForSeconds(Constants.WAIT_5);
+ 		Button.click("Click Submit Local Request", btnLocalRequest);
+ 		Sync.waitForSeconds(Constants.WAIT_5);
+ 		}
+ 		else
+ 		{
+ 			Sync.waitForSeconds(Constants.WAIT_6);
+ 			Sync.waitForSeconds(Constants.WAIT_1);
+ 			Button.click("Local Actions button", btnLocalActions);
+ 			Sync.waitForSeconds(Constants.WAIT_6);
+ 			Sync.waitForObject(driver, btnLocalRequest);
+ 			Button.click("Click Submit Local Request", btnLocalRequest);
+ 			Sync.waitForSeconds(Constants.WAIT_6);
+ 		}
+ 	}
 
 
 }

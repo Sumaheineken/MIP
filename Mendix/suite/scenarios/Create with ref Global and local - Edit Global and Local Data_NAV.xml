@@ -79,7 +79,7 @@
 		<classes>
 			<class name="com.mendix.test.MaterialScript">
 				<methods>
-					<include name="Material_Create_Review_Global_Data_Approve_LDP"/>
+					<include name="Material_Create_Review_Global_Data_Approve_LDP_NAV"/>
 				</methods>
 			</class>
 		</classes>
