@@ -17,7 +17,8 @@
 	<classes>
 		<class name="com.mendix.test.MaterialScript">
 			<methods>
-				<include name="material_Create_With_ref_Global_and_Local_Nav_With_Edit_And_Delete_Plants"/>
+				<include name="material_Create_With_ref_Global_Data_Edit_Nav"/>
+				<include name="material_Create_With_ref_Local_Data_Edit_Nav"/>
 			</methods>
 		</class>
 	</classes>
