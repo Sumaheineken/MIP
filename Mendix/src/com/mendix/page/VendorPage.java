@@ -1349,6 +1349,7 @@ public class VendorPage {
 		Button.click("Click On OK button", btnOK);
 		Sync.waitForSeconds(Constants.WAIT_5);
 	}
+	/***************************************************************************************************************/
 
 	public void GetFullVendorDataNew() throws InterruptedException {
 		Sync.waitForSeconds(Constants.WAIT_2);

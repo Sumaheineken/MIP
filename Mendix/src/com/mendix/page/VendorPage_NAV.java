@@ -39,6 +39,7 @@ import org.testng.annotations.Test;
 
 import com.mendix.tool.Button;
 import com.mendix.tool.Constants;
+import com.mendix.tool.DropDown;
 import com.mendix.tool.SharedDriver;
 import com.mendix.tool.Sync;
 import com.mendix.tool.Textbox;
@@ -259,6 +260,34 @@ public class VendorPage_NAV {
 
 	@FindBy(how=How.XPATH, using="//*[text()='Global Data']")
 	WebElement txtGlobalData;
+	
+	@FindBy(how=How.XPATH, using="//*[text()='Finance']/../../../div/div[1]/div/div/div[2]/div[2]//button[text()='New']")
+	WebElement btnNewFinance;
+	
+	@FindBy(how=How.XPATH, using=".//*[contains(text(),'Vendor Posting Group')]/../div/div/select")
+	WebElement dropdownFinanceVendorPostingGroup;
+
+	@FindBy(how=How.XPATH, using=".//*[contains(text(),'VAT Bus. Posting Group')]/../div/div/select")
+	WebElement dropdownFinanceVATBusPostingGroup;
+
+	@FindBy(how=How.XPATH, using="//*[text()='Validate']")
+	WebElement btnValidateLocalData;
+	
+	@FindBy(how=How.XPATH, using="//*[text()='Save']")
+	WebElement btnSaveLocalData;
+	
+	@FindBy(how=How.XPATH, using="//*[text()='Purchasing']")
+	WebElement btnPurchasingNav;
+	
+	@FindBy(how=How.XPATH, using="//*[text()='Purchasing']/../../../div/div[2]/div/div/div[2]/div[2]//button[text()='New']")
+	WebElement btnNewPurchasing; 
+	
+	@FindBy(how=How.XPATH, using=".//*[contains(text(),'Payment Terms Code')]/../div/div/select")
+	WebElement dropdownPurchasingPaymentTC;
+	
+	@FindBy(how=How.XPATH, using=".//*[contains(text(),'Payment Method Code')]/../div/div/select")
+	WebElement dropdownPurchasingPaymentMC;
+
 /**********************************************************************************************************
 	/**
 	 * Instantiates a new home page.
@@ -1141,6 +1170,194 @@ public class VendorPage_NAV {
 		}
 		
 	}
+	
+	/*******************************************************************************************************************************/
+	
+	public void localAddInNewFinanceNav()
+	{
+
+		Sync.waitForSeconds(Constants.WAIT_10);
+		Sync.waitForObject(driver, textLocalData);
+		if(Button.verifyObject(btnNewFinance))
+		{
+			Sync.waitForObject(driver, btnNewFinance);
+			Button.jsclick("Adding new Finance for Nav", btnNewFinance, driver);
+			Sync.waitForSeconds(Constants.WAIT_10);
+		}
+		else
+		{
+			Sync.waitForSeconds(Constants.WAIT_10);
+			Sync.waitForObject(driver, btnNewFinance);
+			Button.jsclick("Adding new Finance for Nav", btnNewFinance, driver);
+			Sync.waitForSeconds(Constants.WAIT_10);
+		}
+
+	} 
+	
+	/*******************************************************************************************************************************************/
+	
+	public void selectLocalFinanceVendorPostingGroupDropDown(String strValue) throws InterruptedException
+	{
+		//Sync.waitForObject(driver, driver.findElement(By.xpath(".//*[contains(text(),'Edit Local Data Planning')]")));
+		Sync.waitForSeconds(Constants.WAIT_5);
+		if(DropDown.verifyObject(dropdownFinanceVendorPostingGroup)){
+			Sync.waitForObject(driver ,"Wait for Vendor Posting Group Select", dropdownFinanceVendorPostingGroup);
+			Sync.waitForSeconds(Constants.WAIT_5);
+			Sync.waitForSeconds(Constants.WAIT_5);
+			Button.click("Click on Vendor Posting Group Select", dropdownFinanceVendorPostingGroup);
+			Select vendorPGDropDownSelect= new Select(dropdownFinanceVendorPostingGroup);
+			vendorPGDropDownSelect.selectByVisibleText(strValue);
+			
+		}else{
+			Sync.waitForSeconds(Constants.WAIT_5);
+			Sync.waitForSeconds(Constants.WAIT_5);
+			Button.click("Click on Vendor Posting Group Select", dropdownFinanceVendorPostingGroup);
+			Select vendorPGDropDownSelect= new Select(dropdownFinanceVendorPostingGroup);
+			vendorPGDropDownSelect.selectByVisibleText(strValue);
+		}
+		
+	}
+	
+	public void clickAndSelectVendorPostingGroupDropDown(String strValue) throws InterruptedException
+	{
+		Sync.waitForSeconds(Constants.WAIT_5);
+		this.selectLocalFinanceVendorPostingGroupDropDown(strValue);
+	}
+
+	/*************************************************************************************************************************************************/
+		
+	public void selectLocalFinanceVATBusPostingGroupDropDown(String strValue) throws InterruptedException
+	{
+		//Sync.waitForObject(driver, driver.findElement(By.xpath(".//*[contains(text(),'Edit Local Data Planning')]")));
+		Sync.waitForSeconds(Constants.WAIT_5);
+		if(DropDown.verifyObject(dropdownFinanceVATBusPostingGroup)){
+			Sync.waitForObject(driver ,"Wait for Vendor Posting Group Select", dropdownFinanceVATBusPostingGroup);
+			Sync.waitForSeconds(Constants.WAIT_5);
+			Sync.waitForSeconds(Constants.WAIT_5);
+			Button.click("Click on VAT Bus. Posting Group Select", dropdownFinanceVATBusPostingGroup);
+			Select vendorPGDropDownSelect= new Select(dropdownFinanceVATBusPostingGroup);
+			vendorPGDropDownSelect.selectByVisibleText(strValue);
+			
+		}else{
+			Sync.waitForSeconds(Constants.WAIT_5);
+			Sync.waitForSeconds(Constants.WAIT_5);
+			Button.click("Click on VAT Bus. Posting Group Select", dropdownFinanceVATBusPostingGroup);
+			Select vATBPostingGroupDropDownSelect= new Select(dropdownFinanceVATBusPostingGroup);
+			vATBPostingGroupDropDownSelect.selectByVisibleText(strValue);
+		}
+		
+	}
+	
+	public void clickAndSelectVATBusPostingGroupDropDown(String strValue) throws InterruptedException
+	{
+		Sync.waitForSeconds(Constants.WAIT_5);
+		this.selectLocalFinanceVATBusPostingGroupDropDown(strValue);
+	}
+	
+/**************************************************************************************************************************************************/
+	
+	public void validateAndSaveLocalData()
+	{
+		Sync.waitForObject(driver, btnLocalActions);
+		Button.click("Local Actions button", btnLocalActions);
+		Sync.waitForSeconds(Constants.WAIT_6);
+		Button.click("Validate Local Data", btnValidateLocalData);
+		Sync.waitForSeconds(Constants.WAIT_6);
+		Sync.waitForObject(driver, "Verify Validate message", txtValidationMsg);
+		Sync.waitForSeconds(Constants.WAIT_5);
+		Sync.waitForSeconds(Constants.WAIT_5);
+		Button.click("Save Local Data", btnSaveLocalData);
+		Sync.waitForSeconds(Constants.WAIT_5);
+	}
+/******************************************************************************************************************************************/	
+	
+	
+	public void localAddInPurchasingNav()
+	{
+
+		Sync.waitForObject(driver, btnPurchasingNav);
+		Button.jsclick("Click on the Purchasing Button in Local Data", btnPurchasingNav, driver);
+		Sync.waitForSeconds(Constants.WAIT_5);
+
+		Sync.waitForObject(driver, btnNewPurchasing);
+		if(Button.verifyObject(btnNewPurchasing))
+		{
+			Sync.waitForSeconds(Constants.WAIT_5);
+			Sync.waitForObject(driver, btnNewPurchasing);
+			Button.jsclick("Click create add data in Purchasing", btnNewPurchasing, driver);
+			Sync.waitForSeconds(Constants.WAIT_5);
+
+		}
+		else
+		{
+			Sync.waitForSeconds(Constants.WAIT_5);
+			Sync.waitForObject(driver, btnNewPurchasing);
+			Button.jsclick("Click create add data in Purchasing", btnNewPurchasing, driver);
+			Sync.waitForSeconds(Constants.WAIT_5);
+		}
+
+	}
+/****************************************************************************************************************************************/
+	
+	
+	public void selectLocalPurchasingPaymentTCDropDown(String strValue) throws InterruptedException
+	{
+		//Sync.waitForObject(driver, driver.findElement(By.xpath(".//*[contains(text(),'Edit Local Data Planning')]")));
+		Sync.waitForSeconds(Constants.WAIT_5);
+		if(DropDown.verifyObject(dropdownPurchasingPaymentTC)){
+			Sync.waitForObject(driver ,"Wait for Payment Term Code Select", dropdownPurchasingPaymentTC);
+			Sync.waitForSeconds(Constants.WAIT_5);
+			Sync.waitForSeconds(Constants.WAIT_5);
+			Button.click("Click on Payment Term Code Select", dropdownPurchasingPaymentTC);
+			Select paymentTCDropDownSelect= new Select(dropdownPurchasingPaymentTC);
+			paymentTCDropDownSelect.selectByVisibleText(strValue);
+			
+		}else{
+			Sync.waitForSeconds(Constants.WAIT_5);
+			Sync.waitForSeconds(Constants.WAIT_5);
+			Button.click("Click on Payment Term Code Select", dropdownPurchasingPaymentTC);
+			Select paymentTCDropDownSelect= new Select(dropdownPurchasingPaymentTC);
+			paymentTCDropDownSelect.selectByVisibleText(strValue);		}
+		
+	}
+	
+	public void clickAndSelectPaymentTCDropDown(String strValue) throws InterruptedException
+	{
+		Sync.waitForSeconds(Constants.WAIT_5);
+		this.selectLocalPurchasingPaymentTCDropDown(strValue);
+	}
+	
+	/************************************************************************************************************************************************/
+	
+	
+	public void selectLocalPurchasingPaymentMCDropDown(String strValue) throws InterruptedException
+	{
+		//Sync.waitForObject(driver, driver.findElement(By.xpath(".//*[contains(text(),'Edit Local Data Planning')]")));
+		Sync.waitForSeconds(Constants.WAIT_5);
+		if(DropDown.verifyObject(dropdownPurchasingPaymentMC)){
+			Sync.waitForObject(driver ,"Wait for Payment Method Code Select", dropdownPurchasingPaymentMC);
+			Sync.waitForSeconds(Constants.WAIT_5);
+			Sync.waitForSeconds(Constants.WAIT_5);
+			Button.click("Click on Payment Method Code Select", dropdownPurchasingPaymentMC);
+			Select paymentMCDropDownSelect= new Select(dropdownPurchasingPaymentMC);
+			paymentMCDropDownSelect.selectByVisibleText(strValue);
+			
+		}else{
+			Sync.waitForSeconds(Constants.WAIT_5);
+			Sync.waitForSeconds(Constants.WAIT_5);
+			Button.click("Click on Payment Method Code Select", dropdownPurchasingPaymentMC);
+			Select paymentMCDropDownSelect= new Select(dropdownPurchasingPaymentMC);
+			paymentMCDropDownSelect.selectByVisibleText(strValue);		}
+		
+	}
+	
+	public void clickAndSelectPaymentMCDropDown(String strValue) throws InterruptedException
+	{
+		Sync.waitForSeconds(Constants.WAIT_5);
+		this.selectLocalPurchasingPaymentMCDropDown(strValue);
+	}
+
+	
 	
 }
 

@@ -396,6 +396,40 @@ public class VendorScript {
 	
 	/*******************************************************************************************************************************/
 	
+	@Test(dataProvider="CreateVendor_Fill_In_Local",dataProviderClass=staticProviderClass.class)
+	public void vendor_Create_Fill_In_Local_Finance_Tab(Map<String,String> dataMap) throws InterruptedException
+	{
+		SharedDriver.pageContainer.vendorPageNAV.localAddInNewFinanceNav();
+		SharedDriver.pageContainer.vendorPageNAV.clickAndSelectVendorPostingGroupDropDown(dataMap.get("Vendor Posting Group"));
+		SharedDriver.pageContainer.vendorPageNAV.clickAndSelectVATBusPostingGroupDropDown(dataMap.get("VAT Bus. Posting Group"));
+		SharedDriver.pageContainer.vendorPageNAV.validateAndSaveLocalData();
+	}
+
+	/*********************************************************************************************************************************/
+	
+	@Test(dataProvider="CreateVendor_Fill_In_Local",dataProviderClass=staticProviderClass.class)
+	public void vendor_Create_Fill_In_Local_Purchasing_Tab(Map<String,String> dataMap) throws InterruptedException
+	{
+		SharedDriver.pageContainer.vendorPageNAV.localAddInPurchasingNav();
+		SharedDriver.pageContainer.vendorPageNAV.clickAndSelectPaymentTCDropDown(dataMap.get("Payment Terms Code"));
+		SharedDriver.pageContainer.vendorPageNAV.clickAndSelectPaymentMCDropDown(dataMap.get("Payment Method Code"));
+		SharedDriver.pageContainer.vendorPageNAV.validateAndSaveLocalData();
+	}
+
+	/***************************************************************************************************************************************/
+	
+	@Test(dataProvider="Process_Information_Check",dataProviderClass=staticProviderClass.class)
+	public void vendor_Create_Review_Local_Data_Approve_LDS(Map<String,String> dataMap) throws InterruptedException, FileNotFoundException, IOException
+	{
+		Assert.assertTrue(SharedDriver.pageContainer.homePage.navigateToWorkflow());
+		SharedDriver.pageContainer.vendorPage.switchToMDMPortal();
+		SharedDriver.pageContainer.materialApprovalPage.reqIdSearchMyTasks(dataMap.get("RequestId"));
+		SharedDriver.pageContainer.materialApprovalPage.approvalBtnClickLocalLDS();
+		Sync.waitForSeconds(Constants.WAIT_5);
+		SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
+		//SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
+	}
+
 	
 
 }
