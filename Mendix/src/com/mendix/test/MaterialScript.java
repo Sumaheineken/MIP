@@ -23,6 +23,7 @@ public class MaterialScript {
 	/**
 	 * Create Material,Change Material,Extend Material
 	 */
+	String s ="";
 
 	@Test
 	public void Material_Create_Fill_In_Questionnaire() throws InterruptedException {

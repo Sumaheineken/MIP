@@ -39,7 +39,7 @@
 			</class>
 		</classes>
 	</test>
-	<!-- <test name="HeiPort_Login_LDS">
+	<test name="HeiPort_Login_LDS">
 		<classes>
 			<class name="com.mendix.test.LoginScript">
 				<methods>
@@ -98,12 +98,13 @@
 			</class>
 		</classes>
 	</test>
-	<test name="HeiPort_Login_LDR_Syndication">
+	<test name="HeiPort_Login_GBLDR_SecondTime">
 		<classes>
 			<class name="com.mendix.test.LoginScript">
 				<methods>
+					<include name="tasKill" />
 					<include name="openBrowser" />
-					<include name="loginAsSGLDR" />
+					<include name="loginAsGBLDR" />
 				</methods>
 			</class>
 		</classes>
@@ -117,7 +118,7 @@
 			</class>
 		</classes>
 	</test>
- -->
+
  </suite> 
 
 
