@@ -1375,6 +1375,4 @@ public class VendorPage {
 		}
 	}
 
-	
-	
 }
