@@ -24,7 +24,5 @@ public class DropDown {
 		     }
 		  return isVerified;
 		 }
-	
-	
 
 }
