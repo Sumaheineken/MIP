@@ -1357,7 +1357,5 @@ public class VendorPage_NAV {
 		this.selectLocalPurchasingPaymentMCDropDown(strValue);
 	}
 
-	
-	
 }
 
