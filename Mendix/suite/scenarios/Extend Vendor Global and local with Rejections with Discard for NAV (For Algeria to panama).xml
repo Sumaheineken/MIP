@@ -28,7 +28,7 @@
 		<classes>
 			<class name="com.mendix.test.MaterialNavScript">
 				<methods>
-					<include name="Process_Information_Check_Local" />
+					<include name="Process_Information_Check" />
 				</methods>
 			</class>
 		</classes>
@@ -38,7 +38,7 @@
 			<class name="com.mendix.test.LoginScript">
 				<methods>
 					<include name="openBrowser" />
-					<include name="loginAsPAVMLDS" />
+					<include name="loginAsVendorLDSNAV " />
 				</methods>
 			</class>
 		</classes>
@@ -48,7 +48,7 @@
 			<class name="com.mendix.test.MaterialNavScript">
 				<methods>
 					<include
-						name="Material_Create_Review_Local_Data_Reject_LDS" />
+						name="vendor_Reject_LDS" />
 				</methods>
 			</class>
 		</classes>
@@ -57,7 +57,7 @@
 		<classes>
 			<class name="com.mendix.test.MaterialNavScript">
 				<methods>
-					<include name="Process_Information_Check_Local" />
+					<include name="Process_Information_Check" />
 				</methods>
 			</class>
 		</classes>
