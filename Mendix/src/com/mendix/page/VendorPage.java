@@ -247,8 +247,13 @@ public class VendorPage {
 
 	@FindBy(how = How.XPATH, using = "//button[@class='btn mx-button mx-name-actionButton8 btn-success']")
 	WebElement btnok;
+	
 	@FindBy(how = How.XPATH, using = "(.//*[starts-with(@id,'uniqName') And text()='New'])[1]")
 	WebElement btnCommentNewLBDA;
+	
+	@FindBy(how = How.XPATH, using = "//*[text()='Flag for Deletion']")
+	WebElement btnFlagForDeletionConfirmNav;
+
 
 	/**********************************************************************************************************
 	 * /** /** Instantiates a new home page.
@@ -1375,4 +1380,66 @@ public class VendorPage {
 		}
 	}
 
+	/*************************************************************************************************************/
+	public void clickResubmitGlobalRequest() throws InterruptedException {
+		WebDriverWait wait = new WebDriverWait(driver, 30);
+		wait.until(ExpectedConditions.elementToBeClickable(btnLocalActions));
+		Button.click("Local Actions button", btnLocalActions);
+		Sync.waitForSeconds(Constants.WAIT_2);
+		// Button.click("Local Actions button", btnLocalActions);
+		Sync.waitForSeconds(Constants.WAIT_1);
+		wait.until(ExpectedConditions.elementToBeClickable(btnGlobalRequest));
+		Button.click("Click Global submit Global Request", btnGlobalRequest);
+		Sync.waitForSeconds(Constants.WAIT_2);
+		Thread.sleep(8000);
+	}
+	/*************************************************************************************************************/
+	
+	public boolean clickConfirmFlagForDeletionButton() throws InterruptedException {
+
+		WebDriverWait wait = new WebDriverWait(driver, 30);
+		wait.until(ExpectedConditions.elementToBeClickable(btnLocalActions));
+		Button.click("Local Actions button", btnLocalActions);
+
+		if (Button.verifyObject(btnFlagForDeletionConfirmNav)) {
+			Sync.waitForSeconds(Constants.WAIT_5);
+			Sync.waitForObject(driver, btnFlagForDeletionConfirmNav);
+			return Button.jsclick("Confirm Flag for Deletion", btnFlagForDeletionConfirmNav, driver);
+		} else {
+			Sync.waitForSeconds(Constants.WAIT_5);
+			Sync.waitForObject(driver, btnFlagForDeletionConfirmNav);
+			return Button.jsclick("Confirm Flag for Deletion", btnFlagForDeletionConfirmNav, driver);
+		}
+	}
+
+	/*****************************************************************************************************************/
+	
+	/***********************************************************************************************************************************/
+	public String getRequestId_Flag_For_Deletion() throws InterruptedException, FileNotFoundException, IOException {
+
+		driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+		Sync.waitForObject(driver, "Wait of Dialog Box Success Message", msgRequestSuccess);
+		Sync.waitForSeconds(Constants.WAIT_3);
+
+		WebDriverWait wait = new WebDriverWait(driver, 60);
+		// WebElement text =
+		// driver.findElement(By.xpath(".//*[@id='mxui_widget_DialogMessage_0']/div[1]/div[2]/p"));
+		// wait.until(ExpectedConditions.elementToBeSelected(text));
+		String reqId = driver.findElement(By.xpath(".//*[@id='mxui_widget_DialogMessage_0']/div[1]/div[2]/p"))
+				.getText();
+		String[] parts = reqId.split(" ");
+		String Id = parts[6];
+		System.out.println("RequestId is: " + Id);
+		// ExcelUtil.excelWrite(Id);
+		ExcelUtil.setCellData_New("TestPlan", "RequestId", Id);
+		System.out.println("Excel write is done");
+		wait.until(ExpectedConditions.elementToBeClickable(btnOK));
+		Sync.waitForSeconds(Constants.WAIT_2);
+		Sync.waitForElementToBeClickable(driver, btnOK);
+
+		Button.click("Click Ok Button", btnOK);
+		return Id;
+	}
+
+	
 }
