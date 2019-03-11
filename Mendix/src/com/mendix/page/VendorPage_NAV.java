@@ -86,7 +86,7 @@ public class VendorPage_NAV {
 	@FindBy(how=How.XPATH, using=".//*[text()='Name 1']/../div/input")
 	WebElement textName;
 	
-	@FindBy(how=How.XPATH, using=".//*[text()='Search Term 1']/../div/input")
+	@FindBy(how=How.XPATH, using="	")
 	WebElement textSearchterm1;
 	
 	@FindBy(how=How.XPATH, using=".//*[text()='Street']/../div/input")
@@ -118,6 +118,10 @@ public class VendorPage_NAV {
 	
 	@FindBy(how=How.XPATH, using=".//*[text()='Corporate Group']/../div/div/select")
 	WebElement textCorporateGroup;
+	
+	@FindBy(how=How.XPATH, using=".//*[text()='Company ID Of TradingPartner']/../div/div/select")
+	WebElement textCompanyTradeGroup;
+	
 	
 	@FindBy(how=How.XPATH, using=".//*[text()='Request complies to all Validations']")
 	WebElement txtValidationMsg;
@@ -220,6 +224,10 @@ public class VendorPage_NAV {
 	
 	@FindBy(how=How.XPATH, using="//*[text()='Purchasing']/../../../div/div[2]/div/div/div/div[2]/div[2]/button[1]")
 	WebElement btnPurchasingNew;
+	
+	@FindBy(how=How.XPATH, using="//*[text()='Purchasing']/../../../div/div[2]/div/div/div[2]/div[2]//button[text()='Edit']")
+	WebElement btnPurchasingEdit;
+	
 		
 	@FindBy(how=How.XPATH, using="//*[text()='Bank Details']/../div/div[1]/div/div/div/div[2]/div[2]/button[1]")
 	WebElement btnBankNew;
@@ -259,6 +267,16 @@ public class VendorPage_NAV {
 
 	@FindBy(how=How.XPATH, using="//*[text()='Global Data']")
 	WebElement txtGlobalData;
+	
+	
+	@FindBy(how=How.XPATH, using="//*[text()='My record is not a duplicate! Submit.']")
+	WebElement btnDuplicateSubmit;
+	
+	@FindBy(how=How.XPATH, using="//*[@class='close mx-dialog-close']")
+	WebElement btnClose;
+	
+	@FindBy(how=How.XPATH,using=".//*[text()='Duplicate Check']")
+	WebElement duplicateCheckButton;
 /**********************************************************************************************************
 	/**
 	 * Instantiates a new home page.
@@ -376,6 +394,15 @@ public class VendorPage_NAV {
 	}
 	
 /*****************************************************************************/
+	public void ClickFinaceEdit() 
+	{
+
+		Sync.waitForSeconds(Constants.WAIT_6);
+	//	Sync.waitUntilObjectDisappears(driver, "Waiting of Create page to Load", By.xpath(".//*[@id='mxui_widget_Progress_0']/div[2]"));
+		Sync.waitForObject(driver, btnFinanceNew);
+		Button.click("New finace button", btnFinanceNew);
+	}
+	/*******************************************************************************/
 	public void ClickPurchasingNew() 
 	{
 		Sync.waitUntilObjectDisappears(driver, "Waiting of Create page to Load", By.xpath(".//*[@id='mxui_widget_Progress_0']/div[2]"));
@@ -387,6 +414,15 @@ public class VendorPage_NAV {
 	}
 
 /*****************************************************************************/
+	public void ClickPurchasingEdit() 
+	{
+		Sync.waitUntilObjectDisappears(driver, "Waiting of Create page to Load", By.xpath(".//*[@id='mxui_widget_Progress_0']/div[2]"));
+	
+		Sync.waitForObject(driver, btnPurchasingNew);
+		Button.click("New Purchasing button", btnPurchasingNew);
+	}
+/************************************************************************************************/
+	
 	public void ClickBankDetailsNew() 
 	{
 		Sync.waitForSeconds(Constants.WAIT_6);
@@ -433,7 +469,8 @@ public class VendorPage_NAV {
 		wait.until(ExpectedConditions.elementToBeClickable(textName));
 		Textbox.enterValue("Name to create vendor",textName, strValue);
 		Sync.waitForSeconds(Constants.WAIT_1);
-		Textbox.click("clicking name1", textSearchterm1);		
+		//Textbox.click("clicking name1", textSearchterm1);
+		Textbox.enterValue("Enter Search Term",textSearchterm1, strValue);
 	}
 
 /********************Address section Global Data*********************************************************/		
@@ -555,6 +592,25 @@ public class VendorPage_NAV {
 			if(sValue.equals(strValue))
 			 {
 				CorporateGroup.selectByIndex(i);
+			 break;
+			 }
+		 }
+	}
+	public void AddresCompanyTrading(String strValue)
+	{
+		Sync.waitForSeconds(Constants.WAIT_1);
+		Select CompanyTradeGroup= new Select(textCompanyTradeGroup);
+//		CorporateGroup.selectByVisibleText(strValue);
+		Sync.waitForSeconds(Constants.WAIT_1);
+		 List <WebElement> elementCount = CompanyTradeGroup.getOptions();
+		 int iSize = elementCount.size();
+		 System.out.println(iSize);
+		 for(int i =0; i<iSize ; i++)
+		 {
+			String sValue = elementCount.get(i).getText();
+			if(sValue.equals(strValue))
+			 {
+				CompanyTradeGroup.selectByIndex(i);
 			 break;
 			 }
 		 }
@@ -1142,5 +1198,127 @@ public class VendorPage_NAV {
 		
 	}
 	
+/*************************************************************************************************************************************/
+	 public void clickDuplicateCheck() 
+     {
+    	 Sync.waitUntilObjectDisappears(driver, "Wait for Duplicate check", By.xpath(".//*[@id='mxui_widget_Progress_0']/div[2]"));
+    	 Sync.waitForSeconds(Constants.WAIT_5);
+    	 WebDriverWait wait = new WebDriverWait(driver,50);
+    	 wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[text()='My record is not a duplicate! Submit.']")));
+    	 
+    	 if(Button.verifyObject(btnDuplicateSubmit)) 
+    	 {
+    		 Sync.waitForSeconds(Constants.WAIT_5);
+    		 duplicateCheck_New();
+    	 }
+    	 else if(Button.verifyObject(btnClose))
+    	 {
+
+    		 Sync.waitForSeconds(Constants.WAIT_5);
+    		 Sync.waitForObject(driver, "Wait for the information PopUp", msgRequestSuccess);
+
+    		 clickOkToHandlePopup();
+    	 }
+     }
+/*******************************************************************************************************************************************************/
+	 public void duplicateCheck_New() {
+			try {
+			// Sync.waitUntilObjectDisappears(driver, "Wait for Duplicate check", By.xpath(".//*[@id='mxui_widget_Progress_0']/div[2]"));
+	        Sync.waitForSeconds(Constants.WAIT_5);
+	       // Sync.waitForSeconds(Constants.WAIT_5);
+			/*WebElement waitElement = null;
+			FluentWait<WebDriver> fwait = new FluentWait<WebDriver>(driver)
+			.withTimeout(Duration.ofMinutes(3))
+			.pollingEvery(Duration.ofSeconds(600))
+			.ignoring(NoSuchElementException.class)
+			.ignoring(TimeoutException.class);
+
+			//First checking to see if the loading indicator is found
+			// we catch and throw no exception here in case they aren't ignored
+			try {
+			waitElement = fwait.until(new Function<WebDriver, WebElement>() {
+			public WebElement apply(WebDriver driver) {
+			return driver.findElement(By.xpath(".//*[@id='mxui_widget_Progress_0']"));
+			}
+			});
+			} catch (Exception e) {
+			}
+
+			//checking if loading indicator was found and if so we wait for it to
+			//disappear
+			if (waitElement != null) {
+	*/		WebDriverWait wait = new WebDriverWait(driver, 100);
+	        
+			wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(".//*[text()='Open Record']")));
+		    System.out.println("Clicked on Open Record");
+			
+			//}
+
+			driver.manage().window().setPosition(new Point(-2000, 0)) ;
+			driver.findElement(By.xpath(".//*[text()='Open Record']")).sendKeys(Keys.TAB);
+			Sync.waitForSeconds(Constants.WAIT_2);
+			driver.findElement(By.xpath(".//*[text()='Extend Selected']")).sendKeys(Keys.TAB);
+			Sync.waitForSeconds(Constants.WAIT_2);
+			driver.findElement(By.xpath("//*[text()='Export to Excel']")).sendKeys(Keys.TAB);
+			Sync.waitForSeconds(Constants.WAIT_2);
+			driver.findElement(By.xpath("//*[text()='My record is not a duplicate! Submit.']")).sendKeys(Keys.RETURN);
+			Sync.waitForSeconds(Constants.WAIT_2);
+			driver.findElement(By.xpath("//*[text()='Proceed']")).click();
+			Sync.waitForSeconds(Constants.WAIT_3);
+			System.out.println("Clicked on proceed");
+
+
+			driver.manage().window().maximize();
+			Actions actions = new Actions(driver);
+			actions.moveToElement(btnMsgReqIdOk);
+			actions.perform();
+
+			Button.click("Click Ok Button", btnMsgReqIdOk);
+
+			/*try
+			{
+			if(btnMsgReqIdOkdraft.isEnabled())
+			{
+			Button.click("Click Ok Button", btnMsgReqIdOkdraft);
+			System.out.println("Button is Clicked");
+			}
+
+			}
+			catch(Exception e) {
+			System.err.println(e.getMessage());
+
+
+			}*/
+
+			}
+			catch(Exception e) {
+			System.err.println(e.getMessage());
+
+
+			}
+			} 
+	 /*******************************************************************************************************************************/
+	 public boolean clickOkToHandlePopup()
+		{
+		Sync.waitForSeconds(Constants.WAIT_5);
+		Sync.waitForSeconds(Constants.WAIT_2);
+		WebElement popUp = driver.findElement(By.xpath("//*[@class='close mx-dialog-close']"));
+		return Button.jsclick("Click on Popup", popUp, driver);
+		//Sync.waitForSeconds(Constants.WAIT_1);
+	   // Button.jsclick("Click ok on info Popup", btnOkay, driver);
+		} 
+	 
+	 
+	 /*********************************************************************************************************************************/
+	 public void duplicateCheckButton() {
+		 if(Button.verifyObject(duplicateCheckButton)) {
+			 Sync.waitForSeconds(Constants.WAIT_5);
+			 Button.click("Click on Duplicate check", duplicateCheckButton);
+		 }
+		 else {
+			 Button.click("Click on Duplicate check", duplicateCheckButton); 
+		 }
+	 }
+
 }
 
