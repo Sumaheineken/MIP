@@ -467,7 +467,7 @@ public class ExcelUtil {
 
 	public static String getTestCaseName(String testDataFile, String sheetName)
 			throws IOException {
-		TestData.testDataFile = "C:\\Users\\SatishKumarSundaramo\\git\\Mendix_New\\Mendix\\input\\Mendix_TestPlan.xlsx";
+		TestData.testDataFile = "input/Mendix_TestPlan"+Constants.EXCEL_FORMAT_XLSX;
 		ArrayList<String[]> data = TestData.getTestCaseData("TestPlan");
 		String testCaseName=null;
 		for (int i = 0; i < data.size(); i++) {

@@ -230,6 +230,7 @@ public class MaterialScript {
 			throws InterruptedException, FileNotFoundException, IOException {
 
 		SharedDriver.pageContainer.materialPage.validateTestCreate();
+		SharedDriver.pageContainer.materialPage.clickDuplicateCheck();
 		SharedDriver.pageContainer.materialPage.submitGlobalRequestTest();
 		SharedDriver.pageContainer.materialPage.getRequestId_Create();
 		// SharedDriver.pageContainer.materialPage.getRequestId();

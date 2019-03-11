@@ -1806,7 +1806,6 @@ public class MaterialPage {
 
 
 	public void duplicateCheck_New() {
-		try {
 		// Sync.waitUntilObjectDisappears(driver, "Wait for Duplicate check", By.xpath(".//*[@id='mxui_widget_Progress_0']/div[2]"));
         Sync.waitForSeconds(Constants.WAIT_5);
        // Sync.waitForSeconds(Constants.WAIT_5);
@@ -1852,12 +1851,12 @@ public class MaterialPage {
 		System.out.println("Clicked on proceed");
 
 
-		driver.manage().window().maximize();
+		/*driver.manage().window().maximize();
 		Actions actions = new Actions(driver);
 		actions.moveToElement(btnMsgReqIdOk);
 		actions.perform();
 
-		Button.click("Click Ok Button", btnMsgReqIdOk);
+		Button.click("Click Ok Button", btnMsgReqIdOk);*/
 
 		/*try
 		{
@@ -1874,12 +1873,12 @@ public class MaterialPage {
 
 		}*/
 
-		}
-		catch(Exception e) {
-		System.err.println(e.getMessage());
-
-
-		}
+//		}
+//		catch(Exception e) {
+//		System.err.println(e.getMessage());
+//
+//
+//		}
 		} 
 	public void duplicateCheck_New_ExtendSelected() {
 		try {

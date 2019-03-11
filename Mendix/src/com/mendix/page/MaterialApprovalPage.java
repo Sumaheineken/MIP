@@ -435,13 +435,13 @@ public class MaterialApprovalPage {
 	}
 
 	public void launchUFT() throws IOException {
-		Runtime.getRuntime().exec("C:\\Users\\IBM_ADMIN\\git\\MDM_TEST\\MDM_POC\\AutoIt UFT Launch\\UFT.exe");
+		Runtime.getRuntime().exec("AutoIt UFT Launch\\UFT.exe");
 
 	}
 
 	public void launch_UFT_JDE() throws IOException {
 		Runtime.getRuntime()
-				.exec("C:\\Users\\SatishKumarSundaramo\\git\\Mendix_New\\Mendix\\AutoIt_UFT_Launch\\JDE.exe");
+				.exec("AutoIt UFT Launch\\JDE.exe");
 	}
 
 	public void duplicateCheck() {

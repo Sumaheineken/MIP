@@ -48,7 +48,8 @@ public class VendorScript {
 		SharedDriver.pageContainer.vendorPage.AddresIndustryKey("Y001, Trade/Serv/Transport");
 		SharedDriver.pageContainer.vendorPage.AddresCorporateGroup("PR-PACK, PR-Packaging materials");
 		SharedDriver.pageContainer.vendorPage.validateTestCreate();
-		
+		SharedDriver.pageContainer.materialPage.duplicateCheckButton();
+		SharedDriver.pageContainer.materialPage.clickDuplicateCheck();
 		SharedDriver.pageContainer.vendorPage.submitGlobalRequestTest();
 		SharedDriver.pageContainer.vendorPage.getRequestId();
 				
@@ -220,7 +221,7 @@ public class VendorScript {
 		SharedDriver.pageContainer.vendorPage.reqIdSearchGlobal(dataMap.get("RequestId"));
 		SharedDriver.pageContainer.vendorPage.getGlobalId();
 		SharedDriver.pageContainer.processInfoPage.browserClose();	
-		SharedDriver.pageContainer.materialApprovalPage.launch_UFT_JDE();
+		SharedDriver.pageContainer.materialApprovalPage.launchUFT();
 	}
 /****************************************************************************************************/	
 	@Test(dataProvider="Process_Information_Check",dataProviderClass=staticProviderClass.class)
