@@ -30,7 +30,7 @@
 			</class>
 		</classes>
 	</test> 
-	<!--
+	
 	<test name="HeiPort_Login_LBDA_Reject">
 		<classes>
 			<class name="com.mendix.test.LoginScript">
@@ -59,8 +59,8 @@
 			</class>
 		</classes>
 	</test>
-	-->
-	<!-- 
+	
+	 
 	<test name="HeiPort_ReLogin_LDR">
 		<classes>
 			<class name="com.mendix.test.LoginScript">
@@ -89,9 +89,9 @@
 			</class>
 		</classes>
 	</test> 
-	 -->
-	<!-- 
-		<test name="HeiPort_Login_LBDA">
+	 
+	 
+	<test name="HeiPort_Login_LBDA">
 		<classes>
 			<class name="com.mendix.test.LoginScript">
 				<methods>
@@ -121,8 +121,7 @@
 		</classes>
 	</test>
 
-	-->
-	<!--
+	
 	 <test name="HeiPort_Login_LDR_Syndication">
 		<classes>
 			<class name="com.mendix.test.LoginScript">
@@ -141,7 +140,8 @@
 				</methods>
 			</class>
 		</classes>
-	</test> -->
+	</test> 
+	
 </suite> 
 
 

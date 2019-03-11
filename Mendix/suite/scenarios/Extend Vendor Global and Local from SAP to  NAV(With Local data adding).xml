@@ -82,7 +82,7 @@
 	</test>
 	<test name="Vendor_Create_Review_Global_Data_Approve_LBDA">
 		<classes>
-			<class name="com.mendix.test.MaterialScript">
+			<class name="com.mendix.test.VendorScript">
 				<methods>
 					<include
 						name="vendor_Create_Review_Global_Data_Approve_LBDA" />
@@ -121,6 +121,7 @@
 			</class>
 		</classes>
 	</test> 
+
 	
 </suite> 
 

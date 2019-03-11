@@ -385,5 +385,115 @@ public class VendorScript {
 		SharedDriver.pageContainer.vendorPage.getRequestId();
 		SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
 	}
+	
+	/**********************************************************************************************************************************/
+	
+	@Test(dataProvider="Process_Information_Check",dataProviderClass=staticProviderClass.class)
+	public void vendor_Extend_Global_Nav_With_Rejections(Map<String,String> dataMap) throws InterruptedException, FileNotFoundException, IOException, AWTException 
+	{
+	SharedDriver.pageContainer.homePage.navigateToWorkflow();
+	SharedDriver.pageContainer.vendorPage.switchToMDMPortal();
+	SharedDriver.pageContainer.vendorPage.navigateToDashboard();
+	SharedDriver.pageContainer.vendorPage.advancedSearch();
+	//SharedDriver.pageContainer.vendorPage.gobalIDSearchGlobal(dataMap.get("Global_ID"));
+	//SharedDriver.pageContainer.vendorPage.globalSearch(dataMap.get("GlobalId"));
+	SharedDriver.pageContainer.materialPage.globalSearch(dataMap.get("Global_ID"));
+	SharedDriver.pageContainer.vendorPage.GetFullVendorDataNew();
+	SharedDriver.pageContainer.vendorPage.clickOkOnInformationButton();
+	SharedDriver.pageContainer.vendorPage.clickOkOnInformationButton();
+	SharedDriver.pageContainer.vendorPage.clickExtendButton();
+	}
+	
+	/*******************************************************************************************************************************/
+	
+	@Test(dataProvider="CreateVendor_Fill_In_Local",dataProviderClass=staticProviderClass.class)
+	public void vendor_Create_Fill_In_Local_Finance_Tab(Map<String,String> dataMap) throws InterruptedException
+	{
+		SharedDriver.pageContainer.vendorPageNAV.localAddInNewFinanceNav();
+		SharedDriver.pageContainer.vendorPageNAV.clickAndSelectVendorPostingGroupDropDown(dataMap.get("Vendor Posting Group"));
+		SharedDriver.pageContainer.vendorPageNAV.clickAndSelectVATBusPostingGroupDropDown(dataMap.get("VAT Bus. Posting Group"));
+		SharedDriver.pageContainer.vendorPageNAV.validateAndSaveLocalData();
+	}
+
+	/*********************************************************************************************************************************/
+	
+	@Test(dataProvider="CreateVendor_Fill_In_Local",dataProviderClass=staticProviderClass.class)
+	public void vendor_Create_Fill_In_Local_Purchasing_Tab(Map<String,String> dataMap) throws InterruptedException
+	{
+		SharedDriver.pageContainer.vendorPageNAV.localAddInPurchasingNav();
+		SharedDriver.pageContainer.vendorPageNAV.clickAndSelectPaymentTCDropDown(dataMap.get("Payment Terms Code"));
+		SharedDriver.pageContainer.vendorPageNAV.clickAndSelectPaymentMCDropDown(dataMap.get("Payment Method Code"));
+		SharedDriver.pageContainer.vendorPageNAV.validateAndSaveLocalData();
+	}
+
+	/***************************************************************************************************************************************/
+	
+	@Test(dataProvider="Process_Information_Check",dataProviderClass=staticProviderClass.class)
+	public void vendor_Create_Review_Local_Data_Approve_LDS(Map<String,String> dataMap) throws InterruptedException, FileNotFoundException, IOException
+	{
+		Assert.assertTrue(SharedDriver.pageContainer.homePage.navigateToWorkflow());
+		SharedDriver.pageContainer.vendorPage.switchToMDMPortal();
+		SharedDriver.pageContainer.materialApprovalPage.reqIdSearchMyTasks(dataMap.get("RequestId"));
+		SharedDriver.pageContainer.materialApprovalPage.approvalBtnClickLocalLDS();
+		Sync.waitForSeconds(Constants.WAIT_5);
+		SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
+		//SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
+	}
+/***********************************************************************************************************************************/
+	@Test(dataProvider="Process_Information_Check",dataProviderClass=staticProviderClass.class)
+	public void vendor_Reject_Resubmit_LDR(Map<String,String> dataMap) throws InterruptedException, FileNotFoundException, IOException
+	{
+		SharedDriver.pageContainer.homePage.navigateToWorkflow();
+		SharedDriver.pageContainer.vendorPage.switchToMDMPortal();
+		SharedDriver.pageContainer.materialApprovalPage.reqIdSearchMyTasks(dataMap.get("RequestId"));
+		//SharedDriver.pageContainer.vendorPage.validateTestCreate();		
+		SharedDriver.pageContainer.vendorPage.clickResubmitGlobalRequest();
+		SharedDriver.pageContainer.materialPage.clickDuplicateCheck();
+		SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
+		
+	}
+	/*****************************************************************************************************************************/
+	
+	@Test(dataProvider="Process_Information_Check",dataProviderClass=staticProviderClass.class)
+	public void vendor_Extend_Global_Sap_With_Rejections(Map<String,String> dataMap) throws InterruptedException, FileNotFoundException, IOException, AWTException 
+	{
+	SharedDriver.pageContainer.homePage.navigateToWorkflow();
+	SharedDriver.pageContainer.vendorPage.switchToMDMPortal();
+	SharedDriver.pageContainer.vendorPage.navigateToDashboard();
+	SharedDriver.pageContainer.vendorPage.advancedSearch();
+	//SharedDriver.pageContainer.vendorPage.gobalIDSearchGlobal(dataMap.get("Global_ID"));
+	//SharedDriver.pageContainer.vendorPage.globalSearch(dataMap.get("GlobalId"));
+	SharedDriver.pageContainer.materialPage.globalSearch(dataMap.get("Global_ID"));
+	SharedDriver.pageContainer.vendorPage.GetFullVendorData();	
+	SharedDriver.pageContainer.vendorPage.clickExtendButton();
+	//SharedDriver.pageContainer.vendorPage.clickGlobalDataButton();
+	SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
+	SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();	
+	//SharedDriver.pageContainer.vendorPage.clickToConfirm();
+	SharedDriver.pageContainer.materialPage.clickLocalAction();
+	SharedDriver.pageContainer.vendorPage.clickConfirmExtension();
+	SharedDriver.pageContainer.vendorPage.getRequestId();
+	SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
+	}
+	
+	/*****************************************************************************************************************************/
+	
+	@Test(dataProvider="Process_Information_Check",dataProviderClass=staticProviderClass.class)
+	public void Happy_Flag_Deletion_Nav(Map<String,String> dataMap) throws InterruptedException, FileNotFoundException, IOException, AWTException 
+	{
+	SharedDriver.pageContainer.homePage.navigateToWorkflow();
+	SharedDriver.pageContainer.vendorPage.switchToMDMPortal();
+	SharedDriver.pageContainer.vendorPage.navigateToDashboard();
+	SharedDriver.pageContainer.vendorPage.advancedSearch();
+	SharedDriver.pageContainer.vendorPage.gobalIDSearchGlobal(dataMap.get("Global_ID"));	
+	SharedDriver.pageContainer.vendorPage.clickflagDeletion();
+	SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
+	//SharedDriver.pageContainer.vendorPage.clickLocalAction();
+	SharedDriver.pageContainer.vendorPage.clickConfirmFlagForDeletionButton();
+	SharedDriver.pageContainer.vendorPage.getRequestId_Flag_For_Deletion();
+	SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
+	}
+	
+	
 }
 
