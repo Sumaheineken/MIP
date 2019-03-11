@@ -233,5 +233,95 @@ public class MaterialNavScript {
 		Sync.waitForSeconds(Constants.WAIT_10);
 		SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();	
 	}
+	@Test(dataProvider="Process_Information_Check",dataProviderClass=staticProviderClass.class)
+	public void Process_Information_Check_GlobalID(Map<String,String> dataMap) throws InterruptedException, FileNotFoundException, IOException 
+	{
+
+		SharedDriver.pageContainer.processInfoPage.processInfoSearch();
+		SharedDriver.pageContainer.processInfoPage.reqIdSearch_Global(dataMap.get("RequestId"));
+		SharedDriver.pageContainer.processInfoPage.getState_New(dataMap.get("RequestId"));
+		//SharedDriver.pageContainer.processInfoPage.capturing_GlobalID();
+		SharedDriver.pageContainer.materialPage.getGlobalIdProcessInfo();
+		Sync.waitForSeconds(Constants.WAIT_5);
+		SharedDriver.pageContainer.processInfoPage.browserClose();
+	}
+	@Test(dataProvider="Process_Information_Check",dataProviderClass=staticProviderClass.class)
+	public void Material_Create_Review_Local_Data_Reject_LDS(Map<String,String> dataMap) throws InterruptedException, FileNotFoundException, IOException 
+	{
+		Assert.assertTrue(SharedDriver.pageContainer.homePage.navigateToWorkflow());
+		SharedDriver.pageContainer.materialPage.switchToPopup();
+		SharedDriver.pageContainer.materialApprovalPage.reqIdSearchMyTasks(dataMap.get("RequestId"));
+		
+		//SharedDriver.pageContainer.materialApprovalPage.approvalBtnClick_Local();
+		SharedDriver.pageContainer.materialApprovalPage.markViewsBtnClick_Local();
+		SharedDriver.pageContainer.materialPage.clickOkToHandlePopup();
+		SharedDriver.pageContainer.materialPage.rejectVendorLocalRequest();
+		SharedDriver.pageContainer.materialApprovalPage.submitRequestOkButtonClick();	
+
+	}
+	@Test(dataProvider="Process_Information_Check",dataProviderClass=staticProviderClass.class)
+	public void Material_LocalData_Submit_LDR(Map<String,String> dataMap) throws InterruptedException, FileNotFoundException, IOException 
+	{
+		Assert.assertTrue(SharedDriver.pageContainer.homePage.navigateToWorkflow());
+		SharedDriver.pageContainer.materialPage.switchToPopup();
+		SharedDriver.pageContainer.materialApprovalPage.reqIdSearchMyTasks(dataMap.get("RequestId"));
+		
+		SharedDriver.pageContainer.materialApprovalPage.approvalBtnClick_Local();
+		
+		SharedDriver.pageContainer.materialNavPage.submitLocalRequest();
+		SharedDriver.pageContainer.materialApprovalPage.submitRequestOkButtonClick();
+
+	}
+
+	@Test(dataProvider="Process_Information_Check",dataProviderClass=staticProviderClass.class)
+	public void Process_Information_Check_Local_Reject_Status_LDS(Map<String,String> dataMap) throws InterruptedException, FileNotFoundException, IOException 
+	{
+
+		SharedDriver.pageContainer.processInfoPage.processInfoSearch();
+		SharedDriver.pageContainer.processInfoPage.reqIdSearch_Local(dataMap.get("RequestId"));
+		//SharedDriver.pageContainer.processInfoPage.getState_New(dataMap.get("RequestId"));
+		SharedDriver.pageContainer.processInfoPage.validateGetTask_Status(dataMap.get("RequestId"));
+		
+		SharedDriver.pageContainer.processInfoPage.browserClose();
+	}
+
+	@Test(dataProvider="Process_Information_Check",dataProviderClass=staticProviderClass.class)
+	public void Process_Information_Check_Local_Extension(Map<String,String> dataMap) throws InterruptedException, FileNotFoundException, IOException 
+	{
+
+		SharedDriver.pageContainer.processInfoPage.processInfoSearch();
+		SharedDriver.pageContainer.processInfoPage.reqIdSearch_Local(dataMap.get("RequestId"));
+		SharedDriver.pageContainer.processInfoPage.getState_New(dataMap.get("RequestId"));
+		SharedDriver.pageContainer.processInfoPage.browserClose();
+	}
+	
+	@Test(dataProvider="Process_Information_Check",dataProviderClass=staticProviderClass.class)
+	public void Process_Information_Check_GlobalID_Extend(Map<String,String> dataMap) throws InterruptedException, FileNotFoundException, IOException 
+	{
+
+		SharedDriver.pageContainer.processInfoPage.processInfoSearch();
+		SharedDriver.pageContainer.processInfoPage.reqIdSearch_Global(dataMap.get("RequestId"));
+		//SharedDriver.pageContainer.processInfoPage.getState_New(dataMap.get("RequestId"));
+		//SharedDriver.pageContainer.processInfoPage.capturing_GlobalID();
+		SharedDriver.pageContainer.materialPage.getGlobalIdProcessInfo_Extend(dataMap.get("RequestId"));
+		Sync.waitForSeconds(Constants.WAIT_5);
+		SharedDriver.pageContainer.processInfoPage.browserClose();
+	}
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 }

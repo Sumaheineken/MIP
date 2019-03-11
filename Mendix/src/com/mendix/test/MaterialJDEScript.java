@@ -9,7 +9,9 @@ import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import com.mendix.tool.Constants;
 import com.mendix.tool.SharedDriver;
+import com.mendix.tool.Sync;
 import com.mendix.util.DataProviderUtil.staticProviderClass;
 
 import sun.text.normalizer.Trie.DataManipulate;
@@ -200,5 +202,99 @@ public class MaterialJDEScript {
 //		SharedDriver.pageContainer.materialApprovalPage.submitRequestOkBtnClick();
 
 	}
+	@Test
+	public void Material_Remove_Plant_Validate_LocalData_JDE() throws InterruptedException, FileNotFoundException, IOException, AWTException 
+	{
+		SharedDriver.pageContainer.materialNavPage.enterLocalData();
+//		SharedDriver.pageContainer.materialJdePage.clickAddPlantData();
+		//SharedDriver.pageContainer.materialJdePage.SelectingPlant();
+		SharedDriver.pageContainer.materialJdePage.RemovePlant();
+		//SharedDriver.pageContainer.materialNavPage.clickLocalAction();
+		SharedDriver.pageContainer.materialNavPage.clickValidatLocalRequest();
+		SharedDriver.pageContainer.materialNavPage.submitGlobalLocalRequestTest();
+		SharedDriver.pageContainer.materialPage.getRequestId_CreateNew();
+		SharedDriver.pageContainer.materialApprovalPage.submitRequestOkButtonClick();
+		
+	}
+	@Test
+	public void Material_Validate_LocalData_JDE() throws InterruptedException, FileNotFoundException, IOException, AWTException 
+	{
+		SharedDriver.pageContainer.materialNavPage.enterLocalData();
+//		SharedDriver.pageContainer.materialJdePage.clickAddPlantData();
+		
+		//SharedDriver.pageContainer.materialNavPage.clickLocalAction();
+		SharedDriver.pageContainer.materialNavPage.clickValidatLocalRequest();
+		SharedDriver.pageContainer.materialNavPage.submitGlobalLocalRequestTest();
+		SharedDriver.pageContainer.materialPage.getRequestId_CreateNew();
+		SharedDriver.pageContainer.materialApprovalPage.submitRequestOkButtonClick();
+		
+	}
+	@Test(dataProvider="CreateMaterial_Fill_In",dataProviderClass=staticProviderClass.class)
+	public void Material_Create_Fill_In_Data_JDE_Planning_Extend(Map<String,String> dataMap) throws InterruptedException, FileNotFoundException, IOException, AWTException 
+	{
+		//SharedDriver.pageContainer.materialNavPage.enterLocalData();
+//		SharedDriver.pageContainer.materialJdePage.clickAddPlantData();
+		SharedDriver.pageContainer.materialJdePage.enterPlantData(dataMap.get("Plant"));
+//		SharedDriver.pageContainer.materialJdePage.enterPlantDataJDE();
+		SharedDriver.pageContainer.materialJdePage.SelectPlant();
+		SharedDriver.pageContainer.materialJdePage.clickEditPlanningData_Extend();		
+		SharedDriver.pageContainer.materialJdePage.selectStockingTypeLocal();
+		SharedDriver.pageContainer.materialJdePage.selectCommitmentDateMethod();
+		SharedDriver.pageContainer.materialJdePage.selectLotCalculationAlgorithm();
+		SharedDriver.pageContainer.materialJdePage.selectLotProcessType();
+		SharedDriver.pageContainer.materialJdePage.selectLotExpiratonDateCalculationMethod();
+		SharedDriver.pageContainer.materialJdePage.selectMasterPlanningFamily();
+		SharedDriver.pageContainer.materialJdePage.selectPlanningCode();
+		SharedDriver.pageContainer.materialNavPage.clickLocalAction();
+		SharedDriver.pageContainer.materialNavPage.clickValidatLocalData();
+		SharedDriver.pageContainer.materialNavPage.clickPlanningSaveButton();
+	}
+	@Test
+	public void Material_Create_Fill_In_Data_JDE_Finance_Extend() throws InterruptedException, FileNotFoundException, IOException, AWTException 
+	{
+		SharedDriver.pageContainer.materialJdePage.clickFinancetabJDE();
+		SharedDriver.pageContainer.materialNavPage.clickEditFinanceDataJDE_Extend();
+		/*SharedDriver.pageContainer.materialApprovalPage.submitRequestOkBtnClick();
+		SharedDriver.pageContainer.materialPage.clickLocalAction();
+		SharedDriver.pageContainer.materialJdePage.clickBackAction();
+		SharedDriver.pageContainer.materialJdePage.clickProceedAction();
+		SharedDriver.pageContainer.materialJdePage.clickPlantData();*/
+//		SharedDriver.pageContainer.materialNavPage.clickEditFinanceData();
+		
+	/*	SharedDriver.pageContainer.materialNavPage.clickEditFinanceData();*/
+		SharedDriver.pageContainer.materialJdePage.selectGLClass();
+		SharedDriver.pageContainer.materialJdePage.selectCostingMethodPurchasing();
+		SharedDriver.pageContainer.materialJdePage.selectCostingMethodSales();
+		/*SharedDriver.pageContainer.materialNavPage.selectGenProdPostingGroup();
+		SharedDriver.pageContainer.materialNavPage.selectVATPostingGroup();
+		SharedDriver.pageContainer.materialNavPage.selectItemDepositGroupCode();*/
+		SharedDriver.pageContainer.materialNavPage.clickLocalAction();
+		SharedDriver.pageContainer.materialNavPage.clickValidatLocalData();
+		SharedDriver.pageContainer.materialNavPage.clickSaveButton();
+		SharedDriver.pageContainer.materialNavPage.clickLocalAction();
+		SharedDriver.pageContainer.materialNavPage.clickValidateLocalRequest();
+		Sync.waitForSeconds(Constants.WAIT_6);
+		System.out.println("Clicked Validate Local request");
+/*		SharedDriver.pageContainer.materialNavPage.clickGlobalDataButton();
+	    //	SharedDriver.pageContainer.materialPage.clickLocalAction();
+	    SharedDriver.pageContainer.material_Change_Page.clickConfirmExtension();
+	    SharedDriver.pageContainer.materialPage.getRequestId_CreateNew();
+		SharedDriver.pageContainer.materialApprovalPage.submitRequestOkButtonClick();*/
+		/*SharedDriver.pageContainer.materialNavPage.submitGlobalLocalRequestTest();
+		SharedDriver.pageContainer.materialPage.clickDuplicateCheck_GlobalLocal();
+	
+		SharedDriver.pageContainer.materialPage.getRequestId_CreateNew();
+		SharedDriver.pageContainer.materialApprovalPage.submitRequestOkButtonClick();*/
+	}
+	
+	
+
+
+
+	
+
+
+	
+
 }
 
