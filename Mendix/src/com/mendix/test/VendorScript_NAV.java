@@ -272,17 +272,18 @@ public class VendorScript_NAV {
 	public void Vendor_Change_Fill_In_Data_Global_Local_Bank_NAV(Map<String,String> dataMap) throws InterruptedException, FileNotFoundException, IOException, AWTException 
 	{
 		SharedDriver.pageContainer.vendorPageNAV.VendorName(dataMap.get("Name1"));
-		SharedDriver.pageContainer.vendorPageNAV.AddressStreet("Changekite");//dataMap.get("Street")
-		SharedDriver.pageContainer.vendorPageNAV.AddresHouseNumber("12"); //dataMap.get("House number")
-		SharedDriver.pageContainer.vendorPageNAV.AddresPostalCode("56478"); //dataMap.get("Postal Code")
-		SharedDriver.pageContainer.vendorPageNAV.AddresCity("Change holland");
+		
+		SharedDriver.pageContainer.vendorPageNAV.AddressStreet(dataMap.get("Street"));
+		SharedDriver.pageContainer.vendorPageNAV.AddresHouseNumber(dataMap.get("House number")); 
+		SharedDriver.pageContainer.vendorPageNAV.AddresPostalCode(dataMap.get("Postal Code")); 
+		SharedDriver.pageContainer.vendorPageNAV.AddresCity(dataMap.get("City"));
 		SharedDriver.pageContainer.vendorPageNAV.ScrollDown();
 		//'DropDowns
-		SharedDriver.pageContainer.vendorPageNAV.AddresCountry("DZ, Algeria"); //dataMap.get("Country")
-		SharedDriver.pageContainer.vendorPageNAV.AddresLanguageKey("EN, English");
-		SharedDriver.pageContainer.vendorPageNAV.AddressCreditInformationNumber("565786234");
-		SharedDriver.pageContainer.vendorPageNAV.AddresIndustryKey("Y001, Trade/Serv/Transport");
-		SharedDriver.pageContainer.vendorPageNAV.AddresCorporateGroup("NPR-BS, NPR-Business Services");
+		SharedDriver.pageContainer.vendorPageNAV.AddresCountry(dataMap.get("Country"));
+		SharedDriver.pageContainer.vendorPageNAV.AddresLanguageKey(dataMap.get("Language Key"));
+		SharedDriver.pageContainer.vendorPageNAV.AddressCreditInformationNumber(dataMap.get("Credit Information Number"));
+		SharedDriver.pageContainer.vendorPageNAV.AddresIndustryKey(dataMap.get("Industry Key"));
+		SharedDriver.pageContainer.vendorPageNAV.AddresCorporateGroup(dataMap.get("Corporate Group"));
 		
 		SharedDriver.pageContainer.vendorPageNAV.ClickBankData_NAV();
 		
@@ -312,6 +313,55 @@ public class VendorScript_NAV {
 		
 		SharedDriver.pageContainer.vendorPageNAV.submitBankRequest();
 	}
+/***************************************************************************************************************************************/
+	@Test(dataProvider="Vendor_Create_Global_Disable_Bank_and_LocalData",dataProviderClass=staticProviderClass.class)
+	public void Vendor_Change_Fill_In_Data_Global_NAV(Map<String,String> dataMap) throws InterruptedException, FileNotFoundException, IOException, AWTException 
+	{
+		SharedDriver.pageContainer.vendorPageNAV.VendorName(dataMap.get("Name1"));
+		
+		SharedDriver.pageContainer.vendorPageNAV.AddressStreet(dataMap.get("Street"));
+		SharedDriver.pageContainer.vendorPageNAV.AddresHouseNumber(dataMap.get("House number")); 
+		SharedDriver.pageContainer.vendorPageNAV.AddresPostalCode(dataMap.get("Postal Code")); 
+		SharedDriver.pageContainer.vendorPageNAV.AddresCity(dataMap.get("City"));
+		SharedDriver.pageContainer.vendorPageNAV.ScrollDown();
+		//'DropDowns
+		SharedDriver.pageContainer.vendorPageNAV.AddresCountry(dataMap.get("Country"));
+		SharedDriver.pageContainer.vendorPageNAV.AddresLanguageKey(dataMap.get("Language Key"));
+		SharedDriver.pageContainer.vendorPageNAV.AddressCreditInformationNumber(dataMap.get("Credit Information Number"));
+		SharedDriver.pageContainer.vendorPageNAV.AddresIndustryKey(dataMap.get("Industry Key"));
+		SharedDriver.pageContainer.vendorPageNAV.AddresCorporateGroup(dataMap.get("Corporate Group"));
+		SharedDriver.pageContainer.vendorPageNAV.AddresCompanyTrading(dataMap.get("Company Trading Partner"));
+		SharedDriver.pageContainer.vendorPageNAV.validateTestCreate();
+		SharedDriver.pageContainer.vendorPageNAV.duplicateCheckButton();
+		SharedDriver.pageContainer.vendorPageNAV.clickDuplicateCheck();
+		SharedDriver.pageContainer.vendorPageNAV.submitGlobalRequestTest();
+		
+	}
+		
+		
+	public void Vendor_Change_Fill_In_Data_Local_NAV(Map<String,String> dataMap) throws InterruptedException, FileNotFoundException, IOException, AWTException 
+	{		
+		SharedDriver.pageContainer.vendorPageNAV.ClickLocaData_NAV();
+		SharedDriver.pageContainer.vendorPageNAV.ClickFinaceNew(); 
+	//	SharedDriver.pageContainer.vendorPageNAV.ScrollDown();
+		SharedDriver.pageContainer.vendorPageNAV.VendorPostingGroup("ICV-Trade, IC Vendor Trade");
+		SharedDriver.pageContainer.vendorPageNAV.VendorVATPostingGroup("3PV-Tax, 3rd party vendors Tax");
+		SharedDriver.pageContainer.vendorPageNAV.VendorGenPostingGroup("3PV_IMPORT, 3rd Party Vendor Trade - Import");
+		SharedDriver.pageContainer.vendorPageNAV.validateLocalTestCreate();
+		SharedDriver.pageContainer.vendorPageNAV.LocalFinanceSave();
+		
+		SharedDriver.pageContainer.vendorPageNAV.ClickPurchasingNew();
+		SharedDriver.pageContainer.vendorPageNAV.PaymentTermsCode("V004, Payment within 10 days");
+		SharedDriver.pageContainer.vendorPageNAV.PaymentMethodCode("CASH ORDER, Cashier Order");
+		SharedDriver.pageContainer.vendorPageNAV.validateLocalTestCreate();
+		SharedDriver.pageContainer.vendorPageNAV.LocalFinanceSave();
+	
+		SharedDriver.pageContainer.vendorPageNAV.submitGlobalLocalRequest();
+		SharedDriver.pageContainer.vendorPageNAV.getRequestId();
+		
+		SharedDriver.pageContainer.vendorPageNAV.submitBankRequest();
+	}
+
 	
 	
 }
