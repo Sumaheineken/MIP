@@ -66,9 +66,9 @@ public class LoginScript {
 
 		ResultUtil.reporter.startTest("Login As LDR");
 		String opcoLogin= dataMap.get("OpCo");
-		String Opco=opcoLogin.replaceAll("\\d","");
-		String OpL=Opco.length() < 2 ? Opco : Opco.substring(0, 2);
-		SharedDriver.pageContainer.loginPage.login("MDMM_"+OpL+"04_LDR","Heineken01");
+//		String Opco=opcoLogin.replaceAll("\\d","");
+//		String OpL=Opco.length() < 4 ? Opco : Opco.substring(0, 4);
+		SharedDriver.pageContainer.loginPage.login("MDMM_"+opcoLogin+"_LDR","Heineken01");
 	}
 
 	@Test(dataProvider="HeiPort_Login",dataProviderClass=staticProviderClass.class)
