@@ -210,6 +210,18 @@ public class MaterialChangeScript {
 		SharedDriver.pageContainer.materialPage.uomPrimarySelectionTest();
 
 	}
+	@Test
+	public void confirmExtensionSAP() throws InterruptedException, FileNotFoundException, IOException
+	{
+		//SharedDriver.pageContainer.material_Change_Page.clickExtendbutton();
+		Sync.waitForSeconds(Constants.WAIT_5);
+		
+       SharedDriver.pageContainer.materialPage.clickLocalAction();
+       SharedDriver.pageContainer.material_Change_Page.clickConfirmExtension();
+       SharedDriver.pageContainer.materialPage.getRequestId_CreateNew();
+	   SharedDriver.pageContainer.materialApprovalPage.submitRequestOkButtonClick();
+	}
+
 	
 	
 }
