@@ -164,8 +164,12 @@ public class VendorPage {
 	@FindBy(how = How.XPATH, using = "((.//*[text()='Edit Comments'])/../../div[2]/div/div/div/div/div/div[1]/div/div/div/div/div/textarea)")
 	WebElement textAreaComment;
 
-	// ****************************************************************************************************************
-
+	@FindBy(how=How.XPATH, using=".//*[text()='CompanyCode']/../../../../../../table[2]/tbody/tr[2]/td[1]")
+	WebElement selectVendorFinancePlant;
+	
+	@FindBy(how=How.XPATH,using=".//*[text()='PurchasingOrganization']/../../../../../../table[2]/tbody/tr[1]/td[1]")
+	WebElement selectVendorPurchasingPlant;
+	
 	@FindBy(how = How.XPATH, using = ".//*[@id='mxui_widget_DialogMessage_0']/div[1]/div[2]/p")
 	WebElement msgRequestSuccess;
 
@@ -183,8 +187,10 @@ public class VendorPage {
 
 	@FindBy(how = How.XPATH, using = "//*[text()='Edit Global Data']/../div/input")
 	WebElement EditGlobalData;
-	//
-
+	
+	@FindBy(how=How.XPATH, using="//*[text()='Edit Localal Data']/../div/input")
+	WebElement EditLocalData;
+	
 	@FindBy(how = How.XPATH, using = "//*[text()='Request ID']/../../td[4]/div/input")
 	WebElement txtboxReqIdEnter;
 
@@ -416,9 +422,21 @@ public class VendorPage {
 		Sync.waitForSeconds(Constants.WAIT_1);
 	}
 
-	/*****************************************************************************/
+	public void EditVendorDataGlobalLocal() 
+	{
+		Button.click("Select EDit button", EditGlobalData);
+		Button.click("Select EDit button", EditLocalData);
+		
+		Button.click("Click EDit button", btnEdit);
+		Sync.waitForSeconds(Constants.WAIT_3);
+		Sync.waitForElementToBeClickable(driver, btnOK1);
+		Button.click("Click on OK", btnOK1);
+		Sync.waitForSeconds(Constants.WAIT_1);
+		Button.click("Click on OK", btnOK);
+		Sync.waitForSeconds(Constants.WAIT_1);
+	}
+  
 	public boolean disableLocaData() {
-
 		Sync.waitForSeconds(Constants.WAIT_10);
 		Sync.waitUntilObjectDisappears(driver, "Waiting of Create page to Load",
 				By.xpath(".//*[@id='mxui_widget_Progress_0']/div[2]"));
@@ -429,7 +447,7 @@ public class VendorPage {
 		return Button.click("Proceed", btnProceed);
 	}
 
-	/*****************************************************************************/
+
 	public boolean disableBankData() {
 		WebElement waitElement = null;
 		FluentWait<WebDriver> fwait = new FluentWait<WebDriver>(driver).withTimeout(Duration.ofMinutes(3))
@@ -1354,7 +1372,27 @@ public class VendorPage {
 		Button.click("Click On OK button", btnOK);
 		Sync.waitForSeconds(Constants.WAIT_5);
 	}
-	/***************************************************************************************************************/
+ 
+    public void clickOkOnInformationButton() {
+		if(driver.findElements(By.xpath("//*[@class='close mx-dialog-close']")).size()>0) {
+			Sync.waitForSeconds(Constants.WAIT_5);
+			Button.jsclick("Click on Popup", driver.findElement(By.xpath("//*[@class='close mx-dialog-close']")), driver);
+			//Button.jsclick("Click ok on info Popup", btnOkay, driver);
+			
+			}
+		else{
+			WebDriverWait wait = new WebDriverWait(driver,50);
+			wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//button[text()='Extend']")));
+			
+		}
+	}
+    
+    public void selectVendorFinancePlant() 
+	{
+	
+		Sync.waitForObject(driver, selectVendorFinancePlant);
+		Button.click("Select the plant",selectVendorFinancePlant);
+	}
 
 	public void GetFullVendorDataNew() throws InterruptedException {
 		Sync.waitForSeconds(Constants.WAIT_2);
@@ -1363,21 +1401,6 @@ public class VendorPage {
 		Sync.waitForObject(driver, GetFullVendorData);
 		Button.click("GetFullVendorData", GetFullVendorData);
 		Sync.waitForSeconds(Constants.WAIT_5);
-	}
-
-	/****************************************************************************************/
-	public void clickOkOnInformationButton() {
-		if (driver.findElements(By.xpath("//*[@class='close mx-dialog-close']")).size() > 0) {
-			Sync.waitForSeconds(Constants.WAIT_5);
-			Button.jsclick("Click on Popup", driver.findElement(By.xpath("//*[@class='close mx-dialog-close']")),
-					driver);
-			// Button.jsclick("Click ok on info Popup", btnOkay, driver);
-
-		} else {
-			WebDriverWait wait = new WebDriverWait(driver, 50);
-			wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//button[text()='Extend']")));
-
-		}
 	}
 
 	/*************************************************************************************************************/

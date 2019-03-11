@@ -261,7 +261,17 @@ public class VendorScript {
 		SharedDriver.pageContainer.vendorPage.GetFullVendorData();
 		SharedDriver.pageContainer.vendorPage.EditVendorData();
 	}
-/****************************************************************************************************/	
+/************************************************************************************************************/	
+	@Test(dataProvider="Process_Information_Check",dataProviderClass=staticProviderClass.class)
+	public void Vendor_Change_DashBoard_SearchWith_GlobalID_EDit_GlobalLocal(Map<String,String> dataMap) throws InterruptedException
+	{
+		SharedDriver.pageContainer.vendorPage.SearchGlobalID(dataMap.get("GlobalId"));
+		SharedDriver.pageContainer.vendorPage.GetFullVendorData();
+		SharedDriver.pageContainer.vendorPage.clickOkOnInformationButton();
+		SharedDriver.pageContainer.vendorPage.EditVendorDataGlobalLocal();
+		SharedDriver.pageContainer.vendorPage.clickOkOnInformationButton();
+	}
+/************************************************************************************************************/
 	@Test(dataProvider="Vendor_Create_Global_Disable_Bank_and_LocalData",dataProviderClass=staticProviderClass.class)
 	public void Vendor_Change_Fill_In_Data(Map<String,String> dataMap) throws InterruptedException, FileNotFoundException, IOException, AWTException 
 	{
