@@ -807,6 +807,23 @@ public class Material_Nav_Page {
 			Sync.waitForSeconds(Constants.WAIT_10);
 		}
 	}
+	public void clickEditFinanceDataJDE_Extend() throws AWTException, IOException
+	{
+		Sync.waitForSeconds(Constants.WAIT_5);
+		WebDriverWait wait = new WebDriverWait(driver,10);
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//button[text()='Edit'])[3]")));
+		Sync.waitUntilObjectDisappears(driver, "Wait for Save button", By.xpath("(//button[text()='Edit'])[3]"));
+		Sync.waitForElementToBeClickable(driver, driver.findElement( By.xpath("(//button[text()='Edit'])[3]")));
+		Button.jsclick("Click Edit Finance Button", driver.findElement(By.xpath("(//button[text()='Edit'])[3]")), driver);
+//		driver.findElement(By.xpath("(//*[text()='Add'])[2]/../button[2]/span")).click();
+		/*Sync.waitForSeconds(Constants.WAIT_3);
+		Sync.waitUntilObjectDisappears(driver, "Wait for Materials", By.xpath((".//*[@id='mxui_widget_Progress_0']/div[2]")));
+		JavascriptExecutor jse = (JavascriptExecutor)driver;
+		Sync.waitForSeconds(Constants.WAIT_6);
+		jse.executeScript("arguments[0].click()", driver.findElement(By.xpath("(//*[text()='OK'])[2]")));
+		Sync.waitForSeconds(Constants.WAIT_3);
+		jse.executeScript("arguments[0].click()", driver.findElement(By.xpath("(//*[text()='OK'])[1]")));*/
+	}
 
 
 }

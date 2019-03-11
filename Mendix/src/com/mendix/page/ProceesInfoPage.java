@@ -29,6 +29,8 @@ import com.mendix.tool.Constants;
 import com.mendix.tool.Sync;
 import com.mendix.tool.Textbox;
 import com.mendix.util.ExcelUtil;
+import com.mendix.util.ResultUtil;
+import com.relevantcodes.extentreports.LogStatus;
 
 public class ProceesInfoPage {
 
@@ -285,6 +287,22 @@ public class ProceesInfoPage {
 		driver.quit();
 		
 	}
+	public void validateGetTask_Status(String strValue){
+		Sync.waitForSeconds(Constants.WAIT_10);
+		String stateOne=driver.findElement(By.xpath("(.//*[text()='"+strValue+"']/../../td[9]/div)[2]")).getText();
+		//String taskStatus=driver.findElement(By.xpath("(.//*[text()='"+strValue+"']/../../td[10]/div)[2]")).getText();
+		Assert.assertEquals(stateOne, "LDR","Staus is LDR");
+		if(!("LDR".equalsIgnoreCase(stateOne))){			
+		   ResultUtil.reporter.log(LogStatus.FAIL,"The State is"+stateOne);		   
+		}	
+		else {
+			ResultUtil.reporter.log(LogStatus.PASS,"The State is"+stateOne);		   
+		}
+		
+		Sync.waitForSeconds(Constants.WAIT_10);		
+		
+	}
+
 	
 	
 	

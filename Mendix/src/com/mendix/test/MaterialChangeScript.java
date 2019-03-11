@@ -210,6 +210,60 @@ public class MaterialChangeScript {
 		SharedDriver.pageContainer.materialPage.uomPrimarySelectionTest();
 
 	}
+	@Test
+	public void confirmExtensionSAP() throws InterruptedException, FileNotFoundException, IOException
+	{
+		//SharedDriver.pageContainer.material_Change_Page.clickExtendbutton();
+		Sync.waitForSeconds(Constants.WAIT_5);
+		
+       SharedDriver.pageContainer.materialPage.clickLocalAction();
+       SharedDriver.pageContainer.material_Change_Page.clickConfirmExtension();
+       SharedDriver.pageContainer.materialPage.getRequestId_CreateNew();
+	   SharedDriver.pageContainer.materialApprovalPage.submitRequestOkButtonClick();
+	}
+
+	
+	@Test
+	public void confirmExtensionNonSAP() throws InterruptedException, FileNotFoundException, IOException
+	{
+		//SharedDriver.pageContainer.material_Change_Page.clickExtendbutton();
+		Sync.waitForSeconds(Constants.WAIT_10);
+		System.out.println("Global Data Tab");
+		
+		SharedDriver.pageContainer.materialNavPage.clickGlobalDataButton();
+
+       //SharedDriver.pageContainer.materialPage.clickLocalAction();
+       SharedDriver.pageContainer.material_Change_Page.clickConfirmExtension();
+       SharedDriver.pageContainer.materialPage.getRequestId_CreateNew();
+	   SharedDriver.pageContainer.materialApprovalPage.submitRequestOkButtonClick();
+	}
+
+	@Test(dataProvider="Process_Information_Check",dataProviderClass=staticProviderClass.class)
+	public void Material_Extend_SAP (Map<String,String> dataMap) throws InterruptedException, FileNotFoundException, IOException 
+	{
+		SharedDriver.pageContainer.homePage.navigateToWorkflow();
+		SharedDriver.pageContainer.materialPage.switchToPopup();
+		SharedDriver.pageContainer.materialPage.navigateToDashboard();
+		SharedDriver.pageContainer.materialPage.advancedSearch();
+		SharedDriver.pageContainer.materialPage.scrolltoGlobalSearch();
+    	//SharedDriver.pageContainer.materialPage.getCurrDate();
+		SharedDriver.pageContainer.materialPage.globalSearch(dataMap.get("Global_ID"));
+	    //SharedDriver.pageContainer.materialPage.getGlobalId();
+		SharedDriver.pageContainer.material_Change_Page.clickFullMaterialDataSAP();
+		SharedDriver.pageContainer.material_Change_Page.selectOperatingEntity();
+		SharedDriver.pageContainer.material_Change_Page.clickExtendbutton();
+		SharedDriver.pageContainer.materialPage.clickLocalAction();
+	       SharedDriver.pageContainer.material_Change_Page.clickConfirmExtension();
+	       SharedDriver.pageContainer.materialPage.getRequestId_CreateNew();
+		   SharedDriver.pageContainer.materialApprovalPage.submitRequestOkButtonClick();
+		
+		//SharedDriver.pageContainer.materialPage.clickOkToHandlePopup();
+		//SharedDriver.pageContainer.materialApprovalPage.submitRequestOkBtnClick();
+		
+	}
+	
+
+
 	
 	
 }

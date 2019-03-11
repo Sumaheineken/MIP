@@ -73,7 +73,7 @@
 		<classes>
 			<class name="com.mendix.test.MaterialNavScript">
 				<methods>
-					<include name="Process_Information_Check_Local_Extension" />
+					<include name="Process_Information_Check_Local_Reject_Status_LDS" />
 				</methods>
 			</class>
 		</classes>
