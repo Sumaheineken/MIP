@@ -1346,7 +1346,8 @@ public class VendorPage_NAV {
 			Sync.waitForSeconds(Constants.WAIT_5);
 			Button.click("Click on Payment Method Code Select", dropdownPurchasingPaymentMC);
 			Select paymentMCDropDownSelect= new Select(dropdownPurchasingPaymentMC);
-			paymentMCDropDownSelect.selectByVisibleText(strValue);		}
+			paymentMCDropDownSelect.selectByVisibleText(strValue);		
+			}
 		
 	}
 	
