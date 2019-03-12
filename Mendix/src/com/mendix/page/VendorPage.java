@@ -97,6 +97,9 @@ public class VendorPage {
 
 	@FindBy(how = How.XPATH, using = "//*[text()='Proceed']")
 	WebElement btnProceed;
+	@FindBy(how=How.XPATH, using="//*[text()='Discard Extension']")
+	WebElement btnDiscardExtension;
+	
 
 	// ************** Filling create vendor data*************//
 
@@ -138,6 +141,8 @@ public class VendorPage {
 
 	@FindBy(how = How.XPATH, using = ".//*[text()='Request complies to all Validations']")
 	WebElement txtValidationMsg;
+	@FindBy(how=How.XPATH, using="//*[text()='Submit Local Request']")
+	WebElement btnSumitLocalRequest;
 
 	@FindBy(how = How.XPATH, using = ".//*[text()='Discard Create']")
 	WebElement btnLocalDiscard;
@@ -1463,6 +1468,30 @@ public class VendorPage {
 		Button.click("Click Ok Button", btnOK);
 		return Id;
 	}
+	 public void DiscardExtensionLDR() throws InterruptedException {
 
+			Sync.waitForSeconds(Constants.WAIT_6);
+			Button.click("Local Actions button click", btnLocalActions);
+			Sync.waitForSeconds(Constants.WAIT_6);
+			Sync.waitForObject(driver,btnDiscardExtension);
+			Button.click("Click on reject button in locl action", btnDiscardExtension);
+			Sync.waitForSeconds(Constants.WAIT_6);
+			Sync.waitForObject(driver, btnOK);
+			Button.click("Click On OK button", btnOK);
+			Sync.waitForSeconds(Constants.WAIT_6);
+		}
+		public void resubmitLocalRequest() throws InterruptedException {
+
+			//Thread.sleep(6000);
+			Sync.waitForSeconds(Constants.WAIT_6);
+			Button.click("Local Actions button click", btnLocalActions);
+			Sync.waitForSeconds(Constants.WAIT_6);
+			Sync.waitForObject(driver, btnSumitLocalRequest);
+			Textbox.click("Click on Submit Local Request in locl action", btnSumitLocalRequest);
+			Sync.waitForSeconds(Constants.WAIT_6);
+			Sync.waitForObject(driver, btnOK);
+			Button.click("Click On OK button", btnOK);
+			Sync.waitForSeconds(Constants.WAIT_6);
+		}
 	
 }

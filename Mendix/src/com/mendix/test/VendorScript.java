@@ -495,7 +495,44 @@ public class VendorScript {
 	SharedDriver.pageContainer.vendorPage.getRequestId_Flag_For_Deletion();
 	SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
 	}
+	public void Create_Vendor_Rejections_with_Discard_Extension  (Map<String,String> dataMap) throws InterruptedException, FileNotFoundException, IOException 
+	{
+		try{
+		System.out.println("Start:Create_Vendor_Rejections_with_Discard");
+
+		SharedDriver.pageContainer.homePage.navigateToWorkflow();
+		SharedDriver.pageContainer.vendorPage.switchToMDMPortal();
+		SharedDriver.pageContainer.materialApprovalPage.reqIdSearchMyTasks(dataMap.get("RequestId"));
+		SharedDriver.pageContainer.vendorPage.DiscardExtensionLDR();
+		
+		System.out.println("End:Create_Vendor_Rejections_with_Discard-Done");
+		
+	}catch(Exception e){
+		
+		System.out.println("Create_vendor_Rejections_with_Discard is not completed");
+		driver.close();
+	}
+	}
+		@Test(dataProvider="Process_Information_Check",dataProviderClass=staticProviderClass.class)
+		public void Create_Vendor_Resubmit_Request  (Map<String,String> dataMap) throws InterruptedException, FileNotFoundException, IOException 
+		{
+			try{
+			System.out.println("Start:Create_Vendor_Rejections_with_Discard");
+
+			SharedDriver.pageContainer.homePage.navigateToWorkflow();
+			SharedDriver.pageContainer.vendorPage.switchToMDMPortal();
+			SharedDriver.pageContainer.materialApprovalPage.reqIdSearchMyTasks(dataMap.get("RequestId"));
+			SharedDriver.pageContainer.vendorPage.resubmitLocalRequest();
+			
+			System.out.println("End:Create_Vendor_Rejections_with_Discard-Done");
+			
+		}catch(Exception e){
+			
+			System.out.println("Create_vendor_Rejections_with_Discard is not completed");
+			driver.close();
+		}
+			
 	
-	
+}
 }
 
