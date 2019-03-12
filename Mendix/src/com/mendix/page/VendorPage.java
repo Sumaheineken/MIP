@@ -816,7 +816,7 @@ public class VendorPage {
 		String dateFormatted = dateFormat.format(date);
 		Textbox.clear("Clear TextBox Value", txtboxReqIdEnter);
 		Textbox.enterValue("Enter TextBox Value", txtboxReqIdEnter, strValue);
-		Textbox.enterValue("Enter TextBox Value", txtboxCreateOnEnter, dateFormatted);
+		//Textbox.enterValue("Enter TextBox Value", txtboxCreateOnEnter, dateFormatted);
 		Button.click("Click Search button", btnReqIdEnter);
 		Sync.waitForSeconds(Constants.WAIT_2);
 	}
