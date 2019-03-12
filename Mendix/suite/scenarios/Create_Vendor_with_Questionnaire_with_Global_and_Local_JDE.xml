@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Create Vendor with JDE">
-	<test name="HeiPort_Login_LDR">
+	  <test name="HeiPort_Login_LDR">
 		<classes>
 			<class name="com.mendix.test.LoginScript">
 				<methods>
@@ -102,9 +102,9 @@
 	</test>
 	<test name="Process_Information_Chec_Approved">
 		<classes>
-			<class name="com.mendix.test.VendorScript">
+			<class name="com.mendix.test.MaterialNavScript">
 				<methods>
-					<include name="Process_Information_Check" />
+					<include name="Process_Information_Check_GlobalID_Extend" />
 				</methods>
 			</class>
 		</classes>

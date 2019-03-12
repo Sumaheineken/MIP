@@ -303,6 +303,7 @@ public class MaterialNavScript {
 		SharedDriver.pageContainer.processInfoPage.reqIdSearch_Global(dataMap.get("RequestId"));
 		//SharedDriver.pageContainer.processInfoPage.getState_New(dataMap.get("RequestId"));
 		//SharedDriver.pageContainer.processInfoPage.capturing_GlobalID();
+		SharedDriver.pageContainer.materialPage.checkSyndication(dataMap.get("RequestId"));
 		SharedDriver.pageContainer.materialPage.getGlobalIdProcessInfo_Extend(dataMap.get("RequestId"));
 		Sync.waitForSeconds(Constants.WAIT_5);
 		SharedDriver.pageContainer.processInfoPage.browserClose();

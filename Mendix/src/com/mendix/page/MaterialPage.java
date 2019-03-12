@@ -33,6 +33,7 @@ import org.testng.Assert;
 import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
 
 import com.mendix.tool.Button;
 import com.mendix.tool.Constants;
@@ -54,7 +55,8 @@ public class MaterialPage {
 	 *
 	 * @param driver the driver
 	 */
-	public static String state=null;
+	public String state=null;
+	
 	public MaterialPage(WebDriver driver){
 		PageFactory.initElements(driver, this);
 		this.driver=driver;
@@ -1966,7 +1968,7 @@ public class MaterialPage {
 
 	public void duplicateCheckButton() {
 		Sync.waitForSeconds(Constants.WAIT_5);
-		WebDriverWait wait = new WebDriverWait(driver, 100);
+//		WebDriverWait wait = new WebDriverWait(driver, 100);
 		 Sync.waitUntilObjectDisappears(driver, "Wait for Duplicate check", By.xpath(".//*[@id='mxui_widget_Progress_0']/div[2]"));
 		if(Button.verifyObject(duplicateBtn)) {
 			Sync.waitForObject(driver, "Wait for the duplicate button", duplicateBtn);
@@ -2212,62 +2214,30 @@ public class MaterialPage {
  	}
      public  void getGlobalIdProcessInfo_Extend(String strValue) throws FileNotFoundException, IOException {
  		Sync.waitForSeconds(Constants.WAIT_3);
- 		
-// 		Sync.waitForSeconds(Constants.WAIT_2);
- 		/*WebElement waitElement = null;
- 		FluentWait<WebDriver> fwait = new FluentWait<WebDriver>(driver)
- 		        .withTimeout(Duration.ofMinutes(3))
- 		        .pollingEvery(Duration.ofSeconds(600))
- 		        .ignoring(NoSuchElementException.class)
- 		        .ignoring(TimeoutException.class);
- 		 
- 		//First checking to see if the loading indicator is found
- 		// we catch and throw no exception here in case they aren't ignored
- 		try {
- 		  waitElement = fwait.until(new Function<WebDriver, WebElement>() {
- 		   public WebElement apply(WebDriver driver) {
- 		      return driver.findElement(By.xpath(".//*[@id='mxui_widget_Progress_0']"));
- 		   }
- 		 });
- 		    } catch (Exception e) {
- 		   }
- 		 
- 		//checking if loading indicator was found and if so we wait for it to
- 		//disappear
- 		  if (waitElement != null) {
- 		      WebDriverWait wait = new WebDriverWait(driver, 30);
- 		      wait.until(ExpectedConditions.visibilityOfElementLocated(
- 		    		  By.cssSelector("tr > td.mx-name-column2.mx-right-aligned > div"))
- 		    		           
- 		            );
- 		        }*/
-// 		Sync.waitForObject(driver, "Wait for Global Material Id", driver.findElement(By.cssSelector("tr > td.mx-name-column2.mx-right-aligned > div")));
- 		//String globalLock=driver.findElement(By.cssSelector("tr > td.mx-name-column17.mx-left-aligned > div")).getText();
- 		//String globalLockState=driver.findElement(By.xpath("//*[text()='Global Lock']/../../../../../../table[2]/tbody[1]/tr[1]/td[1]/div")).getText();
- 		//System.out.println(globalLockState);
- 		
- 		//String globalId=driver.findElement(By.cssSelector("tr > td.mx-name-column2.mx-right-aligned > div")).getText();
- 		
+ 		 		
  		state=driver.findElement(By.xpath(".//*[text()='"+strValue+"']/../../td[9]/div")).getText();
+		
  		if(state.equalsIgnoreCase("Syndication")) 
  		{
  			System.out.println(state);
  			String globalId=driver.findElement(By.xpath("//*[text()='Global ID']/../../../../../../table[2]/tbody[1]/tr[1]/td[2]/div")).getText();
  			System.out.println(globalId);
- 			ExcelUtil.excelWriteGlobalId(globalId);
+ 			ExcelUtil.setCellData_New_GlobalId("TestPlan", "Global_ID", globalId);
  			System.out.println(globalId);
  		}
  		else {
  			state=driver.findElement(By.xpath(".//*[text()='"+strValue+"']/../../td[9]/div")).getText();
  			System.out.println(state);
+ 			
  		}
  	}
-
-
-
-
-
-
-
+     
+    public void checkSyndication(String strValue)
+    {
+    	Sync.waitForSeconds(Constants.WAIT_5);
+ 		state=driver.findElement(By.xpath(".//*[text()='"+strValue+"']/../../td[9]/div")).getText();
+ 		SoftAssert assertSyndication = new SoftAssert();
+		assertSyndication.assertEquals(state, "Syndication");
+    }
 
 }

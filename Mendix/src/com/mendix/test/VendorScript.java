@@ -209,7 +209,8 @@ public class VendorScript {
 	}
 	}
 	
-/****************************************************************************************************/	
+/****************************************************************************************************/
+	
 	@Test(dataProvider="Process_Information_Check",dataProviderClass=staticProviderClass.class)
 	public void Vendor_Create_Syndication_Check (Map<String,String> dataMap) throws InterruptedException, FileNotFoundException, IOException 
 	{
@@ -217,13 +218,15 @@ public class VendorScript {
 		SharedDriver.pageContainer.vendorPage.switchToMDMPortal();
 		SharedDriver.pageContainer.vendorPage.navigateToDashboard();
 		SharedDriver.pageContainer.vendorPage.advancedSearch();
-		SharedDriver.pageContainer.vendorPage.scrolltoGlobalSearch();
-		SharedDriver.pageContainer.vendorPage.reqIdSearchGlobal(dataMap.get("RequestId"));
+		//SharedDriver.pageContainer.vendorPage.scrolltoGlobalSearch();
+		SharedDriver.pageContainer.vendorPage.globalSearch(dataMap.get("Global_ID"));
 		SharedDriver.pageContainer.vendorPage.getGlobalId();
 		SharedDriver.pageContainer.processInfoPage.browserClose();	
 		SharedDriver.pageContainer.materialApprovalPage.launchUFT();
 	}
+	
 /****************************************************************************************************/	
+	
 	@Test(dataProvider="Process_Information_Check",dataProviderClass=staticProviderClass.class)
 	public void Process_Information_Check_Discard (Map<String,String> dataMap) throws InterruptedException, FileNotFoundException, IOException 
 	{
@@ -243,6 +246,7 @@ public class VendorScript {
 	}
 				
 	}
+	
 /****************************************************************************************************/	
 	@Test
 	public void Vendor_Change_DashBoard() throws InterruptedException
