@@ -36,6 +36,7 @@ public class DataProviderUtil {
 			return testData;
 		}
 		
+		
 		/**
 		 * Material  Fill in Data for Creation,Creation with draft,Reject and Nav,JDE
 		 *
@@ -71,6 +72,20 @@ public class DataProviderUtil {
 			Iterator<Object[]> testData=ExcelUtil.getTestData("input/data/Global_"+Constants.MDM_TYPE_MATERIAL+"_Data_JDE"+Constants.EXCEL_FORMAT_XLSX, "YROH");
 			return testData;
 		}
+		
+		@DataProvider(name="CreateMaterial_Fill_In_Local",parallel=false)
+		public static Iterator<Object[]> MaterialPageLocal(){
+			Iterator<Object[]> testData=ExcelUtil.getTestData("input/data/Local_Material_Data"+Constants.EXCEL_FORMAT_XLSX, "TestPlan");
+			return testData;
+		}
+		
+		@DataProvider(name="CreateVendor_Fill_In_Local",parallel=false)
+		public static Iterator<Object[]> vendorPageLocal(){
+			Iterator<Object[]> testData=ExcelUtil.getTestData("input/data/Local_Vendor_Data"+Constants.EXCEL_FORMAT_XLSX, "TestPlan");
+			return testData;
+		}
+		
+		
 		@DataProvider(name="Vendor_Create_Global_Disable_Bank_and_LocalData",parallel=false)
 		public static Iterator<Object[]> VendorPage(){
 			Iterator<Object[]> testData=ExcelUtil.getTestData("input/data/Global_"+Constants.MDM_TYPE_VENDOR+"_Data"+Constants.EXCEL_FORMAT_XLSX, "Y001");

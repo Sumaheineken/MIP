@@ -74,7 +74,6 @@ public class LoginScript {
 	@Test(dataProvider="HeiPort_Login",dataProviderClass=staticProviderClass.class)
 	public void loginAsLDRVendor(Map<String,String> dataMap){
 
-
 		ResultUtil.reporter.startTest("Login As LDR");
 		String opcoLogin= dataMap.get("OpCo");
 		String Opco=opcoLogin.replaceAll("\\d","");
@@ -82,7 +81,6 @@ public class LoginScript {
 		SharedDriver.pageContainer.loginPage.login("MDVM_"+OpL+"01_LDR","Heineken01");
 	}
 	
-
 	@Test(dataProvider="HeiPort_Login",dataProviderClass=staticProviderClass.class)
 	public void loginAsLDRNAVMZCB(Map<String,String> dataMap){
 

@@ -440,6 +440,7 @@ public class VendorScript {
 		SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
 		//SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
 	}
+	
 /***********************************************************************************************************************************/
 	@Test(dataProvider="Process_Information_Check",dataProviderClass=staticProviderClass.class)
 	public void vendor_Reject_Resubmit_LDR(Map<String,String> dataMap) throws InterruptedException, FileNotFoundException, IOException
