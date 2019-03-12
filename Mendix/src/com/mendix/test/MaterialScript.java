@@ -755,9 +755,11 @@ public class MaterialScript {
 		SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
 		Sync.waitForSeconds(Constants.WAIT_3);
 	}
+
+
+	}
 	
-	
 
 
 
-}
+

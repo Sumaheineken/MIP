@@ -735,11 +735,6 @@ public class Material_JDE_Page {
 		Sync.waitForSeconds(Constants.WAIT_1);
 	}
 
-
-
-
-
-	
 	}
 
 
