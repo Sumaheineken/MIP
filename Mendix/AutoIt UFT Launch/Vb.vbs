@@ -3,5 +3,5 @@ App.Launch
 App.Visible = True
 App.WindowState = "Maximized"
 App.ActivateView "ExpertView"
-App.open "MDM_JDE_Verification",False
+App.open "SAP_SystemNov1",False
 App.Test.Run ,True 

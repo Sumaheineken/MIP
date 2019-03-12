@@ -118,20 +118,6 @@ public class DataProviderUtil {
 			return testData;
 		}
 		
-		
-		@DataProvider(name="CreateMaterial_Fill_In_Local",parallel=false)
-		public static Iterator<Object[]> MaterialPageLocal(){
-			Iterator<Object[]> testData=ExcelUtil.getTestData("input/data/Local_Material_Data"+Constants.EXCEL_FORMAT_XLSX, "TestPlan");
-			return testData;
-		}
-		
-		@DataProvider(name="CreateVendor_Fill_In_Local",parallel=false)
-		public static Iterator<Object[]> vendorPageLocal(){
-			Iterator<Object[]> testData=ExcelUtil.getTestData("input/data/Local_Vendor_Data"+Constants.EXCEL_FORMAT_XLSX, "TestPlan");
-			return testData;
-		}
-	
-		
 		/*@DataProvider(name="CreateMaterial_Fill_In",parallel=false)
 		public static Iterator<Object[]> MaterialApprovalPage(){
 			Iterator<Object[]> testData=ExcelUtil.getTestData("C:\\MDM_Workspace\\MDM_POC_Upgrade\\input\\data\\Global_Material_Data.xlsx", "YROH");
