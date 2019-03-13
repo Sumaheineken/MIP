@@ -36,6 +36,7 @@ import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
 
 import com.mendix.tool.Button;
 import com.mendix.tool.Constants;
@@ -264,6 +265,12 @@ public class VendorPage {
 	
 	@FindBy(how = How.XPATH, using = "//*[text()='Flag for Deletion']")
 	WebElement btnFlagForDeletionConfirmNav;
+	
+	@FindBy(how = How.XPATH, using = ".//*[text()='Target system']/../../../../../../table[2]/tbody/tr/td[2]//*[text()='PH1700']/../../td[1]/div")
+	WebElement vendorAccountNumberBE;
+	
+	@FindBy(how = How.XPATH, using = ".//*[text()='Target system']/../../../../../../table[2]/tbody/tr/td[2]//*[text()='PH1700']")
+	WebElement vendorTargetSystemBE;
 
 
 	/**********************************************************************************************************
@@ -1492,6 +1499,19 @@ public class VendorPage {
 			Sync.waitForObject(driver, btnOK);
 			Button.click("Click On OK button", btnOK);
 			Sync.waitForSeconds(Constants.WAIT_6);
+		}
+
+		
+		public String getVendorAccountNumber() {
+			// TODO Auto-generated method stub
+			Sync.waitForObject(driver, vendorTargetSystemBE);
+			SoftAssert assertTargetSystem = new SoftAssert();
+			assertTargetSystem.assertEquals(vendorTargetSystemBE.getText(), "PH1700", "The Target System is not there in Vendor Details of selected Global ID");
+			String vendorAccNumber = vendorAccountNumberBE.getText();
+			System.out.println("The Vendor Account Number is :"+vendorAccNumber);
+			
+			ExcelUtil.setCellData_New_VendorAccNumber("TestPlan", "Material_Number_AH1", vendorAccNumber);
+			return vendorAccNumber;
 		}
 	
 }

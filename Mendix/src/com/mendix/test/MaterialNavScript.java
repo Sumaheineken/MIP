@@ -222,6 +222,32 @@ public class MaterialNavScript {
 
 	}
 	
+	/**********************With Adding new row for sites data instead of editing the pre-existing template****************/
+	@Test(dataProvider = "CreateMaterial_Fill_In_Local", dataProviderClass = staticProviderClass.class)
+	public void material_Create_Fill_In_Data_Nav_Local_Adding_Site(Map<String, String> dataMap)
+			throws InterruptedException, FileNotFoundException, IOException, AWTException {
+		SharedDriver.pageContainer.materialNavPage.clickSiteNewTab();
+		SharedDriver.pageContainer.materialNavPage.clickEditSiteData();
+		Sync.waitForSeconds(Constants.WAIT_5);
+		//SharedDriver.pageContainer.materialNavPage.selectingRow();
+		Sync.waitForSeconds(Constants.WAIT_10);
+		//SharedDriver.pageContainer.materialNavPage.clickSiteEditButton();
+		SharedDriver.pageContainer.materialNavPage.clickSiteNewButton();
+		Sync.waitForSeconds(Constants.WAIT_10);
+		SharedDriver.pageContainer.materialNavPage.selectLocationCode(dataMap.get("Location Code"));
+		SharedDriver.pageContainer.materialNavPage.selectReplenishmentSystem(dataMap.get("Replenishment System"));
+		SharedDriver.pageContainer.materialNavPage.clickLocalAction();
+		SharedDriver.pageContainer.materialNavPage.clickSiteValidateButton();
+		SharedDriver.pageContainer.materialNavPage.clickSiteSaveButton();
+		SharedDriver.pageContainer.materialNavPage.clickLocalAction();
+		SharedDriver.pageContainer.materialNavPage.clickSaveButton();
+		SharedDriver.pageContainer.materialNavPage.clickLocalAction();
+		SharedDriver.pageContainer.materialNavPage.clickValidateLocalRequest();
+		// Sync.waitForSeconds(Constants.WAIT_10);
+
+	}
+	
+	
 	@Test(dataProvider="Process_Information_Check",dataProviderClass=staticProviderClass.class)
 	public void material_Confirm_Extension() throws FileNotFoundException, InterruptedException, IOException
 	{

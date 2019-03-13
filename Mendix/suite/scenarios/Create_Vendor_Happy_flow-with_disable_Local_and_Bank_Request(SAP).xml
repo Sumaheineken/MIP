@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Create Vendor Happy flow - with disable Local and Bank Request(SAP)">
- <test name="HeiPort_Login_LDR">
+ <!--  <test name="HeiPort_Login_LDR">
 		<classes>
 			<class name="com.mendix.test.LoginScript">
 				<methods>
@@ -69,7 +69,7 @@
 		</classes>
 	</test>
 	
-	
+	-->
 	 <test name="HeiPort_Login_LDR_2">
 		<classes>
 			<class name="com.mendix.test.LoginScript">
@@ -85,6 +85,7 @@
 			<class name="com.mendix.test.VendorScript">
 				<methods>
 					<include name="Vendor_Create_Syndication_Check" />
+					<include name="launchUFT_SAP"/>
 				</methods>
 			</class>
 		</classes>

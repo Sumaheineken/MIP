@@ -41,6 +41,7 @@ import com.mendix.tool.DropDown;
 import com.mendix.tool.Sync;
 import com.mendix.tool.Textbox;
 import com.mendix.util.ExcelUtil;
+import com.mendix.util.ResultUtil;
 import com.mendix.util.DataProviderUtil.staticProviderClass;
 
 import javafx.scene.control.Alert;
@@ -2237,7 +2238,7 @@ public class MaterialPage {
     	Sync.waitForSeconds(Constants.WAIT_5);
  		state=driver.findElement(By.xpath(".//*[text()='"+strValue+"']/../../td[9]/div")).getText();
  		SoftAssert assertSyndication = new SoftAssert();
-		assertSyndication.assertEquals(state, "Syndication");
+		assertSyndication.assertEquals(state, "Syndication", "Not changed to Syndication State");
     }
 
 }
