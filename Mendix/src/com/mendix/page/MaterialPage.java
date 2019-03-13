@@ -1488,20 +1488,16 @@ public class MaterialPage {
 	}
 
 	public  void globalSearch(String strValue) throws InterruptedException {
-		Sync.waitForSeconds(Constants.WAIT_5);
-		//		Sync.waitForObject(driver, txtboxReqIdEnter);
+		Sync.waitForSeconds(Constants.WAIT_3);
 
+        WebDriverWait wait = new WebDriverWait(driver,50);
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//button[text()='Search']")));
+		//Sync.waitForObject(driver, txtboxReqIdEnter);
 		Button.click("Click Search button", btnReqIdEnter);
-		/*Sync.waitForSeconds(Constants.WAIT_5);
 		Sync.waitForSeconds(Constants.WAIT_5);
-
-		//Button.click("Click Search button", btnReqIdEnter);
-		Sync.waitForSeconds(Constants.WAIT_5);
-		Sync.waitForSeconds(Constants.WAIT_5);*/
-		Sync.waitForSeconds(Constants.WAIT_5);
-		WebDriverWait wait = new WebDriverWait(driver, 50);
-		wait.until(ExpectedConditions.visibilityOfElementLocated(
-				By.xpath("//*[text()='Global ID']/../../td[4]/div/input")));
+		//WebDriverWait wait = new WebDriverWait(driver, 50);
+		//wait.until(ExpectedConditions.visibilityOfElementLocated(
+				//By.xpath("//*[text()='Global ID']/../../td[4]/div/input")));
 		Sync.waitForSeconds(Constants.WAIT_5);
 		Sync.waitForSeconds(Constants.WAIT_5);
 		//Sync.waitForSeconds(Constants.WAIT_5);
@@ -1515,7 +1511,7 @@ public class MaterialPage {
 		Textbox.enterValue("Enter TextBox Value", txtboxGlobalIdEnter, strValue);
 		Sync.waitForSeconds(Constants.WAIT_5);
 		Button.click("Click Search button", btnReqIdEnter);
-		Sync.waitForSeconds(Constants.WAIT_5); 
+		Sync.waitForSeconds(Constants.WAIT_3); 
 	} 
 	public void DiscardCreateGDA() throws InterruptedException {
 
@@ -1638,10 +1634,10 @@ public class MaterialPage {
 
 
      WebDriverWait wait = new WebDriverWait(driver,50);
-     wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(.//*[@class='btn mx-button mx-name-newButton2 btn-default'])[2]")));
-		Sync.waitForObject(driver, driver.findElement(By.xpath("(.//*[@class='btn mx-button mx-name-newButton2 btn-default'])[2]")));
+     wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(.//*[@class='btn mx-button mx-name-newButton2 btn-default'])[3]")));
+		Sync.waitForObject(driver, driver.findElement(By.xpath("(.//*[@class='btn mx-button mx-name-newButton2 btn-default'])[3]")));
 
-		driver.findElement(By.xpath("(.//*[@class='btn mx-button mx-name-newButton2 btn-default'])[2]")).click();
+		driver.findElement(By.xpath("(.//*[@class='btn mx-button mx-name-newButton2 btn-default'])[3]")).click();
 		System.out.println("clicked new button");
 		Sync.waitForSeconds(Constants.WAIT_5);
 	//	WebDriverWait wait1 = new WebDriverWait(driver,80);

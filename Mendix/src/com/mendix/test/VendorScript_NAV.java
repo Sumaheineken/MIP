@@ -252,8 +252,10 @@ public class VendorScript_NAV {
 		SharedDriver.pageContainer.materialApprovalPage.reqIdSearchMyTasks(dataMap.get("RequestId"));
 		SharedDriver.pageContainer.vendorPageNAV.markViewsBtnClick_Local();
 		SharedDriver.pageContainer.vendorPageNAV.submitRequestPopup_NAV();
-		SharedDriver.pageContainer.vendorPageNAV.approveLocalRequest();
-		SharedDriver.pageContainer.vendorPageNAV.submitRequestPopup_NAV();
+		//SharedDriver.pageContainer.vendorPageNAV.approveLocalRequest();
+		SharedDriver.pageContainer.vendorPageNAV.submitLocalRequest();
+        SharedDriver.pageContainer.vendorPageNAV.submitRequestPopup_NAV();
+		
 		/*SharedDriver.pageContainer.vendorPage.duplicateCheck();*/	
 	}
 	
@@ -272,7 +274,7 @@ public class VendorScript_NAV {
 	public void Vendor_Change_Fill_In_Data_Global_Local_Bank_NAV(Map<String,String> dataMap) throws InterruptedException, FileNotFoundException, IOException, AWTException 
 	{
 		SharedDriver.pageContainer.vendorPageNAV.VendorName(dataMap.get("Name1"));
-		
+		SharedDriver.pageContainer.vendorPageNAV.SearchTerm(dataMap.get("Search Term 2"));		
 		SharedDriver.pageContainer.vendorPageNAV.AddressStreet(dataMap.get("Street"));
 		SharedDriver.pageContainer.vendorPageNAV.AddresHouseNumber(dataMap.get("House number")); 
 		SharedDriver.pageContainer.vendorPageNAV.AddresPostalCode(dataMap.get("Postal Code")); 
@@ -294,6 +296,7 @@ public class VendorScript_NAV {
 		SharedDriver.pageContainer.vendorPageNAV.VendorPatnerBankType("DE01");
 				
 		SharedDriver.pageContainer.vendorPageNAV.ClickLocaData_NAV();
+		//SharedDriver.pageContainer.vendorPageNAV.s
 		SharedDriver.pageContainer.vendorPageNAV.ClickFinaceNew(); 
 	//	SharedDriver.pageContainer.vendorPageNAV.ScrollDown();
 		SharedDriver.pageContainer.vendorPageNAV.VendorPostingGroup("ICV-Trade, IC Vendor Trade");
@@ -318,48 +321,56 @@ public class VendorScript_NAV {
 	public void Vendor_Change_Fill_In_Data_Global_NAV(Map<String,String> dataMap) throws InterruptedException, FileNotFoundException, IOException, AWTException 
 	{
 		SharedDriver.pageContainer.vendorPageNAV.VendorName(dataMap.get("Name1"));
-		
+		SharedDriver.pageContainer.vendorPageNAV.SearchTerm(dataMap.get("Search Term 2"));
 		SharedDriver.pageContainer.vendorPageNAV.AddressStreet(dataMap.get("Street"));
-		SharedDriver.pageContainer.vendorPageNAV.AddresHouseNumber(dataMap.get("House number")); 
+		SharedDriver.pageContainer.vendorPageNAV.AddresHouseNumber(dataMap.get("House number"));
 		SharedDriver.pageContainer.vendorPageNAV.AddresPostalCode(dataMap.get("Postal Code")); 
 		SharedDriver.pageContainer.vendorPageNAV.AddresCity(dataMap.get("City"));
-		SharedDriver.pageContainer.vendorPageNAV.ScrollDown();
+		//SharedDriver.pageContainer.vendorPageNAV.ScrollDown();
 		//'DropDowns
-		SharedDriver.pageContainer.vendorPageNAV.AddresCountry(dataMap.get("Country"));
-		SharedDriver.pageContainer.vendorPageNAV.AddresLanguageKey(dataMap.get("Language Key"));
+		SharedDriver.pageContainer.vendorPageNAV.clickCountry(dataMap.get("Country"));
+		SharedDriver.pageContainer.vendorPageNAV.clickLanguageKey(dataMap.get("Language Key"));
 		SharedDriver.pageContainer.vendorPageNAV.AddressCreditInformationNumber(dataMap.get("Credit Information Number"));
-		SharedDriver.pageContainer.vendorPageNAV.AddresIndustryKey(dataMap.get("Industry Key"));
-		SharedDriver.pageContainer.vendorPageNAV.AddresCorporateGroup(dataMap.get("Corporate Group"));
-		SharedDriver.pageContainer.vendorPageNAV.AddresCompanyTrading(dataMap.get("Company Trading Partner"));
+		SharedDriver.pageContainer.vendorPageNAV.clickIndustryKey(dataMap.get("Industry Key"));
+		SharedDriver.pageContainer.vendorPageNAV.clickCorporateGroup(dataMap.get("Corporate Group"));
+		//SharedDriver.pageContainer.vendorPageNAV.AddresCompanyTrading(dataMap.get("Company Trading Partner"));
+		SharedDriver.pageContainer.vendorPage.Localactionbutton();
 		SharedDriver.pageContainer.vendorPageNAV.validateTestCreate();
 		SharedDriver.pageContainer.vendorPageNAV.duplicateCheckButton();
-		SharedDriver.pageContainer.vendorPageNAV.clickDuplicateCheck();
-		SharedDriver.pageContainer.vendorPageNAV.submitGlobalRequestTest();
+		SharedDriver.pageContainer.vendorPageNAV.clickDuplicateCheck();		
+		//SharedDriver.pageContainer.vendorPageNAV.submitGlobalRequestTest();
+		SharedDriver.pageContainer.vendorPageNAV.submitGlobalRequest();
+		SharedDriver.pageContainer.materialApprovalPage.submitRequestOkButtonClick();
 		
 	}
 		
-		
+	@Test(dataProvider="CreateVendor_Fill_In_Local",dataProviderClass=staticProviderClass.class)	
 	public void Vendor_Change_Fill_In_Data_Local_NAV(Map<String,String> dataMap) throws InterruptedException, FileNotFoundException, IOException, AWTException 
 	{		
 		SharedDriver.pageContainer.vendorPageNAV.ClickLocaData_NAV();
-		SharedDriver.pageContainer.vendorPageNAV.ClickFinaceNew(); 
+		SharedDriver.pageContainer.vendorPageNAV.selectVendorFinancePlant();
+		SharedDriver.pageContainer.vendorPageNAV.ClickFinaceEdit();
 	//	SharedDriver.pageContainer.vendorPageNAV.ScrollDown();
-		SharedDriver.pageContainer.vendorPageNAV.VendorPostingGroup("ICV-Trade, IC Vendor Trade");
-		SharedDriver.pageContainer.vendorPageNAV.VendorVATPostingGroup("3PV-Tax, 3rd party vendors Tax");
-		SharedDriver.pageContainer.vendorPageNAV.VendorGenPostingGroup("3PV_IMPORT, 3rd Party Vendor Trade - Import");
+		SharedDriver.pageContainer.vendorPageNAV.clickAndSelectVendorPostingGroupDropDown(dataMap.get("Vendor Posting Group"));
+		SharedDriver.pageContainer.vendorPageNAV.clickAndSelectVATBusPostingGroupDropDown(dataMap.get("VAT Bus. Posting Group"));
+		//SharedDriver.pageContainer.vendorPageNAV.VendorGenPostingGroup("3PV_IMPORT, 3rd Party Vendor Trade - Import");
+		//SharedDriver.pageContainer.vendorPage.Localactionbutton();
 		SharedDriver.pageContainer.vendorPageNAV.validateLocalTestCreate();
 		SharedDriver.pageContainer.vendorPageNAV.LocalFinanceSave();
 		
-		SharedDriver.pageContainer.vendorPageNAV.ClickPurchasingNew();
-		SharedDriver.pageContainer.vendorPageNAV.PaymentTermsCode("V004, Payment within 10 days");
-		SharedDriver.pageContainer.vendorPageNAV.PaymentMethodCode("CASH ORDER, Cashier Order");
+		SharedDriver.pageContainer.vendorPageNAV.ClickPurchasingTab();
+		SharedDriver.pageContainer.vendorPageNAV.selectVendorPurchasingPlant();
+		SharedDriver.pageContainer.vendorPageNAV.ClickPurchasingEdit();
+		SharedDriver.pageContainer.vendorPageNAV.clickAndSelectPaymentTCDropDown(dataMap.get("Payment Terms Code"));
+		SharedDriver.pageContainer.vendorPageNAV.clickAndSelectPaymentMCDropDown(dataMap.get("Payment Method Code"));
 		SharedDriver.pageContainer.vendorPageNAV.validateLocalTestCreate();
 		SharedDriver.pageContainer.vendorPageNAV.LocalFinanceSave();
-	
-		SharedDriver.pageContainer.vendorPageNAV.submitGlobalLocalRequest();
-		SharedDriver.pageContainer.vendorPageNAV.getRequestId();
+		SharedDriver.pageContainer.vendorPage.Localactionbutton();
+		SharedDriver.pageContainer.vendorPageNAV.submitLocalRequest();
+		SharedDriver.pageContainer.vendorPage.getRequestId();
+		//SharedDriver.pageContainer.materialApprovalPage.submitRequestOkButtonClick();
 		
-		SharedDriver.pageContainer.vendorPageNAV.submitBankRequest();
+		//SharedDriver.pageContainer.vendorPageNAV.submitBankRequest();
 	}
 
 	

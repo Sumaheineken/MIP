@@ -258,7 +258,7 @@ public class VendorScript {
 	@Test(dataProvider="Process_Information_Check",dataProviderClass=staticProviderClass.class)
 	public void Vendor_Change_DashBoard_SearchWith_GlobalID(Map<String,String> dataMap) throws InterruptedException
 	{
-		SharedDriver.pageContainer.vendorPage.SearchGlobalID(dataMap.get("GlobalId"));
+		SharedDriver.pageContainer.vendorPage.SearchGlobalID(dataMap.get("Global_Id"));
 		SharedDriver.pageContainer.vendorPage.GetFullVendorData();
 		SharedDriver.pageContainer.vendorPage.EditVendorData();
 	}
@@ -266,7 +266,7 @@ public class VendorScript {
 	@Test(dataProvider="Process_Information_Check",dataProviderClass=staticProviderClass.class)
 	public void Vendor_Change_DashBoard_SearchWith_GlobalID_EDit_GlobalLocal(Map<String,String> dataMap) throws InterruptedException
 	{
-		SharedDriver.pageContainer.vendorPage.SearchGlobalID(dataMap.get("GlobalId"));
+		SharedDriver.pageContainer.materialPage.globalSearch(dataMap.get("Global_ID"));
 		SharedDriver.pageContainer.vendorPage.GetFullVendorData();
 		SharedDriver.pageContainer.vendorPage.clickOkOnInformationButton();
 		SharedDriver.pageContainer.vendorPage.EditVendorDataGlobalLocal();

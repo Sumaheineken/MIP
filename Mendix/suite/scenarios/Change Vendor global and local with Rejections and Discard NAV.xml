@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Change vendor global  local  Bank">
- 	 <test name="HeiPort_Login_LDR">
+ 	 <!-- <test name="HeiPort_Login_LDR">
 		<classes>
 			<class name="com.mendix.test.LoginScript">
 				<methods>
@@ -49,34 +49,38 @@
 			</class>
 		</classes>
 	</test>  
-	<test name="HeiPort_Login_LDS">
+	 -->
+	<!-- <test name="HeiPort_Login_LDS">
 		<classes>
 			<class name="com.mendix.test.LoginScript">
 				<methods>
 					<include name="openBrowser" />
-					<include name="loginAsLDSVendor" />
+					<include name="loginAsVendorLDSNAV" />
 				</methods>
 			</class>
 		</classes>
 	</test>
-		<test name="Vendor_Create_Review_Local_Data_Approve_LDS">
+	<test name="Material_Create_Review_Local_Data_Reject_LDS">
 		<classes>
-			<class name="com.mendix.test.VendorScript_NAV">
+			<class name="com.mendix.test.MaterialNavScript">
 				<methods>
-					<include name="Vendor_Create_Review_Local_Data_Approve_LDS" />
+					<include
+						name="Material_Create_Review_Local_Data_Reject_LDS" />
 				</methods>
 			</class>
 		</classes>
 	</test>
-	<test name="Process_Information_Check_Approved_LDS">
+	<test name="Process_Information_Check_LDS_RejectStatus">
 		<classes>
-			<class name="com.mendix.test.VendorScript">
+			<class name="com.mendix.test.MaterialNavScript">
 				<methods>
 					<include name="Process_Information_Check" />
 				</methods>
 			</class>
-		</classes>		
-	</test> 
+		</classes>
+	</test> -->
+		
+	 
 	  <test name="HeiPort_Login_GDA">
 		<classes>
 			<class name="com.mendix.test.LoginScript">
@@ -87,16 +91,17 @@
 			</class>
 		</classes>
 	</test>
- 	<test name="Vendor_Create_Review_Global_Data_Approve_GDA">
+ 	
+	<test name="Material_Data_With_Reject_GDA">
 		<classes>
-			<class name="com.mendix.test.VendorScript">
+			<class name="com.mendix.test.MaterialScript">
 				<methods>
-					<include name="Vendor_Create_Review_Global_Data_Approve_GDA" />
+					<include name="Material_Data_With_Reject_GDA" />
 				</methods>
 			</class>
 		</classes>
-	</test>
-		<test name="Process_Information_Check_Approved_GDA">
+	</test>	
+	<test name="Process_Information_Check_Approved_GDA">
 		<classes>
 			<class name="com.mendix.test.MaterialNavScript">
 				<methods>
@@ -115,7 +120,25 @@
 			</class>
 		</classes>
 	</test>
-		<test name="Vendor_Create_Syndication_Check">
+	<test name="Create_Material_Rejections_with_Discard">
+		<classes>
+			<class name="com.mendix.test.MaterialScript">
+				<methods>
+					<include name="Create_Material_Rejections_with_Discard" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	<test name="Process_Information_Check_Discard">
+		<classes>
+			<class name="com.mendix.test.VendorScript">
+				<methods>
+					<include name="Process_Information_Check_Discard" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	<!-- <test name="Vendor_Create_Syndication_Check">
 		<classes>
 			<class name="com.mendix.test.VendorScript">
 				<methods>
@@ -123,7 +146,7 @@
 				</methods>
 			</class>
 		</classes>
-	</test>
+	</test> -->
 </suite> 
 
 

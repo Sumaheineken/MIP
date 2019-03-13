@@ -444,7 +444,7 @@ public class MaterialScript {
 	 * System.out.println("Create_Material_Rejections_with_Discard is not completed"
 	 * ); driver.close(); } }
 	 */
-	@Test(dataProvider = "Process_Information_Check_Material_Reject", dataProviderClass = staticProviderClass.class)
+	@Test(dataProvider = "Process_Information_Check", dataProviderClass = staticProviderClass.class)
 	public void Material_Data_With_Reject_GDA(Map<String, String> dataMap)
 			throws InterruptedException, FileNotFoundException, IOException, AWTException {
 
