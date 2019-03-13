@@ -50,7 +50,7 @@ public class VendorScript {
 		SharedDriver.pageContainer.vendorPage.validateTestCreate();
 		SharedDriver.pageContainer.materialPage.duplicateCheckButton();
 		SharedDriver.pageContainer.materialPage.clickDuplicateCheck();
-		SharedDriver.pageContainer.vendorPage.submitGlobalRequestTest();
+		//SharedDriver.pageContainer.vendorPage.submitGlobalRequestTest();
 		SharedDriver.pageContainer.vendorPage.getRequestId();
 				
 	}
