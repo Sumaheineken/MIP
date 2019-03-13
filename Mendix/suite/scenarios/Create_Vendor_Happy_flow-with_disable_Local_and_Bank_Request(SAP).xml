@@ -49,6 +49,7 @@
 			</class>
 		</classes>
 	</test>
+	
  	<test name="Vendor_Create_Review_Global_Data_Approve_GDA">
 		<classes>
 			<class name="com.mendix.test.VendorScript">
@@ -60,13 +61,15 @@
 	</test>
 		<test name="Process_Information_Chec_Approvedk">
 		<classes>
-			<class name="com.mendix.test.VendorScript">
+			<class name="com.mendix.test.MaterialNavScript">
 				<methods>
-					<include name="Process_Information_Check" />
+					<include name="Process_Information_Check_GlobalID_Extend" />
 				</methods>
 			</class>
 		</classes>
 	</test>
+	
+	
 	 <test name="HeiPort_Login_LDR_2">
 		<classes>
 			<class name="com.mendix.test.LoginScript">
