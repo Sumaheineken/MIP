@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Create Vendor with Questionnaire with Global and Local_NAV">
- 	 <test name="HeiPort_Login_LDR">
+ 	<!--   <test name="HeiPort_Login_LDR">
 		<classes>
 			<class name="com.mendix.test.LoginScript">
 				<methods>
@@ -30,7 +30,7 @@
 			</class>
 		</classes>
 	</test>
-	  <!-- <test name="Process_Information_Check GDA">
+	 <test name="Process_Information_Check GDA">
 		<classes>
 			<class name="com.mendix.test.VendorScript">
 				<methods>
@@ -94,7 +94,7 @@
 				</methods>
 			</class>
 		</classes>		
-	</test> 
+	</test> -->
 	 <test name="HeiPort_Login_LDR_Get GlobalID">
 		<classes>
 			<class name="com.mendix.test.LoginScript">
@@ -109,11 +109,12 @@
 		<classes>
 			<class name="com.mendix.test.VendorScript">
 				<methods>
-					<include name="Vendor_Create_Syndication_Check" />
+					<include name="Vendor_Create_Syndication_Check_NAV" />
+					<include name="launchUFT_NAV_Vendor"/>
 				</methods>
 			</class>
 		</classes>
-	</test>   -->
+	</test> 
 </suite> 
 
 

@@ -443,6 +443,11 @@ public class MaterialApprovalPage {
 		Runtime.getRuntime().exec("AutoIt UFT Launch\\UFT_SAP.exe");
 
 	}
+	
+	public void launchUFT_NAV_Vendor() throws IOException {
+		Runtime.getRuntime().exec("AutoIt UFT Launch\\UFT_NAV_Vendor.exe");
+	}
+
 
 
 	public void launch_UFT_JDE() throws IOException {
