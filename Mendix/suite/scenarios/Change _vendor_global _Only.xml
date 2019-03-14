@@ -13,6 +13,7 @@
 			</class>
 		</classes>
 	</test>
+	
 	<test name="Vendor_Change_DashBoard">
 		<classes>
 			<class name="com.mendix.test.VendorScript">
