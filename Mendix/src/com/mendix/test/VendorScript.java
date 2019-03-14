@@ -240,6 +240,31 @@ public class VendorScript {
 	
 	
 	@Test(dataProvider="Process_Information_Check",dataProviderClass=staticProviderClass.class)
+	public void Vendor_Create_Syndication_Check_NAV (Map<String,String> dataMap) throws InterruptedException, FileNotFoundException, IOException 
+	{
+		SharedDriver.pageContainer.homePage.navigateToWorkflow();
+		SharedDriver.pageContainer.vendorPage.switchToMDMPortal();
+		SharedDriver.pageContainer.vendorPage.navigateToDashboard();
+		SharedDriver.pageContainer.vendorPage.advancedSearch();
+		//SharedDriver.pageContainer.vendorPage.scrolltoGlobalSearch();
+		SharedDriver.pageContainer.vendorPage.globalSearch(dataMap.get("Global_ID"));
+		//SharedDriver.pageContainer.vendorPage.getGlobalId();
+		//SharedDriver.pageContainer.vendorPage.GetFullVendorData();
+		//SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
+		//SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
+		//SharedDriver.pageContainer.vendorPage.getVendorAccountNumber();
+		SharedDriver.pageContainer.processInfoPage.browserClose();
+	}
+	@Test
+	public void launchUFT_NAV_Vendor() throws IOException, InterruptedException
+	{
+		Thread.sleep(1200000);
+		SharedDriver.pageContainer.materialApprovalPage.launchUFT_NAV_Vendor();
+	}
+
+	
+	
+	@Test(dataProvider="Process_Information_Check",dataProviderClass=staticProviderClass.class)
 	public void Vendor_Create_Syndication_Check (Map<String,String> dataMap) throws InterruptedException, FileNotFoundException, IOException 
 	{
 		SharedDriver.pageContainer.homePage.navigateToWorkflow();
@@ -254,6 +279,7 @@ public class VendorScript {
 		//SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
 		//SharedDriver.pageContainer.vendorPage.getVendorAccountNumber();
 		SharedDriver.pageContainer.processInfoPage.browserClose();
+		Thread.sleep(1200000);
 		SharedDriver.pageContainer.materialApprovalPage.launchUFT();
 	}
 
