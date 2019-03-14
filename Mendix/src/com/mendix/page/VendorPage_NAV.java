@@ -87,8 +87,11 @@ public class VendorPage_NAV {
 	@FindBy(how=How.XPATH, using=".//*[text()='Name 1']/../div/input")
 	WebElement textName;
 	
-	@FindBy(how=How.XPATH, using="	")
+	@FindBy(how=How.XPATH, using="//*[text()='Search Term 1']/../div/input")
 	WebElement textSearchterm1;
+	
+	@FindBy(how=How.XPATH, using="//*[text()='Search Term 2']/../div/input")
+	WebElement textSearchterm2;
 	
 	@FindBy(how=How.XPATH, using=".//*[text()='Street']/../div/input")
 	WebElement textStreet;
@@ -160,6 +163,9 @@ public class VendorPage_NAV {
 	@FindBy(how=How.XPATH, using=".//button[text()='Submit Global Request']")
 	WebElement btnGlobalRequest;
 	
+	@FindBy(how=How.XPATH, using=".//button[text()='Submit Local Request']")
+	WebElement btnLocalRequest;	
+	
 	@FindBy(how=How.XPATH, using="(.//button[text()='Submit Global and Local Request']/span)[2]")
 	WebElement btnGlobalLocalRequest;
 	
@@ -228,7 +234,8 @@ public class VendorPage_NAV {
 	
 	@FindBy(how=How.XPATH, using="//*[text()='Purchasing']/../../../div/div[2]/div/div/div[2]/div[2]//button[text()='Edit']")
 	WebElement btnPurchasingEdit;
-	
+	@FindBy(how=How.XPATH, using="//*[text()='Finance']/../../../div/div[1]/div/div/div[2]/div[2]//button[text()='Edit']")
+	WebElement btnFinanceEdit;	
 		
 	@FindBy(how=How.XPATH, using="//*[text()='Bank Details']/../div/div[1]/div/div/div/div[2]/div[2]/button[1]")
 	WebElement btnBankNew;
@@ -303,7 +310,12 @@ public class VendorPage_NAV {
 	WebElement dropdownPurchasingPaymentTC;
 	
 	@FindBy(how=How.XPATH, using=".//*[contains(text(),'Payment Method Code')]/../div/div/select")
-	WebElement dropdownPurchasingPaymentMC;
+	WebElement dropdownPurchasingPaymentMC;	
+	@FindBy(how=How.XPATH, using=".//*[text()='CompanyCode']/../../../../../../table[2]/tbody/tr[2]")
+	WebElement selectVendorFinancePlant;	
+	@FindBy(how=How.XPATH, using=".//*[text()='PurchasingOrganization']/../../../../../../table[2]/tbody/tr[1]")
+	WebElement selectVendorPurchasingPlant;
+
 
 /**********************************************************************************************************
 	/**
@@ -427,27 +439,42 @@ public class VendorPage_NAV {
 
 		Sync.waitForSeconds(Constants.WAIT_6);
 	//	Sync.waitUntilObjectDisappears(driver, "Waiting of Create page to Load", By.xpath(".//*[@id='mxui_widget_Progress_0']/div[2]"));
-		Sync.waitForObject(driver, btnFinanceNew);
-		Button.click("New finace button", btnFinanceNew);
+		Sync.waitForObject(driver, btnFinanceEdit);
+		Button.click("New finace button", btnFinanceEdit);
 	}
 	/*******************************************************************************/
 	public void ClickPurchasingNew() 
 	{
 		Sync.waitUntilObjectDisappears(driver, "Waiting of Create page to Load", By.xpath(".//*[@id='mxui_widget_Progress_0']/div[2]"));
+		WebDriverWait wait = new WebDriverWait(driver,50);
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(".//*[@class='mx-name-index-0']")));
 		Button.click("Link Purchasing", LinkPurchasing);
 		Sync.waitForSeconds(Constants.WAIT_3);
 		Sync.waitUntilObjectDisappears(driver, "Waiting of Create page to Load", By.xpath(".//*[@id='mxui_widget_Progress_0']/div[2]"));
 		Sync.waitForObject(driver, btnPurchasingNew);
 		Button.click("New Purchasing button", btnPurchasingNew);
 	}
+	
 
 /*****************************************************************************/
+	public void ClickPurchasingTab() 
+	{  
+		Sync.waitForSeconds(Constants.WAIT_6);	   	
+		Sync.waitUntilObjectDisappears(driver, "Waiting of Create page to Load", By.xpath(".//*[@id='mxui_widget_Progress_0']/div[2]"));
+		WebDriverWait wait = new WebDriverWait(driver,50);
+	    wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[text()='Purchasing']")));
+		Button.click("Link Purchasing", LinkPurchasing);
+		Sync.waitForSeconds(Constants.WAIT_3);
+		//Sync.waitUntilObjectDisappears(driver, "Waiting of Create page to Load", By.xpath(".//*[@id='mxui_widget_Progress_0']/div[2]"));		
+	}
+	/********************************************************************************/
 	public void ClickPurchasingEdit() 
 	{
 		Sync.waitUntilObjectDisappears(driver, "Waiting of Create page to Load", By.xpath(".//*[@id='mxui_widget_Progress_0']/div[2]"));
-	
-		Sync.waitForObject(driver, btnPurchasingNew);
-		Button.click("New Purchasing button", btnPurchasingNew);
+		Sync.waitForObject(driver, btnPurchasingEdit);
+		WebDriverWait wait = new WebDriverWait(driver,50);
+	    wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[text()='Purchasing']/../../../div/div[2]/div/div/div[2]/div[2]//button[text()='Edit']")));
+		Button.click("Edit Purchasing button", btnPurchasingEdit);
 	}
 /************************************************************************************************/
 	
@@ -493,12 +520,21 @@ public class VendorPage_NAV {
 		Sync.waitForSeconds(Constants.WAIT_3);
 		Sync.waitForObject(driver, textName);
 		WebDriverWait wait=new WebDriverWait(driver, 60);
-		Sync.waitForSeconds(Constants.WAIT_1);
 		wait.until(ExpectedConditions.elementToBeClickable(textName));
-		Textbox.enterValue("Name to create vendor",textName, strValue);
+		Sync.waitForSeconds(Constants.WAIT_1);		
+		Textbox.enterValue("Name to create vendor",textName, strValue);	
 		Sync.waitForSeconds(Constants.WAIT_1);
-		//Textbox.click("clicking name1", textSearchterm1);
-		Textbox.enterValue("Enter Search Term",textSearchterm1, strValue);
+		Textbox.click("clicking name1", textSearchterm1);
+		
+		
+	}	
+	/***************************************************************************/
+	public void SearchTerm(String strValue)
+	{
+		Sync.waitForSeconds(Constants.WAIT_3);
+		WebDriverWait wait=new WebDriverWait(driver, 60);
+		wait.until(ExpectedConditions.elementToBeClickable(textSearchterm2));
+		Textbox.click("Entering Search Term", textSearchterm2);
 	}
 
 /********************Address section Global Data*********************************************************/		
@@ -514,58 +550,100 @@ public class VendorPage_NAV {
 	{
 		Sync.waitForSeconds(Constants.WAIT_1);
 		Sync.waitForObject(driver, textHouseNumber);
-		Textbox.enterValue("Enter Street",textHouseNumber, strValue);	
+		Textbox.enterValue("Enter House Number",textHouseNumber, strValue);	
 	}
 	
 	public void AddresPostalCode(String strValue)
 	{
 //		Sync.waitForSeconds(Constants.WAIT_1);
 		Sync.waitForObject(driver, textPostalCode);
-		Textbox.enterValue("Enter Street",textPostalCode, strValue);	
+		Textbox.enterValue("Enter postal Code",textPostalCode, strValue);	
 	}
 	
 	public void AddresCity(String strValue)
 	{
 //		Sync.waitForSeconds(Constants.WAIT_1);
-		Textbox.enterValue("Enter Street",textCity, strValue);	
+		Textbox.enterValue("Enter City",textCity, strValue);	
 	}
 	
 	public void AddresCountry(String strValue)
 	{
-//		Sync.waitForSeconds(Constants.WAIT_1);
-		Select Country= new Select(textCountry);
-	//	Country.selectByVisibleText(strValue);
-//		 Sync.waitForSeconds(Constants.WAIT_1);
-		 List <WebElement> elementCount = Country.getOptions();
-		 int iSize = elementCount.size();
-	//	 System.out.println(iSize);
-		 for(int i =0; i<iSize ; i++)
-		 {
-			String sValue = elementCount.get(i).getText();
-			if(sValue.equals(strValue))
-			 {
-			 Country.selectByIndex(i);
-			 break;
-			 }
-		 }
+        Sync.waitForSeconds(Constants.WAIT_2);
+        if(DropDown.verifyObject(textCountry)) {
+        	Sync.waitForObject(driver ,"Wait for Country", textCountry);
+			Sync.waitForSeconds(Constants.WAIT_5);
+			Sync.waitForSeconds(Constants.WAIT_5);
+			Button.click("Click on Country", textCountry);
+			Select Country= new Select(textCountry);
+			Country.selectByVisibleText(strValue);
+			
+		}else{
+			Sync.waitForSeconds(Constants.WAIT_5);
+			Sync.waitForSeconds(Constants.WAIT_5);
+			Button.click("Click on Country", textCountry);
+			Select Country= new Select(textCountry);
+			Country.selectByVisibleText(strValue);		
+			}
+		
+        }
+	public void clickCountry(String strValue) throws InterruptedException
+	{
+		Sync.waitForSeconds(Constants.WAIT_5);
+		this.AddresCountry(strValue);
 	}
+	
 	
 	public void AddresRegion(String strValue)
 	{
-		Sync.waitForSeconds(Constants.WAIT_1);
-		Select region= new Select(textRegion);
-		Sync.waitForSeconds(Constants.WAIT_1);
-		region.selectByVisibleText(strValue);
+		 Sync.waitForSeconds(Constants.WAIT_2);
+	        if(DropDown.verifyObject(textRegion)) {
+	        	Sync.waitForObject(driver ,"Wait for Country", textRegion);
+				Sync.waitForSeconds(Constants.WAIT_5);
+				Sync.waitForSeconds(Constants.WAIT_5);
+				Button.click("Click on Region", textRegion);
+				Select region= new Select(textRegion);
+				region.selectByVisibleText(strValue);
+				
+			}else{
+				Sync.waitForSeconds(Constants.WAIT_5);
+				Sync.waitForSeconds(Constants.WAIT_5);
+				Button.click("Click on Region", textRegion);
+				Select region= new Select(textRegion);
+				region.selectByVisibleText(strValue);		
+				}		
+		
+	}
+	public void clickRegion(String strValue) throws InterruptedException
+	{
+		Sync.waitForSeconds(Constants.WAIT_5);
+		this.AddresRegion(strValue);
 	}
 	
 	public void AddresLanguageKey(String strValue)
 	{
 		Sync.waitForSeconds(Constants.WAIT_2);
+        if(DropDown.verifyObject(textLanguageKey)) {
+        	Sync.waitForObject(driver ,"Wait for Country", textLanguageKey);
+			Sync.waitForSeconds(Constants.WAIT_5);
+			Sync.waitForSeconds(Constants.WAIT_5);
+			Button.click("Click on Region", textLanguageKey);
+			Select LanguageKey= new Select(textLanguageKey);
+			LanguageKey.selectByVisibleText(strValue);
+			
+		}else{
+			Sync.waitForSeconds(Constants.WAIT_5);
+			Sync.waitForSeconds(Constants.WAIT_5);
+			Button.click("Click on Country", textLanguageKey);
+			Select LanguageKey= new Select(textLanguageKey);
+			LanguageKey.selectByVisibleText(strValue);	
+			}		
+	
+		/*Sync.waitForSeconds(Constants.WAIT_2);
 		Select LanguageKey= new Select(textLanguageKey);
 //		LanguageKey.selectByVisibleText(strValue);
 		Sync.waitForSeconds(Constants.WAIT_1);
 		LanguageKey.selectByVisibleText(strValue);
-/*		 List <WebElement> elementCount = LanguageKey.getOptions();
+		 List <WebElement> elementCount = LanguageKey.getOptions();
 		 int iSize = elementCount.size();
 //		 System.out.println(iSize);
 		 for(int i =0; i<iSize ; i++)
@@ -578,6 +656,11 @@ public class VendorPage_NAV {
 			 }
 		 }*/
 	}
+	public void clickLanguageKey(String strValue) throws InterruptedException
+	{
+		Sync.waitForSeconds(Constants.WAIT_5);
+		this.AddresLanguageKey(strValue);
+	}
 	
 	public void AddressCreditInformationNumber(String strValue)
 	{
@@ -587,7 +670,22 @@ public class VendorPage_NAV {
 	
 	public void AddresIndustryKey(String strValue)
 	{
-		Sync.waitForSeconds(Constants.WAIT_1);
+		if(DropDown.verifyObject(textLanguageKey)) {
+        	Sync.waitForObject(driver ,"Wait for Country", textIndustryKey);
+			Sync.waitForSeconds(Constants.WAIT_5);
+			Sync.waitForSeconds(Constants.WAIT_5);
+			Button.click("Click on Industry Key", textIndustryKey);
+			Select IndustryKey= new Select(textIndustryKey);
+			IndustryKey.selectByVisibleText(strValue);
+			
+		}else{
+			Sync.waitForSeconds(Constants.WAIT_5);
+			Sync.waitForSeconds(Constants.WAIT_5);
+			Button.click("Click on Industry Key", textIndustryKey);
+			Select IndustryKey= new Select(textIndustryKey);
+			IndustryKey.selectByVisibleText(strValue);	
+			}		
+		/*Sync.waitForSeconds(Constants.WAIT_1);
 		Select IndustryKey= new Select(textIndustryKey);
 //		IndustryKey.selectByVisibleText(strValue);
 		Sync.waitForSeconds(Constants.WAIT_1);
@@ -603,11 +701,32 @@ public class VendorPage_NAV {
 			 break;
 			 }
 		 }
+	*/}
+	public void clickIndustryKey(String strValue) throws InterruptedException
+	{
+		Sync.waitForSeconds(Constants.WAIT_5);
+		this.AddresIndustryKey(strValue);
 	}
 	
 	public void AddresCorporateGroup(String strValue)
 	{
-		Sync.waitForSeconds(Constants.WAIT_1);
+		if(DropDown.verifyObject(textLanguageKey)) {
+        	Sync.waitForObject(driver ,"Wait for Country", textCorporateGroup);
+			Sync.waitForSeconds(Constants.WAIT_5);
+			Sync.waitForSeconds(Constants.WAIT_5);
+			Button.click("Click on Corporate Group", textCorporateGroup);
+			Select CorporateGroup= new Select(textCorporateGroup);
+			CorporateGroup.selectByVisibleText(strValue);
+			
+		}else{
+			Sync.waitForSeconds(Constants.WAIT_5);
+			Sync.waitForSeconds(Constants.WAIT_5);
+			Button.click("Click on Corporate Group", textCorporateGroup);
+			Select CorporateGroup= new Select(textCorporateGroup);
+			CorporateGroup.selectByVisibleText(strValue);
+			}	
+	}
+		/*Sync.waitForSeconds(Constants.WAIT_1);
 		Select CorporateGroup= new Select(textCorporateGroup);
 //		CorporateGroup.selectByVisibleText(strValue);
 		Sync.waitForSeconds(Constants.WAIT_1);
@@ -622,8 +741,13 @@ public class VendorPage_NAV {
 				CorporateGroup.selectByIndex(i);
 			 break;
 			 }
-		 }
+		 }*/
+	public void clickCorporateGroup(String strValue) throws InterruptedException
+	{
+		Sync.waitForSeconds(Constants.WAIT_5);
+		this.AddresCorporateGroup(strValue);
 	}
+	
 	public void AddresCompanyTrading(String strValue)
 	{
 		Sync.waitForSeconds(Constants.WAIT_1);
@@ -774,6 +898,23 @@ public class VendorPage_NAV {
 		return Button.click("Click Validate button on local action ", btnValidate);
 	}
 /****************************************************************************************************/
+	public void submitGlobalRequest() throws InterruptedException {
+		Sync.waitForSeconds(Constants.WAIT_1);
+		WebDriverWait wait=new WebDriverWait(driver, 60);
+		wait.until(ExpectedConditions.elementToBeClickable(btnGlobalRequest));
+		Button.click("Click Global submit Global Request", btnGlobalRequest);
+		Sync.waitForSeconds(Constants.WAIT_2);
+	}
+/*********************************************************************************************/
+	public void submitLocalRequest() throws InterruptedException {
+		Sync.waitForSeconds(Constants.WAIT_1);
+		WebDriverWait wait=new WebDriverWait(driver, 60);
+		wait.until(ExpectedConditions.elementToBeClickable(btnLocalRequest));
+		Button.click("Click Local submit Local Request", btnLocalRequest);
+		Sync.waitForSeconds(Constants.WAIT_2);
+	}
+/*******************************************************************************************/
+	
 	public void submitGlobalRequestTest() throws InterruptedException {
 
 		driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS) ;
@@ -1534,6 +1675,20 @@ public class VendorPage_NAV {
 		Sync.waitForSeconds(Constants.WAIT_5);
 		this.selectLocalPurchasingPaymentMCDropDown(strValue);
 	}
+	
+	public void selectVendorFinancePlant() 	
+	{
+		Sync.waitForSeconds(Constants.WAIT_5);
+		Sync.waitForObject(driver, selectVendorFinancePlant);
+		Button.click("Select the plant",selectVendorFinancePlant);
+	}
+	public void selectVendorPurchasingPlant() 	
+	{
+		Sync.waitForSeconds(Constants.WAIT_5);
+		Sync.waitForObject(driver, selectVendorPurchasingPlant);
+		Button.click("Select the plant",selectVendorPurchasingPlant);
+	}
+
 	
 	
 

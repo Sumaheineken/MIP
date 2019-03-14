@@ -199,7 +199,7 @@ public class MaterialApprovalPage {
 		Sync.waitForElementToBeClickable(driver, btnlocalAction);
 		Button.click("Click Local Action button", btnlocalAction);
 		Sync.waitForSeconds(Constants.WAIT_2);
-		return Button.jsclick("Click Approval Button", btnGDAApproval, driver);
+		return Button.jsclick("Click Approval Button", btnGlobalRequest, driver);
 	}
 
 	public boolean rejectBtnClick() {

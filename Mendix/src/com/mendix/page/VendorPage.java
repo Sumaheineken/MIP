@@ -194,7 +194,7 @@ public class VendorPage {
 	@FindBy(how = How.XPATH, using = "//*[text()='Edit Global Data']/../div/input")
 	WebElement EditGlobalData;
 	
-	@FindBy(how=How.XPATH, using="//*[text()='Edit Localal Data']/../div/input")
+	@FindBy(how=How.XPATH, using = "//*[text()='Edit Local Data']/../div/input")
 	WebElement EditLocalData;
 	
 	@FindBy(how = How.XPATH, using = "//*[text()='Request ID']/../../td[4]/div/input")
@@ -381,9 +381,8 @@ public class VendorPage {
 
 	/*****************************************************************************/
 	public void GetFullVendorData() {
-		Sync.waitForSeconds(Constants.WAIT_2);
-		Sync.waitUntilObjectDisappears(driver, "Waiting of Create page to Load",
-				By.xpath(".//*[@id='mxui_widget_Progress_0']/div[2]"));
+		Sync.waitForSeconds(Constants.WAIT_5);
+		Sync.waitUntilObjectDisappears(driver, "Waiting of Create page to Load",By.xpath(".//*[@id='mxui_widget_Progress_0']/div[2]"));
 		Sync.waitForObject(driver, GetFullVendorData);
 		Button.click("GetFullVendorData", GetFullVendorData);
 		Sync.waitForSeconds(Constants.WAIT_5);
@@ -441,11 +440,7 @@ public class VendorPage {
 		
 		Button.click("Click EDit button", btnEdit);
 		Sync.waitForSeconds(Constants.WAIT_3);
-		Sync.waitForElementToBeClickable(driver, btnOK1);
-		Button.click("Click on OK", btnOK1);
-		Sync.waitForSeconds(Constants.WAIT_1);
-		Button.click("Click on OK", btnOK);
-		Sync.waitForSeconds(Constants.WAIT_1);
+	
 	}
   
 	public boolean disableLocaData() {
