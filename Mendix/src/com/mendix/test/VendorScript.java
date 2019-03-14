@@ -212,7 +212,7 @@ public class VendorScript {
 /****************************************************************************************************/
 	
 	@Test(dataProvider="Process_Information_Check",dataProviderClass=staticProviderClass.class)
-	public void Vendor_Create_Syndication_Check (Map<String,String> dataMap) throws InterruptedException, FileNotFoundException, IOException 
+	public void Vendor_Create_Syndication_Check_SAP (Map<String,String> dataMap) throws InterruptedException, FileNotFoundException, IOException 
 	{
 		SharedDriver.pageContainer.homePage.navigateToWorkflow();
 		SharedDriver.pageContainer.vendorPage.switchToMDMPortal();
@@ -236,6 +236,32 @@ public class VendorScript {
 		SharedDriver.pageContainer.materialApprovalPage.launchUFT_SAP();
 	}
 	
+	
+	@Test(dataProvider="Process_Information_Check",dataProviderClass=staticProviderClass.class)
+	public void Vendor_Create_Syndication_Check (Map<String,String> dataMap) throws InterruptedException, FileNotFoundException, IOException 
+	{
+		SharedDriver.pageContainer.homePage.navigateToWorkflow();
+		SharedDriver.pageContainer.vendorPage.switchToMDMPortal();
+		SharedDriver.pageContainer.vendorPage.navigateToDashboard();
+		SharedDriver.pageContainer.vendorPage.advancedSearch();
+		//SharedDriver.pageContainer.vendorPage.scrolltoGlobalSearch();
+		SharedDriver.pageContainer.vendorPage.globalSearch(dataMap.get("Global_ID"));
+		//SharedDriver.pageContainer.vendorPage.getGlobalId();
+		//SharedDriver.pageContainer.vendorPage.GetFullVendorData();
+		//SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
+		//SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
+		//SharedDriver.pageContainer.vendorPage.getVendorAccountNumber();
+		SharedDriver.pageContainer.processInfoPage.browserClose();
+		SharedDriver.pageContainer.materialApprovalPage.launchUFT();
+	}
+
+	@Test
+	public void launchUFT_JDE() throws IOException, InterruptedException
+	{
+		//Thread.sleep(1200000);
+		SharedDriver.pageContainer.materialApprovalPage.launchUFT_SAP();
+	}
+
 	
 /****************************************************************************************************/	
 	
