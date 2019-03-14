@@ -39,16 +39,21 @@ ActiveX=
 Database=
 File Content=
 Insight=
-Mobile=
+Java=
+SAP NWBC Desktop=
 SAP=
 SAPUI5=
 SAPWDJ=
 SAPWebExt=
+Silverlight=
 Windows Applications=
 TEA=
 UI Automation=
 Visual Basic=
 Web=
+.NET=
+Windows Runtime=
+WPF=
 XML=
 
 [ExtraFiles]
