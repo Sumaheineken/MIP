@@ -232,10 +232,10 @@ public class VendorScript {
 	
 	
 	@Test
-	public void launchUFT_SAP() throws IOException, InterruptedException
+	public void launchUFT_SAP_Vendor() throws IOException, InterruptedException
 	{
 		Thread.sleep(1200000);
-		SharedDriver.pageContainer.materialApprovalPage.launchUFT_SAP();
+		SharedDriver.pageContainer.materialApprovalPage.launchUFTSAPVendor();
 	}
 	
 	
@@ -279,15 +279,15 @@ public class VendorScript {
 		//SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
 		//SharedDriver.pageContainer.vendorPage.getVendorAccountNumber();
 		SharedDriver.pageContainer.processInfoPage.browserClose();
-		Thread.sleep(1200000);
-		SharedDriver.pageContainer.materialApprovalPage.launchUFT();
+		//Thread.sleep(1200000);
+		//SharedDriver.pageContainer.materialApprovalPage.launchUFTJDEVendor();
 	}
 
 	@Test
 	public void launchUFT_JDE() throws IOException, InterruptedException
 	{
-		//Thread.sleep(1200000);
-		SharedDriver.pageContainer.materialApprovalPage.launchUFT_SAP();
+		Thread.sleep(1200000);
+		SharedDriver.pageContainer.materialApprovalPage.launchUFTJDEVendor();
 	}
 
 	

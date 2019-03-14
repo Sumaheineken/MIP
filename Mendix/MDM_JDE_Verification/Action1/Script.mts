@@ -2,11 +2,11 @@
 StrSheetName = StrExcelSheetName
 
 'Provide TestData excel sheet path
-strFilePath = "C:\Users\SatishKumarSundaramo\git\Mendix_New\Mendix\input\Mendix_TestPlan.xlsx"
+strFilePath = "C:\Users\IBM_ADMIN\Git\MIP\Mendix\input\Mendix_TestPlan.xlsx"
 
 StrURL_JDE = "http://145.47.230.78:8084/jde/E1Menu.maf"
-StrUserName_JDE = "ReddyG02"
-StrPassword_JDE = "Welcome@12"
+StrUserName_JDE = "vkovvs01"
+StrPassword_JDE = "Welcome@1993"
 
 DataTable.AddSheet("TestPlan")
 DataTable.ImportSheet strFilePath, StrExcelSheetName, StrSheetName
@@ -22,7 +22,7 @@ For i = 0 To RowCount
 	StrExecute = DataTable.Value("Execute", StrSheetName)
 	StrTestCase = DataTable.Value("Test_Case", StrSheetName)
 	
-	If (UCase(StrExecute) = "Y") And (StrTestCase ="Create_Vendor_with_Questionnaire_with_Global_and_Local_and_Bank_JDE") Then
+	If (UCase(StrExecute) = "Y") Or (StrTestCase ="Create_Vendor_with_Questionnaire_with_Global_and_Local_and_Bank_JDE") Then
 		Call fn_LaunchApplication("iexplore.exe",StrURL_JDE)
 		Call Login_JDE_Portal(StrUserName_JDE,StrPassword_JDE)
 		Call VerifyMDMGlobalVendorIDInJDE(StrGlobalVendorID)

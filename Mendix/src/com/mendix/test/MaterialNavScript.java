@@ -321,18 +321,5 @@ public class MaterialNavScript {
 		SharedDriver.pageContainer.processInfoPage.browserClose();
 	}
 	
-	@Test(dataProvider="Process_Information_Check",dataProviderClass=staticProviderClass.class)
-	public void Process_Information_Check_GlobalID_Extend(Map<String,String> dataMap) throws InterruptedException, FileNotFoundException, IOException 
-	{
-
-		SharedDriver.pageContainer.processInfoPage.processInfoSearch();
-		SharedDriver.pageContainer.processInfoPage.reqIdSearch_Global(dataMap.get("RequestId"));
-		//SharedDriver.pageContainer.processInfoPage.getState_New(dataMap.get("RequestId"));
-		//SharedDriver.pageContainer.processInfoPage.capturing_GlobalID();
-		SharedDriver.pageContainer.materialPage.checkSyndication(dataMap.get("RequestId"));
-		SharedDriver.pageContainer.materialPage.getGlobalIdProcessInfo_Extend(dataMap.get("RequestId"));
-		Sync.waitForSeconds(Constants.WAIT_5);
-		SharedDriver.pageContainer.processInfoPage.browserClose();
-	}
-	
+		
 }

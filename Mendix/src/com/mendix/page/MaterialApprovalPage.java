@@ -434,27 +434,6 @@ public class MaterialApprovalPage {
 		return Button.click("Click Ok Button", btnMsgReqIdOk);
 	}
 
-	public void launchUFT() throws IOException {
-		Runtime.getRuntime().exec("AutoIt UFT Launch\\UFT.exe");
-
-	}
-	
-	public void launchUFT_SAP() throws IOException {
-		Runtime.getRuntime().exec("AutoIt UFT Launch\\UFT_SAP.exe");
-
-	}
-	
-	public void launchUFT_NAV_Vendor() throws IOException {
-		Runtime.getRuntime().exec("AutoIt UFT Launch\\UFT_NAV_Vendor.exe");
-	}
-
-
-
-	public void launch_UFT_JDE() throws IOException {
-		Runtime.getRuntime()
-				.exec("AutoIt UFT Launch\\JDE.exe");
-	}
-
 	public void duplicateCheck() {
 		try {
 			// Sync.waitUntilObjectDisappears(driver, "Wait for Duplicate check",
@@ -630,6 +609,36 @@ public class MaterialApprovalPage {
 		Button.jsclick("Click on Popup", popUp, driver);
 
 		return Button.jsclick("Click Approval Button", btnGDAApproval, driver);
+	}
+	
+
+	public void launchUFTSAPMaterial() throws IOException {
+		// TODO Auto-generated method stub
+		Runtime.getRuntime().exec("AutoIt UFT Launch\\UFT_SAP_Material.exe");
+	}
+	
+	public void launchUFTSAPVendor() throws IOException {
+		Runtime.getRuntime().exec("AutoIt UFT Launch\\UFT_SAP_Vendor.exe");
+
+	}
+	
+	public void launchUFTJDEVendor() throws IOException {
+		Runtime.getRuntime().exec("AutoIt UFT Launch\\UFT_JDE_Vendor.exe");
+
+	}
+	
+	public void launchUFT_NAV_Vendor() throws IOException {
+		Runtime.getRuntime().exec("AutoIt UFT Launch\\UFT_NAV_Vendor.exe");
+	}
+
+	public void launchUFTNAVMaterial() throws IOException {
+		// TODO Auto-generated method stub
+		Runtime.getRuntime().exec("AutoIt UFT Launch\\UFT_NAV_Material.exe");
+	}
+
+	public void launchUFTJDEMaterial() {
+		// TODO Auto-generated method stub
+		
 	}
 
 

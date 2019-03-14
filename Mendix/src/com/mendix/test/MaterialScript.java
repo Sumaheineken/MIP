@@ -106,7 +106,8 @@ public class MaterialScript {
 		// SharedDriver.pageContainer.materialPage.clickFullMaterialData();
 		// SharedDriver.pageContainer.materialPage.getMaterial_Number();
 		SharedDriver.pageContainer.processInfoPage.browserClose();
-		SharedDriver.pageContainer.materialApprovalPage.launchUFT();
+		
+		//SharedDriver.pageContainer.materialApprovalPage.launchUFT();
 
 		SharedDriver.pageContainer.processInfoPage.browserClose();
 	}
@@ -305,25 +306,24 @@ public class MaterialScript {
 		 */
 	}
 
-	/*
-	 * @Test(dataProvider="Process_Information_Check",dataProviderClass=
-	 * staticProviderClass.class) public void Material_Create_Syndication_Check
-	 * (Map<String,String> dataMap) throws InterruptedException,
-	 * FileNotFoundException, IOException {
-	 * SharedDriver.pageContainer.homePage.navigateToWorkflow();
-	 * SharedDriver.pageContainer.materialPage.switchToPopup();
-	 * SharedDriver.pageContainer.materialPage.navigateToDashboard();
-	 * SharedDriver.pageContainer.materialPage.advancedSearch();
-	 * SharedDriver.pageContainer.materialPage.scrolltoGlobalSearch();
-	 * SharedDriver.pageContainer.materialPage.reqIdSearchGlobal(dataMap.get(
-	 * "RequestId")); SharedDriver.pageContainer.materialPage.getGlobalId(); //
-	 * SharedDriver.pageContainer.materialPage.clickFullMaterialData(); //
-	 * SharedDriver.pageContainer.materialPage.getMaterial_Number();
-	 * SharedDriver.pageContainer.processInfoPage.browserClose();
-	 * SharedDriver.pageContainer.materialApprovalPage.launchUFT(); }
-	 */
+	
+	@Test(dataProvider="Process_Information_Check",dataProviderClass=staticProviderClass.class)
+	public void process_Information_Check_GlobalID_Extend(Map<String,String> dataMap) throws InterruptedException, FileNotFoundException, IOException 
+	{
+
+		SharedDriver.pageContainer.processInfoPage.processInfoSearch();
+		SharedDriver.pageContainer.processInfoPage.reqIdSearch_Global(dataMap.get("RequestId"));
+		//SharedDriver.pageContainer.processInfoPage.getState_New(dataMap.get("RequestId"));
+		//SharedDriver.pageContainer.processInfoPage.capturing_GlobalID();
+		SharedDriver.pageContainer.materialPage.checkSyndication(dataMap.get("RequestId"));
+		SharedDriver.pageContainer.materialPage.getGlobalIdProcessInfo_Extend(dataMap.get("RequestId"));
+		Sync.waitForSeconds(Constants.WAIT_5);
+		SharedDriver.pageContainer.processInfoPage.browserClose();
+	}
+	
+	
 	@Test(dataProvider = "Process_Information_Check", dataProviderClass = staticProviderClass.class)
-	public void Material_Create_Syndication_Checking(Map<String, String> dataMap)
+	public void material_Create_Syndication_Check_GlobalId(Map<String, String> dataMap)
 			throws InterruptedException, FileNotFoundException, IOException {
 		SharedDriver.pageContainer.homePage.navigateToWorkflow();
 		SharedDriver.pageContainer.materialPage.switchToPopup();
@@ -337,6 +337,30 @@ public class MaterialScript {
 		SharedDriver.pageContainer.processInfoPage.browserClose();
 		// SharedDriver.pageContainer.materialApprovalPage.launchUFT();
 	}
+	
+	
+	@Test
+	public void launchUFT_SAP_Material() throws InterruptedException, IOException
+	{
+		Thread.sleep(1200000);
+		SharedDriver.pageContainer.materialApprovalPage.launchUFTSAPMaterial();
+	}
+	
+	@Test
+	public void launchUFT_NAV_Material() throws InterruptedException, IOException
+	{
+		Thread.sleep(1200000);
+		SharedDriver.pageContainer.materialApprovalPage.launchUFTNAVMaterial();
+	}
+	
+	@Test
+	public void launchUFT_JDE_Material() throws InterruptedException, IOException
+	{
+		Thread.sleep(1200000);
+		SharedDriver.pageContainer.materialApprovalPage.launchUFTJDEMaterial();
+	}
+
+
 
 	@Test(dataProvider = "Process_Information_Check", dataProviderClass = staticProviderClass.class)
 	public void Material_Extend_Syndication_Check(Map<String, String> dataMap)
@@ -351,7 +375,7 @@ public class MaterialScript {
 		// SharedDriver.pageContainer.materialPage.clickFullMaterialData();
 		// SharedDriver.pageContainer.materialPage.getMaterial_Number();
 		SharedDriver.pageContainer.processInfoPage.browserClose();
-		SharedDriver.pageContainer.materialApprovalPage.launchUFT();
+	//	SharedDriver.pageContainer.materialApprovalPage.launchUFT();
 	}
 
 	@Test(dataProvider = "Process_Information_Check", dataProviderClass = staticProviderClass.class)
@@ -378,7 +402,7 @@ public class MaterialScript {
 		// SharedDriver.pageContainer.materialPage.clickFullMaterialData();
 		// SharedDriver.pageContainer.materialPage.getMaterial_Number();
 		SharedDriver.pageContainer.processInfoPage.browserClose();
-		SharedDriver.pageContainer.materialApprovalPage.launchUFT();
+		//SharedDriver.pageContainer.materialApprovalPage.launchUFT();
 	}
 
 	/*
