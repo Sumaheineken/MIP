@@ -99,7 +99,7 @@
 			</class>
 		</classes>
 	</test>
-	
+	<!-- UFT Launch Code -->
 	<test name="Material_Create_Syndication_Check">
 		<classes>
 			<class name="com.mendix.test.MaterialScript">
