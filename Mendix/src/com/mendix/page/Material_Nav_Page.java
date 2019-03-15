@@ -119,6 +119,9 @@ public class Material_Nav_Page {
 
 	@FindBy(how = How.XPATH, using = "//*[text()='Confirm Extension']")
 	WebElement btnConfirmExtension;
+	
+	@FindBy(how = How.XPATH, using="//*[text()='Site']/../../../div/div[3]/div/div/div[2]/div[2]/div[2]/button[2]")
+	WebElement btnEditLocalSiteNav;
 
 	public void enterLocalData() {
 		WebDriverWait wait = new WebDriverWait(driver, 120);
@@ -506,15 +509,27 @@ public class Material_Nav_Page {
 		Thread.sleep(6000);
 		((JavascriptExecutor) driver).executeScript("window.scrollBy(0," + (hoverItem.getY()) + ");");
 	}
+	
+	
 
 	public void clickEditSiteData() throws AWTException, IOException {
 		Sync.waitForSeconds(Constants.WAIT_5);
-		Sync.waitUntilObjectDisappears(driver, "Wait for Location Code Select",
-				By.xpath(".//*[@id='mxui_widget_Progress_0']/div[2]"));
+		Sync.waitForObject(driver, btnEditLocalSiteNav);
+		
+		if(Button.verifyObject(btnEditLocalSiteNav))
+		{
+			Sync.waitForObject(driver, btnEditLocalSiteNav);
+			Button.jsclick("Click Edit Site Button", btnEditLocalSiteNav, driver);
+		}
+		else
+		{
+			Sync.waitForObject(driver, btnEditLocalSiteNav);
+			Button.jsclick("Click Edit Site Button", btnEditLocalSiteNav, driver);
+		}
+		//Sync.waitUntilObjectDisappears(driver, "Wait for Location Code Select",By.xpath(".//*[@id='mxui_widget_Progress_0']/div[2]"));
 		// Sync.waitForElementToBeClickable(driver,
 		// driver.findElement(By.xpath("(//*[text()='Add'])[3]/../button[2]/span")));
-		Button.jsclick("Click Edit Site Button",
-				driver.findElement(By.xpath("(//*[text()='Add'])[3]/../button[2]/span")), driver);
+		//Button.jsclick("Click Edit Site Button",driver.findElement(By.xpath("(//*[text()='Add'])[3]/../button[2]/span")), driver);
 		// driver.findElement(By.xpath("(//*[text()='Add'])[3]/../button[2]/span")).click();
 	}
 

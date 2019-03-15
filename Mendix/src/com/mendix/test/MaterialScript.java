@@ -342,7 +342,7 @@ public class MaterialScript {
 	@Test
 	public void launchUFT_SAP_Material() throws InterruptedException, IOException
 	{
-		Thread.sleep(1200000);
+		//Thread.sleep(1200000);
 		SharedDriver.pageContainer.materialApprovalPage.launchUFTSAPMaterial();
 	}
 	
@@ -779,6 +779,23 @@ public class MaterialScript {
 		SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
 		Sync.waitForSeconds(Constants.WAIT_3);
 	}
+	
+	@Test(dataProvider="Process_Information_Check",dataProviderClass=staticProviderClass.class)
+	public void material_Data_Extend_NAV(Map<String,String> dataMap) throws InterruptedException, FileNotFoundException, IOException
+	{
+		SharedDriver.pageContainer.homePage.navigateToWorkflow();
+		SharedDriver.pageContainer.materialPage.switchToPopup();
+		SharedDriver.pageContainer.materialPage.navigateToDashboard();
+		SharedDriver.pageContainer.materialPage.advancedSearch();
+		SharedDriver.pageContainer.materialPage.scrolltoGlobalSearch();
+		SharedDriver.pageContainer.materialPage.globalSearch(dataMap.get("Global_ID"));
+		SharedDriver.pageContainer.materialPage.clickFullMaterialDataNew();
+		SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
+		SharedDriver.pageContainer.material_Change_Page.clickExtendbutton();
+		Sync.waitForSeconds(Constants.WAIT_3);
+		
+	}
+	
 
 
 	}
