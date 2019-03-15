@@ -138,6 +138,7 @@
 			</class>
 		</classes>
 	</test>
+	<!-- UFT launch code   -->
 	<test name="HeiPort_Login_LDR_Syndication">
 		<classes>
 			<class name="com.mendix.test.LoginScript">

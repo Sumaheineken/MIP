@@ -251,7 +251,7 @@ public class VendorPage {
 	@FindBy(how = How.XPATH, using = "//button[@class='btn mx-button mx-name-actionButton1 btn-lg btn-action-panel pull-right btn-default']")
 	WebElement btnToConfirm;
 
-	@FindBy(how = How.XPATH, using = "//button[@text='Confirm Extension']")
+	@FindBy(how = How.XPATH, using = "//button[text()='Confirm Extension']")
 	WebElement btnConfirmExtension;
 
 	@FindBy(how = How.XPATH, using = "//button[text()='Flag For Deletion']")

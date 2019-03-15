@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Extend Global only for SAP">
-	  <test name="HeiPort_Login_LDR">
+<suite name="Extend Vendor Global and Local from JDE to NAV(With Local data adding)">
+ <test name="HeiPort_Login_LDR">
 		<classes>
 			<class name="com.mendix.test.LoginScript">
 				<methods>
@@ -34,10 +34,10 @@
 		</classes>
 	</test> 
 	
-	
+
 	 	<!-- =============================================LDS login and approving local Start=============================================================== -->
-	      
-	  <test name="HeiPort_Login_LDS">
+        
+	 <test name="HeiPort_Login_LDS">
 		<classes>
 			<class name="com.mendix.test.LoginScript">
 				<methods>
@@ -67,10 +67,10 @@
 			</class>
 		</classes>
 	</test>
-	   
+
 	<!-- =====================================LDS Approval Local End============================================================================ -->	 
 	<!-- =====================================LBDA Approval Local Start========================================================================= -->
-	
+  
 	<test name="HeiPort_Login_LBDA">
 		<classes>
 			<class name="com.mendix.test.LoginScript">
@@ -93,7 +93,7 @@
 	</test>
 	<test name="Process_Information_Check_Syndication_LBDA">
 		<classes>
-			<class name="com.mendix.test.MaterialNavScript">
+			<class name="com.mendix.test.MaterialScript">
 				<methods>
 					<include name="Process_Information_Check_GlobalID_Extend" />
 				</methods>
@@ -118,6 +118,7 @@
 			<class name="com.mendix.test.VendorScript">
 				<methods>
 					<include name="Vendor_Create_Syndication_Check" />
+					<include name="launchUFT_NAV_Vendor"/>
 				</methods>
 			</class>
 		</classes>

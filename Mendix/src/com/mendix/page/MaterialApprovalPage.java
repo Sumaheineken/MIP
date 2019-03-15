@@ -85,6 +85,9 @@ public class MaterialApprovalPage {
 
 	@FindBy(how = How.XPATH, using = ".//button[text()='Submit Global Request']")
 	WebElement btnGlobalRequest;
+	
+	@FindBy(how = How.XPATH, using = ".//button[text()='Approve Global Request']")
+	WebElement btnApproveGlobalRequest;
 
 	/*
 	 * @FindBy(how=How.CSS, using=".btn.btn-primary") WebElement btnMsgReqIdOk;
@@ -199,7 +202,18 @@ public class MaterialApprovalPage {
 		Sync.waitForElementToBeClickable(driver, btnlocalAction);
 		Button.click("Click Local Action button", btnlocalAction);
 		Sync.waitForSeconds(Constants.WAIT_2);
-		return Button.jsclick("Click Approval Button", btnGlobalRequest, driver);
+		
+		if(Button.verifyObject(btnApproveGlobalRequest))
+		{
+			Sync.waitForObject(driver, btnApproveGlobalRequest);
+			Button.jsclick("Click Approve Button", btnApproveGlobalRequest, driver);
+		}
+		else
+		{
+			Sync.waitForObject(driver, btnGlobalRequest);
+			Button.jsclick("Click Approval Button", btnGlobalRequest, driver);
+		}
+		return true;
 	}
 
 	public boolean rejectBtnClick() {
