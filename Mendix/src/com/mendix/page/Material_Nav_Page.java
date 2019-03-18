@@ -26,7 +26,7 @@ import com.mendix.tool.Constants;
 import com.mendix.tool.DropDown;
 import com.mendix.tool.Sync;
 
-public class Material_Nav_Page {
+public class Material_Nav_Page{
 
 	/** The driver. */
 	WebDriver driver;
@@ -40,6 +40,7 @@ public class Material_Nav_Page {
 	public Material_Nav_Page(WebDriver driver) {
 		PageFactory.initElements(driver, this);
 		this.driver = driver;
+		//super(driver);
 	}
 
 	@FindBy(how = How.XPATH, using = "//*[text()='Local Data']")
@@ -114,14 +115,18 @@ public class Material_Nav_Page {
 	@FindBy(how = How.XPATH, using = "//button[text()='Edit']")
 	WebElement btnSitesSelectEdit;
 	
-	@FindBy(how = How.XPATH, using = "//*[text()='Global Data']")
-	WebElement textGlobalData;
 
 	@FindBy(how = How.XPATH, using = "//*[text()='Confirm Extension']")
 	WebElement btnConfirmExtension;
 	
 	@FindBy(how = How.XPATH, using="//*[text()='Site']/../../../div/div[3]/div/div/div[2]/div[2]/div[2]/button[2]")
 	WebElement btnEditLocalSiteNav;
+	
+	@FindBy(how = How.XPATH, using = ".//*[contains(text(),'Plant')]/../div/div/select")
+	WebElement dropDownLocalSitePlant;
+	
+	@FindBy(how = How.XPATH, using = ".//*[contains(text(),'Replenishment System')]/../div/div/select")
+	WebElement dropDownLocalSiteRS;
 
 	public void enterLocalData() {
 		WebDriverWait wait = new WebDriverWait(driver, 120);
@@ -457,9 +462,9 @@ public class Material_Nav_Page {
 		 * LocationCodeDropDown= new Select(dropdown);
 		 * LocationCodeDropDown.selectByVisibleText("DZ01, Brewery Rouiba");
 		 */
-		Sync.waitUntilObjectDisappears(driver, "Wait for Location Code Select",
-				By.xpath(".//*[@id='mxui_widget_Progress_0']/div[2]"));
-		Sync.waitForSeconds(Constants.WAIT_5);
+//		Sync.waitUntilObjectDisappears(driver, "Wait for Location Code Select",
+//				By.xpath(".//*[@id='mxui_widget_Progress_0']/div[2]"));
+//		Sync.waitForSeconds(Constants.WAIT_5);
 		WebElement dropdown = driver.findElement(By.xpath("//*[text()='Location Code']/../div/div/select"));
 		Sync.waitForObject(driver, "Wait for Location Code Select", dropdown);
 		Button.click("Wait for Location Code Select", dropdown);
@@ -633,6 +638,13 @@ public class Material_Nav_Page {
 		Button.jsclick("Local Data", textLocalData, driver);
 		Sync.waitForSeconds(Constants.WAIT_5);
 	}
+	
+	public void switchToGlobal() {
+		//Sync.waitForObject(driver, "Verify Validate message", txtValidationMsg);
+		Sync.waitForSeconds(Constants.WAIT_5);
+		Button.jsclick("Global Data", btnGlobalData, driver);
+		Sync.waitForSeconds(Constants.WAIT_5);
+	}
 
 	public void localEditPlantNav() {
 		if (Button.verifyObject(btnNavLocalPlantEdit)) {
@@ -735,6 +747,61 @@ public class Material_Nav_Page {
 		Sync.waitForSeconds(Constants.WAIT_5);
 		this.selectLocalFinanceVATProdPostingGroupDropDown(strValue);
 	}
+	
+	public void selectLocalSitePlantDropDown(String strValue) throws InterruptedException {
+		// Sync.waitForObject(driver, textFinanceTabNav);
+		Sync.waitForSeconds(Constants.WAIT_5);
+		if (DropDown.verifyObject(dropDownLocalSitePlant)) {
+			Sync.waitForSeconds(Constants.WAIT_5);
+			Sync.waitForSeconds(Constants.WAIT_5);
+			Sync.waitForObject(driver, "Wait for Plant Select", dropDownLocalSitePlant);
+			Sync.waitForSeconds(Constants.WAIT_5);
+			Button.click("Click on Plant Select", dropDownLocalSitePlant);
+			Select sitePlantDropDownSelect = new Select(dropDownLocalSitePlant);
+			sitePlantDropDownSelect.selectByVisibleText(strValue);
+
+		} else {
+			Sync.waitForSeconds(Constants.WAIT_5);
+			Sync.waitForSeconds(Constants.WAIT_5);
+			Button.click("Click on Plant Select", dropDownLocalSitePlant);
+			Select sitePlantDropDownSelect = new Select(dropDownLocalSitePlant);
+			sitePlantDropDownSelect.selectByVisibleText(strValue);
+		}
+
+	}
+
+	public void clickAndSelectSitePlantDropDown(String strValue) throws InterruptedException {
+		Sync.waitForSeconds(Constants.WAIT_5);
+		this.selectLocalSitePlantDropDown(strValue);
+	}
+	
+	public void selectLocalSiteReplenishmentSystemDropDown(String strValue) throws InterruptedException {
+		// Sync.waitForObject(driver, textFinanceTabNav);
+		Sync.waitForSeconds(Constants.WAIT_5);
+		if (DropDown.verifyObject(dropDownLocalSiteRS)) {
+			Sync.waitForSeconds(Constants.WAIT_5);
+			Sync.waitForSeconds(Constants.WAIT_5);
+			Sync.waitForObject(driver, "Wait for Replenishment System Select", dropDownLocalSiteRS);
+			Sync.waitForSeconds(Constants.WAIT_5);
+			Button.click("Click on Replenishment System Select", dropDownLocalSiteRS);
+			Select siteRSDropDownSelect = new Select(dropDownLocalSiteRS);
+			siteRSDropDownSelect.selectByVisibleText(strValue);
+
+		} else {
+			Sync.waitForSeconds(Constants.WAIT_5);
+			Sync.waitForSeconds(Constants.WAIT_5);
+			Button.click("Click on Replenishment System Select", dropDownLocalSiteRS);
+			Select siteRSDropDownSelect = new Select(dropDownLocalSiteRS);
+			siteRSDropDownSelect.selectByVisibleText(strValue);
+		}
+
+	}
+
+	public void clickAndSelectSiteReplenishmentSystemDropDown(String strValue) throws InterruptedException {
+		Sync.waitForSeconds(Constants.WAIT_5);
+		this.selectLocalSiteReplenishmentSystemDropDown(strValue);
+	}
+
 
 	public void localAddInNewPlantNav() {
 
@@ -805,10 +872,6 @@ public class Material_Nav_Page {
 		Sync.waitForSeconds(Constants.WAIT_5);
 		// Sync.waitUntilObjectDisappears(driver, "Wait for Save button",
 		// By.xpath(".//*[@id='mxui_widget_Progress_0']/div[2]"));
-		Sync.waitForObject(driver, txtValidationMsg);
-		Sync.waitForObject(driver, textGlobalData);
-		Sync.waitForSeconds(Constants.WAIT_6);
-		Button.jsclick("Switch to Global Data tab", textGlobalData, driver);
 		Sync.waitForSeconds(Constants.WAIT_5);
 		if (Button.verifyObject(btnConfirmExtension)) {
 			Sync.waitForSeconds(Constants.WAIT_10);

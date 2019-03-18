@@ -4,6 +4,7 @@ import org.openqa.selenium.WebDriver;
 
 import com.mendix.page.LoginPage;
 import com.mendix.page.MaterialApprovalPage;
+import com.mendix.page.BasePage;
 import com.mendix.page.HomePage;
 import com.mendix.page.MaterialPage;
 import com.mendix.page.Material_Change_Page;
@@ -30,6 +31,7 @@ public VendorPage vendorPage;
 public VendorPage_NAV vendorPageNAV;
 public Vendor_JDE_Page vendor_JDE_Page;
 public Material_Change_Page material_Change_Page;
+public BasePage basePage;
 
 public PageContainer(WebDriver driver){
 	this.driver=driver;
@@ -49,7 +51,7 @@ private void initPages() {
     vendorPageNAV = new VendorPage_NAV(driver);
     vendor_JDE_Page =new Vendor_JDE_Page(driver);
     material_Change_Page =new Material_Change_Page(driver);
-	
+	basePage = new BasePage(driver);
 }
 
 }
