@@ -109,6 +109,12 @@ public class MaterialApprovalPage {
 	
 	@FindBy(how=How.XPATH, using=".//button[text()='Mark all Views Completed']")
 	WebElement btnMarkAllViewsCompleted;
+	
+	@FindBy(how = How.XPATH, using = ".//button[text()='Submit Local Request']")
+	WebElement btnLocalRequest;
+	
+	@FindBy(how = How.XPATH, using = ".//button[text()='Approve Local Request']")
+	WebElement btnApproveLocalRequest;
 
 	/**
 	 * Enter UserName. Enter Password
@@ -215,6 +221,53 @@ public class MaterialApprovalPage {
 		}
 		return true;
 	}
+	
+	public boolean approvalBtnClickLocal() {
+		Sync.waitForSeconds(Constants.WAIT_2);
+		Sync.waitUntilObjectDisappears(driver, "Wait My tasks to load",
+				By.xpath(".//*[@id='mxui_widget_Progress_0']/div[2]"));
+
+		WebElement waitElement = null;
+		FluentWait<WebDriver> fwait = new FluentWait<WebDriver>(driver).withTimeout(Duration.ofMinutes(3))
+				.pollingEvery(Duration.ofSeconds(600)).ignoring(NoSuchElementException.class)
+				.ignoring(TimeoutException.class);
+
+		// First checking to see if the loading indicator is found
+		// we catch and throw no exception here in case they aren't ignored
+		try {
+			waitElement = fwait.until(new Function<WebDriver, WebElement>() {
+				public WebElement apply(WebDriver driver) {
+					return driver.findElement(By.xpath(".//*[@id='mxui_widget_Progress_0']"));
+				}
+			});
+		} catch (Exception e) {
+		}
+
+		// checking if loading indicator was found and if so we wait for it to
+		// disappear
+		if (waitElement != null) {
+			WebDriverWait wait = new WebDriverWait(driver, 60);
+			wait.until(ExpectedConditions
+					.visibilityOfElementLocated(By.xpath("//span[@class='glyphicon glyphicon-flash']")));
+		}
+
+		Sync.waitForElementToBeClickable(driver, btnlocalAction);
+		Button.click("Click Local Action button", btnlocalAction);
+		Sync.waitForSeconds(Constants.WAIT_2);
+		
+		if(Button.verifyObject(btnApproveLocalRequest))
+		{
+			Sync.waitForObject(driver, btnApproveLocalRequest);
+			Button.jsclick("Click Approve Button", btnApproveLocalRequest, driver);
+		}
+		else
+		{
+			Sync.waitForObject(driver, btnLocalRequest);
+			Button.jsclick("Click Approval Button", btnLocalRequest, driver);
+		}
+		return true;
+	}
+
 
 	public boolean rejectBtnClick() {
 		Sync.waitForSeconds(Constants.WAIT_2);

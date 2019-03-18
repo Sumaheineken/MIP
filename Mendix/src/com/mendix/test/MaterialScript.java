@@ -318,6 +318,7 @@ public class MaterialScript {
 		SharedDriver.pageContainer.materialPage.checkSyndication(dataMap.get("RequestId"));
 		SharedDriver.pageContainer.materialPage.getGlobalIdProcessInfo_Extend(dataMap.get("RequestId"));
 		Sync.waitForSeconds(Constants.WAIT_5);
+		Thread.sleep(1200000);
 		SharedDriver.pageContainer.processInfoPage.browserClose();
 	}
 	
@@ -674,7 +675,7 @@ public class MaterialScript {
 		Assert.assertTrue(SharedDriver.pageContainer.homePage.navigateToWorkflow());
 		SharedDriver.pageContainer.materialPage.switchToPopup();
 		SharedDriver.pageContainer.materialApprovalPage.reqIdSearchMyTasks(dataMap.get("RequestId"));
-		SharedDriver.pageContainer.materialApprovalPage.approvalBtnClick();
+		SharedDriver.pageContainer.materialApprovalPage.approvalBtnClickLocal();
 		Sync.waitForSeconds(Constants.WAIT_5);
 		SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
 		//SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
@@ -738,6 +739,21 @@ public class MaterialScript {
 	//	SharedDriver.pageContainer.materialApprovalPage.duplicateCheck();
 		SharedDriver.pageContainer.materialPage.RejectGDA();
 		System.out.println("Material_Data_With_Reject_GDA-Done");	
+	}
+	
+	@Test(dataProvider="Process_Information_Check",dataProviderClass=staticProviderClass.class)
+	public void Material_Reject_LBDA (Map<String,String> dataMap) throws InterruptedException, FileNotFoundException, IOException, AWTException 
+	{
+		
+		System.out.println("Start:Material_Data_With_Reject_GDA ");
+		SharedDriver.pageContainer.homePage.navigateToWorkflow();
+		SharedDriver.pageContainer.materialPage.switchToPopup();
+		SharedDriver.pageContainer.materialApprovalPage.reqIdSearchMyTasks(dataMap.get("RequestId"));
+		System.out.println("search task opened");
+	//	SharedDriver.pageContainer.materialPage.validateTestCreate();
+	//	SharedDriver.pageContainer.materialApprovalPage.duplicateCheck();
+		SharedDriver.pageContainer.materialPage.RejectGDA();
+		System.out.println("Material_Data_With_Reject_LBDA-Done");	
 	}
 	
 	@Test(dataProvider="Process_Information_Check",dataProviderClass=staticProviderClass.class)

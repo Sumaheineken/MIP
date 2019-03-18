@@ -189,6 +189,7 @@ public class MaterialNavScript {
 		// SharedDriver.pageContainer.materialNavPage.clickAndSelectInventoryPostingGroupDropDown(dataMap.get("Inventory Posting Group"));
 		// SharedDriver.pageContainer.materialNavPage.clickAndSelectWHTGroupDropDown(dataMap.get("WHTProduct Posting Group"));
 		// SharedDriver.pageContainer.materialNavPage.clickAndSelectGenProdPostingGroupDropDown(dataMap.get("Gen.Prod. Posting Group"));
+		SharedDriver.pageContainer.basePage.waitForPageLoad();
 		SharedDriver.pageContainer.materialNavPage.clickAndSelectVATPostingGroupDropDown(dataMap.get("VAT Prod. Posting Group"));
 		SharedDriver.pageContainer.materialNavPage.validateAndSaveLocalData();
 		// SharedDriver.pageContainer.materialNavPage
@@ -209,8 +210,9 @@ public class MaterialNavScript {
 		Sync.waitForSeconds(Constants.WAIT_10);
 		SharedDriver.pageContainer.materialNavPage.clickSiteEditButton();
 		Sync.waitForSeconds(Constants.WAIT_10);
-		SharedDriver.pageContainer.materialNavPage.selectLocationCode(dataMap.get("Location Code"));
-		SharedDriver.pageContainer.materialNavPage.selectReplenishmentSystem(dataMap.get("Replenishment System"));
+		//SharedDriver.pageContainer.basePage.waitForPageLoad();
+		SharedDriver.pageContainer.materialNavPage.clickAndSelectSitePlantDropDown(dataMap.get("Location Code"));
+		SharedDriver.pageContainer.materialNavPage.clickAndSelectSiteReplenishmentSystemDropDown(dataMap.get("Replenishment System"));
 		SharedDriver.pageContainer.materialNavPage.clickLocalAction();
 		SharedDriver.pageContainer.materialNavPage.clickSiteValidateButton();
 		SharedDriver.pageContainer.materialNavPage.clickSiteSaveButton();
@@ -234,6 +236,7 @@ public class MaterialNavScript {
 		//SharedDriver.pageContainer.materialNavPage.clickSiteEditButton();
 		SharedDriver.pageContainer.materialNavPage.clickSiteNewButton();
 		Sync.waitForSeconds(Constants.WAIT_10);
+		SharedDriver.pageContainer.basePage.waitForPageLoad();
 		SharedDriver.pageContainer.materialNavPage.selectLocationCode(dataMap.get("Location Code"));
 		SharedDriver.pageContainer.materialNavPage.selectReplenishmentSystem(dataMap.get("Replenishment System"));
 		SharedDriver.pageContainer.materialNavPage.clickLocalAction();
@@ -252,6 +255,8 @@ public class MaterialNavScript {
 	public void material_Confirm_Extension() throws FileNotFoundException, InterruptedException, IOException
 	{
 		//Sync.waitForSeconds(Constants.WAIT_10);
+		//SharedDriver.pageContainer.basePage.waitForPageLoad();
+		SharedDriver.pageContainer.materialNavPage.switchToGlobal();
 		SharedDriver.pageContainer.materialNavPage.confirmExtensionNav();
 		Sync.waitForSeconds(Constants.WAIT_5);
 		Sync.waitForObject(driver, driver.findElement(By.cssSelector(".modal-body.mx-dialog-body>p")));
