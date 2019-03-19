@@ -119,7 +119,8 @@
 		<classes>
 			<class name="com.mendix.test.VendorScript">
 				<methods>
-					<include name="Vendor_Create_Syndication_Check" />
+					<include name="Vendor_Create_Syndication_Check_NAV" />
+					<include name="launchUFT_NAV_Vendor" />
 				</methods>
 			</class>
 		</classes>
