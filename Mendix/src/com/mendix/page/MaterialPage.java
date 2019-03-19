@@ -2315,7 +2315,13 @@ public class MaterialPage {
 			System.out.println("Syndication Done");
 			
 			SharedDriver.pageContainer.materialPage.clickFullMaterialData();
+			
 			Sync.waitForSeconds(Constants.WAIT_10);
+			
+			SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
+			
+			SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
+			
 			List<WebElement> materialNumberlist = driver.findElements(By.xpath(".//*[text()='Material number']/../../../../../../table[2]/tbody/tr/td[1]"));
 			
 			List<WebElement> targetSystemList = driver.findElements(By.xpath(".//*[text()='Material number']/../../../../../../table[2]/tbody/tr/td[2]"));
@@ -2330,8 +2336,8 @@ public class MaterialPage {
 				for(WebElement materialList : materialNumberlist)
 				{	
 				
-				String materialNumb = materialList.getText();
-				System.out.println("Material Number = "+materialNumb+" for Target System : "+targetSystem);
+					String materialNumb = materialList.getText();
+					System.out.println("Material Number = "+materialNumb+" for Target System : "+targetSystem);
 				}
 			}
 		}

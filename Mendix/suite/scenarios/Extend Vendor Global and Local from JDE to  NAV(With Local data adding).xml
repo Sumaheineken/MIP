@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Extend Vendor Global and Local from JDE to NAV(With Local data adding)">
- <test name="HeiPort_Login_LDR">
+   <test name="HeiPort_Login_LDR">
 		<classes>
 			<class name="com.mendix.test.LoginScript">
 				<methods>
@@ -36,7 +36,7 @@
 	
 
 	 	<!-- =============================================LDS login and approving local Start=============================================================== -->
-        
+       
 	 <test name="HeiPort_Login_LDS">
 		<classes>
 			<class name="com.mendix.test.LoginScript">

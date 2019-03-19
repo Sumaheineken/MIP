@@ -353,14 +353,14 @@ public class MaterialScript {
 	@Test
 	public void launchUFT_NAV_Material() throws InterruptedException, IOException
 	{
-		Thread.sleep(1200000);
+		//Thread.sleep(1200000);
 		SharedDriver.pageContainer.materialApprovalPage.launchUFTNAVMaterial();
 	}
 	
 	@Test
 	public void launchUFT_JDE_Material() throws InterruptedException, IOException
 	{
-		Thread.sleep(1200000);
+		//Thread.sleep(1200000);
 		SharedDriver.pageContainer.materialApprovalPage.launchUFTJDEMaterial();
 	}
 
