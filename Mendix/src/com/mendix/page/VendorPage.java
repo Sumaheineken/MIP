@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
@@ -51,6 +52,12 @@ public class VendorPage {
 
 	/** The driver. */
 	WebDriver driver;
+	
+	public String globalLockValue = null;
+	
+	public String localLockValue = null;
+	
+	public String fFDValue = null;
 
 	@FindBy(how = How.XPATH, using = "//a[contains(text(),'Vendors')]")
 	WebElement textVendor;
@@ -271,6 +278,16 @@ public class VendorPage {
 	
 	@FindBy(how = How.XPATH, using = ".//*[text()='Target system']/../../../../../../table[2]/tbody/tr/td[2]//*[text()='PH1700']")
 	WebElement vendorTargetSystemBE;
+	
+	
+	@FindBy(how=How.XPATH, using="//div[contains(@class,'mx-name-dataView2 searchResults')]//table[2]/tbody/tr[1]/td[1]/div")
+	WebElement txtGlobalLockValue;
+	
+	@FindBy(how=How.XPATH, using=".//*[text()='Global Locked']/../../../../../../table[2]/tbody/tr[1]/td[2]/div")
+	WebElement txtLocalLockValue;
+	
+	@FindBy(how=How.XPATH, using=".//*[text()='Global Locked']/../../../../../../table[2]/tbody/tr[1]/td[3]/div")
+	WebElement txtFFDValue;
 
 
 	/**********************************************************************************************************
@@ -1497,16 +1514,85 @@ public class VendorPage {
 		}
 
 		
-		public String getVendorAccountNumber() {
+		public void getVendorAccountNumber() {
 			// TODO Auto-generated method stub
 			Sync.waitForObject(driver, vendorTargetSystemBE);
 			SoftAssert assertTargetSystem = new SoftAssert();
 			assertTargetSystem.assertEquals(vendorTargetSystemBE.getText(), "PH1700", "The Target System is not there in Vendor Details of selected Global ID");
-			String vendorAccNumber = vendorAccountNumberBE.getText();
-			System.out.println("The Vendor Account Number is :"+vendorAccNumber);
+			if(vendorTargetSystemBE.getText() == "PH1700")
+			{
+				String vendorAccNumber = vendorAccountNumberBE.getText();
+				System.out.println("The Vendor Account Number is :"+vendorAccNumber);
+				ExcelUtil.setCellData_New_VendorAccNumber("TestPlan", "Material_Number_AH1", vendorAccNumber);
+				System.out.println(""+vendorAccNumber);
+			}
+			else if(vendorTargetSystemBE.getText().equalsIgnoreCase("P41100"))
+			{
+				String vendorAccNumber = vendorAccountNumberBE.getText();
+				System.out.println("The Vendor Account Number is :"+vendorAccNumber);
+				ExcelUtil.setCellData_New_VendorAccNumber("TestPlan", "Material_Number_AH1", vendorAccNumber);
+				System.out.println(""+vendorAccNumber);
+			}
+			else
+			{
+				System.out.println("No Element found to print in console");
+			}
 			
-			ExcelUtil.setCellData_New_VendorAccNumber("TestPlan", "Material_Number_AH1", vendorAccNumber);
-			return vendorAccNumber;
+		}
+		
+		public void checkDashboardLockVendor() {
+			// TODO Auto-generated method stub
+			
+			Sync.waitForSeconds(Constants.WAIT_5);
+			globalLockValue = txtGlobalLockValue.getText();		
+			
+			localLockValue = txtLocalLockValue.getText();
+			
+			fFDValue = txtFFDValue.getText();
+			
+			System.out.println("Global lock: "+globalLockValue);
+			System.out.println("Local Lock : "+localLockValue);
+			System.out.println("FFD : "+fFDValue);
+			
+			if(globalLockValue.equalsIgnoreCase("No") && localLockValue.equalsIgnoreCase("No") && fFDValue.equalsIgnoreCase("No"))
+			{
+				System.out.println("Syndication Done");
+				
+				SharedDriver.pageContainer.vendorPage.GetFullVendorData();
+				
+				Sync.waitForSeconds(Constants.WAIT_10);
+				
+				SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
+				
+				SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
+				
+				List<WebElement> vendorAccountNumberList = driver.findElements(By.xpath(".//*[text()='Vendor account number']/../../../../../../table[2]/tbody/tr/td[1]"));
+				
+				List<WebElement> targetSystemList = driver.findElements(By.xpath(".//*[text()='Vendor account number']/../../../../../../table[2]/tbody/tr/td[2]"));
+				
+				Iterator<WebElement> i = targetSystemList.iterator();
+				while(i.hasNext())
+				{
+				
+					WebElement row = i.next();
+					String targetSystem = row.getText();
+					
+					for(WebElement vendorList : vendorAccountNumberList)
+					{	
+					
+						String vendorNumb = vendorList.getText();
+						System.out.println("Vendor Account Number = "+vendorNumb+" for Target System : "+targetSystem);
+					}
+				}
+			}
+			else
+			{
+				System.out.println("Syndiction not done");
+				Assert.assertEquals(globalLockValue, "No", "Global Lock is still active");
+				Assert.assertEquals(localLockValue, "No", "Local lock is still active");
+				Assert.assertEquals(fFDValue, "No", "FFD Value is still active");
+			}
+			
 		}
 	
 }

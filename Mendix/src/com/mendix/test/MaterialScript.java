@@ -319,6 +319,7 @@ public class MaterialScript {
 		SharedDriver.pageContainer.materialPage.getGlobalIdProcessInfo_Extend(dataMap.get("RequestId"));
 		Sync.waitForSeconds(Constants.WAIT_5);
 		Thread.sleep(1200000);
+		SharedDriver.pageContainer.materialPage.checkSyndicationDoneStatus(dataMap.get("RequestId"));
 		SharedDriver.pageContainer.processInfoPage.browserClose();
 	}
 	
@@ -332,6 +333,8 @@ public class MaterialScript {
 		SharedDriver.pageContainer.materialPage.advancedSearch();
 		SharedDriver.pageContainer.materialPage.scrolltoGlobalSearch();
 		SharedDriver.pageContainer.materialPage.globalSearch(dataMap.get("Global_ID"));
+		
+		SharedDriver.pageContainer.materialPage.checkDashboardLock();
 		// SharedDriver.pageContainer.materialPage.getGlobalId();
 		// SharedDriver.pageContainer.materialPage.clickFullMaterialData();
 		// SharedDriver.pageContainer.materialPage.getMaterial_Number();
@@ -350,14 +353,14 @@ public class MaterialScript {
 	@Test
 	public void launchUFT_NAV_Material() throws InterruptedException, IOException
 	{
-		Thread.sleep(1200000);
+		//Thread.sleep(1200000);
 		SharedDriver.pageContainer.materialApprovalPage.launchUFTNAVMaterial();
 	}
 	
 	@Test
 	public void launchUFT_JDE_Material() throws InterruptedException, IOException
 	{
-		Thread.sleep(1200000);
+		//Thread.sleep(1200000);
 		SharedDriver.pageContainer.materialApprovalPage.launchUFTJDEMaterial();
 	}
 
