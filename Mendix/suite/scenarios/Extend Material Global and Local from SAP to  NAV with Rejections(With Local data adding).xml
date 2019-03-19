@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Extend Material Global and local from SAP to Nav with Rejections(with local Data Addition) ">
+   
     <test name="HeiPort_Login_LDR">
 		<classes>
 			<class name="com.mendix.test.LoginScript">
@@ -39,9 +40,10 @@
 				</methods>
 			</class>
 		</classes>
-	</test>   
+	</test>
+	   
 	<!--=================================Local Data Approvar LDP Start============================================================== -->
-	 
+	  
 	 <test name="HeiPort_Login_LDP">
 		<classes>
 			<class name="com.mendix.test.LoginScript">
@@ -110,7 +112,7 @@
 	
 	<!-- =======================================================Local Rejections End at LDS================================================================== -->
 	<!-- ====================================Relogin LDR and Resubmitting the Local Material Data=============================================== -->
-	  
+	   
 	 <test name="HeiPort_ReLogin_LDR_For_Local">
 		<classes>
 			<class name="com.mendix.test.LoginScript">
@@ -144,7 +146,7 @@
 	</test>
 	
 		<!-- ===============================================LDP Relogin and Approve the Rejected Request Local====================================== -->
-  
+   
 	 <test name="HeiPort_ReLogin_LDP_Local">
 		<classes>
 			<class name="com.mendix.test.LoginScript">
@@ -175,10 +177,10 @@
 			</class>
 		</classes>
 	</test>
-
+	
 	<!-- =============================================LDP Re login And approving Local End================================================================= -->
 	<!-- =============================================LDS Re login and approving local Start=============================================================== -->
-  
+   
 	  <test name="HeiPort_ReLogin_LDS">
 		<classes>
 			<class name="com.mendix.test.LoginScript">
@@ -212,7 +214,7 @@
 	
 	<!-- =====================================LDS Approval Local End============================================================================ -->
 	<!-- =====================================LBDA Global Approval Level Start==================================================  -->
- 	  
+     
 	<test name="HeiPort_Login_LBDA">
 		<classes>
 			<class name="com.mendix.test.LoginScript">
@@ -243,7 +245,6 @@
 			</class>
 		</classes>
 	</test>
-
 
 <!-- =================================================Resubmission of the Global Approval Material Data Start ============================================ -->
  
@@ -279,9 +280,9 @@
 		</classes>
 	</test>
 	
-	 
+
 	<!-- =================================================LBDA Approval level Start For Global============================================================ -->
-	 	
+ 	
 	<test name="HeiPort_ReLogin_LBDA">
 		<classes>
 			<class name="com.mendix.test.LoginScript">
@@ -314,7 +315,6 @@
 			</class>
 		</classes>
 	</test>
- 
  		
 	<test name="HeiPort_Login_LDR_Syndication">
 		<classes>

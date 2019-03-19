@@ -9,6 +9,8 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.time.Duration;
 import java.util.Date;
+import java.util.Iterator;
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 import java.util.function.Function;
 
@@ -38,6 +40,7 @@ import org.testng.asserts.SoftAssert;
 import com.mendix.tool.Button;
 import com.mendix.tool.Constants;
 import com.mendix.tool.DropDown;
+import com.mendix.tool.SharedDriver;
 import com.mendix.tool.Sync;
 import com.mendix.tool.Textbox;
 import com.mendix.util.ExcelUtil;
@@ -57,6 +60,14 @@ public class MaterialPage {
 	 * @param driver the driver
 	 */
 	public String state=null;
+	
+	public String globalState = null;
+	
+	public String localState = null;
+	
+	public String globalLockValue = null;
+	public String localLockValue = null;
+	public String fFDValue = null;
 	
 	public MaterialPage(WebDriver driver){
 		PageFactory.initElements(driver, this);
@@ -83,8 +94,8 @@ public class MaterialPage {
 	 @FindBy(how=How.XPATH, using="//*[text()='Reject Global Request']")
 		WebElement btnRejectGlobalRequest;
 	
-		@FindBy(how=How.XPATH,using="((.//*[text()='Edit Comments'])/../../div[2]/div/div/div/div/div/div[1]/div/div/div/div/div/textarea)")
-		WebElement textAreaComment;
+	@FindBy(how=How.XPATH,using="((.//*[text()='Edit Comments'])/../../div[2]/div/div/div/div/div/div[1]/div/div/div/div/div/textarea)")
+	WebElement textAreaComment;
 
 	/*@FindBy(how=How.XPATH, using="//*[text()='Created On']/../../tr[3]td[4]/div/div/div/input")
 	WebElement txtboxCreateOnEnter;
@@ -380,6 +391,20 @@ public class MaterialPage {
 	
 	@FindBy(how=How.XPATH, using=".//button[text()='Submit Local Request']")
 	WebElement btnLocalRequest;
+	
+	@FindBy(how=How.CSS, using="div[id^='mxui_widget_NumberInput_'][class^='mx-name-textBox2'] :nth-child(1)")
+	WebElement txtboxRequestId;
+	
+//	@FindBy(how=How.XPATH, using=".//*[text()='Global Lock']/../../../../../../table[2]/tbody/tr[1]/td[1]/div")
+	@FindBy(how=How.XPATH, using="//div[contains(@class,'mx-name-dataView2 searchResults')]//table[2]/tbody/tr[1]/td[1]/div")
+	WebElement txtGlobalLockValue;
+	
+	@FindBy(how=How.XPATH, using=".//*[text()='Global Lock']/../../../../../../table[2]/tbody/tr[1]/td[2]/div")
+	WebElement txtLocalLockValue;
+	
+	@FindBy(how=How.XPATH, using=".//*[text()='Global Lock']/../../../../../../table[2]/tbody/tr[1]/td[3]/div")
+	WebElement txtFFDValue;
+
 	
 	/**
 	 * Enter UserName.
@@ -2232,9 +2257,94 @@ public class MaterialPage {
     public void checkSyndication(String strValue)
     {
     	Sync.waitForSeconds(Constants.WAIT_5);
- 		state=driver.findElement(By.xpath(".//*[text()='"+strValue+"']/../../td[9]/div")).getText();
+ 		globalState=driver.findElement(By.xpath("(.//*[text()='"+strValue+"']/../../td[9]/div)[1]")).getText();
+ 		localState = driver.findElement(By.xpath("(.//*[text()='"+strValue+"']/../../td[9]/div)[2]")).getText();
+ 		
+ 		System.out.println("Global State : "+globalState);
+ 		System.out.println("Local State : "+localState);
+ 		
  		SoftAssert assertSyndication = new SoftAssert();
-		assertSyndication.assertEquals(state, "Syndication", "Not changed to Syndication State");
+		assertSyndication.assertEquals(globalState, "Syndication", "Not changed to Syndication State");
+		assertSyndication.assertEquals(localState, "Syndication", "Not changed to Syndication State");
     }
+
+	public void checkSyndicationDoneStatus(String strValue) {
+		
+		
+		// TODO Auto-generated method stub
+		Sync.waitForSeconds(Constants.WAIT_3);
+		Sync.waitForObject(driver, "Wait for Request Id", txtboxRequestId);
+		
+		Sync.waitForSeconds(Constants.WAIT_6);
+		Textbox.click("Click Request Id Text Box", txtboxRequestId);
+		Sync.waitForSeconds(Constants.WAIT_1);
+		Textbox.enterValue("Enter Request Id", txtboxRequestId, strValue);
+		Sync.waitForSeconds(Constants.WAIT_2);
+		Sync.waitForSeconds(Constants.WAIT_2);
+		
+		driver.findElement(By.xpath(".//*[@class='glyphicon glyphicon-search']")).click();
+		
+		Sync.waitForSeconds(Constants.WAIT_5);
+ 		globalState=driver.findElement(By.xpath("(.//*[text()='"+strValue+"']/../../td[9]/div)[1]")).getText();
+ 		localState = driver.findElement(By.xpath("(.//*[text()='"+strValue+"']/../../td[9]/div)[2]")).getText();
+ 		
+ 		System.out.println("Global State : "+globalState);
+ 		System.out.println("Local State : "+localState);
+ 		
+ 		Assert.assertEquals(globalState, "Completed", "Syndication not yet done");
+ 		Assert.assertEquals(localState, "Completed", "Syndication not yet done");
+		
+	}
+
+	public void checkDashboardLock() {
+		// TODO Auto-generated method stub
+		
+		Sync.waitForSeconds(Constants.WAIT_5);
+		globalLockValue = txtGlobalLockValue.getText();		
+		
+		localLockValue = txtLocalLockValue.getText();
+		
+		fFDValue = txtFFDValue.getText();
+		
+		System.out.println("Global lock: "+globalLockValue);
+		System.out.println("Local Lock : "+localLockValue);
+		System.out.println("FFD : "+fFDValue);
+		
+		if(globalLockValue.equalsIgnoreCase("No") && localLockValue.equalsIgnoreCase("No") && fFDValue.equalsIgnoreCase("No"))
+		{
+			System.out.println("Syndication Done");
+			
+			SharedDriver.pageContainer.materialPage.clickFullMaterialData();
+			Sync.waitForSeconds(Constants.WAIT_10);
+			List<WebElement> materialNumberlist = driver.findElements(By.xpath(".//*[text()='Material number']/../../../../../../table[2]/tbody/tr/td[1]"));
+			
+			List<WebElement> targetSystemList = driver.findElements(By.xpath(".//*[text()='Material number']/../../../../../../table[2]/tbody/tr/td[2]"));
+			
+			Iterator<WebElement> i = targetSystemList.iterator();
+			while(i.hasNext())
+			{
+			
+				WebElement row = i.next();
+				String targetSystem = row.getText();
+				
+				for(WebElement materialList : materialNumberlist)
+				{	
+				
+				String materialNumb = materialList.getText();
+				System.out.println("Material Number = "+materialNumb+" for Target System : "+targetSystem);
+				}
+			}
+		}
+		else
+		{
+			System.out.println("Syndiction not done");
+			Assert.assertEquals(globalLockValue, "No", "Global Lock is still active");
+			Assert.assertEquals(localLockValue, "No", "Local lock is still active");
+			Assert.assertEquals(fFDValue, "No", "FFD Value is still active");
+		}
+		
+	}
+	
+	
 
 }
