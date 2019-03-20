@@ -32,6 +32,7 @@
 			</class>
 		</classes>
 	</test>
+	
     <test name="Vendor_Change_Fill_In_Data">
 		<classes>
 			<class name="com.mendix.test.VendorScript">

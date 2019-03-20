@@ -12,6 +12,7 @@
 			</class>
 		</classes>
 	</test>
+	
 	<test name="Material_Create_Fill_in_questionnaire">
 		<classes>
 			<class name="com.mendix.test.MaterialScript">
