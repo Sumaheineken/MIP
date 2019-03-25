@@ -134,7 +134,7 @@ public class Sync {
 	public static void waitForSeconds(String strWaitName){
 		try{
 
-			Thread.sleep(getWaitTime(strWaitName)*500);
+			Thread.sleep(Long.parseLong(strWaitName)*1000);
 		}
 		catch(Exception e){
 
