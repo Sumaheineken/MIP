@@ -12,16 +12,7 @@
 			</class>
 		</classes>
 	</test>
-	<test name="Material_Create_Fill in questionnaire">
-		<classes>
-			<class name="com.mendix.test.VendorScript">
-				<methods>
-					<include name="vendor_Extend_Global_Nav_With_Rejections"/>
-					<include name="vendor_Confirm_Extension_Nav"/>
-				</methods>
-			</class>
-		</classes>
-	</test>
+	
 	<test name="Vendor_Create_Fill_In_Data">
 		<classes>
 			<class name="com.mendix.test.VendorScript">
