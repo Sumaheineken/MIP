@@ -9,6 +9,8 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.time.Duration;
 import java.util.Date;
+import java.util.Iterator;
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 import java.util.function.Function;
 
@@ -33,13 +35,16 @@ import org.testng.Assert;
 import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
 
 import com.mendix.tool.Button;
 import com.mendix.tool.Constants;
 import com.mendix.tool.DropDown;
+import com.mendix.tool.SharedDriver;
 import com.mendix.tool.Sync;
 import com.mendix.tool.Textbox;
 import com.mendix.util.ExcelUtil;
+import com.mendix.util.ResultUtil;
 import com.mendix.util.DataProviderUtil.staticProviderClass;
 
 import javafx.scene.control.Alert;
@@ -54,7 +59,16 @@ public class MaterialPage {
 	 *
 	 * @param driver the driver
 	 */
-	public static String state=null;
+	public String state=null;
+	
+	public String globalState = null;
+	
+	public String localState = null;
+	
+	public String globalLockValue = null;
+	public String localLockValue = null;
+	public String fFDValue = null;
+	
 	public MaterialPage(WebDriver driver){
 		PageFactory.initElements(driver, this);
 		this.driver=driver;
@@ -80,8 +94,8 @@ public class MaterialPage {
 	 @FindBy(how=How.XPATH, using="//*[text()='Reject Global Request']")
 		WebElement btnRejectGlobalRequest;
 	
-		@FindBy(how=How.XPATH,using="((.//*[text()='Edit Comments'])/../../div[2]/div/div/div/div/div/div[1]/div/div/div/div/div/textarea)")
-		WebElement textAreaComment;
+	@FindBy(how=How.XPATH,using="((.//*[text()='Edit Comments'])/../../div[2]/div/div/div/div/div/div[1]/div/div/div/div/div/textarea)")
+	WebElement textAreaComment;
 
 	/*@FindBy(how=How.XPATH, using="//*[text()='Created On']/../../tr[3]td[4]/div/div/div/input")
 	WebElement txtboxCreateOnEnter;
@@ -377,6 +391,20 @@ public class MaterialPage {
 	
 	@FindBy(how=How.XPATH, using=".//button[text()='Submit Local Request']")
 	WebElement btnLocalRequest;
+	
+	@FindBy(how=How.CSS, using="div[id^='mxui_widget_NumberInput_'][class^='mx-name-textBox2'] :nth-child(1)")
+	WebElement txtboxRequestId;
+	
+//	@FindBy(how=How.XPATH, using=".//*[text()='Global Lock']/../../../../../../table[2]/tbody/tr[1]/td[1]/div")
+	@FindBy(how=How.XPATH, using="//div[contains(@class,'mx-name-dataView2 searchResults')]//table[2]/tbody/tr[1]/td[1]/div")
+	WebElement txtGlobalLockValue;
+	
+	@FindBy(how=How.XPATH, using=".//*[text()='Global Lock']/../../../../../../table[2]/tbody/tr[1]/td[2]/div")
+	WebElement txtLocalLockValue;
+	
+	@FindBy(how=How.XPATH, using=".//*[text()='Global Lock']/../../../../../../table[2]/tbody/tr[1]/td[3]/div")
+	WebElement txtFFDValue;
+
 	
 	/**
 	 * Enter UserName.
@@ -1488,20 +1516,16 @@ public class MaterialPage {
 	}
 
 	public  void globalSearch(String strValue) throws InterruptedException {
-		Sync.waitForSeconds(Constants.WAIT_5);
-		//		Sync.waitForObject(driver, txtboxReqIdEnter);
+		Sync.waitForSeconds(Constants.WAIT_3);
 
+        WebDriverWait wait = new WebDriverWait(driver,50);
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//button[text()='Search']")));
+		//Sync.waitForObject(driver, txtboxReqIdEnter);
 		Button.click("Click Search button", btnReqIdEnter);
-		/*Sync.waitForSeconds(Constants.WAIT_5);
 		Sync.waitForSeconds(Constants.WAIT_5);
-
-		//Button.click("Click Search button", btnReqIdEnter);
-		Sync.waitForSeconds(Constants.WAIT_5);
-		Sync.waitForSeconds(Constants.WAIT_5);*/
-		Sync.waitForSeconds(Constants.WAIT_5);
-		WebDriverWait wait = new WebDriverWait(driver, 50);
-		wait.until(ExpectedConditions.visibilityOfElementLocated(
-				By.xpath("//*[text()='Global ID']/../../td[4]/div/input")));
+		//WebDriverWait wait = new WebDriverWait(driver, 50);
+		//wait.until(ExpectedConditions.visibilityOfElementLocated(
+				//By.xpath("//*[text()='Global ID']/../../td[4]/div/input")));
 		Sync.waitForSeconds(Constants.WAIT_5);
 		Sync.waitForSeconds(Constants.WAIT_5);
 		//Sync.waitForSeconds(Constants.WAIT_5);
@@ -1515,7 +1539,7 @@ public class MaterialPage {
 		Textbox.enterValue("Enter TextBox Value", txtboxGlobalIdEnter, strValue);
 		Sync.waitForSeconds(Constants.WAIT_5);
 		Button.click("Click Search button", btnReqIdEnter);
-		Sync.waitForSeconds(Constants.WAIT_5); 
+		Sync.waitForSeconds(Constants.WAIT_3); 
 	} 
 	public void DiscardCreateGDA() throws InterruptedException {
 
@@ -1638,10 +1662,10 @@ public class MaterialPage {
 
 
      WebDriverWait wait = new WebDriverWait(driver,50);
-     wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(.//*[@class='btn mx-button mx-name-newButton2 btn-default'])[2]")));
-		Sync.waitForObject(driver, driver.findElement(By.xpath("(.//*[@class='btn mx-button mx-name-newButton2 btn-default'])[2]")));
+     wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(.//*[@class='btn mx-button mx-name-newButton2 btn-default'])[3]")));
+		Sync.waitForObject(driver, driver.findElement(By.xpath("(.//*[@class='btn mx-button mx-name-newButton2 btn-default'])[3]")));
 
-		driver.findElement(By.xpath("(.//*[@class='btn mx-button mx-name-newButton2 btn-default'])[2]")).click();
+		driver.findElement(By.xpath("(.//*[@class='btn mx-button mx-name-newButton2 btn-default'])[3]")).click();
 		System.out.println("clicked new button");
 		Sync.waitForSeconds(Constants.WAIT_5);
 	//	WebDriverWait wait1 = new WebDriverWait(driver,80);
@@ -1966,7 +1990,7 @@ public class MaterialPage {
 
 	public void duplicateCheckButton() {
 		Sync.waitForSeconds(Constants.WAIT_5);
-		WebDriverWait wait = new WebDriverWait(driver, 100);
+//		WebDriverWait wait = new WebDriverWait(driver, 100);
 		 Sync.waitUntilObjectDisappears(driver, "Wait for Duplicate check", By.xpath(".//*[@id='mxui_widget_Progress_0']/div[2]"));
 		if(Button.verifyObject(duplicateBtn)) {
 			Sync.waitForObject(driver, "Wait for the duplicate button", duplicateBtn);
@@ -2212,62 +2236,121 @@ public class MaterialPage {
  	}
      public  void getGlobalIdProcessInfo_Extend(String strValue) throws FileNotFoundException, IOException {
  		Sync.waitForSeconds(Constants.WAIT_3);
- 		
-// 		Sync.waitForSeconds(Constants.WAIT_2);
- 		/*WebElement waitElement = null;
- 		FluentWait<WebDriver> fwait = new FluentWait<WebDriver>(driver)
- 		        .withTimeout(Duration.ofMinutes(3))
- 		        .pollingEvery(Duration.ofSeconds(600))
- 		        .ignoring(NoSuchElementException.class)
- 		        .ignoring(TimeoutException.class);
- 		 
- 		//First checking to see if the loading indicator is found
- 		// we catch and throw no exception here in case they aren't ignored
- 		try {
- 		  waitElement = fwait.until(new Function<WebDriver, WebElement>() {
- 		   public WebElement apply(WebDriver driver) {
- 		      return driver.findElement(By.xpath(".//*[@id='mxui_widget_Progress_0']"));
- 		   }
- 		 });
- 		    } catch (Exception e) {
- 		   }
- 		 
- 		//checking if loading indicator was found and if so we wait for it to
- 		//disappear
- 		  if (waitElement != null) {
- 		      WebDriverWait wait = new WebDriverWait(driver, 30);
- 		      wait.until(ExpectedConditions.visibilityOfElementLocated(
- 		    		  By.cssSelector("tr > td.mx-name-column2.mx-right-aligned > div"))
- 		    		           
- 		            );
- 		        }*/
-// 		Sync.waitForObject(driver, "Wait for Global Material Id", driver.findElement(By.cssSelector("tr > td.mx-name-column2.mx-right-aligned > div")));
- 		//String globalLock=driver.findElement(By.cssSelector("tr > td.mx-name-column17.mx-left-aligned > div")).getText();
- 		//String globalLockState=driver.findElement(By.xpath("//*[text()='Global Lock']/../../../../../../table[2]/tbody[1]/tr[1]/td[1]/div")).getText();
- 		//System.out.println(globalLockState);
- 		
- 		//String globalId=driver.findElement(By.cssSelector("tr > td.mx-name-column2.mx-right-aligned > div")).getText();
- 		
+ 		 		
  		state=driver.findElement(By.xpath(".//*[text()='"+strValue+"']/../../td[9]/div")).getText();
+		
  		if(state.equalsIgnoreCase("Syndication")) 
  		{
  			System.out.println(state);
  			String globalId=driver.findElement(By.xpath("//*[text()='Global ID']/../../../../../../table[2]/tbody[1]/tr[1]/td[2]/div")).getText();
  			System.out.println(globalId);
- 			ExcelUtil.excelWriteGlobalId(globalId);
+ 			ExcelUtil.setCellData_New_GlobalId("TestPlan", "Global_ID", globalId);
  			System.out.println(globalId);
  		}
  		else {
  			state=driver.findElement(By.xpath(".//*[text()='"+strValue+"']/../../td[9]/div")).getText();
  			System.out.println(state);
+ 			
  		}
  	}
+     
+    public void checkSyndication(String strValue)
+    {
+    	Sync.waitForSeconds(Constants.WAIT_5);
+ 		globalState=driver.findElement(By.xpath("(.//*[text()='"+strValue+"']/../../td[9]/div)[1]")).getText();
+ 		localState = driver.findElement(By.xpath("(.//*[text()='"+strValue+"']/../../td[9]/div)[2]")).getText();
+ 		
+ 		System.out.println("Global State : "+globalState);
+ 		System.out.println("Local State : "+localState);
+ 		
+ 		SoftAssert assertSyndication = new SoftAssert();
+		assertSyndication.assertEquals(globalState, "Syndication", "Not changed to Syndication State");
+		assertSyndication.assertEquals(localState, "Syndication", "Not changed to Syndication State");
+    }
 
+	public void checkSyndicationDoneStatus(String strValue) {
+		
+		
+		// TODO Auto-generated method stub
+		Sync.waitForSeconds(Constants.WAIT_3);
+		Sync.waitForObject(driver, "Wait for Request Id", txtboxRequestId);
+		
+		Sync.waitForSeconds(Constants.WAIT_6);
+		Textbox.click("Click Request Id Text Box", txtboxRequestId);
+		Sync.waitForSeconds(Constants.WAIT_1);
+		Textbox.enterValue("Enter Request Id", txtboxRequestId, strValue);
+		Sync.waitForSeconds(Constants.WAIT_2);
+		Sync.waitForSeconds(Constants.WAIT_2);
+		
+		driver.findElement(By.xpath(".//*[@class='glyphicon glyphicon-search']")).click();
+		
+		Sync.waitForSeconds(Constants.WAIT_5);
+ 		globalState=driver.findElement(By.xpath("(.//*[text()='"+strValue+"']/../../td[9]/div)[1]")).getText();
+ 		localState = driver.findElement(By.xpath("(.//*[text()='"+strValue+"']/../../td[9]/div)[2]")).getText();
+ 		
+ 		System.out.println("Global State : "+globalState);
+ 		System.out.println("Local State : "+localState);
+ 		
+ 		Assert.assertEquals(globalState, "Completed", "Syndication not yet done");
+ 		Assert.assertEquals(localState, "Completed", "Syndication not yet done");
+		
+	}
 
-
-
-
-
-
+	public void checkDashboardLock() {
+		// TODO Auto-generated method stub
+		
+		Sync.waitForSeconds(Constants.WAIT_5);
+		globalLockValue = txtGlobalLockValue.getText();		
+		
+		localLockValue = txtLocalLockValue.getText();
+		
+		fFDValue = txtFFDValue.getText();
+		
+		System.out.println("Global lock: "+globalLockValue);
+		System.out.println("Local Lock : "+localLockValue);
+		System.out.println("FFD : "+fFDValue);
+		
+		if(globalLockValue.equalsIgnoreCase("No") && localLockValue.equalsIgnoreCase("No") && fFDValue.equalsIgnoreCase("No"))
+		{
+			System.out.println("Syndication Done");
+			
+			SharedDriver.pageContainer.materialPage.clickFullMaterialData();
+			
+			Sync.waitForSeconds(Constants.WAIT_10);
+			
+			SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
+			
+			SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
+			
+			List<WebElement> materialNumberlist = driver.findElements(By.xpath(".//*[text()='Material number']/../../../../../../table[2]/tbody/tr/td[1]"));
+			
+			List<WebElement> targetSystemList = driver.findElements(By.xpath(".//*[text()='Material number']/../../../../../../table[2]/tbody/tr/td[2]"));
+			
+			Iterator<WebElement> i = targetSystemList.iterator();
+			while(i.hasNext())
+			{
+			
+				WebElement row = i.next();
+				String targetSystem = row.getText();
+				
+				for(WebElement materialList : materialNumberlist)
+				{	
+				
+					String materialNumb = materialList.getText();
+					System.out.println("Material Number = "+materialNumb+" for Target System : "+targetSystem);
+				}
+			}
+		}
+		else
+		{
+			System.out.println("Syndiction not done");
+			Assert.assertEquals(globalLockValue, "No", "Global Lock is still active");
+			Assert.assertEquals(localLockValue, "No", "Local lock is still active");
+			Assert.assertEquals(fFDValue, "No", "FFD Value is still active");
+		}
+		
+	}
+	
+	
 
 }

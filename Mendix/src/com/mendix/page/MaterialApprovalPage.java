@@ -85,6 +85,9 @@ public class MaterialApprovalPage {
 
 	@FindBy(how = How.XPATH, using = ".//button[text()='Submit Global Request']")
 	WebElement btnGlobalRequest;
+	
+	@FindBy(how = How.XPATH, using = ".//button[text()='Approve Global Request']")
+	WebElement btnApproveGlobalRequest;
 
 	/*
 	 * @FindBy(how=How.CSS, using=".btn.btn-primary") WebElement btnMsgReqIdOk;
@@ -106,6 +109,12 @@ public class MaterialApprovalPage {
 	
 	@FindBy(how=How.XPATH, using=".//button[text()='Mark all Views Completed']")
 	WebElement btnMarkAllViewsCompleted;
+	
+	@FindBy(how = How.XPATH, using = ".//button[text()='Submit Local Request']")
+	WebElement btnLocalRequest;
+	
+	@FindBy(how = How.XPATH, using = ".//button[text()='Approve Local Request']")
+	WebElement btnApproveLocalRequest;
 
 	/**
 	 * Enter UserName. Enter Password
@@ -199,8 +208,66 @@ public class MaterialApprovalPage {
 		Sync.waitForElementToBeClickable(driver, btnlocalAction);
 		Button.click("Click Local Action button", btnlocalAction);
 		Sync.waitForSeconds(Constants.WAIT_2);
-		return Button.jsclick("Click Approval Button", btnGDAApproval, driver);
+		
+		if(Button.verifyObject(btnApproveGlobalRequest))
+		{
+			Sync.waitForObject(driver, btnApproveGlobalRequest);
+			Button.jsclick("Click Approve Button", btnApproveGlobalRequest, driver);
+		}
+		else
+		{
+			Sync.waitForObject(driver, btnGlobalRequest);
+			Button.jsclick("Click Approval Button", btnGlobalRequest, driver);
+		}
+		return true;
 	}
+	
+	public boolean approvalBtnClickLocal() {
+		Sync.waitForSeconds(Constants.WAIT_2);
+		Sync.waitUntilObjectDisappears(driver, "Wait My tasks to load",
+				By.xpath(".//*[@id='mxui_widget_Progress_0']/div[2]"));
+
+		WebElement waitElement = null;
+		FluentWait<WebDriver> fwait = new FluentWait<WebDriver>(driver).withTimeout(Duration.ofMinutes(3))
+				.pollingEvery(Duration.ofSeconds(600)).ignoring(NoSuchElementException.class)
+				.ignoring(TimeoutException.class);
+
+		// First checking to see if the loading indicator is found
+		// we catch and throw no exception here in case they aren't ignored
+		try {
+			waitElement = fwait.until(new Function<WebDriver, WebElement>() {
+				public WebElement apply(WebDriver driver) {
+					return driver.findElement(By.xpath(".//*[@id='mxui_widget_Progress_0']"));
+				}
+			});
+		} catch (Exception e) {
+		}
+
+		// checking if loading indicator was found and if so we wait for it to
+		// disappear
+		if (waitElement != null) {
+			WebDriverWait wait = new WebDriverWait(driver, 60);
+			wait.until(ExpectedConditions
+					.visibilityOfElementLocated(By.xpath("//span[@class='glyphicon glyphicon-flash']")));
+		}
+
+		Sync.waitForElementToBeClickable(driver, btnlocalAction);
+		Button.click("Click Local Action button", btnlocalAction);
+		Sync.waitForSeconds(Constants.WAIT_2);
+		
+		if(Button.verifyObject(btnApproveLocalRequest))
+		{
+			Sync.waitForObject(driver, btnApproveLocalRequest);
+			Button.jsclick("Click Approve Button", btnApproveLocalRequest, driver);
+		}
+		else
+		{
+			Sync.waitForObject(driver, btnLocalRequest);
+			Button.jsclick("Click Approval Button", btnLocalRequest, driver);
+		}
+		return true;
+	}
+
 
 	public boolean rejectBtnClick() {
 		Sync.waitForSeconds(Constants.WAIT_2);
@@ -434,16 +501,6 @@ public class MaterialApprovalPage {
 		return Button.click("Click Ok Button", btnMsgReqIdOk);
 	}
 
-	public void launchUFT() throws IOException {
-		Runtime.getRuntime().exec("AutoIt UFT Launch\\UFT.exe");
-
-	}
-
-	public void launch_UFT_JDE() throws IOException {
-		Runtime.getRuntime()
-				.exec("AutoIt UFT Launch\\JDE.exe");
-	}
-
 	public void duplicateCheck() {
 		try {
 			// Sync.waitUntilObjectDisappears(driver, "Wait for Duplicate check",
@@ -619,6 +676,36 @@ public class MaterialApprovalPage {
 		Button.jsclick("Click on Popup", popUp, driver);
 
 		return Button.jsclick("Click Approval Button", btnGDAApproval, driver);
+	}
+	
+
+	public void launchUFTSAPMaterial() throws IOException {
+		// TODO Auto-generated method stub
+		Runtime.getRuntime().exec("AutoIt UFT Launch\\UFT_SAP_Material.exe");
+	}
+	
+	public void launchUFTSAPVendor() throws IOException {
+		Runtime.getRuntime().exec("AutoIt UFT Launch\\UFT_SAP_Vendor.exe");
+
+	}
+	
+	public void launchUFTJDEVendor() throws IOException {
+		Runtime.getRuntime().exec("AutoIt UFT Launch\\UFT_JDE_Vendor.exe");
+
+	}
+	
+	public void launchUFT_NAV_Vendor() throws IOException {
+		Runtime.getRuntime().exec("AutoIt UFT Launch\\UFT_NAV_Vendor.exe");
+	}
+
+	public void launchUFTNAVMaterial() throws IOException {
+		// TODO Auto-generated method stub
+		Runtime.getRuntime().exec("AutoIt UFT Launch\\UFT_NAV_Material.exe");
+	}
+
+	public void launchUFTJDEMaterial() {
+		// TODO Auto-generated method stub
+		
 	}
 
 

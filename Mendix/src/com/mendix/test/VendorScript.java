@@ -50,7 +50,7 @@ public class VendorScript {
 		SharedDriver.pageContainer.vendorPage.validateTestCreate();
 		SharedDriver.pageContainer.materialPage.duplicateCheckButton();
 		SharedDriver.pageContainer.materialPage.clickDuplicateCheck();
-		SharedDriver.pageContainer.vendorPage.submitGlobalRequestTest();
+		//SharedDriver.pageContainer.vendorPage.submitGlobalRequestTest();
 		SharedDriver.pageContainer.vendorPage.getRequestId();
 				
 	}
@@ -209,7 +209,63 @@ public class VendorScript {
 	}
 	}
 	
-/****************************************************************************************************/	
+/****************************************************************************************************/
+	
+	@Test(dataProvider="Process_Information_Check",dataProviderClass=staticProviderClass.class)
+	public void Vendor_Create_Syndication_Check_SAP (Map<String,String> dataMap) throws InterruptedException, FileNotFoundException, IOException 
+	{
+		SharedDriver.pageContainer.homePage.navigateToWorkflow();
+		SharedDriver.pageContainer.vendorPage.switchToMDMPortal();
+		SharedDriver.pageContainer.vendorPage.navigateToDashboard();
+		SharedDriver.pageContainer.vendorPage.advancedSearch();
+		//SharedDriver.pageContainer.vendorPage.scrolltoGlobalSearch();
+		SharedDriver.pageContainer.vendorPage.globalSearch(dataMap.get("Global_ID"));
+		SharedDriver.pageContainer.vendorPage.checkDashboardLockVendor();
+		//SharedDriver.pageContainer.vendorPage.getGlobalId();
+		//SharedDriver.pageContainer.vendorPage.GetFullVendorData();
+		//SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
+		//SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
+		SharedDriver.pageContainer.vendorPage.getVendorAccountNumber();
+		SharedDriver.pageContainer.processInfoPage.browserClose();
+	}
+	
+
+	
+	
+	@Test
+	public void launchUFT_SAP_Vendor() throws IOException, InterruptedException
+	{
+		//Thread.sleep(1200000);
+		SharedDriver.pageContainer.materialApprovalPage.launchUFTSAPVendor();
+	}
+	
+	
+	@Test(dataProvider="Process_Information_Check",dataProviderClass=staticProviderClass.class)
+	public void Vendor_Create_Syndication_Check_NAV (Map<String,String> dataMap) throws InterruptedException, FileNotFoundException, IOException 
+	{
+		SharedDriver.pageContainer.homePage.navigateToWorkflow();
+		SharedDriver.pageContainer.vendorPage.switchToMDMPortal();
+		SharedDriver.pageContainer.vendorPage.navigateToDashboard();
+		SharedDriver.pageContainer.vendorPage.advancedSearch();
+		//SharedDriver.pageContainer.vendorPage.scrolltoGlobalSearch();
+		SharedDriver.pageContainer.vendorPage.globalSearch(dataMap.get("Global_ID"));
+		SharedDriver.pageContainer.vendorPage.checkDashboardLockVendor();
+		//SharedDriver.pageContainer.vendorPage.getGlobalId();
+		//SharedDriver.pageContainer.vendorPage.GetFullVendorData();
+		//SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
+		//SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
+		//SharedDriver.pageContainer.vendorPage.getVendorAccountNumber();
+		SharedDriver.pageContainer.processInfoPage.browserClose();
+	}
+	@Test
+	public void launchUFT_NAV_Vendor() throws IOException, InterruptedException
+	{
+		//Thread.sleep(1200000);
+		SharedDriver.pageContainer.materialApprovalPage.launchUFT_NAV_Vendor();
+	}
+
+	
+	
 	@Test(dataProvider="Process_Information_Check",dataProviderClass=staticProviderClass.class)
 	public void Vendor_Create_Syndication_Check (Map<String,String> dataMap) throws InterruptedException, FileNotFoundException, IOException 
 	{
@@ -217,13 +273,29 @@ public class VendorScript {
 		SharedDriver.pageContainer.vendorPage.switchToMDMPortal();
 		SharedDriver.pageContainer.vendorPage.navigateToDashboard();
 		SharedDriver.pageContainer.vendorPage.advancedSearch();
-		SharedDriver.pageContainer.vendorPage.scrolltoGlobalSearch();
-		SharedDriver.pageContainer.vendorPage.reqIdSearchGlobal(dataMap.get("RequestId"));
-		SharedDriver.pageContainer.vendorPage.getGlobalId();
-		SharedDriver.pageContainer.processInfoPage.browserClose();	
-		SharedDriver.pageContainer.materialApprovalPage.launchUFT();
+		//SharedDriver.pageContainer.vendorPage.scrolltoGlobalSearch();
+		SharedDriver.pageContainer.vendorPage.globalSearch(dataMap.get("Global_ID"));
+		SharedDriver.pageContainer.vendorPage.checkDashboardLockVendor();
+		//SharedDriver.pageContainer.vendorPage.getGlobalId();
+		//SharedDriver.pageContainer.vendorPage.GetFullVendorData();
+		//SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
+		//SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
+		//SharedDriver.pageContainer.vendorPage.getVendorAccountNumber();
+		SharedDriver.pageContainer.processInfoPage.browserClose();
+		//Thread.sleep(1200000);
+		//SharedDriver.pageContainer.materialApprovalPage.launchUFTJDEVendor();
 	}
+
+	@Test
+	public void launchUFT_JDE() throws IOException, InterruptedException
+	{
+		//Thread.sleep(1200000);
+		SharedDriver.pageContainer.materialApprovalPage.launchUFTJDEVendor();
+	}
+
+	
 /****************************************************************************************************/	
+	
 	@Test(dataProvider="Process_Information_Check",dataProviderClass=staticProviderClass.class)
 	public void Process_Information_Check_Discard (Map<String,String> dataMap) throws InterruptedException, FileNotFoundException, IOException 
 	{
@@ -243,6 +315,7 @@ public class VendorScript {
 	}
 				
 	}
+	
 /****************************************************************************************************/	
 	@Test
 	public void Vendor_Change_DashBoard() throws InterruptedException
@@ -258,7 +331,7 @@ public class VendorScript {
 	@Test(dataProvider="Process_Information_Check",dataProviderClass=staticProviderClass.class)
 	public void Vendor_Change_DashBoard_SearchWith_GlobalID(Map<String,String> dataMap) throws InterruptedException
 	{
-		SharedDriver.pageContainer.vendorPage.SearchGlobalID(dataMap.get("GlobalId"));
+		SharedDriver.pageContainer.vendorPage.SearchGlobalID(dataMap.get("Global_Id"));
 		SharedDriver.pageContainer.vendorPage.GetFullVendorData();
 		SharedDriver.pageContainer.vendorPage.EditVendorData();
 	}
@@ -266,7 +339,7 @@ public class VendorScript {
 	@Test(dataProvider="Process_Information_Check",dataProviderClass=staticProviderClass.class)
 	public void Vendor_Change_DashBoard_SearchWith_GlobalID_EDit_GlobalLocal(Map<String,String> dataMap) throws InterruptedException
 	{
-		SharedDriver.pageContainer.vendorPage.SearchGlobalID(dataMap.get("GlobalId"));
+		SharedDriver.pageContainer.materialPage.globalSearch(dataMap.get("Global_ID"));
 		SharedDriver.pageContainer.vendorPage.GetFullVendorData();
 		SharedDriver.pageContainer.vendorPage.clickOkOnInformationButton();
 		SharedDriver.pageContainer.vendorPage.EditVendorDataGlobalLocal();
@@ -440,6 +513,7 @@ public class VendorScript {
 		SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
 		//SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
 	}
+	
 /***********************************************************************************************************************************/
 	@Test(dataProvider="Process_Information_Check",dataProviderClass=staticProviderClass.class)
 	public void vendor_Reject_Resubmit_LDR(Map<String,String> dataMap) throws InterruptedException, FileNotFoundException, IOException
@@ -494,7 +568,44 @@ public class VendorScript {
 	SharedDriver.pageContainer.vendorPage.getRequestId_Flag_For_Deletion();
 	SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
 	}
+	public void Create_Vendor_Rejections_with_Discard_Extension  (Map<String,String> dataMap) throws InterruptedException, FileNotFoundException, IOException 
+	{
+		try{
+		System.out.println("Start:Create_Vendor_Rejections_with_Discard");
+
+		SharedDriver.pageContainer.homePage.navigateToWorkflow();
+		SharedDriver.pageContainer.vendorPage.switchToMDMPortal();
+		SharedDriver.pageContainer.materialApprovalPage.reqIdSearchMyTasks(dataMap.get("RequestId"));
+		SharedDriver.pageContainer.vendorPage.DiscardExtensionLDR();
+		
+		System.out.println("End:Create_Vendor_Rejections_with_Discard-Done");
+		
+	}catch(Exception e){
+		
+		System.out.println("Create_vendor_Rejections_with_Discard is not completed");
+		driver.close();
+	}
+	}
+		@Test(dataProvider="Process_Information_Check",dataProviderClass=staticProviderClass.class)
+		public void Create_Vendor_Resubmit_Request  (Map<String,String> dataMap) throws InterruptedException, FileNotFoundException, IOException 
+		{
+			try{
+			System.out.println("Start:Create_Vendor_Rejections_with_Discard");
+
+			SharedDriver.pageContainer.homePage.navigateToWorkflow();
+			SharedDriver.pageContainer.vendorPage.switchToMDMPortal();
+			SharedDriver.pageContainer.materialApprovalPage.reqIdSearchMyTasks(dataMap.get("RequestId"));
+			SharedDriver.pageContainer.vendorPage.resubmitLocalRequest();
+			
+			System.out.println("End:Create_Vendor_Rejections_with_Discard-Done");
+			
+		}catch(Exception e){
+			
+			System.out.println("Create_vendor_Rejections_with_Discard is not completed");
+			driver.close();
+		}
+			
 	
-	
+}
 }
 

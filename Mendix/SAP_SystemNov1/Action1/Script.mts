@@ -5,7 +5,7 @@ StrSheetName = StrExcelSheetName
 StrServerDescription_AH1 = "AH1"
 StrClient_AH1 = "700"
 StrUserID_AH1 = "sidlaa01"
-StrPassword_AH1 = "Ibm@2018"
+StrPassword_AH1 = "Welcome*123"
 StrLanguage_AH1 = "EN"
 
 'AE1 Login Details
@@ -19,7 +19,7 @@ StrLanguage_AE1 = "EN"
 'SAPGuiUtil.AutoLogon StrServerDescription_AE1, StrClient_AE1, StrUserID_AE1, StrPassword_AE1, StrLanguage_AE1
 
 'Provide TestData excel sheet path
-strExcelFilePath = "C:\Users\IBM_ADMIN\git\MDM_TEST\MDM_POC\input\Mendix_TestPlan.xlsx"
+strExcelFilePath = "C:\Users\IBM_ADMIN\Git\MIP\Mendix\input\Mendix_TestPlan.xlsx"
 
 DataTable.AddSheet(StrSheetName)
 DataTable.ImportSheet strExcelFilePath, StrExcelSheetName, StrSheetName
@@ -53,7 +53,7 @@ For i = 1 To RowCount
 		End If
 		'Navigate to MM03
 		If SAPGuiSession("Session").SAPGuiWindow("SAP Easy Access").Exist(10) Then
-			SAPGuiSession("Session").SAPGuiWindow("SAP Easy Access").SAPGuiOKCode("OKCode").Object.focus
+			SAPGuiSession("Session").SAPGuiWindow("SAP Easy Access").SAPGuiOKCode("OKCode").Highlight
 			wait 1
 			SAPGuiSession("Session").SAPGuiWindow("SAP Easy Access").SAPGuiOKCode("OKCode").Set "MM03"
 			ResultReport "PASS","Navigate to SAP Easy Access Window","Navigated & Enterted '/nmm03' to navaigate to the Materail search window","Yes"

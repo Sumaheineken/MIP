@@ -35,28 +35,20 @@ ProductName=HPE Unified Functional Testing
 Version=14.03
 
 [TulipAddins]
+ActiveX=
 Database=
 File Content=
 Insight=
-Java=
 Mobile=
-Oracle=
-PeopleSoft=
-PowerBuilder=
-Qt=
-SAP NWBC Desktop=
 SAP=
 SAPUI5=
 SAPWDJ=
 SAPWebExt=
-Siebel=
 Windows Applications=
-Stingray=
 TEA=
-Terminal Emulators=
-VisualAge Smalltalk=
+UI Automation=
+Visual Basic=
 Web=
-WPF=
 XML=
 
 [ExtraFiles]

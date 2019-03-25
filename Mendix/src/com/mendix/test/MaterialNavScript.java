@@ -189,6 +189,7 @@ public class MaterialNavScript {
 		// SharedDriver.pageContainer.materialNavPage.clickAndSelectInventoryPostingGroupDropDown(dataMap.get("Inventory Posting Group"));
 		// SharedDriver.pageContainer.materialNavPage.clickAndSelectWHTGroupDropDown(dataMap.get("WHTProduct Posting Group"));
 		// SharedDriver.pageContainer.materialNavPage.clickAndSelectGenProdPostingGroupDropDown(dataMap.get("Gen.Prod. Posting Group"));
+		SharedDriver.pageContainer.basePage.waitForPageLoad();
 		SharedDriver.pageContainer.materialNavPage.clickAndSelectVATPostingGroupDropDown(dataMap.get("VAT Prod. Posting Group"));
 		SharedDriver.pageContainer.materialNavPage.validateAndSaveLocalData();
 		// SharedDriver.pageContainer.materialNavPage
@@ -209,6 +210,33 @@ public class MaterialNavScript {
 		Sync.waitForSeconds(Constants.WAIT_10);
 		SharedDriver.pageContainer.materialNavPage.clickSiteEditButton();
 		Sync.waitForSeconds(Constants.WAIT_10);
+		//SharedDriver.pageContainer.basePage.waitForPageLoad();
+		SharedDriver.pageContainer.materialNavPage.clickAndSelectSitePlantDropDown(dataMap.get("Location Code"));
+		SharedDriver.pageContainer.materialNavPage.clickAndSelectSiteReplenishmentSystemDropDown(dataMap.get("Replenishment System"));
+		SharedDriver.pageContainer.materialNavPage.clickLocalAction();
+		SharedDriver.pageContainer.materialNavPage.clickSiteValidateButton();
+		SharedDriver.pageContainer.materialNavPage.clickSiteSaveButton();
+		SharedDriver.pageContainer.materialNavPage.clickLocalAction();
+		SharedDriver.pageContainer.materialNavPage.clickSaveButton();
+		SharedDriver.pageContainer.materialNavPage.clickLocalAction();
+		SharedDriver.pageContainer.materialNavPage.clickValidateLocalRequest();
+		// Sync.waitForSeconds(Constants.WAIT_10);
+
+	}
+	
+	/**********************With Adding new row for sites data instead of editing the pre-existing template****************/
+	@Test(dataProvider = "CreateMaterial_Fill_In_Local", dataProviderClass = staticProviderClass.class)
+	public void material_Create_Fill_In_Data_Nav_Local_Adding_Site(Map<String, String> dataMap)
+			throws InterruptedException, FileNotFoundException, IOException, AWTException {
+		SharedDriver.pageContainer.materialNavPage.clickSiteNewTab();
+		SharedDriver.pageContainer.materialNavPage.clickEditSiteData();
+		Sync.waitForSeconds(Constants.WAIT_5);
+		//SharedDriver.pageContainer.materialNavPage.selectingRow();
+		Sync.waitForSeconds(Constants.WAIT_10);
+		//SharedDriver.pageContainer.materialNavPage.clickSiteEditButton();
+		SharedDriver.pageContainer.materialNavPage.clickSiteNewButton();
+		Sync.waitForSeconds(Constants.WAIT_10);
+		SharedDriver.pageContainer.basePage.waitForPageLoad();
 		SharedDriver.pageContainer.materialNavPage.selectLocationCode(dataMap.get("Location Code"));
 		SharedDriver.pageContainer.materialNavPage.selectReplenishmentSystem(dataMap.get("Replenishment System"));
 		SharedDriver.pageContainer.materialNavPage.clickLocalAction();
@@ -222,10 +250,13 @@ public class MaterialNavScript {
 
 	}
 	
+	
 	@Test(dataProvider="Process_Information_Check",dataProviderClass=staticProviderClass.class)
 	public void material_Confirm_Extension() throws FileNotFoundException, InterruptedException, IOException
 	{
 		//Sync.waitForSeconds(Constants.WAIT_10);
+		//SharedDriver.pageContainer.basePage.waitForPageLoad();
+		SharedDriver.pageContainer.materialNavPage.switchToGlobal();
 		SharedDriver.pageContainer.materialNavPage.confirmExtensionNav();
 		Sync.waitForSeconds(Constants.WAIT_5);
 		Sync.waitForObject(driver, driver.findElement(By.cssSelector(".modal-body.mx-dialog-body>p")));
@@ -295,33 +326,5 @@ public class MaterialNavScript {
 		SharedDriver.pageContainer.processInfoPage.browserClose();
 	}
 	
-	@Test(dataProvider="Process_Information_Check",dataProviderClass=staticProviderClass.class)
-	public void Process_Information_Check_GlobalID_Extend(Map<String,String> dataMap) throws InterruptedException, FileNotFoundException, IOException 
-	{
-
-		SharedDriver.pageContainer.processInfoPage.processInfoSearch();
-		SharedDriver.pageContainer.processInfoPage.reqIdSearch_Global(dataMap.get("RequestId"));
-		//SharedDriver.pageContainer.processInfoPage.getState_New(dataMap.get("RequestId"));
-		//SharedDriver.pageContainer.processInfoPage.capturing_GlobalID();
-		SharedDriver.pageContainer.materialPage.getGlobalIdProcessInfo_Extend(dataMap.get("RequestId"));
-		Sync.waitForSeconds(Constants.WAIT_5);
-		SharedDriver.pageContainer.processInfoPage.browserClose();
-	}
-	
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+		
 }

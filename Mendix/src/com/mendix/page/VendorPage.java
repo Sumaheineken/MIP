@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
@@ -36,6 +37,7 @@ import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
 
 import com.mendix.tool.Button;
 import com.mendix.tool.Constants;
@@ -50,6 +52,12 @@ public class VendorPage {
 
 	/** The driver. */
 	WebDriver driver;
+	
+	public String globalLockValue = null;
+	
+	public String localLockValue = null;
+	
+	public String fFDValue = null;
 
 	@FindBy(how = How.XPATH, using = "//a[contains(text(),'Vendors')]")
 	WebElement textVendor;
@@ -97,6 +105,9 @@ public class VendorPage {
 
 	@FindBy(how = How.XPATH, using = "//*[text()='Proceed']")
 	WebElement btnProceed;
+	@FindBy(how=How.XPATH, using="//*[text()='Discard Extension']")
+	WebElement btnDiscardExtension;
+	
 
 	// ************** Filling create vendor data*************//
 
@@ -138,6 +149,8 @@ public class VendorPage {
 
 	@FindBy(how = How.XPATH, using = ".//*[text()='Request complies to all Validations']")
 	WebElement txtValidationMsg;
+	@FindBy(how=How.XPATH, using="//*[text()='Submit Local Request']")
+	WebElement btnSumitLocalRequest;
 
 	@FindBy(how = How.XPATH, using = ".//*[text()='Discard Create']")
 	WebElement btnLocalDiscard;
@@ -188,7 +201,7 @@ public class VendorPage {
 	@FindBy(how = How.XPATH, using = "//*[text()='Edit Global Data']/../div/input")
 	WebElement EditGlobalData;
 	
-	@FindBy(how=How.XPATH, using="//*[text()='Edit Localal Data']/../div/input")
+	@FindBy(how=How.XPATH, using = "//*[text()='Edit Local Data']/../div/input")
 	WebElement EditLocalData;
 	
 	@FindBy(how = How.XPATH, using = "//*[text()='Request ID']/../../td[4]/div/input")
@@ -245,7 +258,7 @@ public class VendorPage {
 	@FindBy(how = How.XPATH, using = "//button[@class='btn mx-button mx-name-actionButton1 btn-lg btn-action-panel pull-right btn-default']")
 	WebElement btnToConfirm;
 
-	@FindBy(how = How.XPATH, using = "//button[@text='Confirm Extension']")
+	@FindBy(how = How.XPATH, using = "//button[text()='Confirm Extension']")
 	WebElement btnConfirmExtension;
 
 	@FindBy(how = How.XPATH, using = "//button[text()='Flag For Deletion']")
@@ -259,6 +272,22 @@ public class VendorPage {
 	
 	@FindBy(how = How.XPATH, using = "//*[text()='Flag for Deletion']")
 	WebElement btnFlagForDeletionConfirmNav;
+	
+	@FindBy(how = How.XPATH, using = ".//*[text()='Target system']/../../../../../../table[2]/tbody/tr/td[2]//*[text()='PH1700']/../../td[1]/div")
+	WebElement vendorAccountNumberBE;
+	
+	@FindBy(how = How.XPATH, using = ".//*[text()='Target system']/../../../../../../table[2]/tbody/tr/td[2]//*[text()='PH1700']")
+	WebElement vendorTargetSystemBE;
+	
+	
+	@FindBy(how=How.XPATH, using="//div[contains(@class,'mx-name-dataView2 searchResults')]//table[2]/tbody/tr[1]/td[1]/div")
+	WebElement txtGlobalLockValue;
+	
+	@FindBy(how=How.XPATH, using=".//*[text()='Global Locked']/../../../../../../table[2]/tbody/tr[1]/td[2]/div")
+	WebElement txtLocalLockValue;
+	
+	@FindBy(how=How.XPATH, using=".//*[text()='Global Locked']/../../../../../../table[2]/tbody/tr[1]/td[3]/div")
+	WebElement txtFFDValue;
 
 
 	/**********************************************************************************************************
@@ -369,9 +398,8 @@ public class VendorPage {
 
 	/*****************************************************************************/
 	public void GetFullVendorData() {
-		Sync.waitForSeconds(Constants.WAIT_2);
-		Sync.waitUntilObjectDisappears(driver, "Waiting of Create page to Load",
-				By.xpath(".//*[@id='mxui_widget_Progress_0']/div[2]"));
+		Sync.waitForSeconds(Constants.WAIT_5);
+		Sync.waitUntilObjectDisappears(driver, "Waiting of Create page to Load",By.xpath(".//*[@id='mxui_widget_Progress_0']/div[2]"));
 		Sync.waitForObject(driver, GetFullVendorData);
 		Button.click("GetFullVendorData", GetFullVendorData);
 		Sync.waitForSeconds(Constants.WAIT_5);
@@ -429,11 +457,7 @@ public class VendorPage {
 		
 		Button.click("Click EDit button", btnEdit);
 		Sync.waitForSeconds(Constants.WAIT_3);
-		Sync.waitForElementToBeClickable(driver, btnOK1);
-		Button.click("Click on OK", btnOK1);
-		Sync.waitForSeconds(Constants.WAIT_1);
-		Button.click("Click on OK", btnOK);
-		Sync.waitForSeconds(Constants.WAIT_1);
+	
 	}
   
 	public boolean disableLocaData() {
@@ -1463,6 +1487,112 @@ public class VendorPage {
 		Button.click("Click Ok Button", btnOK);
 		return Id;
 	}
+	 public void DiscardExtensionLDR() throws InterruptedException {
 
+			Sync.waitForSeconds(Constants.WAIT_6);
+			Button.click("Local Actions button click", btnLocalActions);
+			Sync.waitForSeconds(Constants.WAIT_6);
+			Sync.waitForObject(driver,btnDiscardExtension);
+			Button.click("Click on reject button in locl action", btnDiscardExtension);
+			Sync.waitForSeconds(Constants.WAIT_6);
+			Sync.waitForObject(driver, btnOK);
+			Button.click("Click On OK button", btnOK);
+			Sync.waitForSeconds(Constants.WAIT_6);
+		}
+		public void resubmitLocalRequest() throws InterruptedException {
+
+			//Thread.sleep(6000);
+			Sync.waitForSeconds(Constants.WAIT_6);
+			Button.click("Local Actions button click", btnLocalActions);
+			Sync.waitForSeconds(Constants.WAIT_6);
+			Sync.waitForObject(driver, btnSumitLocalRequest);
+			Textbox.click("Click on Submit Local Request in locl action", btnSumitLocalRequest);
+			Sync.waitForSeconds(Constants.WAIT_6);
+			Sync.waitForObject(driver, btnOK);
+			Button.click("Click On OK button", btnOK);
+			Sync.waitForSeconds(Constants.WAIT_6);
+		}
+
+		
+		public void getVendorAccountNumber() {
+			// TODO Auto-generated method stub
+			Sync.waitForObject(driver, vendorTargetSystemBE);
+			SoftAssert assertTargetSystem = new SoftAssert();
+			assertTargetSystem.assertEquals(vendorTargetSystemBE.getText(), "PH1700", "The Target System is not there in Vendor Details of selected Global ID");
+			if(vendorTargetSystemBE.getText() == "PH1700")
+			{
+				String vendorAccNumber = vendorAccountNumberBE.getText();
+				System.out.println("The Vendor Account Number is :"+vendorAccNumber);
+				ExcelUtil.setCellData_New_VendorAccNumber("TestPlan", "Material_Number_AH1", vendorAccNumber);
+				System.out.println(""+vendorAccNumber);
+			}
+			else if(vendorTargetSystemBE.getText().equalsIgnoreCase("P41100"))
+			{
+				String vendorAccNumber = vendorAccountNumberBE.getText();
+				System.out.println("The Vendor Account Number is :"+vendorAccNumber);
+				ExcelUtil.setCellData_New_VendorAccNumber("TestPlan", "Material_Number_AH1", vendorAccNumber);
+				System.out.println(""+vendorAccNumber);
+			}
+			else
+			{
+				System.out.println("No Element found to print in console");
+			}
+			
+		}
+		
+		public void checkDashboardLockVendor() {
+			// TODO Auto-generated method stub
+			
+			Sync.waitForSeconds(Constants.WAIT_5);
+			globalLockValue = txtGlobalLockValue.getText();		
+			
+			localLockValue = txtLocalLockValue.getText();
+			
+			fFDValue = txtFFDValue.getText();
+			
+			System.out.println("Global lock: "+globalLockValue);
+			System.out.println("Local Lock : "+localLockValue);
+			System.out.println("FFD : "+fFDValue);
+			
+			if(globalLockValue.equalsIgnoreCase("No") && localLockValue.equalsIgnoreCase("No") && fFDValue.equalsIgnoreCase("No"))
+			{
+				System.out.println("Syndication Done");
+				
+				SharedDriver.pageContainer.vendorPage.GetFullVendorData();
+				
+				Sync.waitForSeconds(Constants.WAIT_10);
+				
+				SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
+				
+				SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
+				
+				List<WebElement> vendorAccountNumberList = driver.findElements(By.xpath(".//*[text()='Vendor account number']/../../../../../../table[2]/tbody/tr/td[1]"));
+				
+				List<WebElement> targetSystemList = driver.findElements(By.xpath(".//*[text()='Vendor account number']/../../../../../../table[2]/tbody/tr/td[2]"));
+				
+				Iterator<WebElement> i = targetSystemList.iterator();
+				while(i.hasNext())
+				{
+				
+					WebElement row = i.next();
+					String targetSystem = row.getText();
+					
+					for(WebElement vendorList : vendorAccountNumberList)
+					{	
+					
+						String vendorNumb = vendorList.getText();
+						System.out.println("Vendor Account Number = "+vendorNumb+" for Target System : "+targetSystem);
+					}
+				}
+			}
+			else
+			{
+				System.out.println("Syndiction not done");
+				Assert.assertEquals(globalLockValue, "No", "Global Lock is still active");
+				Assert.assertEquals(localLockValue, "No", "Local lock is still active");
+				Assert.assertEquals(fFDValue, "No", "FFD Value is still active");
+			}
+			
+		}
 	
 }
