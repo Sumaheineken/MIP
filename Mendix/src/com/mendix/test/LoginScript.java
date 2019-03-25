@@ -82,6 +82,17 @@ public class LoginScript {
 	}
 	
 	@Test(dataProvider="HeiPort_Login",dataProviderClass=staticProviderClass.class)
+	public void loginAsSGLDRVendor(Map<String,String> dataMap){
+
+		ResultUtil.reporter.startTest("Login As LDR");
+		String opcoLogin= dataMap.get("OpCo");
+		String Opco=opcoLogin.replaceAll("\\d","");
+		String OpL=Opco.length() < 2 ? Opco : Opco.substring(0, 2);
+		SharedDriver.pageContainer.loginPage.login("MDVM_"+opcoLogin+"_LDR","Heineken01");
+	}
+
+	
+	@Test(dataProvider="HeiPort_Login",dataProviderClass=staticProviderClass.class)
 	public void loginAsLDRNAVMZCB(Map<String,String> dataMap){
 
 
@@ -186,6 +197,14 @@ public class LoginScript {
 
 	@Test(dataProvider="HeiPort_Login",dataProviderClass=staticProviderClass.class)
 	public void loginAsLDS(Map<String,String> dataMap){
+		ResultUtil.reporter.startTest("Login As LDS");
+		String opcoLogin= dataMap.get("OpCo");
+		String Opco=opcoLogin.replaceAll("\\d","");
+		String OpL=Opco.length() < 2 ? Opco : Opco.substring(0, 2);
+		SharedDriver.pageContainer.loginPage.login("MDMM_"+OpL+"04_LDS","Heineken01");
+	}
+	@Test(dataProvider="HeiPort_Login",dataProviderClass=staticProviderClass.class)
+	public void loginAsSGLDSVendor(Map<String,String> dataMap){
 		ResultUtil.reporter.startTest("Login As LDS");
 		String opcoLogin= dataMap.get("OpCo");
 		String Opco=opcoLogin.replaceAll("\\d","");
