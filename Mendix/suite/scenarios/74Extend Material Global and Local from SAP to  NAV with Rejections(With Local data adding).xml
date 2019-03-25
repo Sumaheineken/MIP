@@ -8,7 +8,7 @@
 				<methods>
 					<include name="tasKill" />
 					<include name="openBrowser" />
-					<include name="loginAsLDRNAVMZCB" />
+					<include name="loginAsLDR" />
 				</methods>
 			</class>
 		</classes>
