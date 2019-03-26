@@ -61,9 +61,9 @@
 	</test>
 		<test name="Process_Information_Chec_Approvedk">
 		<classes>
-			<class name="com.mendix.test.VendorScript">
+			<class name="com.mendix.test.MaterialScript">
 				<methods>
-					<include name="Process_Information_Check" />
+					<include name="process_Information_Check_GlobalID_Extend" />
 				</methods>
 			</class>
 		</classes>
@@ -83,8 +83,7 @@
 			<class name="com.mendix.test.VendorScript">
 				<methods>
 					<include name="Vendor_Create_Syndication_Check_SAP" />
-					<include name="launchUFT_SAP_Vendor" />
-					
+					<include name="launchUFT_SAP_Vendor"/>
 				</methods>
 			</class>
 		</classes>
