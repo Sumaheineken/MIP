@@ -359,7 +359,7 @@ public class VendorScript_NAV {
 		SharedDriver.pageContainer.vendorPageNAV.LocalFinanceSave();
 		
 		SharedDriver.pageContainer.vendorPageNAV.ClickPurchasingTab();
-		SharedDriver.pageContainer.vendorPageNAV.selectVendorPurchasingPlant();
+		//SharedDriver.pageContainer.vendorPageNAV.selectVendorPurchasingPlant();
 		SharedDriver.pageContainer.vendorPageNAV.ClickPurchasingEdit();
 		SharedDriver.pageContainer.vendorPageNAV.clickAndSelectPaymentTCDropDown(dataMap.get("Payment Terms Code"));
 		SharedDriver.pageContainer.vendorPageNAV.clickAndSelectPaymentMCDropDown(dataMap.get("Payment Method Code"));

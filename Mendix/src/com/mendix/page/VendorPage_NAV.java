@@ -523,7 +523,7 @@ public class VendorPage_NAV {
 		wait.until(ExpectedConditions.elementToBeClickable(textName));
 		Sync.waitForSeconds(Constants.WAIT_1);		
 		Textbox.enterValue("Name to create vendor",textName, strValue);	
-		Sync.waitForSeconds(Constants.WAIT_1);
+		Sync.waitForSeconds(Constants.WAIT_5);
 		Textbox.click("clicking name1", textSearchterm1);
 		
 		
@@ -597,7 +597,7 @@ public class VendorPage_NAV {
 	{
 		 Sync.waitForSeconds(Constants.WAIT_2);
 	        if(DropDown.verifyObject(textRegion)) {
-	        	Sync.waitForObject(driver ,"Wait for Country", textRegion);
+	        	Sync.waitForObject(driver ,"Wait for Region", textRegion);
 				Sync.waitForSeconds(Constants.WAIT_5);
 				Sync.waitForSeconds(Constants.WAIT_5);
 				Button.click("Click on Region", textRegion);
@@ -623,17 +623,17 @@ public class VendorPage_NAV {
 	{
 		Sync.waitForSeconds(Constants.WAIT_2);
         if(DropDown.verifyObject(textLanguageKey)) {
-        	Sync.waitForObject(driver ,"Wait for Country", textLanguageKey);
+        	Sync.waitForObject(driver ,"Wait for Language Key", textLanguageKey);
 			Sync.waitForSeconds(Constants.WAIT_5);
 			Sync.waitForSeconds(Constants.WAIT_5);
-			Button.click("Click on Region", textLanguageKey);
+			Button.click("Click on Language Key", textLanguageKey);
 			Select LanguageKey= new Select(textLanguageKey);
 			LanguageKey.selectByVisibleText(strValue);
 			
 		}else{
 			Sync.waitForSeconds(Constants.WAIT_5);
 			Sync.waitForSeconds(Constants.WAIT_5);
-			Button.click("Click on Country", textLanguageKey);
+			Button.click("Click on Language Key", textLanguageKey);
 			Select LanguageKey= new Select(textLanguageKey);
 			LanguageKey.selectByVisibleText(strValue);	
 			}		
@@ -660,12 +660,14 @@ public class VendorPage_NAV {
 	{
 		Sync.waitForSeconds(Constants.WAIT_5);
 		this.AddresLanguageKey(strValue);
+		Sync.waitForSeconds(Constants.WAIT_5);
 	}
 	
 	public void AddressCreditInformationNumber(String strValue)
 	{
-		Sync.waitForSeconds(Constants.WAIT_1);
+		Sync.waitForSeconds(Constants.WAIT_5);
 		Textbox.enterValue("Enter Credit No",textCreditInformationNumber, strValue);	
+		Sync.waitForSeconds(Constants.WAIT_5);
 	}
 	
 	public void AddresIndustryKey(String strValue)
@@ -706,6 +708,7 @@ public class VendorPage_NAV {
 	{
 		Sync.waitForSeconds(Constants.WAIT_5);
 		this.AddresIndustryKey(strValue);
+		Sync.waitForSeconds(Constants.WAIT_5);
 	}
 	
 	public void AddresCorporateGroup(String strValue)
@@ -746,6 +749,7 @@ public class VendorPage_NAV {
 	{
 		Sync.waitForSeconds(Constants.WAIT_5);
 		this.AddresCorporateGroup(strValue);
+		Sync.waitForSeconds(Constants.WAIT_5);
 	}
 	
 	public void AddresCompanyTrading(String strValue)

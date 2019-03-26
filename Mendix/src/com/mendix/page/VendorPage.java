@@ -627,10 +627,19 @@ public class VendorPage {
 	}
 
 	public void Localactionbutton() {
-		Sync.waitForSeconds(Constants.WAIT_5);
+		Sync.waitForSeconds(Constants.WAIT_10);
 		Sync.waitForObject(driver, btnLocalActions);
-		Button.click("Local Actions button", btnLocalActions);
-		Sync.waitForSeconds(Constants.WAIT_2);
+		if(Button.verifyObject(btnLocalActions)) {
+			Sync.waitForSeconds(Constants.WAIT_2);
+			Button.click("Local Actions button", btnLocalActions);
+			Sync.waitForSeconds(Constants.WAIT_2);
+		}
+		else {
+			Sync.waitForSeconds(Constants.WAIT_2);
+			Button.click("Local Actions button", btnLocalActions);
+			Sync.waitForSeconds(Constants.WAIT_2);
+		}
+		
 	}
 
 	/********************
@@ -695,7 +704,7 @@ public class VendorPage {
 		Sync.waitForObject(driver, "Wait of Dialog Box Success Message", msgRequestSuccess);
 		Sync.waitForSeconds(Constants.WAIT_3);
 
-		WebDriverWait wait = new WebDriverWait(driver, 60);
+		WebDriverWait wait = new WebDriverWait(driver, 80);
 		// WebElement text =
 		// driver.findElement(By.xpath(".//*[@id='mxui_widget_DialogMessage_0']/div[1]/div[2]/p"));
 		// wait.until(ExpectedConditions.elementToBeSelected(text));

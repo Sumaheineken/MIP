@@ -494,7 +494,7 @@ public class MaterialScript {
 		 * driver.close(); }
 		 */
 
-	@Test(dataProvider = "Process_Information_Check_Reject_LDR", dataProviderClass = staticProviderClass.class)
+	@Test(dataProvider="Process_Information_Check",dataProviderClass=staticProviderClass.class)
 	public void Create_Material_Rejections_with_Discard(Map<String, String> dataMap)
 			throws InterruptedException, FileNotFoundException, IOException {
 		try {
