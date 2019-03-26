@@ -1541,8 +1541,9 @@ public class MaterialPage {
 		Textbox.enterValue("Enter TextBox Value", txtboxGlobalIdEnter, strValue);
 		Sync.waitForSeconds(Constants.WAIT_5);
 		Sync.waitForSeconds(Constants.WAIT_5);
+		Sync.waitForSeconds(Constants.WAIT_5);
 		Button.click("Click Search button", btnReqIdEnter);
-		Sync.waitForSeconds(Constants.WAIT_5); 
+		Sync.waitForSeconds(Constants.WAIT_10); 
 	} 
 	public void DiscardCreateGDA() throws InterruptedException {
 

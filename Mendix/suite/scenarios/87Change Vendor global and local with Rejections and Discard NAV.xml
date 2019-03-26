@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Change vendor global  local  Bank">
- 	 <!-- <test name="HeiPort_Login_LDR">
+ 	 <!--  <test name="HeiPort_Login_LDR">
 		<classes>
 			<class name="com.mendix.test.LoginScript">
 				<methods>
@@ -21,7 +21,7 @@
 			</class>
 		</classes>
 	</test>
-		<test name="Vendor_Change_DashBoard_SearchWith_GlobalID">
+	 <test name="Vendor_Change_DashBoard_SearchWith_GlobalID">
 		<classes>
 			<class name="com.mendix.test.VendorScript">
 				<methods>
@@ -29,7 +29,7 @@
 				</methods>
 			</class>
 		</classes>
-	</test>
+	</test> 
 	<test name="Vendor_Change_Fill_In_Data_Global_Local_Bank_NAV">
 		<classes>
 			<class name="com.mendix.test.VendorScript_NAV">
@@ -70,47 +70,18 @@
 			</class>
 		</classes>
 	</test>
-	<test name="Process_Information_Check_LDS_RejectStatus">
+	 <test name="Process_Information_Check LDS">
 		<classes>
-			<class name="com.mendix.test.MaterialNavScript">
+			<class name="com.mendix.test.VendorScript">
 				<methods>
 					<include name="Process_Information_Check" />
 				</methods>
 			</class>
 		</classes>
-	</test> -->
-		
+	</test>  
+	 -->	
 	 
-	  <test name="HeiPort_Login_GDA">
-		<classes>
-			<class name="com.mendix.test.LoginScript">
-				<methods>
-					<include name="openBrowser" />
-					<include name="loginAsGDA" />
-				</methods>
-			</class>
-		</classes>
-	</test>
- 	
-	<test name="Material_Data_With_Reject_GDA">
-		<classes>
-			<class name="com.mendix.test.MaterialScript">
-				<methods>
-					<include name="Material_Data_With_Reject_GDA" />
-				</methods>
-			</class>
-		</classes>
-	</test>	
-	<test name="Process_Information_Check_Approved_GDA">
-		<classes>
-			<class name="com.mendix.test.MaterialNavScript">
-				<methods>
-					<include name="Process_Information_Check_GlobalID_Extend" />
-				</methods>
-			</class>
-		</classes>		
-	</test> 
-	 <test name="HeiPort_Login_LDR_Get GlobalID">
+	  <test name="HeiPort_Login_LDR_Get GlobalID">
 		<classes>
 			<class name="com.mendix.test.LoginScript">
 				<methods>
@@ -146,7 +117,37 @@
 				</methods>
 			</class>
 		</classes>
-	</test> -->
+	</test> 
+	 <test name="HeiPort_Login_GDA">
+		<classes>
+			<class name="com.mendix.test.LoginScript">
+				<methods>
+					<include name="openBrowser" />
+					<include name="loginAsGDA" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+ 	
+	<test name="Material_Data_With_Reject_GDA">
+		<classes>
+			<class name="com.mendix.test.MaterialScript">
+				<methods>
+					<include name="Material_Data_With_Reject_GDA" />
+				</methods>
+			</class>
+		</classes>
+	</test>	
+	<test name="Process_Information_Check_Approved_GDA">
+		<classes>
+			<class name="com.mendix.test.MaterialNavScript">
+				<methods>
+					<include name="Process_Information_Check_GlobalID_Extend" />
+				</methods>
+			</class>
+		</classes>		
+	</test> 
+	-->
 </suite> 
 
 

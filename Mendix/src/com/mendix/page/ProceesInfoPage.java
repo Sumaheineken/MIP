@@ -139,6 +139,7 @@ public class ProceesInfoPage {
 		driver.findElement(By.xpath(".//*[@aria-selected='true']/span")).click();
 		Sync.waitForSeconds(Constants.WAIT_5);*/
 		driver.findElement(By.xpath(".//*[@class='glyphicon glyphicon-search']")).click();
+		Sync.waitForSeconds(Constants.WAIT_6);
 	}
 
 	public void reqIdSearch_Local(String strValue) throws InterruptedException, FileNotFoundException, IOException {
@@ -175,11 +176,10 @@ public class ProceesInfoPage {
 
 	public boolean processInfoSearch() {
 		
-		//Sync.waitForSeconds(Constants.WAIT_5);
-		//Sync.waitForSeconds(Constants.WAIT_5);
-		WebDriverWait wait = new WebDriverWait(driver,100);
-	    WebElement element = wait.until(
-	                        ExpectedConditions.elementToBeClickable(By.xpath("//a[contains(text(),'Process Information')]")));
+		Sync.waitForSeconds(Constants.WAIT_10);
+		Sync.waitForSeconds(Constants.WAIT_5);
+		WebDriverWait wait = new WebDriverWait(driver,120);
+	    wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//a[contains(text(),'Process Information')]")));
 		
 		//WebElement el = driver.findElement(By.xpath("//a[contains(text(),'Process Information')]"));
 		//((JavascriptExecutor)driver).executeScript("arguments[0].click()", el);
