@@ -607,5 +607,22 @@ public class VendorScript {
 			
 	
 }
+		
+	@Test(dataProvider="Process_Information_Check",dataProviderClass=staticProviderClass.class)
+	public void vendor_Extend_Global_JDE(Map<String,String> dataMap) throws InterruptedException, FileNotFoundException, IOException, AWTException 
+     {
+			SharedDriver.pageContainer.homePage.navigateToWorkflow();
+			SharedDriver.pageContainer.vendorPage.switchToMDMPortal();
+			SharedDriver.pageContainer.vendorPage.navigateToDashboard();
+			SharedDriver.pageContainer.vendorPage.advancedSearch();
+			//SharedDriver.pageContainer.vendorPage.gobalIDSearchGlobal(dataMap.get("Global_ID"));
+			//SharedDriver.pageContainer.vendorPage.globalSearch(dataMap.get("GlobalId"));
+			SharedDriver.pageContainer.materialPage.globalSearch(dataMap.get("Global_ID"));
+			SharedDriver.pageContainer.vendorPage.GetFullVendorDataNew();
+			SharedDriver.pageContainer.vendorPage.clickOkOnInformationButton();	
+			SharedDriver.pageContainer.vendorPage.clickExtendButton();
+			SharedDriver.pageContainer.vendorPage.clickOkOnInformationButton();	
+     }
+		
 }
 

@@ -1528,18 +1528,21 @@ public class MaterialPage {
 				//By.xpath("//*[text()='Global ID']/../../td[4]/div/input")));
 		Sync.waitForSeconds(Constants.WAIT_5);
 		Sync.waitForSeconds(Constants.WAIT_5);
-		//Sync.waitForSeconds(Constants.WAIT_5);
+		Sync.waitForSeconds(Constants.WAIT_5);
 
 		Sync.waitForObject(driver, txtboxGlobalIdEnter);
+		Sync.waitForSeconds(Constants.WAIT_10);
 		Sync.waitForSeconds(Constants.WAIT_5);
-		Sync.waitForSeconds(Constants.WAIT_5);
+		//Sync.waitForSeconds(Constants.WAIT_10);
+		
 
 
 		//Textbox.clear("Clear TextBox Value", txtboxGlobalIdEnter);
 		Textbox.enterValue("Enter TextBox Value", txtboxGlobalIdEnter, strValue);
 		Sync.waitForSeconds(Constants.WAIT_5);
+		Sync.waitForSeconds(Constants.WAIT_5);
 		Button.click("Click Search button", btnReqIdEnter);
-		Sync.waitForSeconds(Constants.WAIT_3); 
+		Sync.waitForSeconds(Constants.WAIT_5); 
 	} 
 	public void DiscardCreateGDA() throws InterruptedException {
 

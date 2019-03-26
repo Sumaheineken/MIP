@@ -182,7 +182,7 @@
 	</test>
 
 	
-	<!--
+	
 	<test name="HeiPort_Login_GDA_Reject">
 		<classes>
 			<class name="com.mendix.test.LoginScript">
@@ -211,8 +211,7 @@
 			</class>
 		</classes>
 	</test>
-	-->
-	<!-- 
+ 
 	<test name="HeiPort_ReLogin_LDR">
 		<classes>
 			<class name="com.mendix.test.LoginScript">
@@ -241,8 +240,8 @@
 			</class>
 		</classes>
 	</test> 
-	 -->
-	<!-- 
+	 
+	 
 		<test name="HeiPort_Login_LDR_Submitting">
 		<classes>
 			<class name="com.mendix.test.LoginScript">
@@ -265,18 +264,14 @@
 	</test>
 	<test name="Process_Information_Check_LDR_Resubmit_StatusOne">
 		<classes>
-			<class name="com.mendix.test.MaterialNavScript">
+			<class name="com.mendix.test.MaterialScript">
 				<methods>
-					<include name="Process_Information_Check_Local" />
+					<include name="process_Information_Check_GlobalID_Extend" />
 				</methods>
 			</class>
 		</classes>
-	</test> --> 
-	
-
-	
-	<!--
-	 <test name="HeiPort_Login_LDR_Syndication">
+	</test>
+	 <test name="HeiPort_Login_LDR_2">
 		<classes>
 			<class name="com.mendix.test.LoginScript">
 				<methods>
@@ -290,11 +285,11 @@
 		<classes>
 			<class name="com.mendix.test.VendorScript">
 				<methods>
-					<include name="Vendor_Create_Syndication_Check" />
+					<include name="Vendor_Create_Syndication_Check_NAV" />
+					<include name="launchUFT_NAV_Vendor"/>
 				</methods>
 			</class>
 		</classes>
-	</test> -->
-</suite> 
-
+	</test>
+</suite>
 

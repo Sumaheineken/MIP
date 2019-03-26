@@ -53,12 +53,14 @@
 		<classes>
 			<class name="com.mendix.test.VendorScript">
 				<methods>
-					<include name="Process_Information_Check" />
+					<include name="process_Information_Check_GlobalID_Extend" />
 				</methods>
 			</class>
 		</classes>
 	</test>
-	 <test name="HeiPort_Login_LDR_2">
+
+	
+	 <test name="HeiPort_Login_LDR_Syndication">
 		<classes>
 			<class name="com.mendix.test.LoginScript">
 				<methods>
@@ -72,21 +74,14 @@
 		<classes>
 			<class name="com.mendix.test.VendorScript">
 				<methods>
-					<include name="Vendor_Create_Syndication_Check" />
+					<include name="Vendor_Create_Syndication_Check_SAP" />
+					<include name="launchUFT_SAP_Vendor"/>
+					
 				</methods>
 			</class>
 		</classes>
-	</test>
+	</test> 
 	
-	<test name="Happy_Flag_Deletion">
-		<classes>
-			<class name="com.mendix.test.VendorScript">
-				<methods>
-					<include name="Happy_Flag_Deletion" />
-				</methods>
-			</class>
-		</classes>
-	</test>
 </suite> 
 
 

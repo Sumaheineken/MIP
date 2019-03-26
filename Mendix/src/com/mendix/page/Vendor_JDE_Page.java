@@ -26,6 +26,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.mendix.tool.Button;
 import com.mendix.tool.Constants;
+import com.mendix.tool.DropDown;
 import com.mendix.tool.Sync;
 
 
@@ -54,6 +55,9 @@ public class Vendor_JDE_Page {
 
 	@FindBy(how=How.CSS, using="div[class^='mx-groupbox-body']>div:nth-child(1) >div>div:nth-of-type(1) >div:nth-child(1) >div:nth-of-type(1) >div:nth-of-type(1) >div:nth-of-type(1)>div >select")
 	WebElement selectAdjustmentSchedule;////*[text()='Adjustment Schedule']/../div/div/select
+	
+	@FindBy(how=How.XPATH, using="//*[text()='Send Method']/../div/div/select")
+	WebElement adjustmentSchedule;
 
 
 	@FindBy(how=How.XPATH, using="//*[text()='Send Method']/../div/div/select")
@@ -116,6 +120,13 @@ public class Vendor_JDE_Page {
 
 	@FindBy(how=How.CSS, using=".btn.btn-primary")
 	WebElement btnMsgReqIdOk;
+	
+	@FindBy(how=How.XPATH, using="//*[text()='JDE Purchasing']/../../../div/div[3]/div/div/div/div[2]//button[text()='New']")
+	WebElement btnNewJdePurchasing;
+	
+	@FindBy(how=How.XPATH, using="//*[text()='JDE Finance']/../../../div/div[4]/div/div/div/div[2]//button[text()='New']")
+	WebElement btnNewJdeFinance;
+
 
 	public boolean enterLocalData() {
 		WebElement waitElement = null;
@@ -222,23 +233,28 @@ public class Vendor_JDE_Page {
 	{
 		Sync.waitForSeconds(Constants.WAIT_5);
 		Sync.waitForSeconds(Constants.WAIT_5);
-		Sync.waitForSeconds(Constants.WAIT_5);
-		driver.switchTo().window("Application");
-		WebElement element2=driver.findElement(By.xpath("//*[text()='Adjustment Schedule']"));
+		//Sync.waitForSeconds(Constants.WAIT_5);
+		//driver.switchTo().window("Application");
+		//WebElement element2=driver.findElement(By.xpath("//*[text()='Adjustment Schedule']"));
+		Button.click("Select Adjustment Schedule",selectAdjustmentSchedule);
 		Select option= new Select(driver.findElement(By.xpath("//*[text()='Adjustment Schedule']/../div/div/select")));
-		element2.click();
-		option.selectByVisibleText("PQ, P*Q Contracts");
+		//element2.click();
+		option.selectByIndex(1);
 //		element2.sendKeys(Keys.ARROW_DOWN);
+		Sync.waitForSeconds(Constants.WAIT_5);
 
 
 	}
 
-	public void selectselectSendMethod(String strValue)
+	public void selectSendMethod()
 	{
-		Sync.waitForSeconds(Constants.WAIT_1);
+		Sync.waitForSeconds(Constants.WAIT_5);
+		Button.click("Click on send method",selectSendMethod );
 		Select option= new Select(selectSendMethod);
+		option.selectByIndex(1);
+		Sync.waitForSeconds(Constants.WAIT_5);
 
-		List <WebElement> elementCount = option.getOptions();
+		/*List <WebElement> elementCount = option.getOptions();
 		int iSize = elementCount.size();
 
 		for(int i =0; i<iSize ; i++)
@@ -249,7 +265,7 @@ public class Vendor_JDE_Page {
 				option.selectByIndex(i);
 				break;
 			}
-		}
+		}*/
 
 
 	}
@@ -425,10 +441,10 @@ public class Vendor_JDE_Page {
 	public void selectMvmtTypeInvoicePayment1()
 	{
 		Sync.waitForSeconds(Constants.WAIT_5);
-		Sync.waitForSeconds(Constants.WAIT_5);
-		Sync.waitForSeconds(Constants.WAIT_5);
+		Button.click("Select Invoce Payment1", selectMvmtTypeInvoicePayment1);
 		Select option= new Select(selectMvmtTypeInvoicePayment1);
-		option.selectByVisibleText("811, Sales / Purchases");
+		option.selectByIndex(1);
+		Sync.waitForSeconds(Constants.WAIT_5);
 
 	/*	List <WebElement> elementCount = option.getOptions();
 		int iSize = elementCount.size();
@@ -449,8 +465,10 @@ public class Vendor_JDE_Page {
 	public void selectMvmtTypeInvoicePayment3()
 	{
 		Sync.waitForSeconds(Constants.WAIT_5);
+		Button.click("Select Invoce Payment1", selectMvmtTypeInvoicePayment3);
 		Select option= new Select(selectMvmtTypeInvoicePayment3);
-		option.selectByVisibleText("902, Proceeds & Receipts");
+		option.selectByIndex(1);
+		Sync.waitForSeconds(Constants.WAIT_5);
 
 	/*	List <WebElement> elementCount = option.getOptions();
 		int iSize = elementCount.size();
@@ -470,9 +488,11 @@ public class Vendor_JDE_Page {
 
 	public void selectABAmountCurrency()
 	{
-		Sync.waitForSeconds(Constants.WAIT_1);
+		Sync.waitForSeconds(Constants.WAIT_5);
+		Button.click("Select AB Amount Accuracy",selectABAmountCurrency);
 		Select option= new Select(selectABAmountCurrency);
 		option.selectByVisibleText("SGD, Singapore Dollar");
+		Sync.waitForSeconds(Constants.WAIT_5);
 
 		/*List <WebElement> elementCount = option.getOptions();
 		int iSize = elementCount.size();
@@ -493,9 +513,11 @@ public class Vendor_JDE_Page {
 
 	public void selectPaymentTerms()
 	{
-		Sync.waitForSeconds(Constants.WAIT_1);
+		Sync.waitForSeconds(Constants.WAIT_5);
+		Button.click("Select Payment Terms",selectPaymentTerms);
 		Select option= new Select(selectPaymentTerms);
-		option.selectByVisibleText("V000, Pay immediately");
+		option.selectByIndex(1);
+		Sync.waitForSeconds(Constants.WAIT_5);
 
 	/*	List <WebElement> elementCount = option.getOptions();
 		int iSize = elementCount.size();
@@ -515,9 +537,11 @@ public class Vendor_JDE_Page {
 
 	public void selectTaxRateArea()
 	{
-		Sync.waitForSeconds(Constants.WAIT_1);
+		Sync.waitForSeconds(Constants.WAIT_5);
+		Button.click("Click on Text Area", selectTaxRateArea);
 		Select option= new Select(selectTaxRateArea);
-		option.selectByVisibleText("SGGST7, Singapore GST 7%");
+		option.selectByIndex(2);
+		Sync.waitForSeconds(Constants.WAIT_5);
 
 		/*List <WebElement> elementCount = option.getOptions();
 		int iSize = elementCount.size();
@@ -537,9 +561,11 @@ public class Vendor_JDE_Page {
 
 	public void selectPaymentCreation()
 	{
-		Sync.waitForSeconds(Constants.WAIT_1);
+		Sync.waitForSeconds(Constants.WAIT_5);
+		Button.click("Click on Payment Creation", selectPaymentCreation);
 		Select option= new Select(selectPaymentCreation);
-		option.selectByVisibleText("N, By Supplier");
+		option.selectByIndex(1);
+		Sync.waitForSeconds(Constants.WAIT_5);
 
 	/*	List <WebElement> elementCount = option.getOptions();
 		int iSize = elementCount.size();
@@ -559,9 +585,10 @@ public class Vendor_JDE_Page {
 
 	public void selectHoldPayment()
 	{
-		Sync.waitForSeconds(Constants.WAIT_1);
+		Sync.waitForSeconds(Constants.WAIT_5);
+		Button.click("Click on Payment Creation", selectPaymentCreation);
 		Select option= new Select(selectHoldPayment);
-		option.selectByVisibleText("N, No");
+		option.selectByIndex(1);
 	/*	List <WebElement> elementCount = option.getOptions();
 		int iSize = elementCount.size();
 
@@ -580,9 +607,12 @@ public class Vendor_JDE_Page {
 
 	public void selectGlClass()
 	{
-		Sync.waitForSeconds(Constants.WAIT_1);
+		Sync.waitForSeconds(Constants.WAIT_5);
+		Button.click("Click on GL Class", selectGlClass);
 		Select option= new Select(selectGlClass);
-		option.selectByVisibleText("P001, A/P Trade 3 Party Supplier");
+		option.selectByIndex(1);
+		Sync.waitForSeconds(Constants.WAIT_5);
+		
 
 	/*	List <WebElement> elementCount = option.getOptions();
 		int iSize = elementCount.size();
@@ -601,9 +631,11 @@ public class Vendor_JDE_Page {
 
 	public void selectMvmtTypeInvoicePayment2()
 	{
-		Sync.waitForSeconds(Constants.WAIT_1);
+		Sync.waitForSeconds(Constants.WAIT_5);
+		Button.click("Select Invoice payment2", selectMvmtTypeInvoicePayment2);
 		Select option= new Select(selectMvmtTypeInvoicePayment2);
-		option.selectByVisibleText("808, Other non cash items");
+		option.selectByIndex(1);
+		Sync.waitForSeconds(Constants.WAIT_5);
 
 	/*	List <WebElement> elementCount = option.getOptions();
 		int iSize = elementCount.size();
@@ -625,9 +657,10 @@ public class Vendor_JDE_Page {
 
 	public void selectMvmtTypeInvoicePayment4()
 	{
-		Sync.waitForSeconds(Constants.WAIT_1);
+		Sync.waitForSeconds(Constants.WAIT_5);
+		Button.click("Select Invoice payment4", selectMvmtTypeInvoicePayment4);
 		Select option= new Select(selectMvmtTypeInvoicePayment4);
-		option.selectByVisibleText("903, Proceeds & Receipts");
+		option.selectByIndex(1);
 
 		/*List <WebElement> elementCount = option.getOptions();
 		int iSize = elementCount.size();
@@ -649,9 +682,10 @@ public class Vendor_JDE_Page {
 
 	public void selectDefaultCurrency()
 	{
-		Sync.waitForSeconds(Constants.WAIT_1);
+		Sync.waitForSeconds(Constants.WAIT_5);
+		Button.click("Click on Default Currency", selectDefaultCurrency);
 		Select option= new Select(selectDefaultCurrency);
-		option.selectByVisibleText("SGD, Singapore Dollar");
+		option.selectByIndex(1);
 
 		/*List <WebElement> elementCount = option.getOptions();
 		int iSize = elementCount.size();
@@ -669,9 +703,10 @@ public class Vendor_JDE_Page {
 
 	public void selectTaxExplCode()
 	{
-		Sync.waitForSeconds(Constants.WAIT_1);
+		Sync.waitForSeconds(Constants.WAIT_5);
+		Button.click("Click on Tax Expl code", selectTaxExplCode);
 		Select option= new Select(selectTaxExplCode);
-		option.selectByVisibleText("VS, VAT - Standard Rated Supplies");
+		option.selectByIndex(1);
 
 		/*List <WebElement> elementCount = option.getOptions();
 		int iSize = elementCount.size();
@@ -688,9 +723,10 @@ public class Vendor_JDE_Page {
 	}
 	public void selectPaymentMethods()
 	{
-		Sync.waitForSeconds(Constants.WAIT_1);
+		Sync.waitForSeconds(Constants.WAIT_5);
+		Button.click("Click on Payment Methods", selectPaymentMethods);
 		Select option= new Select(selectPaymentMethods);
-		option.selectByVisibleText("C, Check Payment");
+		option.selectByIndex(1);
 
 		/*List <WebElement> elementCount = option.getOptions();
 		int iSize = elementCount.size();
@@ -708,10 +744,13 @@ public class Vendor_JDE_Page {
 
 	public void selectBankBearer()
 	{
-		Sync.waitForSeconds(Constants.WAIT_1);
+		Sync.waitForSeconds(Constants.WAIT_5);
+		Button.click("Click on Bank Bearer", selectBankBearer);
 		Select option= new Select(selectBankBearer);
+		option.selectByIndex(1);
+		Sync.waitForSeconds(Constants.WAIT_5);
 
-		List <WebElement> elementCount = option.getOptions();
+		/*List <WebElement> elementCount = option.getOptions();
 		int iSize = elementCount.size();
 
 		for(int i =0; i<iSize ; i++)
@@ -723,7 +762,7 @@ public class Vendor_JDE_Page {
 				break;
 			}
 		}
-
+*/
 	}
 
 
@@ -759,6 +798,347 @@ public class Vendor_JDE_Page {
 				e.printStackTrace();
 			}*/
 		}
+	
+	public void AdjustmentSchedule(String strValue) throws InterruptedException
+	{
+		//Sync.waitForObject(driver, driver.findElement(By.xpath(".//*[contains(text(),'Edit Local Data Planning')]")));
+		Sync.waitForSeconds(Constants.WAIT_5);
+		if(DropDown.verifyObject(adjustmentSchedule)){
+			Sync.waitForObject(driver ,"Wait for selecting Adjustment Schedule", adjustmentSchedule);
+			Sync.waitForSeconds(Constants.WAIT_5);
+			Sync.waitForSeconds(Constants.WAIT_5);
+			Button.click("Click on Adjustment Schedule", adjustmentSchedule);
+			Select AdjustmentSchedule= new Select(adjustmentSchedule);
+			AdjustmentSchedule.selectByVisibleText(strValue);
+			
+		}else{
+			Sync.waitForSeconds(Constants.WAIT_5);
+			Sync.waitForSeconds(Constants.WAIT_5);
+			Button.click("Click on Adjustment Schedule", adjustmentSchedule);
+			Select AdjustmentSchedule= new Select(adjustmentSchedule);
+			AdjustmentSchedule.selectByVisibleText(strValue);
+		}
+		
+	}
+	public void selectingAdjustmentSchedule(String strValue) throws InterruptedException 
+	{
+		Sync.waitForSeconds(Constants.WAIT_10);
+		this.AdjustmentSchedule(strValue);
+	}
+/****************************************************************************/
+public void sendMethod(String strValue) throws InterruptedException
+	{
+		//Sync.waitForObject(driver, driver.findElement(By.xpath(".//*[contains(text(),'Edit Local Data Planning')]")));
+		Sync.waitForSeconds(Constants.WAIT_5);
+		if(DropDown.verifyObject(selectSendMethod)){
+			Sync.waitForObject(driver ,"Wait for selecting send method", selectSendMethod);
+			Sync.waitForSeconds(Constants.WAIT_5);
+			Sync.waitForSeconds(Constants.WAIT_5);
+			Button.click("Click on send method", selectSendMethod);
+			Select SendMethod= new Select(selectSendMethod);
+			SendMethod.selectByVisibleText(strValue);
+			
+		}else{
+			Sync.waitForObject(driver ,"Wait for selecting send method", selectSendMethod);
+			Sync.waitForSeconds(Constants.WAIT_5);
+			Sync.waitForSeconds(Constants.WAIT_5);
+			Button.click("Click on send method", selectSendMethod);
+			Select SendMethod= new Select(selectSendMethod);
+			SendMethod.selectByVisibleText(strValue);
+		}
+		
+	}
+	public void selectingSendMethod(String strValue) throws InterruptedException 
+	{
+		Sync.waitForSeconds(Constants.WAIT_10);
+		this.sendMethod(strValue);
+	}
+/**********************************************************************************/
+	public void ABAmountCurrency(String strValue) throws InterruptedException
+	{
+		//Sync.waitForObject(driver, driver.findElement(By.xpath(".//*[contains(text(),'Edit Local Data Planning')]")));
+		Sync.waitForSeconds(Constants.WAIT_5);
+		if(DropDown.verifyObject(selectABAmountCurrency)){
+			Sync.waitForObject(driver ,"Wait for selecting AB Amount Currency", selectABAmountCurrency);
+			Sync.waitForSeconds(Constants.WAIT_5);
+			Sync.waitForSeconds(Constants.WAIT_5);
+			Button.click("Click on AB Amount Currency", selectABAmountCurrency);
+			Select ABAmountCurrency= new Select(selectABAmountCurrency);
+			ABAmountCurrency.selectByVisibleText(strValue);
+			
+		}else{
+			Sync.waitForSeconds(Constants.WAIT_5);
+			Sync.waitForSeconds(Constants.WAIT_5);
+			Button.click("Click on AB Amount Currency", selectABAmountCurrency);
+			Select ABAmountCurrency= new Select(selectABAmountCurrency);
+			ABAmountCurrency.selectByVisibleText(strValue);
+		}
+		
+	}
+
+
+	public void selectingABAmountCurrency(String strValue) throws InterruptedException 
+	{
+		Sync.waitForSeconds(Constants.WAIT_10);
+		this.ABAmountCurrency(strValue);
+	}
+/*************************************************************************/
+public void paymentTerms(String strValue) throws InterruptedException
+	{
+		//Sync.waitForObject(driver, driver.findElement(By.xpath(".//*[contains(text(),'Edit Local Data Planning')]")));
+		Sync.waitForSeconds(Constants.WAIT_5);
+		if(DropDown.verifyObject(selectPaymentTerms)){
+			Sync.waitForObject(driver ,"Wait for selecting Payment Terms", selectPaymentTerms);
+			Sync.waitForSeconds(Constants.WAIT_5);
+			Sync.waitForSeconds(Constants.WAIT_5);
+			Button.click("Click on Payment terms", selectPaymentTerms);
+			Select PaymentTerms= new Select(selectPaymentTerms);
+			PaymentTerms.selectByVisibleText(strValue);
+			
+		}else{
+			Sync.waitForSeconds(Constants.WAIT_5);
+			Sync.waitForSeconds(Constants.WAIT_5);
+			Button.click("Click on Payment terms", selectPaymentTerms);
+			Select PaymentTerms= new Select(selectPaymentTerms);
+			PaymentTerms.selectByVisibleText(strValue);
+		}
+		
+	}
+	public void selectingPaymentTerms(String strValue) throws InterruptedException 
+	{
+		Sync.waitForSeconds(Constants.WAIT_10);
+		this.paymentTerms(strValue);
+	}
+	
+/**********************************************************************************/
+public void textRateArea(String strValue) throws InterruptedException
+	{
+		//Sync.waitForObject(driver, driver.findElement(By.xpath(".//*[contains(text(),'Edit Local Data Planning')]")));
+		Sync.waitForSeconds(Constants.WAIT_5);
+		if(DropDown.verifyObject(selectTaxRateArea)){
+			Sync.waitForObject(driver ,"Wait for selecting Text Area", selectTaxRateArea);
+			Sync.waitForSeconds(Constants.WAIT_5);
+			Sync.waitForSeconds(Constants.WAIT_5);
+			Button.click("Click on Text Area", selectTaxRateArea);
+			Select TextRateArea= new Select(selectTaxRateArea);
+			TextRateArea.selectByVisibleText(strValue);
+			
+		}else{
+			Sync.waitForSeconds(Constants.WAIT_5);
+			Sync.waitForSeconds(Constants.WAIT_5);
+			Button.click("Click on Text Area", selectTaxRateArea);
+			Select TextArea= new Select(selectTaxRateArea);
+			TextArea.selectByVisibleText(strValue);
+		}
+		
+	}
+	public void selectingTaxRateArea(String strValue) throws InterruptedException 
+	{
+		Sync.waitForSeconds(Constants.WAIT_10);
+		this.textRateArea(strValue);
+	}
+/**********************************************************************************/
+public void paymentCreation(String strValue) throws InterruptedException
+	{
+		//Sync.waitForObject(driver, driver.findElement(By.xpath(".//*[contains(text(),'Edit Local Data Planning')]")));
+		Sync.waitForSeconds(Constants.WAIT_5);
+		if(DropDown.verifyObject(selectPaymentCreation)){
+			Sync.waitForObject(driver ,"Wait for selecting Payment Creation", selectPaymentCreation);
+			Sync.waitForSeconds(Constants.WAIT_5);
+			Sync.waitForSeconds(Constants.WAIT_5);
+			Button.click("Click on Payment Creation", selectPaymentCreation);
+			Select paymentCreation= new Select(selectPaymentCreation);
+			paymentCreation.selectByVisibleText(strValue);
+			
+		}else{
+			Sync.waitForSeconds(Constants.WAIT_5);
+			Sync.waitForSeconds(Constants.WAIT_5);
+			Button.click("Click on Payment Creation", selectPaymentCreation);
+			Select paymentCreation= new Select(selectPaymentCreation);
+			paymentCreation.selectByVisibleText(strValue);
+		}
+		
+	}
+	public void selectingPaymentCreation(String strValue) throws InterruptedException 
+	{
+		this.paymentCreation(strValue);
+	}
+/******************************************************************************/
+public void holdPayment(String strValue) throws InterruptedException
+	{
+		//Sync.waitForObject(driver, driver.findElement(By.xpath(".//*[contains(text(),'Edit Local Data Planning')]")));
+		Sync.waitForSeconds(Constants.WAIT_5);
+		if(DropDown.verifyObject(selectHoldPayment)){
+			Sync.waitForObject(driver ,"Wait for selecting Hold Payment", selectHoldPayment);
+			Sync.waitForSeconds(Constants.WAIT_5);
+			Sync.waitForSeconds(Constants.WAIT_5);
+			Button.click("Click on Hold Payment", selectHoldPayment);
+			Select HoldPayment= new Select(selectHoldPayment);
+			HoldPayment.selectByVisibleText(strValue);
+			
+		}else{
+			Sync.waitForSeconds(Constants.WAIT_5);
+			Sync.waitForSeconds(Constants.WAIT_5);
+			Button.click("Click on Hold Payment", selectHoldPayment);
+			Select HoldPayment= new Select(selectHoldPayment);
+			HoldPayment.selectByVisibleText(strValue);
+		}
+		
+	}
+	public void selectingHoldPayment(String strValue) throws InterruptedException 
+	{
+		Sync.waitForSeconds(Constants.WAIT_5);
+		this.holdPayment(strValue);
+	}
+/*****************************************************************************/
+public void glClass(String strValue) throws InterruptedException
+	{
+		//Sync.waitForObject(driver, driver.findElement(By.xpath(".//*[contains(text(),'Edit Local Data Planning')]")));
+		Sync.waitForSeconds(Constants.WAIT_5);
+		if(DropDown.verifyObject(selectGlClass)){
+			Sync.waitForObject(driver ,"Wait for selecting GL Class", selectGlClass);
+			Sync.waitForSeconds(Constants.WAIT_5);
+			Sync.waitForSeconds(Constants.WAIT_5);
+			Button.click("Click on GL Class", selectGlClass);
+			Select GLClass= new Select(selectGlClass);
+			GLClass.selectByVisibleText(strValue);
+			
+		}else{
+			Sync.waitForSeconds(Constants.WAIT_5);
+			Sync.waitForSeconds(Constants.WAIT_5);
+			Button.click("Click on GL Class", selectGlClass);
+			Select GLClass= new Select(selectGlClass);
+			GLClass.selectByVisibleText(strValue);
+		}
+		
+	}
+	public void selectingGLClass(String strValue) throws InterruptedException 
+	{
+		Sync.waitForSeconds(Constants.WAIT_5);
+		this.glClass(strValue);
+	}
+
+
+/*********************************************************************************/
+
+
+/*****************************************************************************/
+public void defaultCurrency(String strValue) throws InterruptedException
+	{
+		//Sync.waitForObject(driver, driver.findElement(By.xpath(".//*[contains(text(),'Edit Local Data Planning')]")));
+		Sync.waitForSeconds(Constants.WAIT_5);
+		if(DropDown.verifyObject(selectGlClass)){
+			Sync.waitForObject(driver ,"Wait for selecting Default Currency", selectDefaultCurrency);
+			Sync.waitForSeconds(Constants.WAIT_5);
+			Sync.waitForSeconds(Constants.WAIT_5);
+			Button.click("Click on Default Currency", selectDefaultCurrency);
+			Select DefaultCurrency= new Select(selectDefaultCurrency);
+			DefaultCurrency.selectByVisibleText(strValue);
+			
+		}else{
+			Sync.waitForSeconds(Constants.WAIT_5);
+			Sync.waitForSeconds(Constants.WAIT_5);
+			Button.click("Click on Default Currency", selectDefaultCurrency);
+			Select DefaultCurrency= new Select(selectDefaultCurrency);
+			DefaultCurrency.selectByVisibleText(strValue);
+		}
+		
+	}		
+	
+	public void selectingDefaultCurrency(String strValue) throws InterruptedException 
+	{
+		Sync.waitForSeconds(Constants.WAIT_5);
+		this.defaultCurrency(strValue);
+	}
+
+/*****************************************************************************/
+public void taxExplCode(String strValue) throws InterruptedException
+	{
+		//Sync.waitForObject(driver, driver.findElement(By.xpath(".//*[contains(text(),'Edit Local Data Planning')]")));
+		Sync.waitForSeconds(Constants.WAIT_5);
+		if(DropDown.verifyObject(selectGlClass)){
+			Sync.waitForObject(driver ,"Wait for selecting Tax Expl code", selectTaxExplCode);
+			Sync.waitForSeconds(Constants.WAIT_5);
+			Sync.waitForSeconds(Constants.WAIT_5);
+			Button.click("Click on Tax Expl code", selectTaxExplCode);
+			Select TaxEplCode= new Select(selectTaxExplCode);
+			TaxEplCode.selectByVisibleText(strValue);
+			
+		}else{
+			Sync.waitForSeconds(Constants.WAIT_5);
+			Sync.waitForSeconds(Constants.WAIT_5);
+			Button.click("Click on Tax Expl code", selectTaxExplCode);
+			Select TaxEplCode= new Select(selectTaxExplCode);
+			TaxEplCode.selectByVisibleText(strValue);
+		}
+		
+	}	public void selectingTaxEplCode(String strValue) throws InterruptedException 
+	{
+		Sync.waitForSeconds(Constants.WAIT_5);
+		this.taxExplCode(strValue);
+	}
+/*********************************************************************************/
+
+
+
+
+
+public void paymentsMethod(String strValue) throws InterruptedException
+	{
+		//Sync.waitForObject(driver, driver.findElement(By.xpath(".//*[contains(text(),'Edit Local Data Planning')]")));
+		Sync.waitForSeconds(Constants.WAIT_5);
+		if(DropDown.verifyObject(selectPaymentMethods)){
+			Sync.waitForObject(driver ,"Wait for selecting Payment Methods", selectPaymentMethods);
+			Sync.waitForSeconds(Constants.WAIT_5);
+			Sync.waitForSeconds(Constants.WAIT_5);
+			Button.click("Click on Payment Methods", selectPaymentMethods);
+			Select PymentMethod= new Select(selectPaymentMethods);
+			PymentMethod.selectByVisibleText(strValue);
+			
+		}else{
+			Sync.waitForSeconds(Constants.WAIT_5);
+			Sync.waitForSeconds(Constants.WAIT_5);
+			Button.click("Click on Payment Methods", selectPaymentMethods);
+			Select PymentMethod= new Select(selectPaymentMethods);
+			PymentMethod.selectByVisibleText(strValue);
+		}
+		
+	}
+	public void selectingPaymentMethod(String strValue) throws InterruptedException 
+	{
+		Sync.waitForSeconds(Constants.WAIT_10);
+		this.paymentsMethod(strValue);
+	}
+/******************************************************************************/
+public void bankBearer(String strValue) throws InterruptedException
+	{
+		//Sync.waitForObject(driver, driver.findElement(By.xpath(".//*[contains(text(),'Edit Local Data Planning')]")));
+		Sync.waitForSeconds(Constants.WAIT_5);
+		if(DropDown.verifyObject(selectBankBearer)){
+			Sync.waitForObject(driver ,"Wait for selecting Bank Bearer", selectBankBearer);
+			Sync.waitForSeconds(Constants.WAIT_5);
+			Sync.waitForSeconds(Constants.WAIT_5);
+			Button.click("Click on Bank Bearer", selectBankBearer);
+			Select BankBearer= new Select(selectBankBearer);
+			BankBearer.selectByVisibleText(strValue);
+			
+		}else{
+			Sync.waitForSeconds(Constants.WAIT_5);
+			Sync.waitForSeconds(Constants.WAIT_5);
+			Button.click("Click on Bank Bearer", selectBankBearer);
+			Select BankBearer= new Select(selectBankBearer);
+			BankBearer.selectByVisibleText(strValue);
+		}
+		
+	}
+	public void selectingBankBearer(String strValue) throws InterruptedException 
+	{
+		Sync.waitForSeconds(Constants.WAIT_5);
+		this.bankBearer(strValue);
+	}
+	
+
+
 	
 
 	public void selectBankKey()
@@ -928,6 +1308,49 @@ public class Vendor_JDE_Page {
 
 			Button.jsclick("Click Local Action Flash Button", driver.findElement(By.cssSelector(".glyphicon.glyphicon-flash")), driver);
 		}
+		public void localAddInNewPurchasingJDE()
+		{
+
+			Sync.waitForSeconds(Constants.WAIT_10);
+			Sync.waitForObject(driver, textLocalData);
+			if(Button.verifyObject(btnNewJdePurchasing))
+			{
+				Sync.waitForObject(driver, btnNewJdePurchasing);
+				Button.jsclick("Adding new Purchasing for JDE", btnNewJdePurchasing, driver);
+				Sync.waitForSeconds(Constants.WAIT_10);
+			}
+			else
+			{
+				Sync.waitForSeconds(Constants.WAIT_10);
+				Sync.waitForObject(driver,btnNewJdePurchasing);
+				Button.jsclick("Adding new Purchasing for JDE", btnNewJdePurchasing, driver);
+				Sync.waitForSeconds(Constants.WAIT_10);
+			}
+
+		}
+		
+		public void localAddInNewFinanceJDE()
+		{
+
+			Sync.waitForSeconds(Constants.WAIT_10);
+			Sync.waitForObject(driver, textLocalData);
+			if(Button.verifyObject(btnNewJdeFinance))
+			{
+				Sync.waitForObject(driver, btnNewJdeFinance);
+				Button.jsclick("Adding new Finance for JDE", btnNewJdeFinance, driver);
+				Sync.waitForSeconds(Constants.WAIT_10);
+			}
+			else
+			{
+				Sync.waitForSeconds(Constants.WAIT_10);
+				Sync.waitForObject(driver, btnNewJdeFinance);
+				Button.jsclick("Adding new Finance for JDE", btnNewJdeFinance, driver);
+				Sync.waitForSeconds(Constants.WAIT_10);
+			}
+
+		}
+
+				
 
 		
 
