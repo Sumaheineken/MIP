@@ -68,7 +68,7 @@
 			</class>
 		</classes>
 	</test>
-		<test name="Process_Information_Cheek_Reject">
+	<test name="Process_Information_Cheek_Reject">
 		<classes>
 			<class name="com.mendix.test.VendorScript">
 				<methods>
