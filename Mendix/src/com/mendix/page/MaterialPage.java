@@ -219,7 +219,7 @@ public class MaterialPage {
 
 	@FindBy(how=How.XPATH, using=".//button[text()='Save As Draft']")
 	WebElement btnSaveAsDraft;
-	@FindBy(how=How.XPATH, using=".//span[@class='glyphicon glyphicon-saved']")
+	@FindBy(how=How.XPATH, using=".//*[text()='Global Actions:']/..//*[text()='Save As Draft']")
 	WebElement btnSavingAsDraft;
 
 	@FindBy(how=How.XPATH, using="//*[text()='Validate']")
@@ -333,7 +333,7 @@ public class MaterialPage {
 	@FindBy(how=How.CSS, using=".modal-body.mx-dialog-body>p")
 	WebElement msgGetRequest; 
 
-	@FindBy(how=How.XPATH, using="//*[text()='Plants']/..//input")
+	@FindBy(how=How.XPATH, using="(//*[text()='Plants']/..//input)[1]")
 	WebElement checkBoxPlant;
 
 	@FindBy(how=How.XPATH,using=".//*[text()='Plants']/..//button[1]")
@@ -565,7 +565,7 @@ public class MaterialPage {
 
 		Sync.waitForSeconds(Constants.WAIT_2);
 		Sync.waitForElementToBeClickable(driver, btnUnitofWeight);
-		Button.click("Click Unit of Weight selecction button", btnUnitofWeight);
+		Button.click("Click Unit of Weight selection button", btnUnitofWeight);
 		Sync.waitForObject(driver, "Wait for UOM popup", txtboxUnitofWeightInput);
 		Textbox.enterValue("Enter Unit of Weight", txtboxUnitofWeightInput, strValue);
 		Sync.waitForObject(driver, "Wait for UOM popup", btnUnitofWeightSearch);
@@ -950,26 +950,31 @@ public class MaterialPage {
 	public void SaveAsDraft() throws InterruptedException {
 
 
-		Sync.waitForSeconds(Constants.WAIT_1);
-		Sync.waitForObject(driver, "Verify Validate message", txtValidationMsg);
+		Sync.waitForSeconds(Constants.WAIT_5);
+		//Sync.waitForObject(driver, "Verify Validate message", txtValidationMsg);
 		/*Button.click("Click Save as Draft", btnSaveAsDraft);*/
 		Button.click("Click Save as Draft", btnSavingAsDraft);	
-		Sync.waitForSeconds(Constants.WAIT_2);
+		Sync.waitForSeconds(Constants.WAIT_10);
 		//Sync.waitForSeconds(Constants.WAIT_6);
 	}
 
 	public  String getRequestId_draft()
 			throws InterruptedException, FileNotFoundException, IOException {
 
-		Sync.waitForSeconds(Constants.WAIT_6);
+		Sync.waitForSeconds(Constants.WAIT_10);
+		System.out.println("Waiting For Request Message");
 		Sync.waitForObject(driver, "Wait of Dialog Box Success Message", msgRequestSuccess);
+		WebDriverWait wait = new WebDriverWait(driver,120);
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(".//*[@id='mxui_widget_DialogMessage_0']/div[1]/div[2]/p")));
+		
 		String reqId=driver.findElement(By.xpath(".//*[@id='mxui_widget_DialogMessage_0']/div[1]/div[2]/p")).getText();
 		String[] parts = reqId.split(" ");
-		String Id = parts[17];
+		String Id = parts[14];
 		String IdNum = Id.replaceAll("\\.", "");
 
 		System.out.println("RequestId is: " + IdNum);
 		//		ExcelUtil.excelWrite(IdNum);
+		Sync.waitForSeconds(Constants.WAIT_10);
 		ExcelUtil.setCellData_New("TestPlan", "RequestId", IdNum);
 		System.out.println("RequestId is: " + IdNum);
 		/*	Sync.waitForSeconds(Constants.WAIT_3);
@@ -1159,7 +1164,7 @@ public class MaterialPage {
 		//String globalId=driver.findElement(By.cssSelector("tr > td.mx-name-column2.mx-right-aligned > div")).getText();
 		String globalId=driver.findElement(By.xpath("//*[text()='Global ID']/../../../../../../table[2]/tbody[1]/tr[1]/td[2]/div")).getText();
 		System.out.println(globalId);
-		ExcelUtil.excelWriteGlobalId(globalId);
+		ExcelUtil.setCellData_New_GlobalId("TestPlan","Global_ID",globalId);
 		return globalId;
 	}
 

@@ -110,7 +110,7 @@ public class MaterialNavScript {
 		Assert.assertTrue(SharedDriver.pageContainer.homePage.navigateToWorkflow());
 		SharedDriver.pageContainer.materialPage.switchToPopup();
 		SharedDriver.pageContainer.materialApprovalPage.reqIdSearchMyTasks(dataMap.get("RequestId"));
-		SharedDriver.pageContainer.materialApprovalPage.approvalBtnClick_Local();
+		//SharedDriver.pageContainer.materialApprovalPage.approvalBtnClick_Local();
 		SharedDriver.pageContainer.materialApprovalPage.markViewsBtnClick_Local();
 		SharedDriver.pageContainer.materialApprovalPage.submitRequestOkBtnClick();
 		SharedDriver.pageContainer.materialApprovalPage.approveLocalRequest();
@@ -303,6 +303,21 @@ public class MaterialNavScript {
 		SharedDriver.pageContainer.materialApprovalPage.submitRequestOkButtonClick();
 
 	}
+	@Test(dataProvider="Process_Information_Check",dataProviderClass=staticProviderClass.class)
+	public void Material_LocalGlobal_Submit_LDR(Map<String,String> dataMap) throws InterruptedException, FileNotFoundException, IOException 
+	{
+		Assert.assertTrue(SharedDriver.pageContainer.homePage.navigateToWorkflow());
+		SharedDriver.pageContainer.materialPage.switchToPopup();
+		SharedDriver.pageContainer.materialApprovalPage.reqIdSearchMyTasks(dataMap.get("RequestId"));
+		
+		SharedDriver.pageContainer.materialApprovalPage.approvalBtnClick_Local();
+		
+		SharedDriver.pageContainer.materialNavPage.submitGlobalLocalRequestTest();
+		SharedDriver.pageContainer.materialPage.clickDuplicateCheck();
+		SharedDriver.pageContainer.materialApprovalPage.submitRequestOkButtonClick();
+
+	}
+	
 
 	@Test(dataProvider="Process_Information_Check",dataProviderClass=staticProviderClass.class)
 	public void Process_Information_Check_Local_Reject_Status_LDS(Map<String,String> dataMap) throws InterruptedException, FileNotFoundException, IOException 

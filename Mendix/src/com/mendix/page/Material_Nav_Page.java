@@ -141,6 +141,31 @@ public class Material_Nav_Page{
 		/* return Button.click("Click Edit button", BtnAddPlantData); */
 
 	}
+	public void enterGlobalData() {
+		WebDriverWait wait = new WebDriverWait(driver, 80);
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[text()='Global Data']")));
+		Sync.waitForSeconds(Constants.WAIT_6);
+
+		Sync.waitUntilObjectDisappears(driver, "Waiting of Create page to Load",
+				By.xpath(".//*[@id='mxui_widget_Progress_0']/div[2]"));
+		WebDriverWait wait1 = new WebDriverWait(driver, 80);
+		wait1.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[text()='Global Data']")));
+		if(Button.verifyObject(btnGlobalData)) {
+			Sync.waitForSeconds(Constants.WAIT_3);
+			Sync.waitForObject(driver, btnGlobalData);
+			Button.click("Local Data", btnGlobalData);
+		}
+		else {
+			Sync.waitForSeconds(Constants.WAIT_3);
+			Sync.waitForObject(driver, btnGlobalData);
+			Button.click("Local Data", btnGlobalData);
+		}
+			
+		// Sync.waitForObject(driver, BtnAddPlantData);
+		/* return Button.click("Click Edit button", BtnAddPlantData); */
+
+	}
+
 
 	public boolean clickAddPlantData() {
 
@@ -192,7 +217,7 @@ public class Material_Nav_Page{
 	}
 
 	public void clickLocalAction() {
-		Sync.waitForSeconds(Constants.WAIT_3);
+		Sync.waitForSeconds(Constants.WAIT_5);
 		WebElement waitElement = null;
 		FluentWait<WebDriver> fwait = new FluentWait<WebDriver>(driver).withTimeout(Duration.ofMinutes(3))
 				.pollingEvery(Duration.ofSeconds(600)).ignoring(NoSuchElementException.class)
@@ -233,9 +258,12 @@ public class Material_Nav_Page{
 
 	public void clickValidatLocalRequest() {
 		WebDriverWait wait = new WebDriverWait(driver, 50);
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath(".//*[text()='Validate Local Request']")));
+		
 		Sync.waitForSeconds(Constants.WAIT_5);
 
 		driver.findElement(By.xpath(".//*[text()='Validate Local Request']")).click();
+		Sync.waitForSeconds(Constants.WAIT_5);
 	}
 
 	public void clickValidateLocalData_Planning() {
@@ -244,6 +272,7 @@ public class Material_Nav_Page{
 		Sync.waitForObject(driver, "Wait for Planning Data to Load",
 				driver.findElement(By.xpath(".//*[@class='glyphicon glyphicon-check']")));
 		driver.findElement(By.xpath(".//*[@class='glyphicon glyphicon-check']")).click();
+		Sync.waitForSeconds(Constants.WAIT_5);
 
 	}
 
@@ -255,6 +284,7 @@ public class Material_Nav_Page{
 		Sync.waitForObject(driver, "Wait for Click Save button",
 				driver.findElement(By.xpath(".//button[text()='Save']")));
 		Button.jsclick("Click Save Button", driver.findElement(By.xpath(".//button[text()='Save']")), driver);
+		Sync.waitForSeconds(Constants.WAIT_5);
 
 	}
 
@@ -369,13 +399,13 @@ public class Material_Nav_Page{
 
 	public void submitGlobalLocalRequestTest() throws InterruptedException {
 
-		TimeUnit.MINUTES.sleep(2);
+		Sync.waitForSeconds(Constants.WAIT_5);
 		Sync.waitForObject(driver, "Wait for Submit Global Request",
-				driver.findElement(By.xpath("(//span[@class='glyphicon glyphicon-save'])[2]")));
+				driver.findElement(By.xpath(".//*[text()='Global Actions:']/..//*[text()='Submit Global and Local Request']")));
 		Sync.waitForElementToBeClickable(driver,
-				driver.findElement(By.xpath("(//span[@class='glyphicon glyphicon-save'])[2]")));
+				driver.findElement(By.xpath(".//*[text()='Global Actions:']/..//*[text()='Submit Global and Local Request']")));
 		Button.jsclick("Click Global submit Global Request",
-				driver.findElement(By.xpath("(//span[@class='glyphicon glyphicon-save'])[2]")), driver);
+				driver.findElement(By.xpath(".//*[text()='Global Actions:']/..//*[text()='Submit Global and Local Request']")), driver);
 		// Button.click("Click Global submit Global Request",
 		// driver.findElement(By.xpath("(//span[@class='glyphicon
 		// glyphicon-save'])[2]")));

@@ -116,7 +116,7 @@ public class Material_Change_Page {
 	}
 
 	public void clickReferencebutton() {
-		WebDriverWait wait = new WebDriverWait(driver,100);
+		WebDriverWait wait = new WebDriverWait(driver,105);
 		Sync.waitForSeconds(Constants.WAIT_5);
 		//Sync.waitForSeconds(Constants.WAIT_5);
 		Sync.waitUntilObjectDisappears(driver, "Wait for Materials", By.xpath((".//*[@id='mxui_widget_Progress_0']/div[2]")));
@@ -125,7 +125,7 @@ public class Material_Change_Page {
 		Sync.waitForSeconds(Constants.WAIT_5);
 		
 		
-		Button.click("Click Materials Menu", btnCreateRef);
+		Button.click("Click on create Ref Button", btnCreateRef);
 		Sync.waitForSeconds(Constants.WAIT_2);
 		
   } 

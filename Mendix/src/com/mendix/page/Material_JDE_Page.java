@@ -25,6 +25,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.mendix.tool.Button;
 import com.mendix.tool.Constants;
+import com.mendix.tool.DropDown;
 import com.mendix.tool.Sync;
 
 
@@ -53,6 +54,13 @@ public class Material_JDE_Page {
 
 	@FindBy(how=How.XPATH, using="(.//*[@class='glyphicon glyphicon-new-window'])[6]")
 	WebElement BtnAddPlantData;
+	
+	@FindBy(how=How.XPATH, using="//*[text()='Finance']/../../../div/div[8]/div/div/div[2]/div[2]//*[text()='Edit']")
+	WebElement btnEditPlaning;
+	
+	@FindBy(how=How.XPATH, using="//*[text()='Finance']/../../../div/div[9]/div/div/div[2]/div[2]//*[text()='Edit']")
+	WebElement btnEditFinance;
+
 
 	@FindBy(how=How.XPATH, using="(.//*[@class='glyphicon glyphicon-new-window'])[13]")
 	WebElement BtnAddPlant;
@@ -83,6 +91,31 @@ public class Material_JDE_Page {
 		return Button.click("Click Edit button", BtnAddPlantData);
 		
 	}
+	public void editPlantPlaning() {
+		if(Button.verifyObject(btnEditPlaning)) {
+			Sync.waitForSeconds(Constants.WAIT_6);
+			Sync.waitForObject(driver, btnEditPlaning);
+			Button.click("Click on Edit Plant Data",btnEditPlaning);
+		}
+		else {
+			Sync.waitForSeconds(Constants.WAIT_6);
+			Sync.waitForObject(driver, btnEditPlaning);
+			Button.click("Click on Edit Plant Data",btnEditPlaning);
+		}
+	}
+	public void editPlantFinance() {
+		if(Button.verifyObject(btnEditFinance)) {
+			Sync.waitForSeconds(Constants.WAIT_6);
+			Sync.waitForObject(driver, btnEditFinance);
+			Button.click("Click on Edit Plant Data",btnEditFinance);
+		}
+		else {
+			Sync.waitForSeconds(Constants.WAIT_6);
+			Sync.waitForObject(driver, btnEditFinance);
+			Button.click("Click on Edit Plant Data",btnEditFinance);
+		}
+	}
+
 
 
 	public boolean enterPlantData(String strValue) {
@@ -127,70 +160,151 @@ public class Material_JDE_Page {
 	{
 		Sync.waitForSeconds(Constants.WAIT_6);
 		Sync.waitForSeconds(Constants.WAIT_6);
-		WebElement dropdown =driver.findElement(By.xpath(".//*[text()='Stocking Type Local']/../div/div/select"));
-		Sync.waitForObjectFluent(driver, dropdown);
-		//		dropdown.click();
-		Select stockingTypeLocaldropDown= new Select(dropdown);
-		Sync.waitForSeconds(Constants.WAIT_1);
-		stockingTypeLocaldropDown.selectByVisibleText(strValue);//"P, Purchased"
-		Sync.waitForSeconds(Constants.WAIT_1);
-	}
+		WebElement stockingTypeDropdown =driver.findElement(By.xpath(".//*[text()='Stocking Type Local']/../div/div/select"));
+		if(DropDown.verifyObject(stockingTypeDropdown)) {
+			Sync.waitForObjectFluent(driver, stockingTypeDropdown);
+			Sync.waitForSeconds(Constants.WAIT_3);
+			Button.click("Waiting for clicking on Stocking type Local", stockingTypeDropdown);
+			Select stockingTypeLocaldropDown= new Select(stockingTypeDropdown);
+			Sync.waitForSeconds(Constants.WAIT_5);
+			stockingTypeLocaldropDown.selectByVisibleText(strValue);//"P, Purchased"
+			Sync.waitForSeconds(Constants.WAIT_5);
+	  }
+	  else {
+		
+		  Sync.waitForObjectFluent(driver, stockingTypeDropdown);
+		  Button.click("Waiting for clicking on Stocking type Local", stockingTypeDropdown);
+		  Select stockingTypeLocaldropDown= new Select(stockingTypeDropdown);
+		  Sync.waitForSeconds(Constants.WAIT_5);
+		  stockingTypeLocaldropDown.selectByVisibleText(strValue);//"P, Purchased"
+		  Sync.waitForSeconds(Constants.WAIT_5);
+	   
+	  }
+}
+	
 
 	public void selectCommitmentDateMethod(String strValue)
 	{
 		Sync.waitForSeconds(Constants.WAIT_3);
-		WebElement dropdown =driver.findElement(By.xpath(".//*[text()='Commitment Date Method']/../div/div/select"));
-		Sync.waitForObjectFluent(driver, dropdown);
-		Select commitmentDateMethoddropDown= new Select(dropdown);
-		commitmentDateMethoddropDown.selectByVisibleText(strValue);//"3, Best Before Date"
-		Sync.waitForSeconds(Constants.WAIT_1);
+		WebElement commitmentDateMethod =driver.findElement(By.xpath(".//*[text()='Commitment Date Method']/../div/div/select"));
+		if(DropDown.verifyObject(commitmentDateMethod)) {
+			Sync.waitForObjectFluent(driver, commitmentDateMethod);
+			Sync.waitForSeconds(Constants.WAIT_3);
+			Button.click("Waiting for clicking on Commitment Date Method", commitmentDateMethod);
+			Select commitmentDateMethoddropDown= new Select(commitmentDateMethod);
+			commitmentDateMethoddropDown.selectByVisibleText(strValue);//"3, Best Before Date"
+			Sync.waitForSeconds(Constants.WAIT_5);
+		}
+		else {
+			Sync.waitForObjectFluent(driver, commitmentDateMethod);
+			Button.click("Waiting for clicking on Commitment Date Method", commitmentDateMethod);
+			Select commitmentDateMethoddropDown= new Select(commitmentDateMethod);
+			commitmentDateMethoddropDown.selectByVisibleText(strValue);//"3, Best Before Date"
+			Sync.waitForSeconds(Constants.WAIT_5);
+		}
 	}
 
 	public void selectLotCalculationAlgorithm(String strValue)
 	{
 		Sync.waitForSeconds(Constants.WAIT_3);
-		WebElement dropdown =driver.findElement(By.xpath(".//*[text()='Lot Calculation Algorithm']/../div/div/select"));
-		Sync.waitForObjectFluent(driver, dropdown);
-		Select lotCalculationAlgorithmdropDown= new Select(dropdown);
-		lotCalculationAlgorithmdropDown.selectByVisibleText(strValue);//"01, Bulk Product Related Materials"
-		Sync.waitForSeconds(Constants.WAIT_1);
+		WebElement  lotCalculationAlgorithm=driver.findElement(By.xpath(".//*[text()='Lot Calculation Algorithm']/../div/div/select"));
+		if(DropDown.verifyObject(lotCalculationAlgorithm)) {
+			Sync.waitForSeconds(Constants.WAIT_3);
+			Sync.waitForObjectFluent(driver, lotCalculationAlgorithm);
+			Button.click("Waiting for clicking on Lot Caliculation Algorithm", lotCalculationAlgorithm);
+			Select lotCalculationAlgorithmdropDown= new Select(lotCalculationAlgorithm);
+			lotCalculationAlgorithmdropDown.selectByVisibleText(strValue);//"01, Bulk Product Related Materials"
+			Sync.waitForSeconds(Constants.WAIT_2);
+		}
+		else {
+			Sync.waitForObjectFluent(driver, lotCalculationAlgorithm);
+			Button.click("Waiting for clicking on Lot Caliculation Algorithm", lotCalculationAlgorithm);
+			Select lotCalculationAlgorithmdropDown= new Select(lotCalculationAlgorithm);
+			lotCalculationAlgorithmdropDown.selectByVisibleText(strValue);//"01, Bulk Product Related Materials"
+			Sync.waitForSeconds(Constants.WAIT_2);
+		}
 	}
 	public void selectLotProcessType(String strValue)
 	{
 		Sync.waitForSeconds(Constants.WAIT_3);
-		WebElement dropdown =driver.findElement(By.xpath(".//*[text()='Lot Process Type']/../div/div/select"));
-		Sync.waitForObjectFluent(driver, dropdown);
-		dropdown.click();
-		Select lotProcessTypedropDown= new Select(dropdown);
-		lotProcessTypedropDown.selectByVisibleText(strValue);//"3, Lots must be Assigned Manually"
-		Sync.waitForSeconds(Constants.WAIT_1);
+		WebElement lotProcessType =driver.findElement(By.xpath(".//*[text()='Lot Process Type']/../div/div/select"));
+		if(DropDown.verifyObject(lotProcessType)) {
+			Sync.waitForSeconds(Constants.WAIT_3);
+			Sync.waitForObjectFluent(driver, lotProcessType);
+			Button.click("Waiting for clicking on Lot Process Type", lotProcessType);
+			Select lotProcessTypedropDown= new Select(lotProcessType);
+			lotProcessTypedropDown.selectByVisibleText(strValue);//"3, Lots must be Assigned Manually"
+			Sync.waitForSeconds(Constants.WAIT_2);
+		}
+		else
+		 {
+			Sync.waitForSeconds(Constants.WAIT_3);
+			Button.click("Waiting for clicking on Lot Process Type", lotProcessType);
+			Select lotProcessTypedropDown= new Select(lotProcessType);
+			lotProcessTypedropDown.selectByVisibleText(strValue);//"3, Lots must be Assigned Manually"
+			Sync.waitForSeconds(Constants.WAIT_2);
+		 }
 	}
 	public void selectLotExpiratonDateCalculationMethod(String strValue)
 	{
 		Sync.waitForSeconds(Constants.WAIT_3);
-		WebElement dropdown =driver.findElement(By.xpath(".//*[text()='Lot Expiraton Date Calculation Method']/../div/div/select"));
-		Sync.waitForObjectFluent(driver, dropdown);
-		Select lotExpiratonDateCalculationMethoddropDown= new Select(dropdown);
-		lotExpiratonDateCalculationMethoddropDown.selectByVisibleText(strValue);//"1, On Hand Date"
-		Sync.waitForSeconds(Constants.WAIT_1);
+		WebElement  LotExpiratonDateCalculationMethod=driver.findElement(By.xpath(".//*[text()='Lot Expiraton Date Calculation Method']/../div/div/select"));
+		if(DropDown.verifyObject(LotExpiratonDateCalculationMethod)) {
+			Sync.waitForObjectFluent(driver,LotExpiratonDateCalculationMethod);
+			Sync.waitForSeconds(Constants.WAIT_3);
+			Button.click("Waiting for clicking on Lot Expiraton Date Calculation Method ", LotExpiratonDateCalculationMethod);
+			Select lotExpiratonDateCalculationMethoddropDown= new Select(LotExpiratonDateCalculationMethod);
+			lotExpiratonDateCalculationMethoddropDown.selectByVisibleText(strValue);//"1, On Hand Date"
+			Sync.waitForSeconds(Constants.WAIT_2);			
+		}
+		else {
+			Sync.waitForObjectFluent(driver,LotExpiratonDateCalculationMethod);
+			Button.click("Waiting for clicking on Lot Expiraton Date Calculation Method", LotExpiratonDateCalculationMethod);
+			Select lotExpiratonDateCalculationMethoddropDown= new Select(LotExpiratonDateCalculationMethod);
+			lotExpiratonDateCalculationMethoddropDown.selectByVisibleText(strValue);//"1, On Hand Date"
+			Sync.waitForSeconds(Constants.WAIT_2);		
+		}
 	}
 	public void selectMasterPlanningFamily(String strValue)
 	{
 		Sync.waitForSeconds(Constants.WAIT_3);
-		WebElement dropdown =driver.findElement(By.xpath(".//*[text()='Master Planning Family']/../div/div/select"));
-		Sync.waitForObjectFluent(driver, dropdown);
-		Select masterPlanningFamilydropDown= new Select(dropdown);
-		masterPlanningFamilydropDown.selectByVisibleText(strValue);//"097, Typ. 09 - S&OP - MRP"
-		Sync.waitForSeconds(Constants.WAIT_1);
+		WebElement  MasterPlanningFamily=driver.findElement(By.xpath(".//*[text()='Master Planning Family']/../div/div/select"));
+		if(DropDown.verifyObject(MasterPlanningFamily)) {
+			Sync.waitForObjectFluent(driver, MasterPlanningFamily);
+			Sync.waitForSeconds(Constants.WAIT_3);
+			Button.click("Waiting for clicking on Master Planning Family", MasterPlanningFamily);
+			Select masterPlanningFamilydropDown= new Select(MasterPlanningFamily);
+			masterPlanningFamilydropDown.selectByVisibleText(strValue);//"097, Typ. 09 - S&OP - MRP"
+			Sync.waitForSeconds(Constants.WAIT_2);
+		}
+		else {
+			Sync.waitForObjectFluent(driver, MasterPlanningFamily);
+			Sync.waitForSeconds(Constants.WAIT_3);
+			Button.click("Waiting for clicking on Master Planning Family", MasterPlanningFamily);
+			Select masterPlanningFamilydropDown= new Select(MasterPlanningFamily);
+			masterPlanningFamilydropDown.selectByVisibleText(strValue);//"097, Typ. 09 - S&OP - MRP"
+			Sync.waitForSeconds(Constants.WAIT_1);
+		}
 	}
 	public void selectPlanningCode(String strValue)
 	{
 		Sync.waitForSeconds(Constants.WAIT_3);
-		WebElement dropdown =driver.findElement(By.xpath(".//*[text()='Planning Code']/../div/div/select"));
-		Sync.waitForObjectFluent(driver, dropdown);
-		Select planningCodedropDown= new Select(dropdown);
-		planningCodedropDown.selectByVisibleText(strValue);//"0, Not Planned"
-		Sync.waitForSeconds(Constants.WAIT_1);
+		WebElement PlanningCode =driver.findElement(By.xpath(".//*[text()='Planning Code']/../div/div/select"));
+		if(DropDown.verifyObject(PlanningCode)) {
+			Sync.waitForSeconds(Constants.WAIT_3);
+			Sync.waitForObjectFluent(driver, PlanningCode);
+			Button.click("Waiting for clicking on Planning Code", PlanningCode);
+			Select planningCodedropDown= new Select(PlanningCode);
+			planningCodedropDown.selectByVisibleText(strValue);//"0, Not Planned"
+			Sync.waitForSeconds(Constants.WAIT_2);
+		}
+		else {
+			Sync.waitForObjectFluent(driver, PlanningCode);
+			Button.click("Waiting for clicking on Planning Code", PlanningCode);
+			Select planningCodedropDown= new Select(PlanningCode);
+			planningCodedropDown.selectByVisibleText(strValue);//"0, Not Planned"
+			Sync.waitForSeconds(Constants.WAIT_2);
+		}
 	}
 
 	public void clickLocalAction()
@@ -326,50 +440,92 @@ public class Material_JDE_Page {
 	{
 		Sync.waitForSeconds(Constants.WAIT_5);
 		Sync.waitForSeconds(Constants.WAIT_3);
-		WebElement dropdown =driver.findElement(By.xpath("//*[text()='VAT Prod. Posting Group']/../div/div/select"));
-		Sync.waitForObject(driver, "Wait for VAT posting group Select", dropdown);
-		Sync.waitForElementToBeClickable(driver, dropdown);
-		Button.click("Wait for VAT posting group Select", dropdown);
-		Select roundVATPostingGroupDown= new Select(dropdown);
-		roundVATPostingGroupDown.selectByVisibleText(strValue);//"NO_VAT, 0% VAT"
+		WebElement VATPostingGroup =driver.findElement(By.xpath("//*[text()='VAT Prod. Posting Group']/../div/div/select"));
+		if(DropDown.verifyObject(VATPostingGroup)) {
+			Sync.waitForObject(driver, "Wait for VAT posting group Select", VATPostingGroup);
+			Sync.waitForElementToBeClickable(driver, VATPostingGroup);
+			Button.click("Wait for VAT posting group Select", VATPostingGroup);
+			Select roundVATPostingGroupDown= new Select(VATPostingGroup);
+			roundVATPostingGroupDown.selectByVisibleText(strValue);
+		}//"NO_VAT, 0% VAT"
+		else {
+			Sync.waitForObject(driver, "Wait for VAT posting group Select", VATPostingGroup);
+			Sync.waitForElementToBeClickable(driver, VATPostingGroup);
+			Button.click("Wait for VAT posting group Select", VATPostingGroup);
+			Select roundVATPostingGroupDown= new Select(VATPostingGroup);
+			roundVATPostingGroupDown.selectByVisibleText(strValue);
+		}
 
 	}
 	public void selectGLClass(String strValue)
 	{
 		Sync.waitForSeconds(Constants.WAIT_5);
 		Sync.waitForSeconds(Constants.WAIT_3);
-		WebElement dropdown =driver.findElement(By.xpath("//*[text()='G/L Class']/../div/div/select"));
-		Sync.waitForObject(driver, "Wait for VAT posting group Select", dropdown);
-		Sync.waitForElementToBeClickable(driver, dropdown);
-		Button.click("Wait for VAT posting group Select", dropdown);
-		Select roundVATPostingGroupDown= new Select(dropdown);
-		roundVATPostingGroupDown.selectByVisibleText(strValue);//"CTDB, CTS - DB Inst Non-Cap"
+		WebElement  GLClass=driver.findElement(By.xpath("//*[text()='G/L Class']/../div/div/select"));
+		if(DropDown.verifyObject(GLClass)) {		
+			Sync.waitForObject(driver, "Wait for GL Class", GLClass);
+			Sync.waitForElementToBeClickable(driver, GLClass);
+			Button.click("Wait for GL Class", GLClass);
+			Select roundVATPostingGroupDown= new Select(GLClass);
+			roundVATPostingGroupDown.selectByIndex(1);//"CTDB, CTS - DB Inst Non-Cap"
+			Sync.waitForSeconds(Constants.WAIT_5);
+		}
+		else {
+			Sync.waitForObject(driver, "Wait for VAT posting group Select", GLClass);
+			Sync.waitForElementToBeClickable(driver, GLClass);
+			Button.click("Wait for VAT posting group Select", GLClass);
+			Select roundVATPostingGroupDown= new Select(GLClass);
+			roundVATPostingGroupDown.selectByIndex(1);//"CTDB, CTS - DB Inst Non-Cap"
+		}
 
 	}
 
 	public void selectCostingMethodPurchasing(String strValue)
 	{
-		Sync.waitForSeconds(Constants.WAIT_5);
-		Sync.waitForSeconds(Constants.WAIT_3);
-		WebElement dropdown =driver.findElement(By.xpath("//*[text()='Costing Method - Purchasing']/../div/div/select"));
-		Sync.waitForObject(driver, "Wait for VAT posting group Select", dropdown);
-		Sync.waitForElementToBeClickable(driver, dropdown);
-		Button.click("Wait for VAT posting group Select", dropdown);
-		Select roundVATPostingGroupDown= new Select(dropdown);
-		roundVATPostingGroupDown.selectByVisibleText(strValue);//"07, Standard"
+		Sync.waitForSeconds(Constants.WAIT_10);
+		
+		WebElement CostingMethodPurchasing =driver.findElement(By.xpath("//*[text()='Costing Method - Purchasing']/../div/div/select"));
+		if(DropDown.verifyObject(CostingMethodPurchasing)) {
+			Sync.waitForSeconds(Constants.WAIT_5);
+			Sync.waitForObjectFluent(driver, CostingMethodPurchasing);
+			Sync.waitForObject(driver, "Wait for click on Cost Method purchasing", CostingMethodPurchasing);
+			Sync.waitForElementToBeClickable(driver, CostingMethodPurchasing);
+			Button.click("Wait for click on Cost Method purchasing", CostingMethodPurchasing);
+			Select roundVATPostingGroupDown= new Select(CostingMethodPurchasing);
+			roundVATPostingGroupDown.selectByVisibleText(strValue);//"07, Standard"
+			Sync.waitForSeconds(Constants.WAIT_5);
+		}
+		else {
+			Sync.waitForObject(driver, "Wait for click on Cost Method purchasing", CostingMethodPurchasing);
+			Sync.waitForElementToBeClickable(driver, CostingMethodPurchasing);
+			Button.click("Wait for click on Cost Method purchasing", CostingMethodPurchasing);
+			Select roundVATPostingGroupDown= new Select(CostingMethodPurchasing);
+			roundVATPostingGroupDown.selectByVisibleText(strValue);//"07, Standard"
+		}
 
 	}
 
 	public void selectCostingMethodSales(String strValue)
 	{
-		Sync.waitForSeconds(Constants.WAIT_5);
-		Sync.waitForSeconds(Constants.WAIT_3);
-		WebElement dropdown =driver.findElement(By.xpath("//*[text()='Costing Method - Sales']/../div/div/select"));
-		Sync.waitForObject(driver, "Wait for VAT posting group Select", dropdown);
-		Sync.waitForElementToBeClickable(driver, dropdown);
-		Button.click("Wait for VAT posting group Select", dropdown);
-		Select roundVATPostingGroupDown= new Select(dropdown);
-		roundVATPostingGroupDown.selectByVisibleText(strValue);//"08, Purchasing-Base Cost No Adds"
+		Sync.waitForSeconds(Constants.WAIT_10);
+		
+		WebElement CostingMethodSales =driver.findElement(By.xpath("//*[text()='Costing Method - Sales']/../div/div/select"));
+		if(DropDown.verifyObject(CostingMethodSales)) {
+			Sync.waitForObjectFluent(driver, CostingMethodSales);
+			Sync.waitForObject(driver, "Wait for click on Cost Method Sales", CostingMethodSales);
+			Sync.waitForElementToBeClickable(driver, CostingMethodSales);
+			Button.click("Wait for click on Cost Method Sales", CostingMethodSales);
+			Select roundVATPostingGroupDown= new Select(CostingMethodSales);
+			roundVATPostingGroupDown.selectByVisibleText(strValue);//"08, Purchasing-Base Cost No Adds"
+			Sync.waitForSeconds(Constants.WAIT_5);
+		}
+		else {
+			Sync.waitForObject(driver, "Wait for click on Cost Method Sales", CostingMethodSales);
+			Sync.waitForElementToBeClickable(driver, CostingMethodSales);
+			Button.click("Wait for click on Cost Method Sales", CostingMethodSales);
+			Select roundVATPostingGroupDown= new Select(CostingMethodSales);
+			roundVATPostingGroupDown.selectByVisibleText(strValue);//"08, Purchasing-Base Cost No Adds"
+		}
 
 	}
 
