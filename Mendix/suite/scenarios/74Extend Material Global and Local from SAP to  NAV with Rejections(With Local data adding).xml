@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Extend Material Global and local from SAP to Nav with Rejections(with local Data Addition) ">
-   
+  
     <test name="HeiPort_Login_LDR">
 		<classes>
 			<class name="com.mendix.test.LoginScript">
@@ -25,7 +25,7 @@
 			<methods>
 				<include name="material_Local_Plant_Data_Fill_In_Nav"/>
 				<include name="material_Local_Finance_Data_Fill_In_Nav"/>
-				<include name="material_Create_Fill_In_Data_Nav_Local_Site"/>
+				<include name="material_Create_Fill_In_Data_Nav_Local_Adding_Site"/>
 				<include name="material_Confirm_Extension"/>
 			</methods>
 		</class>
@@ -41,9 +41,9 @@
 			</class>
 		</classes>
 	</test>
-	   
+
 	<!--=================================Local Data Approvar LDP Start============================================================== -->
-	  
+  
 	 <test name="HeiPort_Login_LDP">
 		<classes>
 			<class name="com.mendix.test.LoginScript">
@@ -74,7 +74,7 @@
 			</class>
 		</classes>
 	</test>
-	
+
 	<!--=======================================LDP Local Approve END======================================================================================== -->  
 	<!-- ======================================LDS Local Approval Level Start With Rejections===============================================================================-->
 	  
@@ -112,7 +112,7 @@
 	
 	<!-- =======================================================Local Rejections End at LDS================================================================== -->
 	<!-- ====================================Relogin LDR and Resubmitting the Local Material Data=============================================== -->
-	   
+	       
 	 <test name="HeiPort_ReLogin_LDR_For_Local">
 		<classes>
 			<class name="com.mendix.test.LoginScript">
@@ -146,7 +146,7 @@
 	</test>
 	
 		<!-- ===============================================LDP Relogin and Approve the Rejected Request Local====================================== -->
-   
+      
 	 <test name="HeiPort_ReLogin_LDP_Local">
 		<classes>
 			<class name="com.mendix.test.LoginScript">
@@ -180,7 +180,7 @@
 	
 	<!-- =============================================LDP Re login And approving Local End================================================================= -->
 	<!-- =============================================LDS Re login and approving local Start=============================================================== -->
-   
+      
 	  <test name="HeiPort_ReLogin_LDS">
 		<classes>
 			<class name="com.mendix.test.LoginScript">
@@ -211,10 +211,10 @@
 			</class>
 		</classes>
 	</test>
-	
+	-->
 	<!-- =====================================LDS Approval Local End============================================================================ -->
 	<!-- =====================================LBDA Global Approval Level Start==================================================  -->
-     
+        
 	<test name="HeiPort_Login_LBDA">
 		<classes>
 			<class name="com.mendix.test.LoginScript">
@@ -247,7 +247,7 @@
 	</test>
 
 <!-- =================================================Resubmission of the Global Approval Material Data Start ============================================ -->
- 
+     
 	<test name="HeiPort_ReLogin_LDR_Global">
 		<classes>
 			<class name="com.mendix.test.LoginScript">
@@ -264,7 +264,7 @@
 			<class name="com.mendix.test.MaterialScript">
 				<methods>
 					<include name="navigate_To_MDM_Workflow"/>
-					<include name="material_Resubmit_To_Global_Approval"/>
+					<include name="material_Resubmit_To_Global_Approval_Extend"/>
 				</methods>
 			</class>
 		</classes>
@@ -280,9 +280,8 @@
 		</classes>
 	</test>
 	
-
 	<!-- =================================================LBDA Approval level Start For Global============================================================ -->
- 	
+ 	  
 	<test name="HeiPort_ReLogin_LBDA">
 		<classes>
 			<class name="com.mendix.test.LoginScript">
@@ -315,7 +314,7 @@
 			</class>
 		</classes>
 	</test>
- 		
+ 	  	
 	<test name="HeiPort_Login_LDR_Syndication">
 		<classes>
 			<class name="com.mendix.test.LoginScript">
@@ -326,6 +325,7 @@
 			</class>
 		</classes>
 	</test>
+
 	<test name="Material_Create_Syndication_Check">
 		<classes>
 			<class name="com.mendix.test.MaterialScript">

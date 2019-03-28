@@ -119,9 +119,7 @@
 				</methods>
 			</class>
 		</classes>
-	</test>
-
-	
+	</test>	
 	 <test name="HeiPort_Login_LDR_Syndication">
 		<classes>
 			<class name="com.mendix.test.LoginScript">
@@ -137,8 +135,7 @@
 			<class name="com.mendix.test.VendorScript">
 				<methods>
 					<include name="Vendor_Create_Syndication_Check_SAP" />
-					<include name="launchUFT_SAP_Vendor"/>
-					
+					<include name="launchUFT_SAP_Vendor"/>					
 				</methods>
 			</class>
 		</classes>

@@ -27,7 +27,7 @@
 		<classes>
 			<class name="com.mendix.test.VendorScript">
 				<methods>
-					<include name="Process_Information_Check" />
+					<include name="Process_Information_Check" />					
 				</methods>
 			</class>
 		</classes>

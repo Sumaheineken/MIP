@@ -171,6 +171,8 @@ public class MaterialNavScript {
 
 	@Test(dataProvider = "CreateMaterial_Fill_In_Local", dataProviderClass = staticProviderClass.class)
 	public void material_Local_Plant_Data_Fill_In_Nav(Map<String, String> dataMap) throws InterruptedException {
+		Sync.waitForSeconds(Constants.WAIT_10);
+		Sync.waitForSeconds(Constants.WAIT_6);
 		SharedDriver.pageContainer.materialNavPage.localAddInNewPlantNav();
 		// SharedDriver.pageContainer.materialNavPage.clickAndSelectPurchaseUOMValueDropDown(dataMap.get("Purch. Unit of Measure"));
 		// SharedDriver.pageContainer.materialNavPage.clickAndSelectProdUOMValueDropDown(dataMap.get("Production Unit of Measure"));
@@ -179,7 +181,6 @@ public class MaterialNavScript {
 		// SharedDriver.pageContainer.materialNavPage.clickAndSelectInventoryUOMValueDropDown(dataMap.get("Inventory Unit of Measure"));
 		SharedDriver.pageContainer.materialNavPage.validateAndSaveLocalData();
 	}
-
 	/*
 	 * ======================================Meterial Create Fill in Local Data Adding New Finance====================================================
 	 */
@@ -237,9 +238,12 @@ public class MaterialNavScript {
 		//SharedDriver.pageContainer.materialNavPage.clickSiteEditButton();
 		SharedDriver.pageContainer.materialNavPage.clickSiteNewButton();
 		Sync.waitForSeconds(Constants.WAIT_10);
-		SharedDriver.pageContainer.basePage.waitForPageLoad();
-		SharedDriver.pageContainer.materialNavPage.selectLocationCode(dataMap.get("Location Code"));
-		SharedDriver.pageContainer.materialNavPage.selectReplenishmentSystem(dataMap.get("Replenishment System"));
+		Sync.waitForSeconds(Constants.WAIT_5);
+		//SharedDriver.pageContainer.basePage.waitForPageLoad();
+		SharedDriver.pageContainer.materialNavPage.clickAndSelectSitePlantDropDown(dataMap.get("Location Code"));
+		Sync.waitForSeconds(Constants.WAIT_5);
+		SharedDriver.pageContainer.materialNavPage.clickAndSelectSiteReplenishmentSystemDropDown(dataMap.get("Replenishment System"));
+		Sync.waitForSeconds(Constants.WAIT_6);
 		SharedDriver.pageContainer.materialNavPage.clickLocalAction();
 		SharedDriver.pageContainer.materialNavPage.clickSiteValidateButton();
 		SharedDriver.pageContainer.materialNavPage.clickSiteSaveButton();
@@ -247,24 +251,28 @@ public class MaterialNavScript {
 		SharedDriver.pageContainer.materialNavPage.clickSaveButton();
 		SharedDriver.pageContainer.materialNavPage.clickLocalAction();
 		SharedDriver.pageContainer.materialNavPage.clickValidateLocalRequest();
-		// Sync.waitForSeconds(Constants.WAIT_10);
+		Sync.waitForSeconds(Constants.WAIT_10);
 
 	}
 	
 	
 	@Test(dataProvider="Process_Information_Check",dataProviderClass=staticProviderClass.class)
-	public void material_Confirm_Extension() throws FileNotFoundException, InterruptedException, IOException
+	public void material_Confirm_Extension(Map<String, String> dataMap) throws FileNotFoundException, InterruptedException, IOException
 	{
 		//Sync.waitForSeconds(Constants.WAIT_10);
 		//SharedDriver.pageContainer.basePage.waitForPageLoad();
-		SharedDriver.pageContainer.materialNavPage.switchToGlobal();
+		SharedDriver.pageContainer.materialNavPage.clickGlobalDataButton();
 		SharedDriver.pageContainer.materialNavPage.confirmExtensionNav();
 		Sync.waitForSeconds(Constants.WAIT_5);
-		Sync.waitForObject(driver, driver.findElement(By.cssSelector(".modal-body.mx-dialog-body>p")));
+		Sync.waitForSeconds(Constants.WAIT_6);
+		Sync.waitForSeconds(Constants.WAIT_5);
+		//Sync.waitForObject(driver, driver.findElement(By.cssSelector(".modal-body.mx-dialog-body>p")));
 		SharedDriver.pageContainer.materialPage.getRequestId_CreateNew();
 		Sync.waitForSeconds(Constants.WAIT_10);
 		SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();	
 	}
+	
+	
 	@Test(dataProvider="Process_Information_Check",dataProviderClass=staticProviderClass.class)
 	public void Process_Information_Check_GlobalID(Map<String,String> dataMap) throws InterruptedException, FileNotFoundException, IOException 
 	{

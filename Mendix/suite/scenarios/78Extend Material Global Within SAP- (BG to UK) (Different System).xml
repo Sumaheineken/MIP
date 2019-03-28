@@ -93,7 +93,7 @@
 		<classes>
 			<class name="com.mendix.test.MaterialScript">
 				<methods>
-					<include name="process_Information_Check_GlobalID_Extend" />
+					<include name="Process_Information_Check_GlobalID_Extend" />
 				</methods>
 			</class>
 		</classes>
@@ -114,7 +114,7 @@
 			<class name="com.mendix.test.MaterialScript">
 				<methods>
 					<include name="material_Create_Syndication_Check_GlobalId" />
-					<include name="launchUFT_SAP_Material"/>
+					<include name="launchUFT_SAP_Material" />
 				</methods>
 			</class>
 		</classes>

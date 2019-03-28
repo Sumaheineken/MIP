@@ -128,6 +128,12 @@ public class Material_Nav_Page{
 	
 	@FindBy(how = How.XPATH, using = ".//*[contains(text(),'Replenishment System')]/../div/div/select")
 	WebElement dropDownLocalSiteRS;
+	
+	@FindBy(how = How.XPATH, using = ".//*[text()='Site']")
+	WebElement btnNavSite;
+	
+	@FindBy(how = How.XPATH, using = ".//*[text()='Site']/../../../div/div[3]/div/div/div[2]/div[2]/div[2]/button[2]")
+	WebElement btnNavLocalSiteEditExtend;
 
 	public void enterLocalData() {
 		WebDriverWait wait = new WebDriverWait(driver, 120);
@@ -612,45 +618,39 @@ public class Material_Nav_Page{
 	}
 
 	public boolean clickGlobalDataButton() throws InterruptedException {
-		// boolean isButtonClicked=false;
-		System.out.println("Click on global id");
-		Sync.waitForSeconds(Constants.WAIT_10);
+		boolean isButtonClicked = false;
 
-		// WebDriverWait wait = new WebDriverWait(driver,150);
-		Sync.waitUntilObjectDisappears(driver, "Wait for Materials",
-				By.xpath((".//*[@id='mxui_widget_Progress_0']/div[2]")));
+		System.out.println("Crossed the Local Data addition");
+		
+		WebElement el = driver.findElement(By.cssSelector(".mx-name-tabPageGlobal"));
+		((JavascriptExecutor) driver).executeScript("arguments[0].click()", el);
 		/*
-		 * WebElement el = driver.findElement(By.cssSelector(".mx-name-tabPageGlobal"));
-		 * ((JavascriptExecutor)driver).executeScript("arguments[0].click()", el);
+		 * if(Button.verifyObject(btnGlobalData)){ Sync.waitForObject(driver
+		 * ,"Global Data", btnGlobalData); Sync.waitForSeconds(Constants.WAIT_5); return
+		 * Button.click("Global Data", btnGlobalData); }else{ return
+		 * Button.click("Global Data", btnGlobalData); }
 		 */
-		Sync.waitForSeconds(Constants.WAIT_10);
-		System.out.println("Ready to click on Global id");
-		if (Button.verifyObject(btnGlobalData)) {
-			System.out.println("Ready to click on Global id");
-			Sync.waitForSeconds(Constants.WAIT_6);
-			Sync.waitForElementToBeClickable(driver, driver.findElement(By.xpath(".//*[text()='Global Data']")));
-			Sync.waitForObject(driver, "Global Data", btnGlobalData);
-			Sync.waitForSeconds(Constants.WAIT_6);
-			return Button.jsclick("Clicked on Global Data", btnGlobalData, driver);
-		} else {
-			Sync.waitForObject(driver, "Global Data", btnGlobalData);
-			Sync.waitForSeconds(Constants.WAIT_10);
-			return Button.jsclick("Clicked on Global Data", btnGlobalData, driver);
-		}
-	}
+		return isButtonClicked;
+	} 
+	
 
-	public boolean clickValidateLocalRequest() {
-		WebDriverWait wait = new WebDriverWait(driver, 90);
+	public void clickValidateLocalRequest() {
+		//WebDriverWait wait = new WebDriverWait(driver, 90);
 		Sync.waitForObject(driver, "Click Validate Local Request", btnValidateLocalRequest);
 		if (Button.verifyObject(btnGlobalData)) {
 			Sync.waitForObject(driver, "click on validate local request button", btnValidateLocalRequest);
 			Sync.waitForSeconds(Constants.WAIT_5);
-			return Button.click("Click Validate Local Request", btnValidateLocalRequest);
+			Button.click("Click Validate Local Request", btnValidateLocalRequest);
 		} else {
 			Sync.waitForSeconds(Constants.WAIT_6);
-			return Button.click("Click Validate Local Request", btnValidateLocalRequest);
+			Button.click("Click Validate Local Request", btnValidateLocalRequest);
 		}
+		Sync.waitForSeconds(Constants.WAIT_6);
+		System.out.println("Loading the page to display validation message");
+		Sync.waitForObject(driver, "Verify Validate message", txtValidationMsg);
+		System.out.println("Validation message displayed and going forward");
 	}
+
 
 	public void createWithReferenceRequestforNav() {
 		Sync.waitForElementToBeClickable(driver, btnSelectAllOnPopUpPlants);
@@ -916,6 +916,29 @@ public class Material_Nav_Page{
 			Sync.waitForSeconds(Constants.WAIT_10);
 		}
 	}
+	
+	public void localEditSiteDataNav() {
+
+		Sync.waitForObject(driver, btnNavSite);
+		Button.jsclick("Click on the Finance Button in Local Data", btnNavSite, driver);
+		Sync.waitForSeconds(Constants.WAIT_5);
+		Sync.waitForObject(driver, btnNavLocalSiteEditExtend);
+		if (Button.verifyObject(btnNavLocalSiteEditExtend)) {
+			Sync.waitForSeconds(Constants.WAIT_5);
+			Sync.waitForObject(driver, btnNavLocalSiteEditExtend);
+			Button.jsclick("Click edit to add data in Site", btnNavLocalSiteEditExtend, driver);
+			Sync.waitForSeconds(Constants.WAIT_10);
+
+		} else {
+			Sync.waitForSeconds(Constants.WAIT_5);
+			Sync.waitForSeconds(Constants.WAIT_6);
+			Button.jsclick("Click edit to add data in Site", btnNavLocalSiteEditExtend, driver);
+			Sync.waitForSeconds(Constants.WAIT_10);
+		}
+
+	}
+
+	
 	public void clickEditFinanceDataJDE_Extend() throws AWTException, IOException
 	{
 		Sync.waitForSeconds(Constants.WAIT_5);
@@ -933,6 +956,8 @@ public class Material_Nav_Page{
 		Sync.waitForSeconds(Constants.WAIT_3);
 		jse.executeScript("arguments[0].click()", driver.findElement(By.xpath("(//*[text()='OK'])[1]")));*/
 	}
+	
+	
 
 
 }

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Extend Material Global and local from SAP to Nav(with local Data Addition) ">
+<suite name="Extend Material Global and local from JDE to Nav(with local Data Addition) ">
     <test name="HeiPort_Login_LDR">
 		<classes>
 			<class name="com.mendix.test.LoginScript">
@@ -13,7 +13,7 @@
 		</classes>
 	</test>
 	
-	<test name="Extend Material Global and local from SAP to Nav(with local Data Addition) ">
+	<test name="Extend Material Global and local from JDE to Nav(with local Data Addition) ">
 	<classes>
 		<class name="com.mendix.test.MaterialScript">
 			<methods>
@@ -24,7 +24,7 @@
 			<methods>
 				<include name="material_Local_Plant_Data_Fill_In_Nav"/>
 				<include name="material_Local_Finance_Data_Fill_In_Nav"/>
-				<include name="material_Create_Fill_In_Data_Nav_Local_Site"/>
+				<include name="material_Create_Fill_In_Data_Nav_Local_Adding_Site"/>
 				<include name="material_Confirm_Extension"/>
 			</methods>
 		</class>

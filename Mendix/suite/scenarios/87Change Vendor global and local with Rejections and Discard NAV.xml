@@ -21,7 +21,7 @@
 			</class>
 		</classes>
 	</test>
-	 <test name="Vendor_Change_DashBoard_SearchWith_GlobalID">
+		<test name="Vendor_Change_DashBoard_SearchWith_GlobalID">
 		<classes>
 			<class name="com.mendix.test.VendorScript">
 				<methods>
@@ -29,7 +29,7 @@
 				</methods>
 			</class>
 		</classes>
-	</test> 
+	</test>
 	<test name="Vendor_Change_Fill_In_Data_Global_Local_Bank_NAV">
 		<classes>
 			<class name="com.mendix.test.VendorScript_NAV">
@@ -49,6 +49,9 @@
 			</class>
 		</classes>
 	</test>  
+
+
+
 	
 	<test name="HeiPort_Login_LDS">
 		<classes>
@@ -70,55 +73,21 @@
 			</class>
 		</classes>
 	</test>
-	 <test name="Process_Information_Check LDS">
+	<test name="Process_Information_Check_LDS_RejectStatus">
 		<classes>
-			<class name="com.mendix.test.VendorScript">
+			<class name="com.mendix.test.MaterialNavScript">
 				<methods>
 					<include name="Process_Information_Check" />
 				</methods>
 			</class>
 		</classes>
+
 	</test>  
+
+
 		
 	 
-	  <test name="HeiPort_Login_LDR_Get GlobalID">
-		<classes>
-			<class name="com.mendix.test.LoginScript">
-				<methods>
-					<include name="openBrowser" />
-					<include name="loginAsLDRVendor" />
-				</methods>
-			</class>
-		</classes>
-	</test>
-	<test name="Create_Material_Rejections_with_Discard">
-		<classes>
-			<class name="com.mendix.test.MaterialScript">
-				<methods>
-					<include name="Create_Material_Rejections_with_Discard" />
-				</methods>
-			</class>
-		</classes>
-	</test>
-	<test name="Process_Information_Check_Discard">
-		<classes>
-			<class name="com.mendix.test.VendorScript">
-				<methods>
-					<include name="Process_Information_Check_Discard" />
-				</methods>
-			</class>
-		</classes>
-	</test>
-	<!-- <test name="Vendor_Create_Syndication_Check">
-		<classes>
-			<class name="com.mendix.test.VendorScript">
-				<methods>
-					<include name="Vendor_Create_Syndication_Check" />
-				</methods>
-			</class>
-		</classes>
-	</test> 
-	 <test name="HeiPort_Login_GDA">
+	  <test name="HeiPort_Login_GDA">
 		<classes>
 			<class name="com.mendix.test.LoginScript">
 				<methods>
@@ -147,7 +116,34 @@
 			</class>
 		</classes>		
 	</test> 
-	-->
+	 <test name="HeiPort_Login_LDR_Get GlobalID">
+		<classes>
+			<class name="com.mendix.test.LoginScript">
+				<methods>
+					<include name="openBrowser" />
+					<include name="loginAsLDRVendor" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	<test name="Create_Material_Rejections_with_Discard">
+		<classes>
+			<class name="com.mendix.test.MaterialScript">
+				<methods>
+					<include name="Create_Material_Rejections_with_Discard" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	<test name="Process_Information_Check_Discard">
+		<classes>
+			<class name="com.mendix.test.VendorScript">
+				<methods>
+					<include name="Process_Information_Check_Discard" />
+				</methods>
+			</class>
+		</classes>
+	</test>	
 </suite> 
 
 
