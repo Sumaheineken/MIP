@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Extend Material Global and local from SAP to Nav with Rejections(with local Data Addition) ">
+<suite name="Extend Material Global and local from SAP to Nav with Rejections(with local Data Addition)">
   
     <test name="HeiPort_Login_LDR">
 		<classes>
@@ -211,7 +211,7 @@
 			</class>
 		</classes>
 	</test>
-	-->
+	
 	<!-- =====================================LDS Approval Local End============================================================================ -->
 	<!-- =====================================LBDA Global Approval Level Start==================================================  -->
         
