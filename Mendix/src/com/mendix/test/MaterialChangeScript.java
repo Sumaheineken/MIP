@@ -53,6 +53,7 @@ public class MaterialChangeScript {
 		SharedDriver.pageContainer.vendorPage.clickToConfirm();
 		SharedDriver.pageContainer.vendorPage.clickConfirmExtension();
 	}
+	
 	@Test(dataProvider="Process_Information_Check",dataProviderClass=staticProviderClass.class)
 	public void Material_Create_With_Ref (Map<String,String> dataMap) throws InterruptedException, FileNotFoundException, IOException 
 	{
@@ -105,13 +106,17 @@ public class MaterialChangeScript {
 	   //SharedDriver.pageContainer.materialApprovalPage.submitRequestOkButtonClick();
 	}
 	
+	
 	@Test(dataProvider="CreateMaterial_Fill_In",dataProviderClass=staticProviderClass.class)
 	public void Material_Edit_Desc_JDE(Map<String,String> dataMap) throws InterruptedException, FileNotFoundException, IOException
 	{   Sync.waitForSeconds(Constants.WAIT_3);
 		SharedDriver.pageContainer.materialPage.materialDescCreate(dataMap.get("Description"));
-		   
-       
-          SharedDriver.pageContainer.materialPage.validateTestCreate();     
+		SharedDriver.pageContainer.materialPage.grossWeightEntestTest(dataMap.get("Gross Weight Base UoM"));
+		SharedDriver.pageContainer.materialPage.unitOfWeightSelectionTest(dataMap.get("Unit of Weight"));
+		SharedDriver.pageContainer.materialPage.baseUOMSelectionTest(dataMap.get("Base UoM"));
+		SharedDriver.pageContainer.materialPage.netWeightEnterTest(dataMap.get("Net Weight Base UoM"));
+		SharedDriver.pageContainer.materialPage.uomPrimarySelectionTest();	          
+        SharedDriver.pageContainer.materialPage.validateTestCreate();     
 	   
 	}
 	@Test(dataProvider="CreateMaterial_Fill_In",dataProviderClass=staticProviderClass.class)

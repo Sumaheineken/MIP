@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Change vendor global  local  Bank">
- 	 <!-- <test name="HeiPort_Login_LDR">
+ 	  <test name="HeiPort_Login_LDR">
 		<classes>
 			<class name="com.mendix.test.LoginScript">
 				<methods>
@@ -49,8 +49,11 @@
 			</class>
 		</classes>
 	</test>  
-	 -->
-	<!-- <test name="HeiPort_Login_LDS">
+
+
+
+	
+	<test name="HeiPort_Login_LDS">
 		<classes>
 			<class name="com.mendix.test.LoginScript">
 				<methods>
@@ -78,7 +81,10 @@
 				</methods>
 			</class>
 		</classes>
-	</test> -->
+
+	</test>  
+
+
 		
 	 
 	  <test name="HeiPort_Login_GDA">
