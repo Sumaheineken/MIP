@@ -83,9 +83,9 @@ public class MaterialScript {
 		SharedDriver.pageContainer.processInfoPage.processInfoSearch();
 		SharedDriver.pageContainer.processInfoPage.reqIdSearch_Global(dataMap.get("RequestId"));
 		// SharedDriver.pageContainer.processInfoPage.getState(dataMap.get("RequestId"));
-		SharedDriver.pageContainer.processInfoPage.getState_New(dataMap.get("RequestId"));
+		//SharedDriver.pageContainer.processInfoPage.getState_New(dataMap.get("RequestId"));
 		// SharedDriver.pageContainer.processInfoPage.requestCreated_between();
-
+		SharedDriver.pageContainer.processInfoPage.getState(dataMap.get("RequestId"));
 		SharedDriver.pageContainer.processInfoPage.browserClose();
 	}
 
@@ -318,7 +318,6 @@ public class MaterialScript {
 		SharedDriver.pageContainer.materialPage.checkSyndication(dataMap.get("RequestId"));
 		SharedDriver.pageContainer.materialPage.getGlobalIdProcessInfo_Extend(dataMap.get("RequestId"));
 		Sync.waitForSeconds(Constants.WAIT_5);
-		Thread.sleep(1200000);
 		SharedDriver.pageContainer.materialPage.checkSyndicationDoneStatus(dataMap.get("RequestId"));
 		SharedDriver.pageContainer.processInfoPage.browserClose();
 	}
@@ -590,6 +589,7 @@ public class MaterialScript {
 		SharedDriver.pageContainer.materialPage.validateTestCreate();
 	}
 
+	
 	@Test(dataProvider = "Process_Information_Check", dataProviderClass = staticProviderClass.class)
 	public void material_Create_With_ref_Local_Data_Edit_Nav(Map<String, String> dataMap)
 			throws InterruptedException, FileNotFoundException, IOException {
@@ -608,7 +608,12 @@ public class MaterialScript {
 		// Code blocked with requirement change in application effecting previous
 		// scripts and needs to be clarified from Business Team
 		// Blocked Execution from here and needs code change to edit site data
-
+		SharedDriver.pageContainer.materialNavPage.localEditSiteDataNav();
+		Sync.waitForSeconds(Constants.WAIT_6);
+		Sync.waitForSeconds(Constants.WAIT_5);
+		SharedDriver.pageContainer.materialNavPage.clickAndSelectSitePlantDropDown("MZ03, In-Transit Cross Border");
+		Sync.waitForSeconds(Constants.WAIT_5);
+		SharedDriver.pageContainer.materialNavPage.clickAndSelectSiteReplenishmentSystemDropDown("2, Transfer");
 		SharedDriver.pageContainer.materialNavPage.validateAndSaveLocalData();
 		SharedDriver.pageContainer.materialPage.validateAndsubmitGlobalLocalRequest();
 		SharedDriver.pageContainer.materialPage.getRequestId_CreateNew();
@@ -769,6 +774,22 @@ public class MaterialScript {
 		SharedDriver.pageContainer.materialPage.submitGlobalRequestTest();
 		//SharedDriver.pageContainer.materialPage.getRequestIdDuringResubmission();
 		//SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
+		SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
+		Sync.waitForSeconds(Constants.WAIT_3);
+	}
+	
+	@Test(dataProvider="Process_Information_Check",dataProviderClass=staticProviderClass.class)
+	public void material_Resubmit_To_Global_Approval_Extend(Map<String,String> dataMap) throws InterruptedException, FileNotFoundException, IOException
+	{
+		SharedDriver.pageContainer.materialApprovalPage.reqIdSearchMyTasks(dataMap.get("RequestId"));
+		SharedDriver.pageContainer.materialPage.clickLocalAction();
+		//SharedDriver.pageContainer.materialPage.duplicateCheckButton();
+		//SharedDriver.pageContainer.materialPage.clickDuplicateCheck();
+		SharedDriver.pageContainer.materialPage.submitGlobalRequestExtend();
+		//SharedDriver.pageContainer.materialPage.getRequestIdDuringResubmission();
+		//SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
+		Sync.waitForSeconds(Constants.WAIT_6);
+		Sync.waitForSeconds(Constants.WAIT_5);
 		SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
 		Sync.waitForSeconds(Constants.WAIT_3);
 	}
