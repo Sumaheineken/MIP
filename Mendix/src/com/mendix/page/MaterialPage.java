@@ -221,6 +221,7 @@ public class MaterialPage {
 
 	@FindBy(how=How.XPATH, using=".//*[text()='Global Actions:']/..//*[text()='Save As Draft']")
 
+	WebElement btnSavingAsDraft;
 
 
 	@FindBy(how = How.XPATH, using = "//*[text()='Validate']")
