@@ -58,6 +58,7 @@ public class Material_JDE_Page {
 	@FindBy(how=How.XPATH, using="//*[text()='Finance']/../../../div/div[8]/div/div/div[2]/div[2]//*[text()='Edit']")
 	WebElement btnEditPlaning;
 	
+	
 	@FindBy(how=How.XPATH, using="//*[text()='Finance']/../../../div/div[9]/div/div/div[2]/div[2]//*[text()='Edit']")
 	WebElement btnEditFinance;
 

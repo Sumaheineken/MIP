@@ -55,6 +55,7 @@ public class Material_Nav_Page{
 	@FindBy(how = How.XPATH, using = "(.//*[@class='glyphicon glyphicon-new-window'])[6]")
 	WebElement BtnAddPlantData;
 
+	
 	@FindBy(how = How.XPATH, using = "//button[text()='Select']")
 	WebElement BtnPlantSelect;
 

@@ -37,7 +37,7 @@ public class MaterialScript {
 
 	}
 
-	@Test(dataProvider = "CreateMaterial_Fill_In", dataProviderClass = staticProviderClass.class)
+   @Test(dataProvider = "CreateMaterial_Fill_In", dataProviderClass = staticProviderClass.class)
 	public void Material_Create_Fill_In_Data(Map<String, String> dataMap)
 			throws InterruptedException, FileNotFoundException, IOException {
 		SharedDriver.pageContainer.materialPage.disableLocaData();
