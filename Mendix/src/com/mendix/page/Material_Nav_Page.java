@@ -942,11 +942,11 @@ public class Material_Nav_Page{
 	public void clickEditFinanceDataJDE_Extend() throws AWTException, IOException
 	{
 		Sync.waitForSeconds(Constants.WAIT_5);
-		WebDriverWait wait = new WebDriverWait(driver,10);
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//button[text()='Edit'])[3]")));
-		Sync.waitUntilObjectDisappears(driver, "Wait for Save button", By.xpath("(//button[text()='Edit'])[3]"));
-		Sync.waitForElementToBeClickable(driver, driver.findElement( By.xpath("(//button[text()='Edit'])[3]")));
-		Button.jsclick("Click Edit Finance Button", driver.findElement(By.xpath("(//button[text()='Edit'])[3]")), driver);
+		WebDriverWait wait = new WebDriverWait(driver,20);
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(".//*[text()='Finance']/../../../div/div[9]/div/div/div[2]/div[2]//*[text()='Edit']")));
+		Sync.waitUntilObjectDisappears(driver, "Wait for Save button", By.xpath(".//*[text()='Finance']/../../../div/div[9]/div/div/div[2]/div[2]//*[text()='Edit']"));
+		Sync.waitForElementToBeClickable(driver, driver.findElement( By.xpath(".//*[text()='Finance']/../../../div/div[9]/div/div/div[2]/div[2]//*[text()='Edit']")));
+		Button.jsclick("Click Edit Finance Button", driver.findElement(By.xpath(".//*[text()='Finance']/../../../div/div[9]/div/div/div[2]/div[2]//*[text()='Edit']")), driver);
 //		driver.findElement(By.xpath("(//*[text()='Add'])[2]/../button[2]/span")).click();
 		/*Sync.waitForSeconds(Constants.WAIT_3);
 		Sync.waitUntilObjectDisappears(driver, "Wait for Materials", By.xpath((".//*[@id='mxui_widget_Progress_0']/div[2]")));

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Change Material">
+<suite name="Change Material">		
 	<test name="HeiPort_Login_SGLDR">
-		<classes>
+		<classes>		
 			<class name="com.mendix.test.LoginScript">
 				<methods>
 					<include name="tasKill" />
@@ -39,8 +39,57 @@
 				</methods>
 			</class>
 		</classes>
-	</test>	    
-	<test name="Process_Information_Check_Extend">
+	</test>	
+	<test name="HeiPort_Login_LDS">
+		<classes>
+			<class name="com.mendix.test.LoginScript">
+				<methods>
+					<include name="openBrowser" />
+					<include name="loginAsSGLDS" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	<test name="Material_Create_Review_Local_Data_Reject_LDS">
+		<classes>
+			<class name="com.mendix.test.MaterialNavScript">
+				<methods>
+					<include
+						name="Material_Create_Review_Local_Data_Reject_LDS" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	<test name="Process_Information_Check_LDS">
+		<classes>
+			<class name="com.mendix.test.MaterialNavScript">
+				<methods>
+					<include name="Process_Information_Check_Local_Reject_Status_LDS" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	<test name="HeiPort_Login_LDR_Submitting">
+		<classes>
+			<class name="com.mendix.test.LoginScript">
+				<methods>
+					<include name="openBrowser" />
+					<include name="loginAsSGLDR" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	<test name="Material_LocalData_Submit_LDR">
+		<classes>
+			<class name="com.mendix.test.MaterialNavScript">
+				<methods>
+					<include
+						name="Material_LocalData_Submit_LDR" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	<test name="Process_Information_Check_LDR">
 		<classes>
 			<class name="com.mendix.test.MaterialNavScript">
 				<methods>
@@ -48,7 +97,8 @@
 				</methods>
 			</class>
 		</classes>
-	</test>
+	</test>  
+	
 	<test name="HeiPort_Login_LDS">
 		<classes>
 			<class name="com.mendix.test.LoginScript">
@@ -73,13 +123,12 @@
 		<classes>
 			<class name="com.mendix.test.MaterialNavScript">
 				<methods>
-					<include name="Process_Information_Check_GlobalID_Extend" />
+					<include name="Process_Information_Check_GlobalID" />
 				</methods>
 			</class>
 		</classes>
 	</test>
-	
-	<test name="HeiPort_Login_LDR_Syndication_Syndication">
+	<test name="HeiPort_Login_LDR_Syndication">
 		<classes>
 			<class name="com.mendix.test.LoginScript">
 				<methods>
@@ -100,7 +149,7 @@
 		</classes>
 	</test>
 	
-		<!-- <test name="HeiPort_Login_GDA">
+	<!-- <test name="HeiPort_Login_GDA">
 		<classes>
 			<class name="com.mendix.test.LoginScript">
 				<methods>
@@ -129,27 +178,7 @@
 			</class>
 		</classes>
 	</test>
-	<test name="HeiPort_Login_LDR_Syndication">
-		<classes>
-			<class name="com.mendix.test.LoginScript">
-				<methods>
-					<include name="openBrowser" />
-					<include name="loginAsSGLDR" />
-				</methods>
-			</class>
-		</classes>
-	</test>
-	<test name="Material_Create_Syndication_Check">
-		<classes>
-			<class name="com.mendix.test.MaterialScript">
-				<methods>
-					<include name="material_Create_Syndication_Check_GlobalId" />
-					<include name="launchUFT_SAP_Material" />
-				</methods>
-			</class>
-		</classes>
-	</test>
- -->
+	 -->
  </suite> 
 
 

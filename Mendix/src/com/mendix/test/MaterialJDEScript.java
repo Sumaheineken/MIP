@@ -293,21 +293,21 @@ public class MaterialJDEScript {
 //		SharedDriver.pageContainer.materialJdePage.clickAddPlantData();
 		SharedDriver.pageContainer.materialJdePage.enterPlantData(dataMap.get("Plant"));
 //		SharedDriver.pageContainer.materialJdePage.enterPlantDataJDE();
-		SharedDriver.pageContainer.materialJdePage.SelectPlant();
+		//SharedDriver.pageContainer.materialJdePage.SelectPlant();
 		SharedDriver.pageContainer.materialJdePage.clickEditPlanningData_Extend();		
-		SharedDriver.pageContainer.materialJdePage.selectStockingTypeLocal();
-		SharedDriver.pageContainer.materialJdePage.selectCommitmentDateMethod();
-		SharedDriver.pageContainer.materialJdePage.selectLotCalculationAlgorithm();
-		SharedDriver.pageContainer.materialJdePage.selectLotProcessType();
-		SharedDriver.pageContainer.materialJdePage.selectLotExpiratonDateCalculationMethod();
-		SharedDriver.pageContainer.materialJdePage.selectMasterPlanningFamily();
-		SharedDriver.pageContainer.materialJdePage.selectPlanningCode();
+		SharedDriver.pageContainer.materialJdePage.selectStockingTypeLocal(dataMap.get("Stocking Type Global"));
+		SharedDriver.pageContainer.materialJdePage.selectCommitmentDateMethod(dataMap.get("Commitment Method"));
+		SharedDriver.pageContainer.materialJdePage.selectLotCalculationAlgorithm(dataMap.get("Lot Calculation Algorithm"));
+		SharedDriver.pageContainer.materialJdePage.selectLotProcessType(dataMap.get("Lot Process Type"));
+		SharedDriver.pageContainer.materialJdePage.selectLotExpiratonDateCalculationMethod(dataMap.get("Lot Expiration Date Cal Method"));
+		SharedDriver.pageContainer.materialJdePage.selectMasterPlanningFamily(dataMap.get("Master Planning Family"));
+		SharedDriver.pageContainer.materialJdePage.selectPlanningCode(dataMap.get("Planning Code"));		
 		SharedDriver.pageContainer.materialNavPage.clickLocalAction();
-		SharedDriver.pageContainer.materialNavPage.clickValidatLocalData();
-		SharedDriver.pageContainer.materialNavPage.clickPlanningSaveButton();
-	}
-	@Test
-	public void Material_Create_Fill_In_Data_JDE_Finance_Extend() throws InterruptedException, FileNotFoundException, IOException, AWTException 
+		SharedDriver.pageContainer.materialNavPage.clickValidateLocalData_Planning();
+		SharedDriver.pageContainer.materialNavPage.clickSaveButton();
+		}
+	@Test(dataProvider="CreateMaterial_Fill_In",dataProviderClass=staticProviderClass.class)
+	public void Material_Create_Fill_In_Data_JDE_Finance_Extend(Map<String,String> dataMap) throws InterruptedException, FileNotFoundException, IOException, AWTException 
 	{
 		SharedDriver.pageContainer.materialJdePage.clickFinancetabJDE();
 		SharedDriver.pageContainer.materialNavPage.clickEditFinanceDataJDE_Extend();
@@ -319,17 +319,18 @@ public class MaterialJDEScript {
 //		SharedDriver.pageContainer.materialNavPage.clickEditFinanceData();
 		
 	/*	SharedDriver.pageContainer.materialNavPage.clickEditFinanceData();*/
-		SharedDriver.pageContainer.materialJdePage.selectGLClass();
-		SharedDriver.pageContainer.materialJdePage.selectCostingMethodPurchasing();
-		SharedDriver.pageContainer.materialJdePage.selectCostingMethodSales();
-		/*SharedDriver.pageContainer.materialNavPage.selectGenProdPostingGroup();
-		SharedDriver.pageContainer.materialNavPage.selectVATPostingGroup();
-		SharedDriver.pageContainer.materialNavPage.selectItemDepositGroupCode();*/
+		SharedDriver.pageContainer.materialJdePage.selectGLClass(dataMap.get("G/L Class"));
+		SharedDriver.pageContainer.materialJdePage.selectCostingMethodPurchasing(dataMap.get("Costing Method - Purchasing"));
+		SharedDriver.pageContainer.materialJdePage.selectCostingMethodSales(dataMap.get("Costing Method - Sales"));
 		SharedDriver.pageContainer.materialNavPage.clickLocalAction();
 		SharedDriver.pageContainer.materialNavPage.clickValidatLocalData();
 		SharedDriver.pageContainer.materialNavPage.clickSaveButton();
 		SharedDriver.pageContainer.materialNavPage.clickLocalAction();
-		SharedDriver.pageContainer.materialNavPage.clickValidateLocalRequest();
+		SharedDriver.pageContainer.materialNavPage.clickValidatLocalRequest();
+		/*SharedDriver.pageContainer.materialNavPage.selectGenProdPostingGroup();
+		SharedDriver.pageContainer.materialNavPage.selectVATPostingGroup();
+		SharedDriver.pageContainer.materialNavPage.selectItemDepositGroupCode();*/
+		
 		Sync.waitForSeconds(Constants.WAIT_6);
 		System.out.println("Clicked Validate Local request");
 /*		SharedDriver.pageContainer.materialNavPage.clickGlobalDataButton();
