@@ -1,3 +1,4 @@
+
 package com.mendix.page;
 
 import java.awt.AWTException;
@@ -218,11 +219,8 @@ public class MaterialPage {
 
 	@FindBy(how = How.XPATH, using = ".//button[text()='Save As Draft']")
 	WebElement btnSaveAsDraft;
-
-	@FindBy(how=How.XPATH, using=".//*[text()='Global Actions:']/..//*[text()='Save As Draft']")
-
+	@FindBy(how = How.XPATH, using = ".//span[@class='glyphicon glyphicon-saved']")
 	WebElement btnSavingAsDraft;
-
 
 	@FindBy(how = How.XPATH, using = "//*[text()='Validate']")
 	WebElement btnValidate;
@@ -338,8 +336,7 @@ public class MaterialPage {
 	@FindBy(how = How.CSS, using = ".modal-body.mx-dialog-body>p")
 	WebElement msgGetRequest;
 
-	@FindBy(how=How.XPATH, using="(//*[text()='Plants']/..//input)[1]")
-
+	@FindBy(how = How.XPATH, using = "//*[text()='Plants']/..//input")
 	WebElement checkBoxPlant;
 
 	@FindBy(how = How.XPATH, using = ".//*[text()='Plants']/..//button[1]")
@@ -573,7 +570,7 @@ public class MaterialPage {
 
 		Sync.waitForSeconds(Constants.WAIT_2);
 		Sync.waitForElementToBeClickable(driver, btnUnitofWeight);
-		Button.click("Click Unit of Weight selection button", btnUnitofWeight);
+		Button.click("Click Unit of Weight selecction button", btnUnitofWeight);
 		Sync.waitForObject(driver, "Wait for UOM popup", txtboxUnitofWeightInput);
 		Textbox.enterValue("Enter Unit of Weight", txtboxUnitofWeightInput, strValue);
 		Sync.waitForObject(driver, "Wait for UOM popup", btnUnitofWeightSearch);
@@ -658,11 +655,22 @@ public class MaterialPage {
 	public boolean validateTestCreate() {
 		Sync.waitForSeconds(Constants.WAIT_5);
 		Sync.waitForSeconds(Constants.WAIT_5);
-		Button.click("Local Actions button", btnLocalActions);
-		Sync.waitForSeconds(Constants.WAIT_6);
-		Sync.waitForSeconds(Constants.WAIT_1);
-		Button.click("Click Validate", btnValidate);
-		return Sync.waitForObject(driver, "Verify Validate message", txtValidationMsg);
+		if(Button.verifyObject(btnLocalActions))
+		{
+			//Button.click("Local Actions button", btnLocalActions);
+			Sync.waitForSeconds(Constants.WAIT_6);
+			Sync.waitForSeconds(Constants.WAIT_1);
+			Button.click("Click Validate", btnValidate);
+			return Sync.waitForObject(driver, "Verify Validate message", txtValidationMsg);
+		}
+		else
+		{
+			Button.click("Local Actions button", btnLocalActions);
+			Sync.waitForSeconds(Constants.WAIT_6);
+			Sync.waitForSeconds(Constants.WAIT_1);
+			Button.click("Click Validate", btnValidate);
+			return Sync.waitForObject(driver, "Verify Validate message", txtValidationMsg);
+		}
 
 	}
 
@@ -927,40 +935,28 @@ public class MaterialPage {
 
 	// ***********************************************************************************
 
-	
 	public void SaveAsDraft() throws InterruptedException {
 
-
-
-		Sync.waitForSeconds(Constants.WAIT_5);
-		//Sync.waitForObject(driver, "Verify Validate message", txtValidationMsg);
-		/*Button.click("Click Save as Draft", btnSaveAsDraft);*/
-		Button.click("Click Save as Draft", btnSavingAsDraft);	
-		Sync.waitForSeconds(Constants.WAIT_10);
-		//Sync.waitForSeconds(Constants.WAIT_6);
-
+		Sync.waitForSeconds(Constants.WAIT_1);
+		Sync.waitForObject(driver, "Verify Validate message", txtValidationMsg);
+		/* Button.click("Click Save as Draft", btnSaveAsDraft); */
+		Button.click("Click Save as Draft", btnSavingAsDraft);
+		Sync.waitForSeconds(Constants.WAIT_2);
+		// Sync.waitForSeconds(Constants.WAIT_6);
 	}
 
 	public String getRequestId_draft() throws InterruptedException, FileNotFoundException, IOException {
 
-		Sync.waitForSeconds(Constants.WAIT_10);
-		System.out.println("Waiting For Request Message");
+		Sync.waitForSeconds(Constants.WAIT_6);
 		Sync.waitForObject(driver, "Wait of Dialog Box Success Message", msgRequestSuccess);
-		WebDriverWait wait = new WebDriverWait(driver,120);
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(".//*[@id='mxui_widget_DialogMessage_0']/div[1]/div[2]/p")));
-		
-		String reqId=driver.findElement(By.xpath(".//*[@id='mxui_widget_DialogMessage_0']/div[1]/div[2]/p")).getText();
-
+		String reqId = driver.findElement(By.xpath(".//*[@id='mxui_widget_DialogMessage_0']/div[1]/div[2]/p"))
+				.getText();
 		String[] parts = reqId.split(" ");
-		String Id = parts[14];
+		String Id = parts[17];
 		String IdNum = Id.replaceAll("\\.", "");
 
 		System.out.println("RequestId is: " + IdNum);
-
-		//		ExcelUtil.excelWrite(IdNum);
-		Sync.waitForSeconds(Constants.WAIT_10);
-
-
+		// ExcelUtil.excelWrite(IdNum);
 		ExcelUtil.setCellData_New("TestPlan", "RequestId", IdNum);
 		System.out.println("RequestId is: " + IdNum);
 		/*
@@ -1154,7 +1150,7 @@ public class MaterialPage {
 				.findElement(By.xpath("//*[text()='Global ID']/../../../../../../table[2]/tbody[1]/tr[1]/td[2]/div"))
 				.getText();
 		System.out.println(globalId);
-		ExcelUtil.setCellData_New_GlobalId("TestPlan","Global_ID",globalId);
+		ExcelUtil.excelWriteGlobalId(globalId);
 		return globalId;
 	}
 
@@ -1967,9 +1963,8 @@ public class MaterialPage {
 		Sync.waitUntilObjectDisappears(driver, "Wait for Duplicate check",
 				By.xpath(".//*[@id='mxui_widget_Progress_0']/div[2]"));
 		Sync.waitForSeconds(Constants.WAIT_5);
-		WebDriverWait wait = new WebDriverWait(driver, 50);
-		wait.until(ExpectedConditions
-				.visibilityOfElementLocated(By.xpath("//*[text()='My record is not a duplicate! Submit.']")));
+		//WebDriverWait wait = new WebDriverWait(driver, 50);
+		//wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[text()='My record is not a duplicate! Submit.']")));
 
 		if (Button.verifyObject(btnDuplicateSubmit)) {
 			Sync.waitForSeconds(Constants.WAIT_5);
@@ -1977,9 +1972,8 @@ public class MaterialPage {
 		} else if (Button.verifyObject(btnClose)) {
 
 			Sync.waitForSeconds(Constants.WAIT_5);
-			Sync.waitForObject(driver, "Wait for the information PopUp", msgRequestSuccess);
-
-			clickOkToHandlePopup();
+			//Sync.waitForObject(driver, "Wait for the information PopUp", msgRequestSuccess);
+			this.clickCloseButtonToPopUp();
 		}
 	}
 
@@ -2080,8 +2074,8 @@ public class MaterialPage {
 		Sync.waitForSeconds(Constants.WAIT_5);
 		Sync.waitForSeconds(Constants.WAIT_5);
 
-		WebElement popUp = driver.findElement(By.xpath("//*[@class='close mx-dialog-close']"));
-		Button.jsclick("Click on Popup", popUp, driver);
+	//	WebElement popUp = driver.findElement(By.xpath("//*[@class='close mx-dialog-close']"));
+	//	Button.jsclick("Click on Popup", popUp, driver);
 
 		Sync.waitForSeconds(Constants.WAIT_5);
 		Button.click("Local Data", textLocalData);
