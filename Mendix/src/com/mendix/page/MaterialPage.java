@@ -654,11 +654,22 @@ public class MaterialPage {
 	public boolean validateTestCreate() {
 		Sync.waitForSeconds(Constants.WAIT_5);
 		Sync.waitForSeconds(Constants.WAIT_5);
-		Button.click("Local Actions button", btnLocalActions);
-		Sync.waitForSeconds(Constants.WAIT_6);
-		Sync.waitForSeconds(Constants.WAIT_1);
-		Button.click("Click Validate", btnValidate);
-		return Sync.waitForObject(driver, "Verify Validate message", txtValidationMsg);
+		if(Button.verifyObject(btnLocalActions))
+		{
+			//Button.click("Local Actions button", btnLocalActions);
+			Sync.waitForSeconds(Constants.WAIT_6);
+			Sync.waitForSeconds(Constants.WAIT_1);
+			Button.click("Click Validate", btnValidate);
+			return Sync.waitForObject(driver, "Verify Validate message", txtValidationMsg);
+		}
+		else
+		{
+			Button.click("Local Actions button", btnLocalActions);
+			Sync.waitForSeconds(Constants.WAIT_6);
+			Sync.waitForSeconds(Constants.WAIT_1);
+			Button.click("Click Validate", btnValidate);
+			return Sync.waitForObject(driver, "Verify Validate message", txtValidationMsg);
+		}
 
 	}
 
@@ -1951,9 +1962,8 @@ public class MaterialPage {
 		Sync.waitUntilObjectDisappears(driver, "Wait for Duplicate check",
 				By.xpath(".//*[@id='mxui_widget_Progress_0']/div[2]"));
 		Sync.waitForSeconds(Constants.WAIT_5);
-		WebDriverWait wait = new WebDriverWait(driver, 50);
-		wait.until(ExpectedConditions
-				.visibilityOfElementLocated(By.xpath("//*[text()='My record is not a duplicate! Submit.']")));
+		//WebDriverWait wait = new WebDriverWait(driver, 50);
+		//wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[text()='My record is not a duplicate! Submit.']")));
 
 		if (Button.verifyObject(btnDuplicateSubmit)) {
 			Sync.waitForSeconds(Constants.WAIT_5);
@@ -1961,9 +1971,8 @@ public class MaterialPage {
 		} else if (Button.verifyObject(btnClose)) {
 
 			Sync.waitForSeconds(Constants.WAIT_5);
-			Sync.waitForObject(driver, "Wait for the information PopUp", msgRequestSuccess);
-
-			clickOkToHandlePopup();
+			//Sync.waitForObject(driver, "Wait for the information PopUp", msgRequestSuccess);
+			this.clickCloseButtonToPopUp();
 		}
 	}
 
@@ -2064,8 +2073,8 @@ public class MaterialPage {
 		Sync.waitForSeconds(Constants.WAIT_5);
 		Sync.waitForSeconds(Constants.WAIT_5);
 
-		WebElement popUp = driver.findElement(By.xpath("//*[@class='close mx-dialog-close']"));
-		Button.jsclick("Click on Popup", popUp, driver);
+	//	WebElement popUp = driver.findElement(By.xpath("//*[@class='close mx-dialog-close']"));
+	//	Button.jsclick("Click on Popup", popUp, driver);
 
 		Sync.waitForSeconds(Constants.WAIT_5);
 		Button.click("Local Data", textLocalData);

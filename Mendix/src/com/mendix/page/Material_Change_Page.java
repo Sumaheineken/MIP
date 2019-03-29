@@ -116,17 +116,25 @@ public class Material_Change_Page {
 	}
 
 	public void clickReferencebutton() {
-		WebDriverWait wait = new WebDriverWait(driver,100);
+		//WebDriverWait wait = new WebDriverWait(driver,100);
 		Sync.waitForSeconds(Constants.WAIT_5);
 		//Sync.waitForSeconds(Constants.WAIT_5);
-		Sync.waitUntilObjectDisappears(driver, "Wait for Materials", By.xpath((".//*[@id='mxui_widget_Progress_0']/div[2]")));
-		
+		//Sync.waitUntilObjectDisappears(driver, "Wait for Materials", By.xpath((".//*[@id='mxui_widget_Progress_0']/div[2]")));
+		if(Button.verifyObject(btnCreateRef))
+		{
+		//Sync.waitForObject(driver, btnCreateRef);
 		Sync.waitForObject(driver, "Wait until the Material appears", btnCreateRef);
 		Sync.waitForSeconds(Constants.WAIT_5);
-		
-		
-		Button.click("Click Materials Menu", btnCreateRef);
+		Button.jsclick("Click Materials Menu", btnCreateRef, driver);
 		Sync.waitForSeconds(Constants.WAIT_2);
+		}
+		else
+		{
+			Sync.waitForObject(driver, "Wait until the Material appears", btnCreateRef);
+			Sync.waitForSeconds(Constants.WAIT_5);
+			Button.jsclick("Click Materials Menu", btnCreateRef, driver);
+			Sync.waitForSeconds(Constants.WAIT_2);
+		}
 		
   } 
 	/*public void clickReferencebutton() {
