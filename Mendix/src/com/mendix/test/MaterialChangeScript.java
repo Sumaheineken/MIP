@@ -44,15 +44,11 @@ public class MaterialChangeScript {
     	//SharedDriver.pageContainer.materialPage.getCurrDate();
 		SharedDriver.pageContainer.materialPage.globalSearch(dataMap.get("Global_ID"));
 	    //SharedDriver.pageContainer.materialPage.getGlobalId();
-		SharedDriver.pageContainer.materialPage.clickFullMaterialDataNew();
+		SharedDriver.pageContainer.material_Change_Page.clickFullMaterialDataNew();
+		//SharedDriver.pageContainer.materialPage.clickOkToHandlePopup();
 		//SharedDriver.pageContainer.materialApprovalPage.submitRequestOkBtnClick();
 		
-		SharedDriver.pageContainer.material_Change_Page.clickExtendbutton();
-
-		SharedDriver.pageContainer.vendorPage.clickGlobalDataButton();
-		SharedDriver.pageContainer.vendorPage.clickToConfirm();
-		SharedDriver.pageContainer.vendorPage.clickConfirmExtension();
-	}
+	}	
 	
 	@Test(dataProvider="Process_Information_Check",dataProviderClass=staticProviderClass.class)
 	public void Material_Create_With_Ref (Map<String,String> dataMap) throws InterruptedException, FileNotFoundException, IOException 
@@ -236,8 +232,6 @@ public class MaterialChangeScript {
 		System.out.println("Global Data Tab");
 		
 		SharedDriver.pageContainer.materialNavPage.clickGlobalDataButton();
-
-       //SharedDriver.pageContainer.materialPage.clickLocalAction();
        SharedDriver.pageContainer.material_Change_Page.clickConfirmExtension();
        SharedDriver.pageContainer.materialPage.getRequestId_CreateNew();
 	   SharedDriver.pageContainer.materialApprovalPage.submitRequestOkButtonClick();

@@ -2154,13 +2154,13 @@ public class MaterialPage {
 		Sync.waitForSeconds(Constants.WAIT_2);
 		Sync.waitForObject(driver, textComment);
 		Textbox.enterValue("typing comment", textComment, "material data");
-		Textbox.click("Click on Save Button", btnSave);
+		Button.click("Click on Save Button", btnSave);
 		Sync.waitForSeconds(Constants.WAIT_2);
-		Sync.waitForObject(driver, btnLocalActions);
-		Button.click("Local Actions button click", btnLocalActions);
+		//Sync.waitForObject(driver, btnLocalActions);
+		//Button.click("Local Actions button click", btnLocalActions);
 		Sync.waitForSeconds(Constants.WAIT_2);
 		Sync.waitForObject(driver, btnRejectLocalRequest);
-		Textbox.click("Click on reject button in locl action", btnRejectLocalRequest);
+		Button.click("Click on reject button in locl action", btnRejectLocalRequest);
 		Sync.waitForSeconds(Constants.WAIT_2);
 		Sync.waitForObject(driver, btnOK);
 		Button.click("Click On OK button", btnOK);
