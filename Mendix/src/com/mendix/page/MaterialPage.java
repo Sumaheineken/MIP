@@ -1,3 +1,4 @@
+
 package com.mendix.page;
 
 import java.awt.AWTException;
