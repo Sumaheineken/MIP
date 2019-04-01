@@ -137,10 +137,11 @@ public class Material_Nav_Page{
 
 	public void enterLocalData() {
 		WebDriverWait wait = new WebDriverWait(driver, 120);
+		wait.until(ExpectedConditions.elementToBeClickable(textLocalData));
 		Sync.waitForSeconds(Constants.WAIT_6);
 
 		Sync.waitUntilObjectDisappears(driver, "Waiting of Create page to Load",
-				By.xpath(".//*[@id='mxui_widget_Progress_0']/div[2]"));
+		By.xpath(".//*[@id='mxui_widget_Progress_0']/div[2]"));
 		Sync.waitForSeconds(Constants.WAIT_3);
 		Sync.waitForObject(driver, textLocalData);
 		Button.click("Local Data", textLocalData);
@@ -160,7 +161,7 @@ public class Material_Nav_Page{
 		if(Button.verifyObject(btnGlobalData)) {
 			Sync.waitForSeconds(Constants.WAIT_3);
 			Sync.waitForObject(driver, btnGlobalData);
-			Button.click("Local Data", btnGlobalData);
+			Button.click("Global Data ", btnGlobalData);
 		}
 		else {
 			Sync.waitForSeconds(Constants.WAIT_3);

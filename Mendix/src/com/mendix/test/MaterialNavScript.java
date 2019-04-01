@@ -323,7 +323,7 @@ public class MaterialNavScript {
 		SharedDriver.pageContainer.materialApprovalPage.approvalBtnClick_Local();
 		
 		SharedDriver.pageContainer.materialNavPage.submitGlobalLocalRequestTest();
-		SharedDriver.pageContainer.materialPage.clickDuplicateCheck();
+		SharedDriver.pageContainer.materialPage.clickDuplicateCheck();		
 		SharedDriver.pageContainer.materialApprovalPage.submitRequestOkButtonClick();
 
 	}

@@ -2,7 +2,7 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Create Material with JDE">
 	
-	<test name="HeiPort_Login_LDR">
+	<!-- <test name="HeiPort_Login_LDR">
 		<classes>
 			<class name="com.mendix.test.LoginScript">
 				<methods>
@@ -54,8 +54,7 @@
 	 <test name="HeiPort_Login_LDR_SecondTime">
 		<classes>
 			<class name="com.mendix.test.LoginScript">
-				<methods>
-					<include name="tasKill" />
+				<methods>					
 					<include name="openBrowser" />
 					<include name="loginAsLDR" />
 				</methods>
@@ -111,6 +110,57 @@
 			</class>
 		</classes>
 	</test>
+	<test name="HeiPort_Login_GDA">
+		<classes>
+			<class name="com.mendix.test.LoginScript">
+				<methods>
+					<include name="openBrowser" />
+					<include name="loginAsGDA" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	<test name="Material_Create_Review_Global_Data_Approve_GDA">
+		<classes>
+			<class name="com.mendix.test.MaterialNavScript">
+				<methods>
+					<include
+						name="Material_Create_Review_Global_Data_Approve_GDA" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	<test name="Process_Information_Check_Syndication">
+		<classes>
+			<class name="com.mendix.test.MaterialNavScript">
+				<methods>
+					<include name="Process_Information_Check_GlobalID_Extend" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	 --><test name="HeiPort_Login_LDR_Syndication">
+		<classes>
+			<class name="com.mendix.test.LoginScript">
+				<methods>
+					<include name="openBrowser" />
+					<include name="loginAsLDR" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	<test name="Material_Create_Syndication_Check">
+		<classes>
+			<class name="com.mendix.test.MaterialScript">
+				<methods>
+					<include name="material_Create_Syndication_Check_GlobalId" />
+					<include name="launchUFT_JDE_Material"/>
+				</methods>
+			</class>
+		</classes>
+	</test>
+</suite> 
+	
 	<!-- <test name="HeiPort_Login_LBDA">
 		<classes>
 			<class name="com.mendix.test.LoginScript">
@@ -140,55 +190,5 @@
 			</class>
 		</classes>
 	</test>
-	 --><test name="HeiPort_Login_GDA">
-		<classes>
-			<class name="com.mendix.test.LoginScript">
-				<methods>
-					<include name="openBrowser" />
-					<include name="loginAsGDA" />
-				</methods>
-			</class>
-		</classes>
-	</test>
-	<test name="Material_Create_Review_Global_Data_Approve_GDA">
-		<classes>
-			<class name="com.mendix.test.MaterialNavScript">
-				<methods>
-					<include
-						name="Material_Create_Review_Global_Data_Approve_GDA" />
-				</methods>
-			</class>
-		</classes>
-	</test>
-	<test name="Process_Information_Check_Syndication">
-		<classes>
-			<class name="com.mendix.test.MaterialNavScript">
-				<methods>
-					<include name="Process_Information_Check_GlobalID" />
-				</methods>
-			</class>
-		</classes>
-	</test>
-	<test name="HeiPort_Login_LDR_Syndication">
-		<classes>
-			<class name="com.mendix.test.LoginScript">
-				<methods>
-					<include name="openBrowser" />
-					<include name="loginAsLDR" />
-				</methods>
-			</class>
-		</classes>
-	</test>
-	<test name="Material_Create_Syndication_Check">
-		<classes>
-			<class name="com.mendix.test.MaterialScript">
-				<methods>
-					<include name="material_Create_Syndication_Check_GlobalId" />
-					<include name="launchUFT_JDE_Material"/>
-				</methods>
-			</class>
-		</classes>
-	</test>
-</suite> 
-
+	 -->
 
