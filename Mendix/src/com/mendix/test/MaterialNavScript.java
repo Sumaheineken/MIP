@@ -36,8 +36,8 @@ public class MaterialNavScript {
 		SharedDriver.pageContainer.materialPage.baseUOMSelectionTest(dataMap.get("Base UoM"));
 		SharedDriver.pageContainer.materialPage.netWeightEnterTest(dataMap.get("Net Weight Base UoM"));
 		SharedDriver.pageContainer.materialPage.uomPrimarySelectionTest();
-		// SharedDriver.pageContainer.materialNavPage.clickLocalAction();
-		// SharedDriver.pageContainer.materialPage.validateTestCreate();hi
+		SharedDriver.pageContainer.materialNavPage.clickLocalAction();
+		SharedDriver.pageContainer.materialPage.validateTestCreate();
 
 	}
 
