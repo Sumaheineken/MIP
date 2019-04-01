@@ -133,13 +133,22 @@ public class ProceesInfoPage {
 		Textbox.click("Click Request Id Text Box", txtboxRequestId);
 		Sync.waitForSeconds(Constants.WAIT_1);
 		Textbox.enterValue("Enter Request Id", txtboxRequestId, strValue);
-		Sync.waitForSeconds(Constants.WAIT_2);
-		Sync.waitForSeconds(Constants.WAIT_2);
+		
+		Sync.waitForSeconds(Constants.WAIT_10);
+		DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+
+		//get current date time with Date()
+		Date date = new Date();
+
+		// Now format the date
+		String dateFormatted= dateFormat.format(date);
+		Textbox.enterValue("Enter TextBox Value", txtBoxRequestedStrtDate, dateFormatted);
+
 /*		driver.findElement(By.xpath("(.//*[@class='btn mx-button mx-dateinput-select-button'])[1]")).click();
 		driver.findElement(By.xpath(".//*[@aria-selected='true']/span")).click();
 		Sync.waitForSeconds(Constants.WAIT_5);*/
 		driver.findElement(By.xpath(".//*[@class='glyphicon glyphicon-search']")).click();
-		Sync.waitForSeconds(Constants.WAIT_6);
+		Sync.waitForSeconds(Constants.WAIT_10);
 	}
 
 	public void reqIdSearch_Local(String strValue) throws InterruptedException, FileNotFoundException, IOException {

@@ -95,6 +95,8 @@ public class Material_JDE_Page {
 	public void editPlantPlaning() {
 		if(Button.verifyObject(btnEditPlaning)) {
 			Sync.waitForSeconds(Constants.WAIT_6);
+			WebDriverWait wait=new WebDriverWait(driver,80);
+			wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[text()='Finance']/../../../div/div[8]/div/div/div[2]/div[2]//*[text()='Edit']")));
 			Sync.waitForObject(driver, btnEditPlaning);
 			Button.click("Click on Edit Plant Data",btnEditPlaning);
 		}
@@ -107,6 +109,8 @@ public class Material_JDE_Page {
 	public void editPlantFinance() {
 		if(Button.verifyObject(btnEditFinance)) {
 			Sync.waitForSeconds(Constants.WAIT_6);
+			WebDriverWait wait=new WebDriverWait(driver,80);
+			wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[text()='Finance']/../../../div/div[9]/div/div/div[2]/div[2]//*[text()='Edit']")));
 			Sync.waitForObject(driver, btnEditFinance);
 			Button.click("Click on Edit Plant Data",btnEditFinance);
 		}
