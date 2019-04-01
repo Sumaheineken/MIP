@@ -101,7 +101,8 @@ public class Material_Nav_Page{
 	@FindBy(how = How.XPATH, using = ".//*[text()='Finance']")
 	WebElement btnNavFinance;
 
-	@FindBy(how = How.XPATH, using = "(//*[text()='Edit'])[3]")
+	//@FindBy(how = How.XPATH, using = "(//*[text()='Edit'])[3]")
+	@FindBy(how=How.XPATH, using = ".//*[text()='Finance']/../../../div/div[2]/div/div/div[2]/div[2]/div[2]/button[2]")
 	WebElement btnNavLocalFinanceEditExtend;
 
 	@FindBy(how = How.XPATH, using = ".//*[contains(text(),'VAT Prod. Posting Group')]/../div/div/select")
@@ -123,7 +124,7 @@ public class Material_Nav_Page{
 	@FindBy(how = How.XPATH, using="//*[text()='Site']/../../../div/div[3]/div/div/div[2]/div[2]/div[2]/button[2]")
 	WebElement btnEditLocalSiteNav;
 	
-	@FindBy(how = How.XPATH, using = ".//*[contains(text(),'Plant')]/../div/div/select")
+	@FindBy(how = How.XPATH, using = ".//*[text()='Plant']/../div/div/select")
 	WebElement dropDownLocalSitePlant;
 	
 	@FindBy(how = How.XPATH, using = ".//*[contains(text(),'Replenishment System')]/../div/div/select")
@@ -487,7 +488,7 @@ public class Material_Nav_Page{
 
 		Sync.waitForObject(driver, "Wait for Site New Button", driver.findElement(By.xpath("//button[text()='New']")));
 		Sync.waitForSeconds(Constants.WAIT_2);
-		Button.click("Click New Button", driver.findElement(By.xpath("//button[text()='New']")));
+		Button.jsclick("Click New Button", driver.findElement(By.xpath("//button[text()='New']")), driver);
 		Sync.waitForSeconds(Constants.WAIT_2);
 
 	}
@@ -787,14 +788,14 @@ public class Material_Nav_Page{
 			Sync.waitForSeconds(Constants.WAIT_5);
 			Sync.waitForObject(driver, "Wait for Plant Select", dropDownLocalSitePlant);
 			Sync.waitForSeconds(Constants.WAIT_5);
-			Button.click("Click on Plant Select", dropDownLocalSitePlant);
+			Button.jsclick("Click on Plant Select", dropDownLocalSitePlant, driver);
 			Select sitePlantDropDownSelect = new Select(dropDownLocalSitePlant);
 			sitePlantDropDownSelect.selectByVisibleText(strValue);
 
 		} else {
 			Sync.waitForSeconds(Constants.WAIT_5);
 			Sync.waitForSeconds(Constants.WAIT_5);
-			Button.click("Click on Plant Select", dropDownLocalSitePlant);
+			Button.jsclick("Click on Plant Select", dropDownLocalSitePlant, driver);
 			Select sitePlantDropDownSelect = new Select(dropDownLocalSitePlant);
 			sitePlantDropDownSelect.selectByVisibleText(strValue);
 		}
