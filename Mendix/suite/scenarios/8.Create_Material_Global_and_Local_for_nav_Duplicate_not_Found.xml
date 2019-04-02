@@ -38,6 +38,7 @@
 					<include name="material_Local_Plant_Data_Fill_In_Nav" />
 					<include name="material_Local_Finance_Data_Fill_In_Nav" />
 					<include name="material_Create_Fill_In_Data_Nav_Local_Adding_Site"/>
+					<include name="validate_And_Submit_Global_Local_Request"/>
 					<!-- <include name="Material_Create_Fill_In_Data_JDE_Site" /> -->
 			  </methods>
 			</class>

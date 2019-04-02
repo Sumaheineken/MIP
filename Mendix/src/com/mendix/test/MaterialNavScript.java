@@ -36,7 +36,7 @@ public class MaterialNavScript {
 		SharedDriver.pageContainer.materialPage.baseUOMSelectionTest(dataMap.get("Base UoM"));
 		SharedDriver.pageContainer.materialPage.netWeightEnterTest(dataMap.get("Net Weight Base UoM"));
 		SharedDriver.pageContainer.materialPage.uomPrimarySelectionTest();
-		SharedDriver.pageContainer.materialNavPage.clickLocalAction();
+		//SharedDriver.pageContainer.materialNavPage.clickLocalAction();
 		SharedDriver.pageContainer.materialPage.validateTestCreate();
 
 	}
@@ -349,6 +349,16 @@ public class MaterialNavScript {
 		SharedDriver.pageContainer.processInfoPage.reqIdSearch_Local(dataMap.get("RequestId"));
 		SharedDriver.pageContainer.processInfoPage.getState_New(dataMap.get("RequestId"));
 		SharedDriver.pageContainer.processInfoPage.browserClose();
+	}
+	
+	@Test(dataProvider="Process_Information_Check",dataProviderClass=staticProviderClass.class)
+	public void validate_And_Submit_Global_Local_Request(Map<String,String> dataMap) throws FileNotFoundException, InterruptedException, IOException
+	{
+		SharedDriver.pageContainer.materialNavPage.switchToGlobal();
+		SharedDriver.pageContainer.materialPage.validateAndsubmitGlobalLocalRequest();
+		SharedDriver.pageContainer.materialPage.getRequestId_CreateNew();
+		SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
+		Sync.waitForSeconds(Constants.WAIT_3);
 	}
 	
 		

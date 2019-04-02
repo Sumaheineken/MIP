@@ -2250,19 +2250,37 @@ public class MaterialPage {
 
 	public void checkSyndication(String strValue) {
 		Sync.waitForSeconds(Constants.WAIT_5);
-		globalState = driver.findElement(By.xpath("(.//*[text()='" + strValue + "']/../../td[9]/div)[1]")).getText();
-		localState = driver.findElement(By.xpath("(.//*[text()='" + strValue + "']/../../td[9]/div)[2]")).getText();
+		//Sync.waitForObject(driver, driver.findElement(By.xpath("(.//*[text()='" + strValue + "']/../../td[9]/div)[1]")));
+		if(driver.findElement(By.xpath("(.//*[text()='" + strValue + "']/../../td[9]/div)[1]")).isEnabled() && driver.findElement(By.xpath("(.//*[text()='" + strValue + "']/../../td[9]/div)[2]")).isEnabled())
+		{
+			globalState = driver.findElement(By.xpath("(.//*[text()='" + strValue + "']/../../td[9]/div)[1]")).getText();
+			localState = driver.findElement(By.xpath("(.//*[text()='" + strValue + "']/../../td[9]/div)[2]")).getText();
 
-		System.out.println("Global State : " + globalState);
-		System.out.println("Local State : " + localState);
+			System.out.println("Global State : " + globalState);
+			System.out.println("Local State : " + localState);
 
-		SoftAssert assertSyndication = new SoftAssert();
-		assertSyndication.assertEquals(globalState, "Syndication", "Not changed to Syndication State");
-		assertSyndication.assertEquals(localState, "Syndication", "Not changed to Syndication State");
+			SoftAssert assertSyndication = new SoftAssert();
+			assertSyndication.assertEquals(globalState, "Syndication", "Not changed to Syndication State");
+			assertSyndication.assertEquals(localState, "Syndication", "Not changed to Syndication State");
+		}
+		else if(driver.findElement(By.xpath("(.//*[text()='" + strValue + "']/../../td[9]/div)[1]")).isEnabled())
+		{
+			globalState = driver.findElement(By.xpath("(.//*[text()='" + strValue + "']/../../td[9]/div)[1]")).getText();
+			System.out.println("Global State : " + globalState);
+			SoftAssert assertSyndication = new SoftAssert();
+			assertSyndication.assertEquals(globalState, "Syndication", "Not changed to Syndication State");
+		}
+		else
+		{
+			System.out.println("Element not displayed in the Process Information check Page");
+		}
 	}
 
 public void checkSyndicationDoneStatus(String strValue) throws InterruptedException {
 		
+	Sync.waitForSeconds(Constants.WAIT_6);
+	if(driver.findElement(By.xpath("(.//*[text()='" + strValue + "']/../../td[9]/div)[1]")).isEnabled() && driver.findElement(By.xpath("(.//*[text()='" + strValue + "']/../../td[9]/div)[2]")).isEnabled())
+	{	
 		globalState=driver.findElement(By.xpath("(.//*[text()='"+strValue+"']/../../td[9]/div)[1]")).getText();
  		localState = driver.findElement(By.xpath("(.//*[text()='"+strValue+"']/../../td[9]/div)[2]")).getText();
  		
@@ -2296,6 +2314,44 @@ public void checkSyndicationDoneStatus(String strValue) throws InterruptedExcept
  			Assert.assertEquals(localState, "Completed", "Syndication not yet done");
  
  		}
+	}
+	else if(driver.findElement(By.xpath("(.//*[text()='" + strValue + "']/../../td[9]/div)[1]")).isEnabled())
+	{
+		globalState=driver.findElement(By.xpath("(.//*[text()='"+strValue+"']/../../td[9]/div)[1]")).getText();
+		if(globalState.equalsIgnoreCase("Completed"))
+ 		{
+ 			System.out.println("Syndication Done Not required to wait for 20 minutes");
+ 		}
+ 		else
+ 		{
+ 			Thread.sleep(1200000);
+ 			Sync.waitForSeconds(Constants.WAIT_3);
+ 			Sync.waitForObject(driver, "Wait for Request Id", txtboxRequestId);
+		
+ 			Sync.waitForSeconds(Constants.WAIT_6);
+ 			Textbox.click("Click Request Id Text Box", txtboxRequestId);
+ 			Sync.waitForSeconds(Constants.WAIT_1);
+ 			Textbox.enterValue("Enter Request Id", txtboxRequestId, strValue);
+ 			Sync.waitForSeconds(Constants.WAIT_2);
+ 			Sync.waitForSeconds(Constants.WAIT_2);
+		
+ 			driver.findElement(By.xpath(".//*[@class='glyphicon glyphicon-search']")).click();
+		
+ 			Sync.waitForSeconds(Constants.WAIT_5);
+ 			globalState=driver.findElement(By.xpath("(.//*[text()='"+strValue+"']/../../td[9]/div)[1]")).getText();
+ 		
+ 			System.out.println("Global State : "+globalState);
+ 		
+ 			Assert.assertEquals(globalState, "Completed", "Syndication not yet done");
+ 
+ 		}
+
+	}
+	else
+	{
+		System.out.println("Element not displayed in the Process Information check Page");
+	}
+
 	}
 
 	public void checkDashboardLock() {
