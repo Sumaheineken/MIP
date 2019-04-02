@@ -358,6 +358,7 @@ public class MaterialNavScript {
 		//SharedDriver.pageContainer.materialNavPage.switchToGlobal();
 		SharedDriver.pageContainer.materialPage.clickLocalAction();
 		SharedDriver.pageContainer.materialPage.validateAndsubmitGlobalLocalRequest();
+		SharedDriver.pageContainer.materialPage.duplicateCheck_New();
 		SharedDriver.pageContainer.materialPage.getRequestId_CreateNew();
 		SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
 		Sync.waitForSeconds(Constants.WAIT_3);
