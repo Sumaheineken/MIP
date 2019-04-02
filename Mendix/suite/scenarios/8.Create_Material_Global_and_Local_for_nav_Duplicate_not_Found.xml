@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Create Material Global and Local for NAV Duplicate not Found">
-  <test name="HeiPort_Login_LDR">
+    <test name="HeiPort_Login_LDR">
 		<classes>
 			<class name="com.mendix.test.LoginScript">
 				<methods>
@@ -39,7 +39,6 @@
 					<include name="material_Local_Finance_Data_Fill_In_Nav" />
 					<include name="material_Create_Fill_In_Data_Nav_Local_Adding_Site"/>
 					<include name="validate_And_Submit_Global_Local_Request"/>
-					<!-- <include name="Material_Create_Fill_In_Data_JDE_Site" /> -->
 			  </methods>
 			</class>
 		</classes>
@@ -112,6 +111,7 @@
 			</class>
 		</classes>
 	</test>
+
 	<test name="HeiPort_Login_GDA">
 		<classes>
 			<class name="com.mendix.test.LoginScript">

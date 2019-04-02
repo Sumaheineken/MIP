@@ -231,11 +231,9 @@ public class MaterialScript {
 			throws InterruptedException, FileNotFoundException, IOException {
 
 		SharedDriver.pageContainer.materialPage.validateTestCreate();
-		//SharedDriver.pageContainer.materialPage.clickDuplicateCheckButton();		
-		
-		SharedDriver.pageContainer.materialPage.submitGlobalRequestTest();
 		SharedDriver.pageContainer.materialPage.clickDuplicateCheck();
-		SharedDriver.pageContainer.materialPage.getRequestId_CreateNew();
+		SharedDriver.pageContainer.materialPage.submitGlobalRequestTest();
+		SharedDriver.pageContainer.materialPage.getRequestId_Create();
 		// SharedDriver.pageContainer.materialPage.getRequestId();
 		SharedDriver.pageContainer.materialApprovalPage.submitRequestOkBtnClick();
 		// SharedDriver.pageContainer.materialApprovalPage.okbuttonClick();
@@ -312,17 +310,16 @@ public class MaterialScript {
 	@Test(dataProvider="Process_Information_Check",dataProviderClass=staticProviderClass.class)
 	public void process_Information_Check_GlobalID_Extend(Map<String,String> dataMap) throws InterruptedException, FileNotFoundException, IOException 
 	{
-
 		SharedDriver.pageContainer.processInfoPage.processInfoSearch();
 		SharedDriver.pageContainer.processInfoPage.reqIdSearch_Global(dataMap.get("RequestId"));
 		//SharedDriver.pageContainer.processInfoPage.getState_New(dataMap.get("RequestId"));
 		//SharedDriver.pageContainer.processInfoPage.capturing_GlobalID();
-		SharedDriver.pageContainer.materialPage.checkSyndication(dataMap.get("RequestId"));
-		Sync.waitForSeconds(Constants.WAIT_5);
+		SharedDriver.pageContainer.materialPage.checkSyndicationTest(dataMap.get("RequestId"));
 		SharedDriver.pageContainer.materialPage.getGlobalIdProcessInfo_Extend(dataMap.get("RequestId"));
-		Sync.waitForSeconds(Constants.WAIT_10);
+		Sync.waitForSeconds(Constants.WAIT_5);
 		SharedDriver.pageContainer.materialPage.checkSyndicationDoneStatus(dataMap.get("RequestId"));
 		SharedDriver.pageContainer.processInfoPage.browserClose();
+		
 	}
 	
 	
