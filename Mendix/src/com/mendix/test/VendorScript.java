@@ -28,6 +28,7 @@ public class VendorScript {
 		SharedDriver.pageContainer.vendorPage.VendorTypeSelection();
 		SharedDriver.pageContainer.vendorPage.createButtonClick();
 	}
+	
 
 	@Test(dataProvider="Process_Information_Check",dataProviderClass=staticProviderClass.class)
 	public void process_Information_Check_GlobalID_Extend(Map<String,String> dataMap) throws InterruptedException, FileNotFoundException, IOException 
