@@ -130,6 +130,7 @@ public class Vendor_JDE_Page {
 
 	public boolean enterLocalData() {
 		WebElement waitElement = null;
+		Sync.waitForSeconds(Constants.WAIT_6);
 		FluentWait<WebDriver> fwait = new FluentWait<WebDriver>(driver)
 				.withTimeout(Duration.ofMinutes(3))
 				.pollingEvery(Duration.ofSeconds(600))
@@ -197,7 +198,7 @@ public class Vendor_JDE_Page {
 
 
 	public boolean clickAddPlantData() {
-
+		Sync.waitForSeconds(Constants.WAIT_10);
 		Sync.waitForObject(driver, BtnAddPlantData);
 		return Button.click("Click Edit button", BtnAddPlantData);
 

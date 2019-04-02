@@ -917,7 +917,7 @@ public class VendorPage {
 	}
 
 	public void clickLocalAction() {
-		Sync.waitForSeconds(Constants.WAIT_3);
+		Sync.waitForSeconds(Constants.WAIT_5);
 		WebElement waitElement = null;
 		FluentWait<WebDriver> fwait = new FluentWait<WebDriver>(driver).withTimeout(Duration.ofMinutes(3))
 				.pollingEvery(Duration.ofSeconds(600)).ignoring(NoSuchElementException.class)
@@ -1122,6 +1122,8 @@ public class VendorPage {
 		} else {
 			return Button.click("Click Button To Delete", btnflagForDeletion);
 		}
+		
+	
 	}
 
 	public boolean clickOk() throws InterruptedException {
@@ -1173,7 +1175,7 @@ public class VendorPage {
 			Actions actions = new Actions(driver);
 			actions.moveToElement(btnMsgReqIdOk);
 			actions.perform();
-
+			Sync.waitForSeconds(Constants.WAIT_3);
 			Button.click("Click Ok Button", btnMsgReqIdOk);
 
 		} catch (Exception e) {
@@ -1433,7 +1435,8 @@ public class VendorPage {
 				By.xpath(".//*[@id='mxui_widget_Progress_0']/div[2]"));
 		Sync.waitForObject(driver, GetFullVendorData);
 		Button.click("GetFullVendorData", GetFullVendorData);
-		Sync.waitForSeconds(Constants.WAIT_5);
+		Sync.waitForSeconds(Constants.WAIT_10);
+		Sync.waitForSeconds(Constants.WAIT_10);
 	}
 
 	/*************************************************************************************************************/

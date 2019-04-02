@@ -1,140 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite guice-stage="DEVELOPMENT" name="Failed suite [Create with ref Global Only-SAP Direct Copy with Rejections]">
-  <test name="HeiPort_Login_LDR(failed)">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Create Vendor Happy flow - with disable Local and Bank Request(SAP)]">
+  <test thread-count="5" name="Process_Information_Check_Approved(failed)">
     <classes>
-      <class name="com.mendix.test.LoginScript">
+      <class name="com.mendix.test.VendorScript">
         <methods>
-          <include name="loginAsLDR" invocation-numbers="0"/>
-          <include name="openBrowser"/>
-          <include name="setup"/>
+          <include name="process_Information_Check_GlobalID_Extend" invocation-numbers="0"/>
         </methods>
-      </class> <!-- com.mendix.test.LoginScript -->
+      </class> <!-- com.mendix.test.VendorScript -->
     </classes>
-  </test> <!-- HeiPort_Login_LDR(failed) -->
-  <test name="Create_with_ref_Global_Only_SAP_Direct_Copy_with_Rejections(failed)">
+  </test> <!-- Process_Information_Check_Approved(failed) -->
+  <test thread-count="5" name="Vendor_Create_Syndication_Check(failed)">
     <classes>
-      <class name="com.mendix.test.MaterialScript">
+      <class name="com.mendix.test.VendorScript">
         <methods>
-          <include name="Material_Direct_Copy_With_References" invocation-numbers="0"/>
+          <include name="Vendor_Create_Syndication_Check_SAP" invocation-numbers="0"/>
         </methods>
-      </class> <!-- com.mendix.test.MaterialScript -->
+      </class> <!-- com.mendix.test.VendorScript -->
     </classes>
-  </test> <!-- Create_with_ref_Global_Only_SAP_Direct_Copy_with_Rejections(failed) -->
-  <test name="Process_Information_Check(failed)">
-    <classes>
-      <class name="com.mendix.test.MaterialScript">
-        <methods>
-          <include name="Process_Information_Check" invocation-numbers="0"/>
-        </methods>
-      </class> <!-- com.mendix.test.MaterialScript -->
-    </classes>
-  </test> <!-- Process_Information_Check(failed) -->
-  <test name="HeiPort_Login_GDA(failed)">
-    <classes>
-      <class name="com.mendix.test.LoginScript">
-        <methods>
-          <include name="loginAsGDA"/>
-          <include name="openBrowser"/>
-          <include name="setup"/>
-        </methods>
-      </class> <!-- com.mendix.test.LoginScript -->
-    </classes>
-  </test> <!-- HeiPort_Login_GDA(failed) -->
-  <test name="Reject_Material_Request(failed)">
-    <classes>
-      <class name="com.mendix.test.MaterialScript">
-        <methods>
-          <include name="Material_Reject_GDA" invocation-numbers="0"/>
-        </methods>
-      </class> <!-- com.mendix.test.MaterialScript -->
-    </classes>
-  </test> <!-- Reject_Material_Request(failed) -->
-  <test name="Process_Information_Check_After_Reject(failed)">
-    <classes>
-      <class name="com.mendix.test.MaterialScript">
-        <methods>
-          <include name="Process_Information_Check" invocation-numbers="0"/>
-        </methods>
-      </class> <!-- com.mendix.test.MaterialScript -->
-    </classes>
-  </test> <!-- Process_Information_Check_After_Reject(failed) -->
-  <test name="HeiPort_ReLogin_LDR(failed)">
-    <classes>
-      <class name="com.mendix.test.LoginScript">
-        <methods>
-          <include name="loginAsLDR" invocation-numbers="0"/>
-          <include name="openBrowser"/>
-          <include name="setup"/>
-        </methods>
-      </class> <!-- com.mendix.test.LoginScript -->
-    </classes>
-  </test> <!-- HeiPort_ReLogin_LDR(failed) -->
-  <test name="Material_Resubmit_To_Approval(failed)">
-    <classes>
-      <class name="com.mendix.test.MaterialScript">
-        <methods>
-          <include name="navigate_To_MDM_Workflow"/>
-        </methods>
-      </class> <!-- com.mendix.test.MaterialScript -->
-    </classes>
-  </test> <!-- Material_Resubmit_To_Approval(failed) -->
-  <test name="Process_Information_ReCheck_After_Resubmit(failed)">
-    <classes>
-      <class name="com.mendix.test.MaterialScript">
-        <methods>
-          <include name="Process_Information_Check" invocation-numbers="0"/>
-        </methods>
-      </class> <!-- com.mendix.test.MaterialScript -->
-    </classes>
-  </test> <!-- Process_Information_ReCheck_After_Resubmit(failed) -->
-  <test name="HeiPort_ReLogin_GDA(failed)">
-    <classes>
-      <class name="com.mendix.test.LoginScript">
-        <methods>
-          <include name="loginAsGDA"/>
-          <include name="openBrowser"/>
-          <include name="setup"/>
-        </methods>
-      </class> <!-- com.mendix.test.LoginScript -->
-    </classes>
-  </test> <!-- HeiPort_ReLogin_GDA(failed) -->
-  <test name="Material_Create_Review_Global_Data_Approve_GDA(failed)">
-    <classes>
-      <class name="com.mendix.test.MaterialScript">
-        <methods>
-          <include name="Material_Create_Review_Global_Data_Approve_GDA" invocation-numbers="0"/>
-        </methods>
-      </class> <!-- com.mendix.test.MaterialScript -->
-    </classes>
-  </test> <!-- Material_Create_Review_Global_Data_Approve_GDA(failed) -->
-  <test name="Process_Information_Check_Syndication(failed)">
-    <classes>
-      <class name="com.mendix.test.MaterialScript">
-        <methods>
-          <include name="Process_Information_Check" invocation-numbers="0"/>
-        </methods>
-      </class> <!-- com.mendix.test.MaterialScript -->
-    </classes>
-  </test> <!-- Process_Information_Check_Syndication(failed) -->
-  <test name="HeiPort_Login_LDR_Syndication(failed)">
-    <classes>
-      <class name="com.mendix.test.LoginScript">
-        <methods>
-          <include name="loginAsLDR" invocation-numbers="0"/>
-          <include name="openBrowser"/>
-          <include name="setup"/>
-        </methods>
-      </class> <!-- com.mendix.test.LoginScript -->
-    </classes>
-  </test> <!-- HeiPort_Login_LDR_Syndication(failed) -->
-  <test name="Material_Create_Syndication_Check(failed)">
-    <classes>
-      <class name="com.mendix.test.MaterialScript">
-        <methods>
-          <include name="Material_Create_Syndication_Check" invocation-numbers="0"/>
-        </methods>
-      </class> <!-- com.mendix.test.MaterialScript -->
-    </classes>
-  </test> <!-- Material_Create_Syndication_Check(failed) -->
-</suite> <!-- Failed suite [Create with ref Global Only-SAP Direct Copy with Rejections] -->
+  </test> <!-- Vendor_Create_Syndication_Check(failed) -->
+</suite> <!-- Failed suite [Create Vendor Happy flow - with disable Local and Bank Request(SAP)] -->

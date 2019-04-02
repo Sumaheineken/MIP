@@ -136,6 +136,14 @@ public class LoginScript {
 		String OpL=Opco.length() < 2 ? Opco : Opco.substring(0, 2);
 		SharedDriver.pageContainer.loginPage.login("MDMM_"+OpL+"CB_LDP","Heineken01");
 	}
+	@Test(dataProvider="HeiPort_Login",dataProviderClass=staticProviderClass.class)
+	public void loginAsLDPSAPvendor(Map<String,String> dataMap){
+		ResultUtil.reporter.startTest("Login As LDPSAPvendoe");
+		String opcoLogin= dataMap.get("OpCo");
+		String Opco=opcoLogin.replaceAll("\\d","");
+		String OpL=Opco.length() < 2 ? Opco : Opco.substring(0, 2);
+		SharedDriver.pageContainer.loginPage.login("MDVM_"+OpL+"01_LDP","Heineken01");
+	}
 
 
 	@Test(dataProvider="HeiPort_Login",dataProviderClass=staticProviderClass.class)

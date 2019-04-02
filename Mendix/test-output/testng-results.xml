@@ -1,846 +1,277 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="19" ignored="375" total="395" passed="1">
+<testng-results skipped="0" failed="2" ignored="280" total="294" passed="12">
   <reporter-output>
   </reporter-output>
-  <suite name="Create with ref Global Only-SAP Direct Copy with Rejections" duration-ms="41844" started-at="2019-03-11T07:03:35Z" finished-at="2019-03-11T07:04:17Z">
+  <suite name="Create Vendor Happy flow - with disable Local and Bank Request(SAP)" duration-ms="395569" started-at="2019-04-02T07:09:44Z" finished-at="2019-04-02T07:16:20Z">
     <groups>
     </groups>
-    <test name="HeiPort_Login_LDR" duration-ms="5746" started-at="2019-03-11T07:03:35Z" finished-at="2019-03-11T07:03:40Z">
+    <test name="HeiPort_Login_LDR" duration-ms="11228" started-at="2019-04-02T07:09:44Z" finished-at="2019-04-02T07:09:56Z">
       <class name="com.mendix.test.LoginScript">
-        <test-method status="PASS" signature="tasKill()[pri:0, instance:com.mendix.test.LoginScript@62ee68d8]" name="tasKill" duration-ms="66" started-at="2019-03-11T12:33:35Z" finished-at="2019-03-11T12:33:35Z">
+        <test-method status="PASS" signature="tasKill()[pri:0, instance:com.mendix.test.LoginScript@e320068]" name="tasKill" duration-ms="95" started-at="2019-04-02T07:09:44Z" finished-at="2019-04-02T07:09:45Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tasKill -->
-        <test-method status="FAIL" signature="openBrowser()[pri:0, instance:com.mendix.test.LoginScript@62ee68d8]" name="openBrowser" duration-ms="4877" started-at="2019-03-11T12:33:35Z" finished-at="2019-03-11T12:33:40Z">
-          <exception class="java.lang.Error">
-            <message>
-              <![CDATA[Unresolved compilation problem: 
-	Syntax error on tokens, delete these tokens
-]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[java.lang.Error: Unresolved compilation problem: 
-	Syntax error on tokens, delete these tokens
-
-	at com.mendix.page.VendorPage_NAV.<init>(VendorPage_NAV.java:1351)
-	at com.mendix.tool.PageContainer.initPages(PageContainer.java:49)
-	at com.mendix.tool.PageContainer.<init>(PageContainer.java:36)
-	at com.mendix.tool.SharedDriver.createDriver(SharedDriver.java:27)
-	at com.mendix.test.LoginScript.openBrowser(LoginScript.java:55)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
-	at org.testng.internal.Invoker.invokeMethod(Invoker.java:669)
-	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:877)
-	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1201)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
-	at org.testng.TestRunner.privateRun(TestRunner.java:776)
-	at org.testng.TestRunner.run(TestRunner.java:634)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:425)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:420)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:385)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:334)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1318)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1243)
-	at org.testng.TestNG.runSuites(TestNG.java:1161)
-	at org.testng.TestNG.run(TestNG.java:1129)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-]]>
-            </full-stacktrace>
-          </exception> <!-- java.lang.Error -->
+        <test-method status="PASS" signature="openBrowser()[pri:0, instance:com.mendix.test.LoginScript@e320068]" name="openBrowser" duration-ms="4551" started-at="2019-04-02T07:09:45Z" finished-at="2019-04-02T07:09:49Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- openBrowser -->
-        <test-method status="FAIL" signature="loginAsLDR(java.util.Map)[pri:0, instance:com.mendix.test.LoginScript@62ee68d8]" name="loginAsLDR" duration-ms="15" started-at="2019-03-11T12:33:40Z" data-provider="HeiPort_Login" finished-at="2019-03-11T12:33:40Z">
+        <test-method status="PASS" signature="loginAsLDRVendor(java.util.Map)[pri:0, instance:com.mendix.test.LoginScript@e320068]" name="loginAsLDRVendor" duration-ms="5923" started-at="2019-04-02T07:09:50Z" data-provider="HeiPort_Login" finished-at="2019-04-02T07:09:56Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[{S.NO=9.0, OpCo=BE01, Test_Case=Create with ref Global Only - SAP Direct Copy with Rejections, Execute=Y, RequestId=1416843, Level1Global=GBDA, Level2Global=GDA, Level1Local=LDS, Level2Loca=LBDA, Syndication=Y, Global_ID=502871, Material_Number_AH1=, Material_Number_AE1=, Status_AH1=, Status_AE1=, Status_JDE=, Q=, R=, S=, T=, U=, V=, W=, X=, Y=, Z=, AA=, AB=, AC=, AD=, AE=, AF=, AG=, AH=, AI=, AJ=, AK=, AL=, AM=, AN=, AO=, AP=, AQ=, AR=, AS=, AT=, AU=, AV=, AW=, AX=, AY=, AZ=, BA=, BB=, BC=, BD=, BE=, BF=, BG=, BH=, BI=, BJ=, BK=, BL=, BM=, BN=, BO=, BP=, BQ=, BR=, BS=, BT=, BU=, BV=, BW=, BX=, BY=, BZ=, CA=, CB=, CC=, CD=, CE=, CF=, CG=, CH=, CI=, CJ=, CK=, CL=, CM=, CN=, CO=, CP=, CQ=, CR=, CS=, CT=, CU=, CV=, CW=, CX=, CY=, CZ=, DA=, DB=, DC=, DD=, DE=, DF=, DG=, DH=, DI=, DJ=, DK=, DL=, DM=, DN=, DO=, DP=, DQ=, DR=, DS=, DT=, DU=, DV=, DW=, DX=, DY=, DZ=, EA=, EB=, EC=, ED=, EE=, EF=, EG=, EH=, EI=, EJ=, EK=, EL=, EM=, EN=, EO=, EP=, EQ=, ER=, ES=, ET=, EU=, EV=, EW=, EX=, EY=, EZ=, FA=, FB=, FC=, FD=, FE=, FF=, FG=, FH=, FI=, FJ=, FK=, FL=, FM=, FN=, FO=, FP=, FQ=, FR=, FS=, FT=, FU=, FV=, FW=, FX=, FY=, FZ=, GA=, GB=, GC=, GD=, GE=, GF=, GG=, GH=, GI=, GJ=, GK=, GL=, GM=, GN=, GO=, GP=, GQ=, GR=, GS=, GT=, GU=, GV=, GW=, GX=, GY=, GZ=, HA=, HB=, HC=, HD=, HE=, HF=, HG=, HH=, HI=, HJ=, HK=, HL=, HM=, HN=, HO=, HP=, HQ=, HR=, HS=, HT=, HU=, HV=, HW=, HX=, HY=, HZ=, IA=, IB=, IC=, ID=, IE=, IF=, IG=, IH=, II=, IJ=, IK=, IL=, IM=, IN=, IO=, IP=, IQ=, IR=, IS=, IT=, IU=}]]>
+                <![CDATA[{S.NO=14.0, OpCo=BE01, Test_Case=14.Create_Vendor_with_Questionnaire_only_Global, Execute=Y, RequestId=1423978, Level1Global=GBDA, Level2Global=GDA, Level1Local=LDS, Level2Loca=LBDA, Syndication=Y, Global_ID=38148.0, Material_Number_AH1=No Run, Material_Number_AE1=No Run, Status_AH1=, Status_AE1=, Status_JDE=, Q=, R=, S=, T=, U=, V=, W=, X=, Y=, Z=, AA=, AB=, AC=, AD=, AE=, AF=, AG=, AH=, AI=, AJ=, AK=, AL=, AM=, AN=, AO=, AP=, AQ=, AR=, AS=, AT=, AU=, AV=, AW=, AX=, AY=, AZ=, BA=, BB=, BC=, BD=, BE=, BF=, BG=, BH=, BI=, BJ=, BK=, BL=, BM=, BN=, BO=, BP=, BQ=, BR=, BS=, BT=, BU=, BV=, BW=, BX=, BY=, BZ=, CA=, CB=, CC=, CD=, CE=, CF=, CG=, CH=, CI=, CJ=, CK=, CL=, CM=, CN=, CO=, CP=, CQ=, CR=, CS=, CT=, CU=, CV=, CW=, CX=, CY=, CZ=, DA=, DB=, DC=, DD=, DE=, DF=, DG=, DH=, DI=, DJ=, DK=, DL=, DM=, DN=, DO=, DP=, DQ=, DR=, DS=, DT=, DU=, DV=, DW=, DX=, DY=, DZ=, EA=, EB=, EC=, ED=, EE=, EF=, EG=, EH=, EI=, EJ=, EK=, EL=, EM=, EN=, EO=, EP=, EQ=, ER=, ES=, ET=, EU=, EV=, EW=, EX=, EY=, EZ=, FA=, FB=, FC=, FD=, FE=, FF=, FG=, FH=, FI=, FJ=, FK=, FL=, FM=, FN=, FO=, FP=, FQ=, FR=, FS=, FT=, FU=, FV=, FW=, FX=, FY=, FZ=, GA=, GB=, GC=, GD=, GE=, GF=, GG=, GH=, GI=, GJ=, GK=, GL=, GM=, GN=, GO=, GP=, GQ=, GR=, GS=, GT=, GU=, GV=, GW=, GX=, GY=, GZ=, HA=, HB=, HC=, HD=, HE=, HF=, HG=, HH=, HI=, HJ=, HK=, HL=, HM=, HN=, HO=, HP=, HQ=, HR=, HS=, HT=, HU=, HV=, HW=, HX=, HY=, HZ=, IA=, IB=, IC=, ID=, IE=, IF=, IG=, IH=, II=, IJ=, IK=, IL=, IM=, IN=, IO=, IP=, IQ=, IR=, IS=, IT=, IU=}]]>
               </value>
             </param>
           </params>
-          <exception class="java.lang.NullPointerException">
-            <full-stacktrace>
-              <![CDATA[java.lang.NullPointerException
-	at com.mendix.test.LoginScript.loginAsLDR(LoginScript.java:71)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
-	at org.testng.internal.Invoker.invokeMethod(Invoker.java:669)
-	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:877)
-	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1201)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
-	at org.testng.TestRunner.privateRun(TestRunner.java:776)
-	at org.testng.TestRunner.run(TestRunner.java:634)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:425)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:420)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:385)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:334)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1318)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1243)
-	at org.testng.TestNG.runSuites(TestNG.java:1161)
-	at org.testng.TestNG.run(TestNG.java:1129)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-]]>
-            </full-stacktrace>
-          </exception> <!-- java.lang.NullPointerException -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- loginAsLDR -->
+        </test-method> <!-- loginAsLDRVendor -->
       </class> <!-- com.mendix.test.LoginScript -->
     </test> <!-- HeiPort_Login_LDR -->
-    <test name="Create_with_ref_Global_Only_SAP_Direct_Copy_with_Rejections" duration-ms="117" started-at="2019-03-11T07:03:41Z" finished-at="2019-03-11T07:03:41Z">
-      <class name="com.mendix.test.MaterialScript">
-        <test-method status="FAIL" signature="Material_Direct_Copy_With_References(java.util.Map)[pri:0, instance:com.mendix.test.MaterialScript@cb5822]" name="Material_Direct_Copy_With_References" duration-ms="2" started-at="2019-03-11T12:33:41Z" data-provider="Process_Information_Check" finished-at="2019-03-11T12:33:41Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[{S.NO=9.0, OpCo=BE01, Test_Case=Create with ref Global Only - SAP Direct Copy with Rejections, Execute=Y, RequestId=1416843, Level1Global=GBDA, Level2Global=GDA, Level1Local=LDS, Level2Loca=LBDA, Syndication=Y, Global_ID=502871, Material_Number_AH1=, Material_Number_AE1=, Status_AH1=, Status_AE1=, Status_JDE=, Q=, R=, S=, T=, U=, V=, W=, X=, Y=, Z=, AA=, AB=, AC=, AD=, AE=, AF=, AG=, AH=, AI=, AJ=, AK=, AL=, AM=, AN=, AO=, AP=, AQ=, AR=, AS=, AT=, AU=, AV=, AW=, AX=, AY=, AZ=, BA=, BB=, BC=, BD=, BE=, BF=, BG=, BH=, BI=, BJ=, BK=, BL=, BM=, BN=, BO=, BP=, BQ=, BR=, BS=, BT=, BU=, BV=, BW=, BX=, BY=, BZ=, CA=, CB=, CC=, CD=, CE=, CF=, CG=, CH=, CI=, CJ=, CK=, CL=, CM=, CN=, CO=, CP=, CQ=, CR=, CS=, CT=, CU=, CV=, CW=, CX=, CY=, CZ=, DA=, DB=, DC=, DD=, DE=, DF=, DG=, DH=, DI=, DJ=, DK=, DL=, DM=, DN=, DO=, DP=, DQ=, DR=, DS=, DT=, DU=, DV=, DW=, DX=, DY=, DZ=, EA=, EB=, EC=, ED=, EE=, EF=, EG=, EH=, EI=, EJ=, EK=, EL=, EM=, EN=, EO=, EP=, EQ=, ER=, ES=, ET=, EU=, EV=, EW=, EX=, EY=, EZ=, FA=, FB=, FC=, FD=, FE=, FF=, FG=, FH=, FI=, FJ=, FK=, FL=, FM=, FN=, FO=, FP=, FQ=, FR=, FS=, FT=, FU=, FV=, FW=, FX=, FY=, FZ=, GA=, GB=, GC=, GD=, GE=, GF=, GG=, GH=, GI=, GJ=, GK=, GL=, GM=, GN=, GO=, GP=, GQ=, GR=, GS=, GT=, GU=, GV=, GW=, GX=, GY=, GZ=, HA=, HB=, HC=, HD=, HE=, HF=, HG=, HH=, HI=, HJ=, HK=, HL=, HM=, HN=, HO=, HP=, HQ=, HR=, HS=, HT=, HU=, HV=, HW=, HX=, HY=, HZ=, IA=, IB=, IC=, ID=, IE=, IF=, IG=, IH=, II=, IJ=, IK=, IL=, IM=, IN=, IO=, IP=, IQ=, IR=, IS=, IT=, IU=}]]>
-              </value>
-            </param>
-          </params>
-          <exception class="java.lang.NullPointerException">
-            <full-stacktrace>
-              <![CDATA[java.lang.NullPointerException
-	at com.mendix.test.MaterialScript.Material_Direct_Copy_With_References(MaterialScript.java:735)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
-	at org.testng.internal.Invoker.invokeMethod(Invoker.java:669)
-	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:877)
-	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1201)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
-	at org.testng.TestRunner.privateRun(TestRunner.java:776)
-	at org.testng.TestRunner.run(TestRunner.java:634)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:425)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:420)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:385)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:334)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1318)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1243)
-	at org.testng.TestNG.runSuites(TestNG.java:1161)
-	at org.testng.TestNG.run(TestNG.java:1129)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-]]>
-            </full-stacktrace>
-          </exception> <!-- java.lang.NullPointerException -->
+    <test name="Vendor_Create_Fill_In_Questionnaire" duration-ms="27412" started-at="2019-04-02T07:09:56Z" finished-at="2019-04-02T07:10:23Z">
+      <class name="com.mendix.test.VendorScript">
+        <test-method status="PASS" signature="Vendor_Create_Fill_In_Questionnaire()[pri:0, instance:com.mendix.test.VendorScript@7e2d773b]" name="Vendor_Create_Fill_In_Questionnaire" duration-ms="27408" started-at="2019-04-02T07:09:56Z" finished-at="2019-04-02T07:10:23Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- Material_Direct_Copy_With_References -->
-      </class> <!-- com.mendix.test.MaterialScript -->
-    </test> <!-- Create_with_ref_Global_Only_SAP_Direct_Copy_with_Rejections -->
-    <test name="Process_Information_Check" duration-ms="5586" started-at="2019-03-11T07:03:41Z" finished-at="2019-03-11T07:03:46Z">
-      <class name="com.mendix.test.MaterialScript">
-        <test-method status="FAIL" signature="Process_Information_Check(java.util.Map)[pri:0, instance:com.mendix.test.MaterialScript@224edc67]" name="Process_Information_Check" duration-ms="5504" started-at="2019-03-11T12:33:41Z" data-provider="Process_Information_Check" finished-at="2019-03-11T12:33:46Z">
+        </test-method> <!-- Vendor_Create_Fill_In_Questionnaire -->
+      </class> <!-- com.mendix.test.VendorScript -->
+    </test> <!-- Vendor_Create_Fill_In_Questionnaire -->
+    <test name="Vendor_Create_Fill_In_Data" duration-ms="86699" started-at="2019-04-02T07:10:23Z" finished-at="2019-04-02T07:11:50Z">
+      <class name="com.mendix.test.VendorScript">
+        <test-method status="PASS" signature="Vendor_Create_Fill_In_Data(java.util.Map)[pri:0, instance:com.mendix.test.VendorScript@2353b3e6]" name="Vendor_Create_Fill_In_Data" duration-ms="86541" started-at="2019-04-02T07:10:23Z" data-provider="Vendor_Create_Global_Disable_Bank_and_LocalData" finished-at="2019-04-02T07:11:50Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[{S.NO=9.0, OpCo=BE01, Test_Case=Create with ref Global Only - SAP Direct Copy with Rejections, Execute=Y, RequestId=1416843, Level1Global=GBDA, Level2Global=GDA, Level1Local=LDS, Level2Loca=LBDA, Syndication=Y, Global_ID=502871, Material_Number_AH1=, Material_Number_AE1=, Status_AH1=, Status_AE1=, Status_JDE=, Q=, R=, S=, T=, U=, V=, W=, X=, Y=, Z=, AA=, AB=, AC=, AD=, AE=, AF=, AG=, AH=, AI=, AJ=, AK=, AL=, AM=, AN=, AO=, AP=, AQ=, AR=, AS=, AT=, AU=, AV=, AW=, AX=, AY=, AZ=, BA=, BB=, BC=, BD=, BE=, BF=, BG=, BH=, BI=, BJ=, BK=, BL=, BM=, BN=, BO=, BP=, BQ=, BR=, BS=, BT=, BU=, BV=, BW=, BX=, BY=, BZ=, CA=, CB=, CC=, CD=, CE=, CF=, CG=, CH=, CI=, CJ=, CK=, CL=, CM=, CN=, CO=, CP=, CQ=, CR=, CS=, CT=, CU=, CV=, CW=, CX=, CY=, CZ=, DA=, DB=, DC=, DD=, DE=, DF=, DG=, DH=, DI=, DJ=, DK=, DL=, DM=, DN=, DO=, DP=, DQ=, DR=, DS=, DT=, DU=, DV=, DW=, DX=, DY=, DZ=, EA=, EB=, EC=, ED=, EE=, EF=, EG=, EH=, EI=, EJ=, EK=, EL=, EM=, EN=, EO=, EP=, EQ=, ER=, ES=, ET=, EU=, EV=, EW=, EX=, EY=, EZ=, FA=, FB=, FC=, FD=, FE=, FF=, FG=, FH=, FI=, FJ=, FK=, FL=, FM=, FN=, FO=, FP=, FQ=, FR=, FS=, FT=, FU=, FV=, FW=, FX=, FY=, FZ=, GA=, GB=, GC=, GD=, GE=, GF=, GG=, GH=, GI=, GJ=, GK=, GL=, GM=, GN=, GO=, GP=, GQ=, GR=, GS=, GT=, GU=, GV=, GW=, GX=, GY=, GZ=, HA=, HB=, HC=, HD=, HE=, HF=, HG=, HH=, HI=, HJ=, HK=, HL=, HM=, HN=, HO=, HP=, HQ=, HR=, HS=, HT=, HU=, HV=, HW=, HX=, HY=, HZ=, IA=, IB=, IC=, ID=, IE=, IF=, IG=, IH=, II=, IJ=, IK=, IL=, IM=, IN=, IO=, IP=, IQ=, IR=, IS=, IT=, IU=}]]>
+                <![CDATA[{OpCo=SG, Test_Case=Create_Vendor_with_Questionnaire_with_Global_and_Local_JDE, Execute=Y, Fields=KH001OC, Vendor Type Descrption=Vendor Type Descrption, Operating Company=SG004OC, Account Group=Y001, Name1=L&M Bassac River Co., LTD, Name2=GmbH, Name4=, Search Term 1=ARDAGH METAL, Search Term 2=PRODUCTION LOCATION, Street=Street Sorbet, Street 4=Sangkat Tonle Basak, House Number Supplement=, Postal Code=12301, Country=KH, Language Key=EN,English, House number=02, City=Phnom Penh, Region=NOE, P.O. Box WO Number=No, VAT Registration Number=K002-091503811, Subject To Equalization Tax=No, Credit Information Number=000000000, Industry Key=Y001, Subject To Tax On Sales Purchase=No, Is Business Partner a Natural Person=No, Person/Corporation Code=2, Production location=No, Corporate Group=NPR-BS, Global Vendor Request=Ardagh Metal Beverage Trading Austria, Vendor=CZ683913887, Dialling Code and Number =CZ, Phone Type=Ardagh Metal Beverage Trading Austria, Email =SI46983198, Comments=SI, Payment Terms - A/P=Ardagh Metal Beverage Trading Austria, Tax Rate Area=BG3076412293, Payment Creation=BG, Hold Payment=Ardagh Metal Beverage Trading Austria, G/L Class=AT, Withholding Indicator=02256 8080, Mvmt Type Invoice/Payment 2=1, Mvmt Type Invoice/Payment 4=Ardagh Metal Beverage Trading Austria, Default Currency=atenz.order-call@ardaghgroup.com, Tax Expl Code=Ardagh Metal Beverage Trading Austria, Pre Note Code=Boris.Petrovic@ardaghgroup.com, Payment Methods=Ardagh Metal Beverage Trading Austria, Bank Bearer=Alfons.Schulte@ardaghgroup.com, Company Trading Partner=please check and approve}]]>
               </value>
             </param>
           </params>
-          <exception class="java.lang.NullPointerException">
-            <full-stacktrace>
-              <![CDATA[java.lang.NullPointerException
-	at com.mendix.test.MaterialScript.Process_Information_Check(MaterialScript.java:83)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
-	at org.testng.internal.Invoker.invokeMethod(Invoker.java:669)
-	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:877)
-	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1201)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
-	at org.testng.TestRunner.privateRun(TestRunner.java:776)
-	at org.testng.TestRunner.run(TestRunner.java:634)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:425)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:420)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:385)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:334)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1318)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1243)
-	at org.testng.TestNG.runSuites(TestNG.java:1161)
-	at org.testng.TestNG.run(TestNG.java:1129)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-]]>
-            </full-stacktrace>
-          </exception> <!-- java.lang.NullPointerException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Vendor_Create_Fill_In_Data -->
+      </class> <!-- com.mendix.test.VendorScript -->
+    </test> <!-- Vendor_Create_Fill_In_Data -->
+    <test name="Process_Information_Check GDA" duration-ms="40783" started-at="2019-04-02T07:11:50Z" finished-at="2019-04-02T07:12:31Z">
+      <class name="com.mendix.test.VendorScript">
+        <test-method status="PASS" signature="Process_Information_Check(java.util.Map)[pri:0, instance:com.mendix.test.VendorScript@fad74ee]" name="Process_Information_Check" duration-ms="40700" started-at="2019-04-02T07:11:50Z" data-provider="Process_Information_Check" finished-at="2019-04-02T07:12:31Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[{S.NO=14.0, OpCo=BE01, Test_Case=14.Create_Vendor_with_Questionnaire_only_Global, Execute=Y, RequestId=1423997, Level1Global=GBDA, Level2Global=GDA, Level1Local=LDS, Level2Loca=LBDA, Syndication=Y, Global_ID=38148.0, Material_Number_AH1=No Run, Material_Number_AE1=No Run, Status_AH1=, Status_AE1=, Status_JDE=, Q=, R=, S=, T=, U=, V=, W=, X=, Y=, Z=, AA=, AB=, AC=, AD=, AE=, AF=, AG=, AH=, AI=, AJ=, AK=, AL=, AM=, AN=, AO=, AP=, AQ=, AR=, AS=, AT=, AU=, AV=, AW=, AX=, AY=, AZ=, BA=, BB=, BC=, BD=, BE=, BF=, BG=, BH=, BI=, BJ=, BK=, BL=, BM=, BN=, BO=, BP=, BQ=, BR=, BS=, BT=, BU=, BV=, BW=, BX=, BY=, BZ=, CA=, CB=, CC=, CD=, CE=, CF=, CG=, CH=, CI=, CJ=, CK=, CL=, CM=, CN=, CO=, CP=, CQ=, CR=, CS=, CT=, CU=, CV=, CW=, CX=, CY=, CZ=, DA=, DB=, DC=, DD=, DE=, DF=, DG=, DH=, DI=, DJ=, DK=, DL=, DM=, DN=, DO=, DP=, DQ=, DR=, DS=, DT=, DU=, DV=, DW=, DX=, DY=, DZ=, EA=, EB=, EC=, ED=, EE=, EF=, EG=, EH=, EI=, EJ=, EK=, EL=, EM=, EN=, EO=, EP=, EQ=, ER=, ES=, ET=, EU=, EV=, EW=, EX=, EY=, EZ=, FA=, FB=, FC=, FD=, FE=, FF=, FG=, FH=, FI=, FJ=, FK=, FL=, FM=, FN=, FO=, FP=, FQ=, FR=, FS=, FT=, FU=, FV=, FW=, FX=, FY=, FZ=, GA=, GB=, GC=, GD=, GE=, GF=, GG=, GH=, GI=, GJ=, GK=, GL=, GM=, GN=, GO=, GP=, GQ=, GR=, GS=, GT=, GU=, GV=, GW=, GX=, GY=, GZ=, HA=, HB=, HC=, HD=, HE=, HF=, HG=, HH=, HI=, HJ=, HK=, HL=, HM=, HN=, HO=, HP=, HQ=, HR=, HS=, HT=, HU=, HV=, HW=, HX=, HY=, HZ=, IA=, IB=, IC=, ID=, IE=, IF=, IG=, IH=, II=, IJ=, IK=, IL=, IM=, IN=, IO=, IP=, IQ=, IR=, IS=, IT=, IU=}]]>
+              </value>
+            </param>
+          </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Process_Information_Check -->
-      </class> <!-- com.mendix.test.MaterialScript -->
-    </test> <!-- Process_Information_Check -->
-    <test name="HeiPort_Login_GDA" duration-ms="3127" started-at="2019-03-11T07:03:46Z" finished-at="2019-03-11T07:03:49Z">
+      </class> <!-- com.mendix.test.VendorScript -->
+    </test> <!-- Process_Information_Check GDA -->
+    <test name="HeiPort_Login_GDA" duration-ms="9160" started-at="2019-04-02T07:12:31Z" finished-at="2019-04-02T07:12:40Z">
       <class name="com.mendix.test.LoginScript">
-        <test-method status="FAIL" signature="openBrowser()[pri:0, instance:com.mendix.test.LoginScript@523884b2]" name="openBrowser" duration-ms="3113" started-at="2019-03-11T12:33:46Z" finished-at="2019-03-11T12:33:49Z">
-          <exception class="java.lang.Error">
-            <message>
-              <![CDATA[Unresolved compilation problem: 
-	Syntax error on tokens, delete these tokens
-]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[java.lang.Error: Unresolved compilation problem: 
-	Syntax error on tokens, delete these tokens
-
-	at com.mendix.page.VendorPage_NAV.<init>(VendorPage_NAV.java:1351)
-	at com.mendix.tool.PageContainer.initPages(PageContainer.java:49)
-	at com.mendix.tool.PageContainer.<init>(PageContainer.java:36)
-	at com.mendix.tool.SharedDriver.createDriver(SharedDriver.java:27)
-	at com.mendix.test.LoginScript.openBrowser(LoginScript.java:55)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
-	at org.testng.internal.Invoker.invokeMethod(Invoker.java:669)
-	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:877)
-	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1201)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
-	at org.testng.TestRunner.privateRun(TestRunner.java:776)
-	at org.testng.TestRunner.run(TestRunner.java:634)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:425)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:420)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:385)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:334)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1318)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1243)
-	at org.testng.TestNG.runSuites(TestNG.java:1161)
-	at org.testng.TestNG.run(TestNG.java:1129)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-]]>
-            </full-stacktrace>
-          </exception> <!-- java.lang.Error -->
+        <test-method status="PASS" signature="openBrowser()[pri:0, instance:com.mendix.test.LoginScript@3e57cd70]" name="openBrowser" duration-ms="3467" started-at="2019-04-02T07:12:31Z" finished-at="2019-04-02T07:12:34Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- openBrowser -->
-        <test-method status="FAIL" signature="loginAsGDA()[pri:0, instance:com.mendix.test.LoginScript@523884b2]" name="loginAsGDA" duration-ms="7" started-at="2019-03-11T12:33:49Z" finished-at="2019-03-11T12:33:49Z">
-          <exception class="java.lang.NullPointerException">
-            <full-stacktrace>
-              <![CDATA[java.lang.NullPointerException
-	at com.mendix.test.LoginScript.loginAsGDA(LoginScript.java:195)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
-	at org.testng.internal.Invoker.invokeMethod(Invoker.java:669)
-	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:877)
-	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1201)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
-	at org.testng.TestRunner.privateRun(TestRunner.java:776)
-	at org.testng.TestRunner.run(TestRunner.java:634)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:425)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:420)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:385)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:334)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1318)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1243)
-	at org.testng.TestNG.runSuites(TestNG.java:1161)
-	at org.testng.TestNG.run(TestNG.java:1129)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-]]>
-            </full-stacktrace>
-          </exception> <!-- java.lang.NullPointerException -->
+        <test-method status="PASS" signature="loginAsGDA()[pri:0, instance:com.mendix.test.LoginScript@3e57cd70]" name="loginAsGDA" duration-ms="5663" started-at="2019-04-02T07:12:34Z" finished-at="2019-04-02T07:12:40Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- loginAsGDA -->
       </class> <!-- com.mendix.test.LoginScript -->
     </test> <!-- HeiPort_Login_GDA -->
-    <test name="Reject_Material_Request" duration-ms="81" started-at="2019-03-11T07:03:49Z" finished-at="2019-03-11T07:03:50Z">
-      <class name="com.mendix.test.MaterialScript">
-        <test-method status="FAIL" signature="Material_Reject_GDA(java.util.Map)[pri:0, instance:com.mendix.test.MaterialScript@3532ec19]" name="Material_Reject_GDA" duration-ms="1" started-at="2019-03-11T12:33:50Z" data-provider="Process_Information_Check" finished-at="2019-03-11T12:33:50Z">
+    <test name="Vendor_Create_Review_Global_Data_Approve_GDA" duration-ms="53443" started-at="2019-04-02T07:12:40Z" finished-at="2019-04-02T07:13:33Z">
+      <class name="com.mendix.test.VendorScript">
+        <test-method status="PASS" signature="Vendor_Create_Review_Global_Data_Approve_GDA(java.util.Map)[pri:0, instance:com.mendix.test.VendorScript@6b9651f3]" name="Vendor_Create_Review_Global_Data_Approve_GDA" duration-ms="53393" started-at="2019-04-02T07:12:40Z" data-provider="Process_Information_Check" finished-at="2019-04-02T07:13:33Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[{S.NO=9.0, OpCo=BE01, Test_Case=Create with ref Global Only - SAP Direct Copy with Rejections, Execute=Y, RequestId=1416843, Level1Global=GBDA, Level2Global=GDA, Level1Local=LDS, Level2Loca=LBDA, Syndication=Y, Global_ID=502871, Material_Number_AH1=, Material_Number_AE1=, Status_AH1=, Status_AE1=, Status_JDE=, Q=, R=, S=, T=, U=, V=, W=, X=, Y=, Z=, AA=, AB=, AC=, AD=, AE=, AF=, AG=, AH=, AI=, AJ=, AK=, AL=, AM=, AN=, AO=, AP=, AQ=, AR=, AS=, AT=, AU=, AV=, AW=, AX=, AY=, AZ=, BA=, BB=, BC=, BD=, BE=, BF=, BG=, BH=, BI=, BJ=, BK=, BL=, BM=, BN=, BO=, BP=, BQ=, BR=, BS=, BT=, BU=, BV=, BW=, BX=, BY=, BZ=, CA=, CB=, CC=, CD=, CE=, CF=, CG=, CH=, CI=, CJ=, CK=, CL=, CM=, CN=, CO=, CP=, CQ=, CR=, CS=, CT=, CU=, CV=, CW=, CX=, CY=, CZ=, DA=, DB=, DC=, DD=, DE=, DF=, DG=, DH=, DI=, DJ=, DK=, DL=, DM=, DN=, DO=, DP=, DQ=, DR=, DS=, DT=, DU=, DV=, DW=, DX=, DY=, DZ=, EA=, EB=, EC=, ED=, EE=, EF=, EG=, EH=, EI=, EJ=, EK=, EL=, EM=, EN=, EO=, EP=, EQ=, ER=, ES=, ET=, EU=, EV=, EW=, EX=, EY=, EZ=, FA=, FB=, FC=, FD=, FE=, FF=, FG=, FH=, FI=, FJ=, FK=, FL=, FM=, FN=, FO=, FP=, FQ=, FR=, FS=, FT=, FU=, FV=, FW=, FX=, FY=, FZ=, GA=, GB=, GC=, GD=, GE=, GF=, GG=, GH=, GI=, GJ=, GK=, GL=, GM=, GN=, GO=, GP=, GQ=, GR=, GS=, GT=, GU=, GV=, GW=, GX=, GY=, GZ=, HA=, HB=, HC=, HD=, HE=, HF=, HG=, HH=, HI=, HJ=, HK=, HL=, HM=, HN=, HO=, HP=, HQ=, HR=, HS=, HT=, HU=, HV=, HW=, HX=, HY=, HZ=, IA=, IB=, IC=, ID=, IE=, IF=, IG=, IH=, II=, IJ=, IK=, IL=, IM=, IN=, IO=, IP=, IQ=, IR=, IS=, IT=, IU=}]]>
+                <![CDATA[{S.NO=14.0, OpCo=BE01, Test_Case=14.Create_Vendor_with_Questionnaire_only_Global, Execute=Y, RequestId=1423997, Level1Global=GBDA, Level2Global=GDA, Level1Local=LDS, Level2Loca=LBDA, Syndication=Y, Global_ID=38148.0, Material_Number_AH1=No Run, Material_Number_AE1=No Run, Status_AH1=, Status_AE1=, Status_JDE=, Q=, R=, S=, T=, U=, V=, W=, X=, Y=, Z=, AA=, AB=, AC=, AD=, AE=, AF=, AG=, AH=, AI=, AJ=, AK=, AL=, AM=, AN=, AO=, AP=, AQ=, AR=, AS=, AT=, AU=, AV=, AW=, AX=, AY=, AZ=, BA=, BB=, BC=, BD=, BE=, BF=, BG=, BH=, BI=, BJ=, BK=, BL=, BM=, BN=, BO=, BP=, BQ=, BR=, BS=, BT=, BU=, BV=, BW=, BX=, BY=, BZ=, CA=, CB=, CC=, CD=, CE=, CF=, CG=, CH=, CI=, CJ=, CK=, CL=, CM=, CN=, CO=, CP=, CQ=, CR=, CS=, CT=, CU=, CV=, CW=, CX=, CY=, CZ=, DA=, DB=, DC=, DD=, DE=, DF=, DG=, DH=, DI=, DJ=, DK=, DL=, DM=, DN=, DO=, DP=, DQ=, DR=, DS=, DT=, DU=, DV=, DW=, DX=, DY=, DZ=, EA=, EB=, EC=, ED=, EE=, EF=, EG=, EH=, EI=, EJ=, EK=, EL=, EM=, EN=, EO=, EP=, EQ=, ER=, ES=, ET=, EU=, EV=, EW=, EX=, EY=, EZ=, FA=, FB=, FC=, FD=, FE=, FF=, FG=, FH=, FI=, FJ=, FK=, FL=, FM=, FN=, FO=, FP=, FQ=, FR=, FS=, FT=, FU=, FV=, FW=, FX=, FY=, FZ=, GA=, GB=, GC=, GD=, GE=, GF=, GG=, GH=, GI=, GJ=, GK=, GL=, GM=, GN=, GO=, GP=, GQ=, GR=, GS=, GT=, GU=, GV=, GW=, GX=, GY=, GZ=, HA=, HB=, HC=, HD=, HE=, HF=, HG=, HH=, HI=, HJ=, HK=, HL=, HM=, HN=, HO=, HP=, HQ=, HR=, HS=, HT=, HU=, HV=, HW=, HX=, HY=, HZ=, IA=, IB=, IC=, ID=, IE=, IF=, IG=, IH=, II=, IJ=, IK=, IL=, IM=, IN=, IO=, IP=, IQ=, IR=, IS=, IT=, IU=}]]>
               </value>
             </param>
           </params>
-          <exception class="java.lang.NullPointerException">
-            <full-stacktrace>
-              <![CDATA[java.lang.NullPointerException
-	at com.mendix.test.MaterialScript.Material_Reject_GDA(MaterialScript.java:708)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
-	at org.testng.internal.Invoker.invokeMethod(Invoker.java:669)
-	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:877)
-	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1201)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
-	at org.testng.TestRunner.privateRun(TestRunner.java:776)
-	at org.testng.TestRunner.run(TestRunner.java:634)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:425)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:420)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:385)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:334)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1318)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1243)
-	at org.testng.TestNG.runSuites(TestNG.java:1161)
-	at org.testng.TestNG.run(TestNG.java:1129)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-]]>
-            </full-stacktrace>
-          </exception> <!-- java.lang.NullPointerException -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- Material_Reject_GDA -->
-      </class> <!-- com.mendix.test.MaterialScript -->
-    </test> <!-- Reject_Material_Request -->
-    <test name="Process_Information_Check_After_Reject" duration-ms="5584" started-at="2019-03-11T07:03:50Z" finished-at="2019-03-11T07:03:55Z">
-      <class name="com.mendix.test.MaterialScript">
-        <test-method status="FAIL" signature="Process_Information_Check(java.util.Map)[pri:0, instance:com.mendix.test.MaterialScript@3e6fa38a]" name="Process_Information_Check" duration-ms="5501" started-at="2019-03-11T12:33:50Z" data-provider="Process_Information_Check" finished-at="2019-03-11T12:33:55Z">
+        </test-method> <!-- Vendor_Create_Review_Global_Data_Approve_GDA -->
+      </class> <!-- com.mendix.test.VendorScript -->
+    </test> <!-- Vendor_Create_Review_Global_Data_Approve_GDA -->
+    <test name="Process_Information_Check_Approved" duration-ms="28043" started-at="2019-04-02T07:13:33Z" finished-at="2019-04-02T07:14:01Z">
+      <class name="com.mendix.test.VendorScript">
+        <test-method status="FAIL" signature="process_Information_Check_GlobalID_Extend(java.util.Map)[pri:0, instance:com.mendix.test.VendorScript@7ce6a65d]" name="process_Information_Check_GlobalID_Extend" duration-ms="27933" started-at="2019-04-02T07:13:33Z" data-provider="Process_Information_Check" finished-at="2019-04-02T07:14:01Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[{S.NO=9.0, OpCo=BE01, Test_Case=Create with ref Global Only - SAP Direct Copy with Rejections, Execute=Y, RequestId=1416843, Level1Global=GBDA, Level2Global=GDA, Level1Local=LDS, Level2Loca=LBDA, Syndication=Y, Global_ID=502871, Material_Number_AH1=, Material_Number_AE1=, Status_AH1=, Status_AE1=, Status_JDE=, Q=, R=, S=, T=, U=, V=, W=, X=, Y=, Z=, AA=, AB=, AC=, AD=, AE=, AF=, AG=, AH=, AI=, AJ=, AK=, AL=, AM=, AN=, AO=, AP=, AQ=, AR=, AS=, AT=, AU=, AV=, AW=, AX=, AY=, AZ=, BA=, BB=, BC=, BD=, BE=, BF=, BG=, BH=, BI=, BJ=, BK=, BL=, BM=, BN=, BO=, BP=, BQ=, BR=, BS=, BT=, BU=, BV=, BW=, BX=, BY=, BZ=, CA=, CB=, CC=, CD=, CE=, CF=, CG=, CH=, CI=, CJ=, CK=, CL=, CM=, CN=, CO=, CP=, CQ=, CR=, CS=, CT=, CU=, CV=, CW=, CX=, CY=, CZ=, DA=, DB=, DC=, DD=, DE=, DF=, DG=, DH=, DI=, DJ=, DK=, DL=, DM=, DN=, DO=, DP=, DQ=, DR=, DS=, DT=, DU=, DV=, DW=, DX=, DY=, DZ=, EA=, EB=, EC=, ED=, EE=, EF=, EG=, EH=, EI=, EJ=, EK=, EL=, EM=, EN=, EO=, EP=, EQ=, ER=, ES=, ET=, EU=, EV=, EW=, EX=, EY=, EZ=, FA=, FB=, FC=, FD=, FE=, FF=, FG=, FH=, FI=, FJ=, FK=, FL=, FM=, FN=, FO=, FP=, FQ=, FR=, FS=, FT=, FU=, FV=, FW=, FX=, FY=, FZ=, GA=, GB=, GC=, GD=, GE=, GF=, GG=, GH=, GI=, GJ=, GK=, GL=, GM=, GN=, GO=, GP=, GQ=, GR=, GS=, GT=, GU=, GV=, GW=, GX=, GY=, GZ=, HA=, HB=, HC=, HD=, HE=, HF=, HG=, HH=, HI=, HJ=, HK=, HL=, HM=, HN=, HO=, HP=, HQ=, HR=, HS=, HT=, HU=, HV=, HW=, HX=, HY=, HZ=, IA=, IB=, IC=, ID=, IE=, IF=, IG=, IH=, II=, IJ=, IK=, IL=, IM=, IN=, IO=, IP=, IQ=, IR=, IS=, IT=, IU=}]]>
+                <![CDATA[{S.NO=14.0, OpCo=BE01, Test_Case=14.Create_Vendor_with_Questionnaire_only_Global, Execute=Y, RequestId=1423997, Level1Global=GBDA, Level2Global=GDA, Level1Local=LDS, Level2Loca=LBDA, Syndication=Y, Global_ID=38148.0, Material_Number_AH1=No Run, Material_Number_AE1=No Run, Status_AH1=, Status_AE1=, Status_JDE=, Q=, R=, S=, T=, U=, V=, W=, X=, Y=, Z=, AA=, AB=, AC=, AD=, AE=, AF=, AG=, AH=, AI=, AJ=, AK=, AL=, AM=, AN=, AO=, AP=, AQ=, AR=, AS=, AT=, AU=, AV=, AW=, AX=, AY=, AZ=, BA=, BB=, BC=, BD=, BE=, BF=, BG=, BH=, BI=, BJ=, BK=, BL=, BM=, BN=, BO=, BP=, BQ=, BR=, BS=, BT=, BU=, BV=, BW=, BX=, BY=, BZ=, CA=, CB=, CC=, CD=, CE=, CF=, CG=, CH=, CI=, CJ=, CK=, CL=, CM=, CN=, CO=, CP=, CQ=, CR=, CS=, CT=, CU=, CV=, CW=, CX=, CY=, CZ=, DA=, DB=, DC=, DD=, DE=, DF=, DG=, DH=, DI=, DJ=, DK=, DL=, DM=, DN=, DO=, DP=, DQ=, DR=, DS=, DT=, DU=, DV=, DW=, DX=, DY=, DZ=, EA=, EB=, EC=, ED=, EE=, EF=, EG=, EH=, EI=, EJ=, EK=, EL=, EM=, EN=, EO=, EP=, EQ=, ER=, ES=, ET=, EU=, EV=, EW=, EX=, EY=, EZ=, FA=, FB=, FC=, FD=, FE=, FF=, FG=, FH=, FI=, FJ=, FK=, FL=, FM=, FN=, FO=, FP=, FQ=, FR=, FS=, FT=, FU=, FV=, FW=, FX=, FY=, FZ=, GA=, GB=, GC=, GD=, GE=, GF=, GG=, GH=, GI=, GJ=, GK=, GL=, GM=, GN=, GO=, GP=, GQ=, GR=, GS=, GT=, GU=, GV=, GW=, GX=, GY=, GZ=, HA=, HB=, HC=, HD=, HE=, HF=, HG=, HH=, HI=, HJ=, HK=, HL=, HM=, HN=, HO=, HP=, HQ=, HR=, HS=, HT=, HU=, HV=, HW=, HX=, HY=, HZ=, IA=, IB=, IC=, ID=, IE=, IF=, IG=, IH=, II=, IJ=, IK=, IL=, IM=, IN=, IO=, IP=, IQ=, IR=, IS=, IT=, IU=}]]>
               </value>
             </param>
           </params>
-          <exception class="java.lang.NullPointerException">
-            <full-stacktrace>
-              <![CDATA[java.lang.NullPointerException
-	at com.mendix.test.MaterialScript.Process_Information_Check(MaterialScript.java:83)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
-	at org.testng.internal.Invoker.invokeMethod(Invoker.java:669)
-	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:877)
-	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1201)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
-	at org.testng.TestRunner.privateRun(TestRunner.java:776)
-	at org.testng.TestRunner.run(TestRunner.java:634)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:425)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:420)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:385)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:334)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1318)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1243)
-	at org.testng.TestNG.runSuites(TestNG.java:1161)
-	at org.testng.TestNG.run(TestNG.java:1129)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-]]>
-            </full-stacktrace>
-          </exception> <!-- java.lang.NullPointerException -->
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Process_Information_Check -->
-      </class> <!-- com.mendix.test.MaterialScript -->
-    </test> <!-- Process_Information_Check_After_Reject -->
-    <test name="HeiPort_ReLogin_LDR" duration-ms="3281" started-at="2019-03-11T07:03:55Z" finished-at="2019-03-11T07:03:58Z">
-      <class name="com.mendix.test.LoginScript">
-        <test-method status="FAIL" signature="openBrowser()[pri:0, instance:com.mendix.test.LoginScript@5e3a8624]" name="openBrowser" duration-ms="3208" started-at="2019-03-11T12:33:55Z" finished-at="2019-03-11T12:33:58Z">
-          <exception class="java.lang.Error">
+          <exception class="org.openqa.selenium.NoSuchElementException">
             <message>
-              <![CDATA[Unresolved compilation problem: 
-	Syntax error on tokens, delete these tokens
-]]>
+              <![CDATA[Unable to find element with xpath == (.//*[text()='1423997']/../../td[9]/div)[2]
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.14.0', revision: 'aacccce0', time: '2018-08-02T20:13:22.693Z'
+System info: host: 'IBM141-PC0F1FB8', ip: '9.251.112.90', os.name: 'Windows 7', os.arch: 'amd64', os.version: '6.1', java.version: '1.8.0_201'
+Driver info: org.openqa.selenium.ie.InternetExplorerDriver
+Capabilities {acceptInsecureCerts: false, browserName: internet explorer, browserVersion: 11, javascriptEnabled: true, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:ieOptions: {browserAttachTimeout: 0, elementScrollBehavior: 0, enablePersistentHover: true, ie.browserCommandLineSwitches: , ie.ensureCleanSession: false, ie.fileUploadDialogTimeout: 3000, ie.forceCreateProcessApi: false, ignoreProtectedModeSettings: false, ignoreZoomSetting: false, initialBrowserUrl: http://localhost:29931/, nativeEvents: true, requireWindowFocus: false}, setWindowRect: true, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}}
+Session ID: fc59448d-5ded-439c-80f4-00ad1b48ebb3
+*** Element info: {Using=xpath, value=(.//*[text()='1423997']/../../td[9]/div)[2]}]]>
             </message>
             <full-stacktrace>
-              <![CDATA[java.lang.Error: Unresolved compilation problem: 
-	Syntax error on tokens, delete these tokens
-
-	at com.mendix.page.VendorPage_NAV.<init>(VendorPage_NAV.java:1351)
-	at com.mendix.tool.PageContainer.initPages(PageContainer.java:49)
-	at com.mendix.tool.PageContainer.<init>(PageContainer.java:36)
-	at com.mendix.tool.SharedDriver.createDriver(SharedDriver.java:27)
-	at com.mendix.test.LoginScript.openBrowser(LoginScript.java:55)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
-	at org.testng.internal.Invoker.invokeMethod(Invoker.java:669)
-	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:877)
-	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1201)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
-	at org.testng.TestRunner.privateRun(TestRunner.java:776)
-	at org.testng.TestRunner.run(TestRunner.java:634)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:425)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:420)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:385)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:334)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1318)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1243)
-	at org.testng.TestNG.runSuites(TestNG.java:1161)
-	at org.testng.TestNG.run(TestNG.java:1129)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+              <![CDATA[org.openqa.selenium.NoSuchElementException: Unable to find element with xpath == (.//*[text()='1423997']/../../td[9]/div)[2]
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.14.0', revision: 'aacccce0', time: '2018-08-02T20:13:22.693Z'
+System info: host: 'IBM141-PC0F1FB8', ip: '9.251.112.90', os.name: 'Windows 7', os.arch: 'amd64', os.version: '6.1', java.version: '1.8.0_201'
+Driver info: org.openqa.selenium.ie.InternetExplorerDriver
+Capabilities {acceptInsecureCerts: false, browserName: internet explorer, browserVersion: 11, javascriptEnabled: true, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:ieOptions: {browserAttachTimeout: 0, elementScrollBehavior: 0, enablePersistentHover: true, ie.browserCommandLineSwitches: , ie.ensureCleanSession: false, ie.fileUploadDialogTimeout: 3000, ie.forceCreateProcessApi: false, ignoreProtectedModeSettings: false, ignoreZoomSetting: false, initialBrowserUrl: http://localhost:29931/, nativeEvents: true, requireWindowFocus: false}, setWindowRect: true, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}}
+Session ID: fc59448d-5ded-439c-80f4-00ad1b48ebb3
+*** Element info: {Using=xpath, value=(.//*[text()='1423997']/../../td[9]/div)[2]}
+at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+at java.lang.reflect.Constructor.newInstance(Unknown Source)
+at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:548)
+at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:322)
+at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:424)
+at org.openqa.selenium.By$ByXPath.findElement(By.java:353)
+at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:314)
+at com.mendix.page.MaterialPage.checkSyndication(MaterialPage.java:2213)
+at com.mendix.test.VendorScript.process_Information_Check_GlobalID_Extend(VendorScript.java:40)
+at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+at java.lang.reflect.Method.invoke(Unknown Source)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+at org.testng.internal.Invoker.invokeMethod(Invoker.java:580)
+at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:716)
+at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:988)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+at org.testng.TestRunner.privateRun(TestRunner.java:648)
+at org.testng.TestRunner.run(TestRunner.java:505)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+at org.testng.TestNG.runSuites(TestNG.java:1049)
+at org.testng.TestNG.run(TestNG.java:1017)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
 ]]>
             </full-stacktrace>
-          </exception> <!-- java.lang.Error -->
+          </exception> <!-- org.openqa.selenium.NoSuchElementException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- process_Information_Check_GlobalID_Extend -->
+      </class> <!-- com.mendix.test.VendorScript -->
+    </test> <!-- Process_Information_Check_Approved -->
+    <test name="HeiPort_Login_LDR_2" duration-ms="8942" started-at="2019-04-02T07:14:01Z" finished-at="2019-04-02T07:14:10Z">
+      <class name="com.mendix.test.LoginScript">
+        <test-method status="PASS" signature="openBrowser()[pri:0, instance:com.mendix.test.LoginScript@42d8062c]" name="openBrowser" duration-ms="2969" started-at="2019-04-02T07:14:01Z" finished-at="2019-04-02T07:14:04Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- openBrowser -->
-        <test-method status="FAIL" signature="loginAsLDR(java.util.Map)[pri:0, instance:com.mendix.test.LoginScript@5e3a8624]" name="loginAsLDR" duration-ms="8" started-at="2019-03-11T12:33:58Z" data-provider="HeiPort_Login" finished-at="2019-03-11T12:33:58Z">
+        <test-method status="PASS" signature="loginAsLDRVendor(java.util.Map)[pri:0, instance:com.mendix.test.LoginScript@42d8062c]" name="loginAsLDRVendor" duration-ms="5909" started-at="2019-04-02T07:14:04Z" data-provider="HeiPort_Login" finished-at="2019-04-02T07:14:10Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[{S.NO=9.0, OpCo=BE01, Test_Case=Create with ref Global Only - SAP Direct Copy with Rejections, Execute=Y, RequestId=1416843, Level1Global=GBDA, Level2Global=GDA, Level1Local=LDS, Level2Loca=LBDA, Syndication=Y, Global_ID=502871, Material_Number_AH1=, Material_Number_AE1=, Status_AH1=, Status_AE1=, Status_JDE=, Q=, R=, S=, T=, U=, V=, W=, X=, Y=, Z=, AA=, AB=, AC=, AD=, AE=, AF=, AG=, AH=, AI=, AJ=, AK=, AL=, AM=, AN=, AO=, AP=, AQ=, AR=, AS=, AT=, AU=, AV=, AW=, AX=, AY=, AZ=, BA=, BB=, BC=, BD=, BE=, BF=, BG=, BH=, BI=, BJ=, BK=, BL=, BM=, BN=, BO=, BP=, BQ=, BR=, BS=, BT=, BU=, BV=, BW=, BX=, BY=, BZ=, CA=, CB=, CC=, CD=, CE=, CF=, CG=, CH=, CI=, CJ=, CK=, CL=, CM=, CN=, CO=, CP=, CQ=, CR=, CS=, CT=, CU=, CV=, CW=, CX=, CY=, CZ=, DA=, DB=, DC=, DD=, DE=, DF=, DG=, DH=, DI=, DJ=, DK=, DL=, DM=, DN=, DO=, DP=, DQ=, DR=, DS=, DT=, DU=, DV=, DW=, DX=, DY=, DZ=, EA=, EB=, EC=, ED=, EE=, EF=, EG=, EH=, EI=, EJ=, EK=, EL=, EM=, EN=, EO=, EP=, EQ=, ER=, ES=, ET=, EU=, EV=, EW=, EX=, EY=, EZ=, FA=, FB=, FC=, FD=, FE=, FF=, FG=, FH=, FI=, FJ=, FK=, FL=, FM=, FN=, FO=, FP=, FQ=, FR=, FS=, FT=, FU=, FV=, FW=, FX=, FY=, FZ=, GA=, GB=, GC=, GD=, GE=, GF=, GG=, GH=, GI=, GJ=, GK=, GL=, GM=, GN=, GO=, GP=, GQ=, GR=, GS=, GT=, GU=, GV=, GW=, GX=, GY=, GZ=, HA=, HB=, HC=, HD=, HE=, HF=, HG=, HH=, HI=, HJ=, HK=, HL=, HM=, HN=, HO=, HP=, HQ=, HR=, HS=, HT=, HU=, HV=, HW=, HX=, HY=, HZ=, IA=, IB=, IC=, ID=, IE=, IF=, IG=, IH=, II=, IJ=, IK=, IL=, IM=, IN=, IO=, IP=, IQ=, IR=, IS=, IT=, IU=}]]>
+                <![CDATA[{S.NO=14.0, OpCo=BE01, Test_Case=14.Create_Vendor_with_Questionnaire_only_Global, Execute=Y, RequestId=1423997, Level1Global=GBDA, Level2Global=GDA, Level1Local=LDS, Level2Loca=LBDA, Syndication=Y, Global_ID=38148.0, Material_Number_AH1=No Run, Material_Number_AE1=No Run, Status_AH1=, Status_AE1=, Status_JDE=, Q=, R=, S=, T=, U=, V=, W=, X=, Y=, Z=, AA=, AB=, AC=, AD=, AE=, AF=, AG=, AH=, AI=, AJ=, AK=, AL=, AM=, AN=, AO=, AP=, AQ=, AR=, AS=, AT=, AU=, AV=, AW=, AX=, AY=, AZ=, BA=, BB=, BC=, BD=, BE=, BF=, BG=, BH=, BI=, BJ=, BK=, BL=, BM=, BN=, BO=, BP=, BQ=, BR=, BS=, BT=, BU=, BV=, BW=, BX=, BY=, BZ=, CA=, CB=, CC=, CD=, CE=, CF=, CG=, CH=, CI=, CJ=, CK=, CL=, CM=, CN=, CO=, CP=, CQ=, CR=, CS=, CT=, CU=, CV=, CW=, CX=, CY=, CZ=, DA=, DB=, DC=, DD=, DE=, DF=, DG=, DH=, DI=, DJ=, DK=, DL=, DM=, DN=, DO=, DP=, DQ=, DR=, DS=, DT=, DU=, DV=, DW=, DX=, DY=, DZ=, EA=, EB=, EC=, ED=, EE=, EF=, EG=, EH=, EI=, EJ=, EK=, EL=, EM=, EN=, EO=, EP=, EQ=, ER=, ES=, ET=, EU=, EV=, EW=, EX=, EY=, EZ=, FA=, FB=, FC=, FD=, FE=, FF=, FG=, FH=, FI=, FJ=, FK=, FL=, FM=, FN=, FO=, FP=, FQ=, FR=, FS=, FT=, FU=, FV=, FW=, FX=, FY=, FZ=, GA=, GB=, GC=, GD=, GE=, GF=, GG=, GH=, GI=, GJ=, GK=, GL=, GM=, GN=, GO=, GP=, GQ=, GR=, GS=, GT=, GU=, GV=, GW=, GX=, GY=, GZ=, HA=, HB=, HC=, HD=, HE=, HF=, HG=, HH=, HI=, HJ=, HK=, HL=, HM=, HN=, HO=, HP=, HQ=, HR=, HS=, HT=, HU=, HV=, HW=, HX=, HY=, HZ=, IA=, IB=, IC=, ID=, IE=, IF=, IG=, IH=, II=, IJ=, IK=, IL=, IM=, IN=, IO=, IP=, IQ=, IR=, IS=, IT=, IU=}]]>
               </value>
             </param>
           </params>
-          <exception class="java.lang.NullPointerException">
-            <full-stacktrace>
-              <![CDATA[java.lang.NullPointerException
-	at com.mendix.test.LoginScript.loginAsLDR(LoginScript.java:71)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
-	at org.testng.internal.Invoker.invokeMethod(Invoker.java:669)
-	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:877)
-	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1201)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
-	at org.testng.TestRunner.privateRun(TestRunner.java:776)
-	at org.testng.TestRunner.run(TestRunner.java:634)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:425)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:420)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:385)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:334)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1318)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1243)
-	at org.testng.TestNG.runSuites(TestNG.java:1161)
-	at org.testng.TestNG.run(TestNG.java:1129)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-]]>
-            </full-stacktrace>
-          </exception> <!-- java.lang.NullPointerException -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- loginAsLDR -->
+        </test-method> <!-- loginAsLDRVendor -->
       </class> <!-- com.mendix.test.LoginScript -->
-    </test> <!-- HeiPort_ReLogin_LDR -->
-    <test name="Material_Resubmit_To_Approval" duration-ms="4" started-at="2019-03-11T07:03:59Z" finished-at="2019-03-11T07:03:59Z">
-      <class name="com.mendix.test.MaterialScript">
-        <test-method status="FAIL" signature="navigate_To_MDM_Workflow()[pri:0, instance:com.mendix.test.MaterialScript@7cd62f43]" name="navigate_To_MDM_Workflow" duration-ms="1" started-at="2019-03-11T12:33:59Z" finished-at="2019-03-11T12:33:59Z">
-          <exception class="java.lang.NullPointerException">
-            <full-stacktrace>
-              <![CDATA[java.lang.NullPointerException
-	at com.mendix.test.MaterialScript.navigate_To_MDM_Workflow(MaterialScript.java:673)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
-	at org.testng.internal.Invoker.invokeMethod(Invoker.java:669)
-	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:877)
-	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1201)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
-	at org.testng.TestRunner.privateRun(TestRunner.java:776)
-	at org.testng.TestRunner.run(TestRunner.java:634)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:425)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:420)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:385)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:334)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1318)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1243)
-	at org.testng.TestNG.runSuites(TestNG.java:1161)
-	at org.testng.TestNG.run(TestNG.java:1129)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-]]>
-            </full-stacktrace>
-          </exception> <!-- java.lang.NullPointerException -->
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- navigate_To_MDM_Workflow -->
-      </class> <!-- com.mendix.test.MaterialScript -->
-    </test> <!-- Material_Resubmit_To_Approval -->
-    <test name="Process_Information_ReCheck_After_Resubmit" duration-ms="5569" started-at="2019-03-11T07:03:59Z" finished-at="2019-03-11T07:04:04Z">
-      <class name="com.mendix.test.MaterialScript">
-        <test-method status="FAIL" signature="Process_Information_Check(java.util.Map)[pri:0, instance:com.mendix.test.MaterialScript@1794d431]" name="Process_Information_Check" duration-ms="5502" started-at="2019-03-11T12:33:59Z" data-provider="Process_Information_Check" finished-at="2019-03-11T12:34:04Z">
+    </test> <!-- HeiPort_Login_LDR_2 -->
+    <test name="Vendor_Create_Syndication_Check" duration-ms="129686" started-at="2019-04-02T07:14:10Z" finished-at="2019-04-02T07:16:20Z">
+      <class name="com.mendix.test.VendorScript">
+        <test-method status="FAIL" signature="Vendor_Create_Syndication_Check_SAP(java.util.Map)[pri:0, instance:com.mendix.test.VendorScript@5bcea91b]" name="Vendor_Create_Syndication_Check_SAP" duration-ms="129596" started-at="2019-04-02T07:14:10Z" data-provider="Process_Information_Check" finished-at="2019-04-02T07:16:20Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[{S.NO=9.0, OpCo=BE01, Test_Case=Create with ref Global Only - SAP Direct Copy with Rejections, Execute=Y, RequestId=1416843, Level1Global=GBDA, Level2Global=GDA, Level1Local=LDS, Level2Loca=LBDA, Syndication=Y, Global_ID=502871, Material_Number_AH1=, Material_Number_AE1=, Status_AH1=, Status_AE1=, Status_JDE=, Q=, R=, S=, T=, U=, V=, W=, X=, Y=, Z=, AA=, AB=, AC=, AD=, AE=, AF=, AG=, AH=, AI=, AJ=, AK=, AL=, AM=, AN=, AO=, AP=, AQ=, AR=, AS=, AT=, AU=, AV=, AW=, AX=, AY=, AZ=, BA=, BB=, BC=, BD=, BE=, BF=, BG=, BH=, BI=, BJ=, BK=, BL=, BM=, BN=, BO=, BP=, BQ=, BR=, BS=, BT=, BU=, BV=, BW=, BX=, BY=, BZ=, CA=, CB=, CC=, CD=, CE=, CF=, CG=, CH=, CI=, CJ=, CK=, CL=, CM=, CN=, CO=, CP=, CQ=, CR=, CS=, CT=, CU=, CV=, CW=, CX=, CY=, CZ=, DA=, DB=, DC=, DD=, DE=, DF=, DG=, DH=, DI=, DJ=, DK=, DL=, DM=, DN=, DO=, DP=, DQ=, DR=, DS=, DT=, DU=, DV=, DW=, DX=, DY=, DZ=, EA=, EB=, EC=, ED=, EE=, EF=, EG=, EH=, EI=, EJ=, EK=, EL=, EM=, EN=, EO=, EP=, EQ=, ER=, ES=, ET=, EU=, EV=, EW=, EX=, EY=, EZ=, FA=, FB=, FC=, FD=, FE=, FF=, FG=, FH=, FI=, FJ=, FK=, FL=, FM=, FN=, FO=, FP=, FQ=, FR=, FS=, FT=, FU=, FV=, FW=, FX=, FY=, FZ=, GA=, GB=, GC=, GD=, GE=, GF=, GG=, GH=, GI=, GJ=, GK=, GL=, GM=, GN=, GO=, GP=, GQ=, GR=, GS=, GT=, GU=, GV=, GW=, GX=, GY=, GZ=, HA=, HB=, HC=, HD=, HE=, HF=, HG=, HH=, HI=, HJ=, HK=, HL=, HM=, HN=, HO=, HP=, HQ=, HR=, HS=, HT=, HU=, HV=, HW=, HX=, HY=, HZ=, IA=, IB=, IC=, ID=, IE=, IF=, IG=, IH=, II=, IJ=, IK=, IL=, IM=, IN=, IO=, IP=, IQ=, IR=, IS=, IT=, IU=}]]>
+                <![CDATA[{S.NO=14.0, OpCo=BE01, Test_Case=14.Create_Vendor_with_Questionnaire_only_Global, Execute=Y, RequestId=1423997, Level1Global=GBDA, Level2Global=GDA, Level1Local=LDS, Level2Loca=LBDA, Syndication=Y, Global_ID=38148.0, Material_Number_AH1=No Run, Material_Number_AE1=No Run, Status_AH1=, Status_AE1=, Status_JDE=, Q=, R=, S=, T=, U=, V=, W=, X=, Y=, Z=, AA=, AB=, AC=, AD=, AE=, AF=, AG=, AH=, AI=, AJ=, AK=, AL=, AM=, AN=, AO=, AP=, AQ=, AR=, AS=, AT=, AU=, AV=, AW=, AX=, AY=, AZ=, BA=, BB=, BC=, BD=, BE=, BF=, BG=, BH=, BI=, BJ=, BK=, BL=, BM=, BN=, BO=, BP=, BQ=, BR=, BS=, BT=, BU=, BV=, BW=, BX=, BY=, BZ=, CA=, CB=, CC=, CD=, CE=, CF=, CG=, CH=, CI=, CJ=, CK=, CL=, CM=, CN=, CO=, CP=, CQ=, CR=, CS=, CT=, CU=, CV=, CW=, CX=, CY=, CZ=, DA=, DB=, DC=, DD=, DE=, DF=, DG=, DH=, DI=, DJ=, DK=, DL=, DM=, DN=, DO=, DP=, DQ=, DR=, DS=, DT=, DU=, DV=, DW=, DX=, DY=, DZ=, EA=, EB=, EC=, ED=, EE=, EF=, EG=, EH=, EI=, EJ=, EK=, EL=, EM=, EN=, EO=, EP=, EQ=, ER=, ES=, ET=, EU=, EV=, EW=, EX=, EY=, EZ=, FA=, FB=, FC=, FD=, FE=, FF=, FG=, FH=, FI=, FJ=, FK=, FL=, FM=, FN=, FO=, FP=, FQ=, FR=, FS=, FT=, FU=, FV=, FW=, FX=, FY=, FZ=, GA=, GB=, GC=, GD=, GE=, GF=, GG=, GH=, GI=, GJ=, GK=, GL=, GM=, GN=, GO=, GP=, GQ=, GR=, GS=, GT=, GU=, GV=, GW=, GX=, GY=, GZ=, HA=, HB=, HC=, HD=, HE=, HF=, HG=, HH=, HI=, HJ=, HK=, HL=, HM=, HN=, HO=, HP=, HQ=, HR=, HS=, HT=, HU=, HV=, HW=, HX=, HY=, HZ=, IA=, IB=, IC=, ID=, IE=, IF=, IG=, IH=, II=, IJ=, IK=, IL=, IM=, IN=, IO=, IP=, IQ=, IR=, IS=, IT=, IU=}]]>
               </value>
             </param>
           </params>
-          <exception class="java.lang.NullPointerException">
-            <full-stacktrace>
-              <![CDATA[java.lang.NullPointerException
-	at com.mendix.test.MaterialScript.Process_Information_Check(MaterialScript.java:83)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
-	at org.testng.internal.Invoker.invokeMethod(Invoker.java:669)
-	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:877)
-	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1201)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
-	at org.testng.TestRunner.privateRun(TestRunner.java:776)
-	at org.testng.TestRunner.run(TestRunner.java:634)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:425)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:420)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:385)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:334)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1318)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1243)
-	at org.testng.TestNG.runSuites(TestNG.java:1161)
-	at org.testng.TestNG.run(TestNG.java:1129)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-]]>
-            </full-stacktrace>
-          </exception> <!-- java.lang.NullPointerException -->
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Process_Information_Check -->
-      </class> <!-- com.mendix.test.MaterialScript -->
-    </test> <!-- Process_Information_ReCheck_After_Resubmit -->
-    <test name="HeiPort_ReLogin_GDA" duration-ms="3331" started-at="2019-03-11T07:04:04Z" finished-at="2019-03-11T07:04:08Z">
-      <class name="com.mendix.test.LoginScript">
-        <test-method status="FAIL" signature="openBrowser()[pri:0, instance:com.mendix.test.LoginScript@1a968a59]" name="openBrowser" duration-ms="3305" started-at="2019-03-11T12:34:04Z" finished-at="2019-03-11T12:34:07Z">
-          <exception class="java.lang.Error">
+          <exception class="org.openqa.selenium.NoSuchWindowException">
             <message>
-              <![CDATA[Unresolved compilation problem: 
-	Syntax error on tokens, delete these tokens
-]]>
+              <![CDATA[No window found
+Build info: version: '3.14.0', revision: 'aacccce0', time: '2018-08-02T20:13:22.693Z'
+System info: host: 'IBM141-PC0F1FB8', ip: '9.251.112.90', os.name: 'Windows 7', os.arch: 'amd64', os.version: '6.1', java.version: '1.8.0_201'
+Driver info: org.openqa.selenium.ie.InternetExplorerDriver
+Capabilities {acceptInsecureCerts: false, browserName: internet explorer, browserVersion: 11, javascriptEnabled: true, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:ieOptions: {browserAttachTimeout: 0, elementScrollBehavior: 0, enablePersistentHover: true, ie.browserCommandLineSwitches: , ie.ensureCleanSession: false, ie.fileUploadDialogTimeout: 3000, ie.forceCreateProcessApi: false, ignoreProtectedModeSettings: false, ignoreZoomSetting: false, initialBrowserUrl: http://localhost:34110/, nativeEvents: true, requireWindowFocus: false}, setWindowRect: true, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}}
+Session ID: 97279068-e1e9-40bb-b562-67acdc236191]]>
             </message>
             <full-stacktrace>
-              <![CDATA[java.lang.Error: Unresolved compilation problem: 
-	Syntax error on tokens, delete these tokens
-
-	at com.mendix.page.VendorPage_NAV.<init>(VendorPage_NAV.java:1351)
-	at com.mendix.tool.PageContainer.initPages(PageContainer.java:49)
-	at com.mendix.tool.PageContainer.<init>(PageContainer.java:36)
-	at com.mendix.tool.SharedDriver.createDriver(SharedDriver.java:27)
-	at com.mendix.test.LoginScript.openBrowser(LoginScript.java:55)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
-	at org.testng.internal.Invoker.invokeMethod(Invoker.java:669)
-	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:877)
-	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1201)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
-	at org.testng.TestRunner.privateRun(TestRunner.java:776)
-	at org.testng.TestRunner.run(TestRunner.java:634)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:425)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:420)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:385)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:334)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1318)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1243)
-	at org.testng.TestNG.runSuites(TestNG.java:1161)
-	at org.testng.TestNG.run(TestNG.java:1129)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+              <![CDATA[org.openqa.selenium.NoSuchWindowException: No window found
+Build info: version: '3.14.0', revision: 'aacccce0', time: '2018-08-02T20:13:22.693Z'
+System info: host: 'IBM141-PC0F1FB8', ip: '9.251.112.90', os.name: 'Windows 7', os.arch: 'amd64', os.version: '6.1', java.version: '1.8.0_201'
+Driver info: org.openqa.selenium.ie.InternetExplorerDriver
+Capabilities {acceptInsecureCerts: false, browserName: internet explorer, browserVersion: 11, javascriptEnabled: true, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:ieOptions: {browserAttachTimeout: 0, elementScrollBehavior: 0, enablePersistentHover: true, ie.browserCommandLineSwitches: , ie.ensureCleanSession: false, ie.fileUploadDialogTimeout: 3000, ie.forceCreateProcessApi: false, ignoreProtectedModeSettings: false, ignoreZoomSetting: false, initialBrowserUrl: http://localhost:34110/, nativeEvents: true, requireWindowFocus: false}, setWindowRect: true, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}}
+Session ID: 97279068-e1e9-40bb-b562-67acdc236191
+at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+at java.lang.reflect.Constructor.newInstance(Unknown Source)
+at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:548)
+at org.openqa.selenium.remote.RemoteWebDriver$RemoteTargetLocator.window(RemoteWebDriver.java:899)
+at com.mendix.page.VendorPage.advancedSearch(VendorPage.java:822)
+at com.mendix.test.VendorScript.Vendor_Create_Syndication_Check_SAP(VendorScript.java:250)
+at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+at java.lang.reflect.Method.invoke(Unknown Source)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+at org.testng.internal.Invoker.invokeMethod(Invoker.java:580)
+at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:716)
+at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:988)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+at org.testng.TestRunner.privateRun(TestRunner.java:648)
+at org.testng.TestRunner.run(TestRunner.java:505)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+at org.testng.TestNG.runSuites(TestNG.java:1049)
+at org.testng.TestNG.run(TestNG.java:1017)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
 ]]>
             </full-stacktrace>
-          </exception> <!-- java.lang.Error -->
+          </exception> <!-- org.openqa.selenium.NoSuchWindowException -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- openBrowser -->
-        <test-method status="FAIL" signature="loginAsGDA()[pri:0, instance:com.mendix.test.LoginScript@1a968a59]" name="loginAsGDA" duration-ms="21" started-at="2019-03-11T12:34:07Z" finished-at="2019-03-11T12:34:08Z">
-          <exception class="java.lang.NullPointerException">
-            <full-stacktrace>
-              <![CDATA[java.lang.NullPointerException
-	at com.mendix.test.LoginScript.loginAsGDA(LoginScript.java:195)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
-	at org.testng.internal.Invoker.invokeMethod(Invoker.java:669)
-	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:877)
-	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1201)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
-	at org.testng.TestRunner.privateRun(TestRunner.java:776)
-	at org.testng.TestRunner.run(TestRunner.java:634)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:425)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:420)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:385)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:334)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1318)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1243)
-	at org.testng.TestNG.runSuites(TestNG.java:1161)
-	at org.testng.TestNG.run(TestNG.java:1129)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-]]>
-            </full-stacktrace>
-          </exception> <!-- java.lang.NullPointerException -->
+        </test-method> <!-- Vendor_Create_Syndication_Check_SAP -->
+        <test-method status="PASS" signature="launchUFT_SAP_Vendor()[pri:0, instance:com.mendix.test.VendorScript@5bcea91b]" name="launchUFT_SAP_Vendor" duration-ms="21" started-at="2019-04-02T07:16:20Z" finished-at="2019-04-02T07:16:20Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- loginAsGDA -->
-      </class> <!-- com.mendix.test.LoginScript -->
-    </test> <!-- HeiPort_ReLogin_GDA -->
-    <test name="Material_Create_Review_Global_Data_Approve_GDA" duration-ms="78" started-at="2019-03-11T07:04:08Z" finished-at="2019-03-11T07:04:08Z">
-      <class name="com.mendix.test.MaterialScript">
-        <test-method status="FAIL" signature="Material_Create_Review_Global_Data_Approve_GDA(java.util.Map)[pri:0, instance:com.mendix.test.MaterialScript@4dfa3a9d]" name="Material_Create_Review_Global_Data_Approve_GDA" duration-ms="2" started-at="2019-03-11T12:34:08Z" data-provider="Process_Information_Check" finished-at="2019-03-11T12:34:08Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[{S.NO=9.0, OpCo=BE01, Test_Case=Create with ref Global Only - SAP Direct Copy with Rejections, Execute=Y, RequestId=1416843, Level1Global=GBDA, Level2Global=GDA, Level1Local=LDS, Level2Loca=LBDA, Syndication=Y, Global_ID=502871, Material_Number_AH1=, Material_Number_AE1=, Status_AH1=, Status_AE1=, Status_JDE=, Q=, R=, S=, T=, U=, V=, W=, X=, Y=, Z=, AA=, AB=, AC=, AD=, AE=, AF=, AG=, AH=, AI=, AJ=, AK=, AL=, AM=, AN=, AO=, AP=, AQ=, AR=, AS=, AT=, AU=, AV=, AW=, AX=, AY=, AZ=, BA=, BB=, BC=, BD=, BE=, BF=, BG=, BH=, BI=, BJ=, BK=, BL=, BM=, BN=, BO=, BP=, BQ=, BR=, BS=, BT=, BU=, BV=, BW=, BX=, BY=, BZ=, CA=, CB=, CC=, CD=, CE=, CF=, CG=, CH=, CI=, CJ=, CK=, CL=, CM=, CN=, CO=, CP=, CQ=, CR=, CS=, CT=, CU=, CV=, CW=, CX=, CY=, CZ=, DA=, DB=, DC=, DD=, DE=, DF=, DG=, DH=, DI=, DJ=, DK=, DL=, DM=, DN=, DO=, DP=, DQ=, DR=, DS=, DT=, DU=, DV=, DW=, DX=, DY=, DZ=, EA=, EB=, EC=, ED=, EE=, EF=, EG=, EH=, EI=, EJ=, EK=, EL=, EM=, EN=, EO=, EP=, EQ=, ER=, ES=, ET=, EU=, EV=, EW=, EX=, EY=, EZ=, FA=, FB=, FC=, FD=, FE=, FF=, FG=, FH=, FI=, FJ=, FK=, FL=, FM=, FN=, FO=, FP=, FQ=, FR=, FS=, FT=, FU=, FV=, FW=, FX=, FY=, FZ=, GA=, GB=, GC=, GD=, GE=, GF=, GG=, GH=, GI=, GJ=, GK=, GL=, GM=, GN=, GO=, GP=, GQ=, GR=, GS=, GT=, GU=, GV=, GW=, GX=, GY=, GZ=, HA=, HB=, HC=, HD=, HE=, HF=, HG=, HH=, HI=, HJ=, HK=, HL=, HM=, HN=, HO=, HP=, HQ=, HR=, HS=, HT=, HU=, HV=, HW=, HX=, HY=, HZ=, IA=, IB=, IC=, ID=, IE=, IF=, IG=, IH=, II=, IJ=, IK=, IL=, IM=, IN=, IO=, IP=, IQ=, IR=, IS=, IT=, IU=}]]>
-              </value>
-            </param>
-          </params>
-          <exception class="java.lang.NullPointerException">
-            <full-stacktrace>
-              <![CDATA[java.lang.NullPointerException
-	at com.mendix.test.MaterialScript.Material_Create_Review_Global_Data_Approve_GDA(MaterialScript.java:205)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
-	at org.testng.internal.Invoker.invokeMethod(Invoker.java:669)
-	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:877)
-	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1201)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
-	at org.testng.TestRunner.privateRun(TestRunner.java:776)
-	at org.testng.TestRunner.run(TestRunner.java:634)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:425)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:420)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:385)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:334)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1318)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1243)
-	at org.testng.TestNG.runSuites(TestNG.java:1161)
-	at org.testng.TestNG.run(TestNG.java:1129)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-]]>
-            </full-stacktrace>
-          </exception> <!-- java.lang.NullPointerException -->
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Material_Create_Review_Global_Data_Approve_GDA -->
-      </class> <!-- com.mendix.test.MaterialScript -->
-    </test> <!-- Material_Create_Review_Global_Data_Approve_GDA -->
-    <test name="Process_Information_Check_Syndication" duration-ms="5564" started-at="2019-03-11T07:04:08Z" finished-at="2019-03-11T07:04:13Z">
-      <class name="com.mendix.test.MaterialScript">
-        <test-method status="FAIL" signature="Process_Information_Check(java.util.Map)[pri:0, instance:com.mendix.test.MaterialScript@57fffcd7]" name="Process_Information_Check" duration-ms="5505" started-at="2019-03-11T12:34:08Z" data-provider="Process_Information_Check" finished-at="2019-03-11T12:34:13Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[{S.NO=9.0, OpCo=BE01, Test_Case=Create with ref Global Only - SAP Direct Copy with Rejections, Execute=Y, RequestId=1416843, Level1Global=GBDA, Level2Global=GDA, Level1Local=LDS, Level2Loca=LBDA, Syndication=Y, Global_ID=502871, Material_Number_AH1=, Material_Number_AE1=, Status_AH1=, Status_AE1=, Status_JDE=, Q=, R=, S=, T=, U=, V=, W=, X=, Y=, Z=, AA=, AB=, AC=, AD=, AE=, AF=, AG=, AH=, AI=, AJ=, AK=, AL=, AM=, AN=, AO=, AP=, AQ=, AR=, AS=, AT=, AU=, AV=, AW=, AX=, AY=, AZ=, BA=, BB=, BC=, BD=, BE=, BF=, BG=, BH=, BI=, BJ=, BK=, BL=, BM=, BN=, BO=, BP=, BQ=, BR=, BS=, BT=, BU=, BV=, BW=, BX=, BY=, BZ=, CA=, CB=, CC=, CD=, CE=, CF=, CG=, CH=, CI=, CJ=, CK=, CL=, CM=, CN=, CO=, CP=, CQ=, CR=, CS=, CT=, CU=, CV=, CW=, CX=, CY=, CZ=, DA=, DB=, DC=, DD=, DE=, DF=, DG=, DH=, DI=, DJ=, DK=, DL=, DM=, DN=, DO=, DP=, DQ=, DR=, DS=, DT=, DU=, DV=, DW=, DX=, DY=, DZ=, EA=, EB=, EC=, ED=, EE=, EF=, EG=, EH=, EI=, EJ=, EK=, EL=, EM=, EN=, EO=, EP=, EQ=, ER=, ES=, ET=, EU=, EV=, EW=, EX=, EY=, EZ=, FA=, FB=, FC=, FD=, FE=, FF=, FG=, FH=, FI=, FJ=, FK=, FL=, FM=, FN=, FO=, FP=, FQ=, FR=, FS=, FT=, FU=, FV=, FW=, FX=, FY=, FZ=, GA=, GB=, GC=, GD=, GE=, GF=, GG=, GH=, GI=, GJ=, GK=, GL=, GM=, GN=, GO=, GP=, GQ=, GR=, GS=, GT=, GU=, GV=, GW=, GX=, GY=, GZ=, HA=, HB=, HC=, HD=, HE=, HF=, HG=, HH=, HI=, HJ=, HK=, HL=, HM=, HN=, HO=, HP=, HQ=, HR=, HS=, HT=, HU=, HV=, HW=, HX=, HY=, HZ=, IA=, IB=, IC=, ID=, IE=, IF=, IG=, IH=, II=, IJ=, IK=, IL=, IM=, IN=, IO=, IP=, IQ=, IR=, IS=, IT=, IU=}]]>
-              </value>
-            </param>
-          </params>
-          <exception class="java.lang.NullPointerException">
-            <full-stacktrace>
-              <![CDATA[java.lang.NullPointerException
-	at com.mendix.test.MaterialScript.Process_Information_Check(MaterialScript.java:83)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
-	at org.testng.internal.Invoker.invokeMethod(Invoker.java:669)
-	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:877)
-	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1201)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
-	at org.testng.TestRunner.privateRun(TestRunner.java:776)
-	at org.testng.TestRunner.run(TestRunner.java:634)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:425)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:420)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:385)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:334)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1318)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1243)
-	at org.testng.TestNG.runSuites(TestNG.java:1161)
-	at org.testng.TestNG.run(TestNG.java:1129)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-]]>
-            </full-stacktrace>
-          </exception> <!-- java.lang.NullPointerException -->
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Process_Information_Check -->
-      </class> <!-- com.mendix.test.MaterialScript -->
-    </test> <!-- Process_Information_Check_Syndication -->
-    <test name="HeiPort_Login_LDR_Syndication" duration-ms="3271" started-at="2019-03-11T07:04:13Z" finished-at="2019-03-11T07:04:17Z">
+        </test-method> <!-- launchUFT_SAP_Vendor -->
+      </class> <!-- com.mendix.test.VendorScript -->
       <class name="com.mendix.test.LoginScript">
-        <test-method status="FAIL" signature="openBrowser()[pri:0, instance:com.mendix.test.LoginScript@4f7d0008]" name="openBrowser" duration-ms="3205" started-at="2019-03-11T12:34:13Z" finished-at="2019-03-11T12:34:16Z">
-          <exception class="java.lang.Error">
-            <message>
-              <![CDATA[Unresolved compilation problem: 
-	Syntax error on tokens, delete these tokens
-]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[java.lang.Error: Unresolved compilation problem: 
-	Syntax error on tokens, delete these tokens
-
-	at com.mendix.page.VendorPage_NAV.<init>(VendorPage_NAV.java:1351)
-	at com.mendix.tool.PageContainer.initPages(PageContainer.java:49)
-	at com.mendix.tool.PageContainer.<init>(PageContainer.java:36)
-	at com.mendix.tool.SharedDriver.createDriver(SharedDriver.java:27)
-	at com.mendix.test.LoginScript.openBrowser(LoginScript.java:55)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
-	at org.testng.internal.Invoker.invokeMethod(Invoker.java:669)
-	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:877)
-	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1201)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
-	at org.testng.TestRunner.privateRun(TestRunner.java:776)
-	at org.testng.TestRunner.run(TestRunner.java:634)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:425)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:420)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:385)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:334)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1318)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1243)
-	at org.testng.TestNG.runSuites(TestNG.java:1161)
-	at org.testng.TestNG.run(TestNG.java:1129)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-]]>
-            </full-stacktrace>
-          </exception> <!-- java.lang.Error -->
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- openBrowser -->
-        <test-method status="FAIL" signature="loginAsLDR(java.util.Map)[pri:0, instance:com.mendix.test.LoginScript@4f7d0008]" name="loginAsLDR" duration-ms="8" started-at="2019-03-11T12:34:16Z" data-provider="HeiPort_Login" finished-at="2019-03-11T12:34:17Z">
+        <test-method status="PASS" signature="setup(org.testng.ITestContext)[pri:0, instance:com.mendix.test.LoginScript@42d8062c]" name="setup" is-config="true" duration-ms="143" started-at="2019-04-02T07:09:44Z" finished-at="2019-04-02T07:09:44Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[{S.NO=9.0, OpCo=BE01, Test_Case=Create with ref Global Only - SAP Direct Copy with Rejections, Execute=Y, RequestId=1416843, Level1Global=GBDA, Level2Global=GDA, Level1Local=LDS, Level2Loca=LBDA, Syndication=Y, Global_ID=502871, Material_Number_AH1=, Material_Number_AE1=, Status_AH1=, Status_AE1=, Status_JDE=, Q=, R=, S=, T=, U=, V=, W=, X=, Y=, Z=, AA=, AB=, AC=, AD=, AE=, AF=, AG=, AH=, AI=, AJ=, AK=, AL=, AM=, AN=, AO=, AP=, AQ=, AR=, AS=, AT=, AU=, AV=, AW=, AX=, AY=, AZ=, BA=, BB=, BC=, BD=, BE=, BF=, BG=, BH=, BI=, BJ=, BK=, BL=, BM=, BN=, BO=, BP=, BQ=, BR=, BS=, BT=, BU=, BV=, BW=, BX=, BY=, BZ=, CA=, CB=, CC=, CD=, CE=, CF=, CG=, CH=, CI=, CJ=, CK=, CL=, CM=, CN=, CO=, CP=, CQ=, CR=, CS=, CT=, CU=, CV=, CW=, CX=, CY=, CZ=, DA=, DB=, DC=, DD=, DE=, DF=, DG=, DH=, DI=, DJ=, DK=, DL=, DM=, DN=, DO=, DP=, DQ=, DR=, DS=, DT=, DU=, DV=, DW=, DX=, DY=, DZ=, EA=, EB=, EC=, ED=, EE=, EF=, EG=, EH=, EI=, EJ=, EK=, EL=, EM=, EN=, EO=, EP=, EQ=, ER=, ES=, ET=, EU=, EV=, EW=, EX=, EY=, EZ=, FA=, FB=, FC=, FD=, FE=, FF=, FG=, FH=, FI=, FJ=, FK=, FL=, FM=, FN=, FO=, FP=, FQ=, FR=, FS=, FT=, FU=, FV=, FW=, FX=, FY=, FZ=, GA=, GB=, GC=, GD=, GE=, GF=, GG=, GH=, GI=, GJ=, GK=, GL=, GM=, GN=, GO=, GP=, GQ=, GR=, GS=, GT=, GU=, GV=, GW=, GX=, GY=, GZ=, HA=, HB=, HC=, HD=, HE=, HF=, HG=, HH=, HI=, HJ=, HK=, HL=, HM=, HN=, HO=, HP=, HQ=, HR=, HS=, HT=, HU=, HV=, HW=, HX=, HY=, HZ=, IA=, IB=, IC=, ID=, IE=, IF=, IG=, IH=, II=, IJ=, IK=, IL=, IM=, IN=, IO=, IP=, IQ=, IR=, IS=, IT=, IU=}]]>
-              </value>
-            </param>
-          </params>
-          <exception class="java.lang.NullPointerException">
-            <full-stacktrace>
-              <![CDATA[java.lang.NullPointerException
-	at com.mendix.test.LoginScript.loginAsLDR(LoginScript.java:71)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
-	at org.testng.internal.Invoker.invokeMethod(Invoker.java:669)
-	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:877)
-	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1201)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
-	at org.testng.TestRunner.privateRun(TestRunner.java:776)
-	at org.testng.TestRunner.run(TestRunner.java:634)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:425)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:420)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:385)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:334)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1318)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1243)
-	at org.testng.TestNG.runSuites(TestNG.java:1161)
-	at org.testng.TestNG.run(TestNG.java:1129)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-]]>
-            </full-stacktrace>
-          </exception> <!-- java.lang.NullPointerException -->
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- loginAsLDR -->
-      </class> <!-- com.mendix.test.LoginScript -->
-    </test> <!-- HeiPort_Login_LDR_Syndication -->
-    <test name="Material_Create_Syndication_Check" duration-ms="51" started-at="2019-03-11T07:04:17Z" finished-at="2019-03-11T07:04:17Z">
-      <class name="com.mendix.test.LoginScript">
-        <test-method status="PASS" signature="setup(org.testng.ITestContext)[pri:0, instance:com.mendix.test.LoginScript@4f7d0008]" name="setup" is-config="true" duration-ms="116" started-at="2019-03-11T12:33:35Z" finished-at="2019-03-11T12:33:35Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[org.testng.TestRunner@c8b96ec]]>
+                <![CDATA[org.testng.TestRunner@1697f2b3]]>
               </value>
             </param>
           </params>
@@ -848,51 +279,6 @@
           </reporter-output>
         </test-method> <!-- setup -->
       </class> <!-- com.mendix.test.LoginScript -->
-      <class name="com.mendix.test.MaterialScript">
-        <test-method status="FAIL" signature="Material_Create_Syndication_Check(java.util.Map)[pri:0, instance:com.mendix.test.MaterialScript@4cf777e8]" name="Material_Create_Syndication_Check" duration-ms="1" started-at="2019-03-11T12:34:17Z" data-provider="Process_Information_Check" finished-at="2019-03-11T12:34:17Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[{S.NO=9.0, OpCo=BE01, Test_Case=Create with ref Global Only - SAP Direct Copy with Rejections, Execute=Y, RequestId=1416843, Level1Global=GBDA, Level2Global=GDA, Level1Local=LDS, Level2Loca=LBDA, Syndication=Y, Global_ID=502871, Material_Number_AH1=, Material_Number_AE1=, Status_AH1=, Status_AE1=, Status_JDE=, Q=, R=, S=, T=, U=, V=, W=, X=, Y=, Z=, AA=, AB=, AC=, AD=, AE=, AF=, AG=, AH=, AI=, AJ=, AK=, AL=, AM=, AN=, AO=, AP=, AQ=, AR=, AS=, AT=, AU=, AV=, AW=, AX=, AY=, AZ=, BA=, BB=, BC=, BD=, BE=, BF=, BG=, BH=, BI=, BJ=, BK=, BL=, BM=, BN=, BO=, BP=, BQ=, BR=, BS=, BT=, BU=, BV=, BW=, BX=, BY=, BZ=, CA=, CB=, CC=, CD=, CE=, CF=, CG=, CH=, CI=, CJ=, CK=, CL=, CM=, CN=, CO=, CP=, CQ=, CR=, CS=, CT=, CU=, CV=, CW=, CX=, CY=, CZ=, DA=, DB=, DC=, DD=, DE=, DF=, DG=, DH=, DI=, DJ=, DK=, DL=, DM=, DN=, DO=, DP=, DQ=, DR=, DS=, DT=, DU=, DV=, DW=, DX=, DY=, DZ=, EA=, EB=, EC=, ED=, EE=, EF=, EG=, EH=, EI=, EJ=, EK=, EL=, EM=, EN=, EO=, EP=, EQ=, ER=, ES=, ET=, EU=, EV=, EW=, EX=, EY=, EZ=, FA=, FB=, FC=, FD=, FE=, FF=, FG=, FH=, FI=, FJ=, FK=, FL=, FM=, FN=, FO=, FP=, FQ=, FR=, FS=, FT=, FU=, FV=, FW=, FX=, FY=, FZ=, GA=, GB=, GC=, GD=, GE=, GF=, GG=, GH=, GI=, GJ=, GK=, GL=, GM=, GN=, GO=, GP=, GQ=, GR=, GS=, GT=, GU=, GV=, GW=, GX=, GY=, GZ=, HA=, HB=, HC=, HD=, HE=, HF=, HG=, HH=, HI=, HJ=, HK=, HL=, HM=, HN=, HO=, HP=, HQ=, HR=, HS=, HT=, HU=, HV=, HW=, HX=, HY=, HZ=, IA=, IB=, IC=, ID=, IE=, IF=, IG=, IH=, II=, IJ=, IK=, IL=, IM=, IN=, IO=, IP=, IQ=, IR=, IS=, IT=, IU=}]]>
-              </value>
-            </param>
-          </params>
-          <exception class="java.lang.NullPointerException">
-            <full-stacktrace>
-              <![CDATA[java.lang.NullPointerException
-	at com.mendix.test.MaterialScript.Material_Create_Syndication_Check(MaterialScript.java:512)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
-	at org.testng.internal.Invoker.invokeMethod(Invoker.java:669)
-	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:877)
-	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1201)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
-	at org.testng.TestRunner.privateRun(TestRunner.java:776)
-	at org.testng.TestRunner.run(TestRunner.java:634)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:425)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:420)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:385)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:334)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1318)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1243)
-	at org.testng.TestNG.runSuites(TestNG.java:1161)
-	at org.testng.TestNG.run(TestNG.java:1129)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-]]>
-            </full-stacktrace>
-          </exception> <!-- java.lang.NullPointerException -->
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Material_Create_Syndication_Check -->
-      </class> <!-- com.mendix.test.MaterialScript -->
-    </test> <!-- Material_Create_Syndication_Check -->
-  </suite> <!-- Create with ref Global Only-SAP Direct Copy with Rejections -->
+    </test> <!-- Vendor_Create_Syndication_Check -->
+  </suite> <!-- Create Vendor Happy flow - with disable Local and Bank Request(SAP) -->
 </testng-results>
