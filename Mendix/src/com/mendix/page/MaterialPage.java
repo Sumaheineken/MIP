@@ -482,6 +482,8 @@ public class MaterialPage {
 
 		Sync.waitForObject(driver, "Create Button Click", btnCreate);
 		if (Button.verifyObject(btnCreate)) {
+			WebDriverWait wait = new WebDriverWait(driver,40);
+			wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@class='glyphicon glyphicon-forward']")));
 			Sync.waitForObject(driver, "Create Button Click", btnCreate);
 			Sync.waitForSeconds(Constants.WAIT_3);
 			return Button.click("Create Button Click", btnCreate);
@@ -495,12 +497,15 @@ public class MaterialPage {
 
 		Sync.WaitForPageLoad(driver);
 		Sync.waitUntilObjectDisappears(driver, "Waiting of Create page to Load",
-				By.xpath(".//*[@id='mxui_widget_Progress_0']/div[2]"));
+		By.xpath(".//*[@id='mxui_widget_Progress_0']/div[2]"));
 		Sync.waitForObject(driver, textLocalData);
+		WebDriverWait wait = new WebDriverWait(driver,40);
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[text()='Local Data']")));
 		Button.click("Local Data", textLocalData);
 		Button.click("Local Actions button", btnLocalActions);
 		Button.click("Disable Local Request", btnDisableLocalRequest);
-		return Button.click("Proceed", btnProceed);
+	    Button.click("Proceed", btnProceed);
+	    return Button.click("Again click on Local Actions",btnLocalActions);
 	}
 
 	public void Localactionbutton() {
@@ -699,6 +704,8 @@ public class MaterialPage {
 		Sync.waitForSeconds(Constants.WAIT_5);
 		if(Button.verifyObject(btnLocalActions))
 		{
+			WebDriverWait wait = new WebDriverWait(driver,40);
+			wait.until(ExpectedConditions.elementToBeClickable(By.xpath(".//*[@class='mx-layoutcontainer-wrapper mx-scrollcontainer-wrapper']/div[2]/button/span")));
 			Button.click("Local Actions button", btnLocalActions);
 			Sync.waitForSeconds(Constants.WAIT_6);
 			Sync.waitForSeconds(Constants.WAIT_1);
@@ -725,6 +732,23 @@ public class MaterialPage {
 		Sync.waitForObject(driver, btnOK);
 		Button.click("Click On Ok on duplicate check info popup", btnOK);
 
+	}
+	public void clickDuplicateCheckButton() {
+		Sync.waitForSeconds(Constants.WAIT_6);
+		Sync.waitForObject(driver,btnDuplicateCheck );
+		
+		if(Button.verifyObject(btnDuplicateCheck)) {
+			Sync.waitForSeconds(Constants.WAIT_6);		
+			WebDriverWait wait = new WebDriverWait(driver,40);
+			wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[text()='Duplicate Check']")));
+			Button.click("Click on Duplcate Check",btnDuplicateCheck);			
+		}
+		else {
+			Sync.waitForSeconds(Constants.WAIT_6);		
+			WebDriverWait wait = new WebDriverWait(driver,40);
+			wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[text()='Duplicate Check']")));
+			Button.click("Click on Duplcate Check",btnDuplicateCheck);
+		}
 	}
 
 	/*
