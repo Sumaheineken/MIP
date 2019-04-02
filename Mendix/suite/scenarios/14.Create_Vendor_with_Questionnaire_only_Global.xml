@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Create Vendor Happy flow - with disable Local and Bank Request(SAP)">
- <test name="HeiPort_Login_LDR">
+  <test name="HeiPort_Login_LDR">
 		<classes>
 			<class name="com.mendix.test.LoginScript">
 				<methods>
@@ -50,7 +50,7 @@
 			</class>
 		</classes>
 	</test>
- 	<test name="Vendor_Create_Review_Global_Data_Approve_GDA">
+ 	  <test name="Vendor_Create_Review_Global_Data_Approve_GDA">
 		<classes>
 			<class name="com.mendix.test.VendorScript">
 				<methods>
@@ -59,9 +59,9 @@
 			</class>
 		</classes>
 	</test>
-		<test name="Process_Information_Chec_Approvedk">
+		<test name="Process_Information_Check_Approved">
 		<classes>
-			<class name="com.mendix.test.MaterialScript">
+			<class name="com.mendix.test.VendorScript">
 				<methods>
 					<include name="process_Information_Check_GlobalID_Extend" />
 				</methods>

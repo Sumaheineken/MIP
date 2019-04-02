@@ -1,47 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Create Vendor Happy flow - with disable Local and Bank Request(SAP)]">
-  <test thread-count="5" name="Vendor_Create_Fill_In_Questionnaire(failed)">
+  <test thread-count="5" name="Process_Information_Check_Approved(failed)">
     <classes>
       <class name="com.mendix.test.VendorScript">
         <methods>
-          <include name="Vendor_Create_Fill_In_Questionnaire"/>
+          <include name="process_Information_Check_GlobalID_Extend" invocation-numbers="0"/>
         </methods>
       </class> <!-- com.mendix.test.VendorScript -->
     </classes>
-  </test> <!-- Vendor_Create_Fill_In_Questionnaire(failed) -->
-  <test thread-count="5" name="Vendor_Create_Fill_In_Data(failed)">
-    <classes>
-      <class name="com.mendix.test.VendorScript">
-        <methods>
-          <include name="Vendor_Create_Fill_In_Data"/>
-        </methods>
-      </class> <!-- com.mendix.test.VendorScript -->
-    </classes>
-  </test> <!-- Vendor_Create_Fill_In_Data(failed) -->
-  <test thread-count="5" name="Process_Information_Check GDA(failed)">
-    <classes>
-      <class name="com.mendix.test.VendorScript">
-        <methods>
-          <include name="Process_Information_Check" invocation-numbers="0"/>
-        </methods>
-      </class> <!-- com.mendix.test.VendorScript -->
-    </classes>
-  </test> <!-- Process_Information_Check GDA(failed) -->
-  <test thread-count="5" name="Process_Information_Chec_Approvedk(failed)">
-    <classes>
-      <class name="com.mendix.test.VendorScript">
-        <methods>
-          <include name="Process_Information_Check" invocation-numbers="0"/>
-        </methods>
-      </class> <!-- com.mendix.test.VendorScript -->
-    </classes>
-  </test> <!-- Process_Information_Chec_Approvedk(failed) -->
+  </test> <!-- Process_Information_Check_Approved(failed) -->
   <test thread-count="5" name="Vendor_Create_Syndication_Check(failed)">
     <classes>
       <class name="com.mendix.test.VendorScript">
         <methods>
-          <include name="Vendor_Create_Syndication_Check" invocation-numbers="0"/>
+          <include name="Vendor_Create_Syndication_Check_SAP" invocation-numbers="0"/>
         </methods>
       </class> <!-- com.mendix.test.VendorScript -->
     </classes>
