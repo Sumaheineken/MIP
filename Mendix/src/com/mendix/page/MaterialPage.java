@@ -482,8 +482,6 @@ public class MaterialPage {
 
 		Sync.waitForObject(driver, "Create Button Click", btnCreate);
 		if (Button.verifyObject(btnCreate)) {
-			WebDriverWait wait = new WebDriverWait(driver,40);
-			wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@class='glyphicon glyphicon-forward']")));
 			Sync.waitForObject(driver, "Create Button Click", btnCreate);
 			Sync.waitForSeconds(Constants.WAIT_3);
 			return Button.click("Create Button Click", btnCreate);
@@ -497,15 +495,12 @@ public class MaterialPage {
 
 		Sync.WaitForPageLoad(driver);
 		Sync.waitUntilObjectDisappears(driver, "Waiting of Create page to Load",
-		By.xpath(".//*[@id='mxui_widget_Progress_0']/div[2]"));
+				By.xpath(".//*[@id='mxui_widget_Progress_0']/div[2]"));
 		Sync.waitForObject(driver, textLocalData);
-		WebDriverWait wait = new WebDriverWait(driver,40);
-		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[text()='Local Data']")));
 		Button.click("Local Data", textLocalData);
 		Button.click("Local Actions button", btnLocalActions);
 		Button.click("Disable Local Request", btnDisableLocalRequest);
-	    Button.click("Proceed", btnProceed);
-	    return Button.click("Again click on Local Actions",btnLocalActions);
+		return Button.click("Proceed", btnProceed);
 	}
 
 	public void Localactionbutton() {
@@ -704,8 +699,6 @@ public class MaterialPage {
 		Sync.waitForSeconds(Constants.WAIT_5);
 		if(Button.verifyObject(btnLocalActions))
 		{
-			WebDriverWait wait = new WebDriverWait(driver,40);
-			wait.until(ExpectedConditions.elementToBeClickable(By.xpath(".//*[@class='mx-layoutcontainer-wrapper mx-scrollcontainer-wrapper']/div[2]/button/span")));
 			Button.click("Local Actions button", btnLocalActions);
 			Sync.waitForSeconds(Constants.WAIT_6);
 			Sync.waitForSeconds(Constants.WAIT_1);
@@ -732,23 +725,6 @@ public class MaterialPage {
 		Sync.waitForObject(driver, btnOK);
 		Button.click("Click On Ok on duplicate check info popup", btnOK);
 
-	}
-	public void clickDuplicateCheckButton() {
-		Sync.waitForSeconds(Constants.WAIT_6);
-		Sync.waitForObject(driver,btnDuplicateCheck );
-		
-		if(Button.verifyObject(btnDuplicateCheck)) {
-			Sync.waitForSeconds(Constants.WAIT_6);		
-			WebDriverWait wait = new WebDriverWait(driver,40);
-			wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[text()='Duplicate Check']")));
-			Button.click("Click on Duplcate Check",btnDuplicateCheck);			
-		}
-		else {
-			Sync.waitForSeconds(Constants.WAIT_6);		
-			WebDriverWait wait = new WebDriverWait(driver,40);
-			wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[text()='Duplicate Check']")));
-			Button.click("Click on Duplcate Check",btnDuplicateCheck);
-		}
 	}
 
 	/*
@@ -2256,7 +2232,7 @@ public class MaterialPage {
 	public void getGlobalIdProcessInfo_Extend(String strValue) throws FileNotFoundException, IOException {
 		Sync.waitForSeconds(Constants.WAIT_3);
 
-		state = driver.findElement(By.xpath(".//*[text()='" + strValue + "']/../../td[9]/div")).getText();
+		state = driver.findElement(By.xpath(".//div[contains(@class,'searchResults')]/div[3]/div/table[2]/tbody/tr[1]/td[9]/div")).getText();
 
 		if (state.equalsIgnoreCase("Syndication") || state.equalsIgnoreCase("Completed")) {
 			System.out.println(state);
@@ -2268,16 +2244,30 @@ public class MaterialPage {
 			ExcelUtil.setCellData_New_GlobalId("TestPlan", "Global_ID", globalId);
 			System.out.println(globalId);
 		} else {
-			state = driver.findElement(By.xpath(".//*[text()='" + strValue + "']/../../td[9]/div")).getText();
+			state = driver.findElement(By.xpath(".//div[contains(@class,'searchResults')]/div[3]/div/table[2]/tbody/tr[1]/td[9]/div")).getText();
 			System.out.println(state);
 
 		}
+	}
+	
+	
+	public void checkSyndicationTest(String strValue) {
+		Sync.waitForSeconds(Constants.WAIT_5);
+		//Sync.waitForObject(driver, driver.findElement(By.xpath("(.//*[text()='" + strValue + "']/../../td[9]/div)[1]")));
+		
+		List<WebElement> states= driver.findElements(By.xpath(".//div[contains(@class,'searchResults')]/div[3]/div/table[2]/tbody/tr/td[9]"));
+		for(WebElement state:states) {
+			System.out.println("Request Id status details "+state.getText());
+			SoftAssert assertSyndication = new SoftAssert();
+			assertSyndication.assertEquals("Syndication",state.getText(), "Not changed to Syndication State");						
+		}		
 	}
 
 	public void checkSyndication(String strValue) {
 		Sync.waitForSeconds(Constants.WAIT_5);
 		//Sync.waitForObject(driver, driver.findElement(By.xpath("(.//*[text()='" + strValue + "']/../../td[9]/div)[1]")));
-		if(driver.findElement(By.xpath("(.//*[text()='" + strValue + "']/../../td[9]/div)[1]")) != null && driver.findElement(By.xpath("(.//*[text()='" + strValue + "']/../../td[9]/div)[2]")) != null)
+		
+		if(driver.findElements(By.xpath("(.//*[text()='" + strValue + "']/../../td[9]/div)[1]")).size()>0 && driver.findElements(By.xpath("(.//*[text()='" + strValue + "']/../../td[9]/div)[2]")).size()>0)
 		{
 			globalState = driver.findElement(By.xpath("(.//*[text()='" + strValue + "']/../../td[9]/div)[1]")).getText();
 			localState = driver.findElement(By.xpath("(.//*[text()='" + strValue + "']/../../td[9]/div)[2]")).getText();
@@ -2289,7 +2279,7 @@ public class MaterialPage {
 			assertSyndication.assertEquals(globalState, "Syndication", "Not changed to Syndication State");
 			assertSyndication.assertEquals(localState, "Syndication", "Not changed to Syndication State");
 		}
-		else if(driver.findElement(By.xpath("(.//*[text()='" + strValue + "']/../../td[9]/div)[1]")) != null)
+		else if(driver.findElements(By.xpath("(.//*[text()='" + strValue + "']/../../td[9]/div)[1]")).size()>0)
 		{
 			globalState = driver.findElement(By.xpath("(.//*[text()='" + strValue + "']/../../td[9]/div)[1]")).getText();
 			System.out.println("Global State : " + globalState);
@@ -2300,15 +2290,16 @@ public class MaterialPage {
 		{
 			System.out.println("Element not displayed in the Process Information check Page");
 		}
+		
 	}
 
 public void checkSyndicationDoneStatus(String strValue) throws InterruptedException {
 		
 	Sync.waitForSeconds(Constants.WAIT_6);
-	if(driver.findElement(By.xpath("(.//*[text()='" + strValue + "']/../../td[9]/div)[1]")) != null && driver.findElement(By.xpath("(.//*[text()='" + strValue + "']/../../td[9]/div)[2]")) != null)
+	if(driver.findElements(By.xpath(".//div[contains(@class,'searchResults')]/div[3]/div/table[2]/tbody/tr/td[9]")).size()==2)
 	{	
-		globalState=driver.findElement(By.xpath("(.//*[text()='"+strValue+"']/../../td[9]/div)[1]")).getText();
- 		localState = driver.findElement(By.xpath("(.//*[text()='"+strValue+"']/../../td[9]/div)[2]")).getText();
+		globalState=driver.findElement(By.xpath(".//div[contains(@class,'searchResults')]/div[3]/div/table[2]/tbody/tr[1]/td[9]/div")).getText();
+ 		localState = driver.findElement(By.xpath(".//div[contains(@class,'searchResults')]/div[3]/div/table[2]/tbody/tr[2]/td[9]/div")).getText();
  		
  		if(globalState.equalsIgnoreCase("Completed") && localState.equalsIgnoreCase("Completed"))
  		{
@@ -2330,8 +2321,8 @@ public void checkSyndicationDoneStatus(String strValue) throws InterruptedExcept
  			driver.findElement(By.xpath(".//*[@class='glyphicon glyphicon-search']")).click();
 		
  			Sync.waitForSeconds(Constants.WAIT_5);
- 			globalState=driver.findElement(By.xpath("(.//*[text()='"+strValue+"']/../../td[9]/div)[1]")).getText();
- 			localState = driver.findElement(By.xpath("(.//*[text()='"+strValue+"']/../../td[9]/div)[2]")).getText();
+ 			globalState=driver.findElement(By.xpath(".//div[contains(@class,'searchResults')]/div[3]/div/table[2]/tbody/tr[1]/td[9]/div")).getText();
+ 	 		localState = driver.findElement(By.xpath(".//div[contains(@class,'searchResults')]/div[3]/div/table[2]/tbody/tr[2]/td[9]/div")).getText();
  		
  			System.out.println("Global State : "+globalState);
  			System.out.println("Local State : "+localState);
@@ -2341,9 +2332,9 @@ public void checkSyndicationDoneStatus(String strValue) throws InterruptedExcept
  
  		}
 	}
-	else if(driver.findElement(By.xpath("(.//*[text()='" + strValue + "']/../../td[9]/div)[1]")) != null)
+	else
 	{
-		globalState=driver.findElement(By.xpath("(.//*[text()='"+strValue+"']/../../td[9]/div)[1]")).getText();
+		globalState=driver.findElement(By.xpath(".//div[contains(@class,'searchResults')]/div[3]/div/table[2]/tbody/tr[1]/td[9]/div")).getText();
 		if(globalState.equalsIgnoreCase("Completed"))
  		{
  			System.out.println("Syndication Done Not required to wait for 20 minutes");
@@ -2364,18 +2355,12 @@ public void checkSyndicationDoneStatus(String strValue) throws InterruptedExcept
  			driver.findElement(By.xpath(".//*[@class='glyphicon glyphicon-search']")).click();
 		
  			Sync.waitForSeconds(Constants.WAIT_5);
- 			globalState=driver.findElement(By.xpath("(.//*[text()='"+strValue+"']/../../td[9]/div)[1]")).getText();
- 		
+ 			globalState=driver.findElement(By.xpath(".//div[contains(@class,'searchResults')]/div[3]/div/table[2]/tbody/tr[1]/td[9]/div")).getText();
  			System.out.println("Global State : "+globalState);
- 		
  			Assert.assertEquals(globalState, "Completed", "Syndication not yet done");
  
  		}
 
-	}
-	else
-	{
-		System.out.println("Element not displayed in the Process Information check Page");
 	}
 
 	}

@@ -148,6 +148,7 @@ public class MaterialNavScript {
 		SharedDriver.pageContainer.materialApprovalPage.approvalBtnClick();
 		SharedDriver.pageContainer.materialApprovalPage.duplicateCheck();
 		SharedDriver.pageContainer.materialApprovalPage.submitRequestOkBtnClick();
+		
 
 	}
 

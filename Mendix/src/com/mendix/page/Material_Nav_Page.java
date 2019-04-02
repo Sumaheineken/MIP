@@ -42,6 +42,7 @@ public class Material_Nav_Page{
 		this.driver = driver;
 		//super(driver);
 	}
+	
 
 	@FindBy(how = How.XPATH, using = "//*[text()='Local Data']")
 	WebElement textLocalData;
