@@ -124,7 +124,7 @@ public class Material_Nav_Page{
 	@FindBy(how = How.XPATH, using="//*[text()='Site']/../../../div/div[3]/div/div/div[2]/div[2]/div[2]/button[2]")
 	WebElement btnEditLocalSiteNav;
 	
-	@FindBy(how = How.XPATH, using = ".//*[text()='Plant']/../div/div/select")
+	@FindBy(how = How.XPATH, using = "(.//*[contains(text(),'Plant')]/../div/div/select)[1]")
 	WebElement dropDownLocalSitePlant;
 	
 	@FindBy(how = How.XPATH, using = ".//*[contains(text(),'Replenishment System')]/../div/div/select")
@@ -789,14 +789,14 @@ public class Material_Nav_Page{
 			Sync.waitForSeconds(Constants.WAIT_5);
 			Sync.waitForObject(driver, "Wait for Plant Select", dropDownLocalSitePlant);
 			Sync.waitForSeconds(Constants.WAIT_5);
-			Button.jsclick("Click on Plant Select", dropDownLocalSitePlant, driver);
+			Button.click("Click on Plant Select", dropDownLocalSitePlant);
 			Select sitePlantDropDownSelect = new Select(dropDownLocalSitePlant);
 			sitePlantDropDownSelect.selectByVisibleText(strValue);
 
 		} else {
 			Sync.waitForSeconds(Constants.WAIT_5);
 			Sync.waitForSeconds(Constants.WAIT_5);
-			Button.jsclick("Click on Plant Select", dropDownLocalSitePlant, driver);
+			Button.click("Click on Plant Select", dropDownLocalSitePlant);
 			Select sitePlantDropDownSelect = new Select(dropDownLocalSitePlant);
 			sitePlantDropDownSelect.selectByVisibleText(strValue);
 		}
