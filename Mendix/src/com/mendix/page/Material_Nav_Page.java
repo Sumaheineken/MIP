@@ -101,7 +101,8 @@ public class Material_Nav_Page{
 	@FindBy(how = How.XPATH, using = ".//*[text()='Finance']")
 	WebElement btnNavFinance;
 
-	@FindBy(how = How.XPATH, using = "(//*[text()='Edit'])[3]")
+	//@FindBy(how = How.XPATH, using = "(//*[text()='Edit'])[3]")
+	@FindBy(how=How.XPATH, using = ".//*[text()='Finance']/../../../div/div[2]/div/div/div[2]/div[2]/div[2]/button[2]")
 	WebElement btnNavLocalFinanceEditExtend;
 
 	@FindBy(how = How.XPATH, using = ".//*[contains(text(),'VAT Prod. Posting Group')]/../div/div/select")
@@ -123,7 +124,7 @@ public class Material_Nav_Page{
 	@FindBy(how = How.XPATH, using="//*[text()='Site']/../../../div/div[3]/div/div/div[2]/div[2]/div[2]/button[2]")
 	WebElement btnEditLocalSiteNav;
 	
-	@FindBy(how = How.XPATH, using = ".//*[contains(text(),'Plant')]/../div/div/select")
+	@FindBy(how = How.XPATH, using = "(.//*[contains(text(),'Plant')]/../div/div/select)[1]")
 	WebElement dropDownLocalSitePlant;
 	
 	@FindBy(how = How.XPATH, using = ".//*[contains(text(),'Replenishment System')]/../div/div/select")
@@ -137,10 +138,11 @@ public class Material_Nav_Page{
 
 	public void enterLocalData() {
 		WebDriverWait wait = new WebDriverWait(driver, 120);
+		wait.until(ExpectedConditions.elementToBeClickable(textLocalData));
 		Sync.waitForSeconds(Constants.WAIT_6);
 
 		Sync.waitUntilObjectDisappears(driver, "Waiting of Create page to Load",
-				By.xpath(".//*[@id='mxui_widget_Progress_0']/div[2]"));
+		By.xpath(".//*[@id='mxui_widget_Progress_0']/div[2]"));
 		Sync.waitForSeconds(Constants.WAIT_3);
 		Sync.waitForObject(driver, textLocalData);
 		Button.click("Local Data", textLocalData);
@@ -160,7 +162,7 @@ public class Material_Nav_Page{
 		if(Button.verifyObject(btnGlobalData)) {
 			Sync.waitForSeconds(Constants.WAIT_3);
 			Sync.waitForObject(driver, btnGlobalData);
-			Button.click("Local Data", btnGlobalData);
+			Button.click("Global Data ", btnGlobalData);
 		}
 		else {
 			Sync.waitForSeconds(Constants.WAIT_3);
@@ -487,7 +489,7 @@ public class Material_Nav_Page{
 
 		Sync.waitForObject(driver, "Wait for Site New Button", driver.findElement(By.xpath("//button[text()='New']")));
 		Sync.waitForSeconds(Constants.WAIT_2);
-		Button.click("Click New Button", driver.findElement(By.xpath("//button[text()='New']")));
+		Button.jsclick("Click New Button", driver.findElement(By.xpath("//button[text()='New']")), driver);
 		Sync.waitForSeconds(Constants.WAIT_2);
 
 	}
@@ -942,11 +944,11 @@ public class Material_Nav_Page{
 	public void clickEditFinanceDataJDE_Extend() throws AWTException, IOException
 	{
 		Sync.waitForSeconds(Constants.WAIT_5);
-		WebDriverWait wait = new WebDriverWait(driver,10);
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//button[text()='Edit'])[3]")));
-		Sync.waitUntilObjectDisappears(driver, "Wait for Save button", By.xpath("(//button[text()='Edit'])[3]"));
-		Sync.waitForElementToBeClickable(driver, driver.findElement( By.xpath("(//button[text()='Edit'])[3]")));
-		Button.jsclick("Click Edit Finance Button", driver.findElement(By.xpath("(//button[text()='Edit'])[3]")), driver);
+		WebDriverWait wait = new WebDriverWait(driver,20);
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(".//*[text()='Finance']/../../../div/div[9]/div/div/div[2]/div[2]//*[text()='Edit']")));
+		Sync.waitUntilObjectDisappears(driver, "Wait for Save button", By.xpath(".//*[text()='Finance']/../../../div/div[9]/div/div/div[2]/div[2]//*[text()='Edit']"));
+		Sync.waitForElementToBeClickable(driver, driver.findElement( By.xpath(".//*[text()='Finance']/../../../div/div[9]/div/div/div[2]/div[2]//*[text()='Edit']")));
+		Button.jsclick("Click Edit Finance Button", driver.findElement(By.xpath(".//*[text()='Finance']/../../../div/div[9]/div/div/div[2]/div[2]//*[text()='Edit']")), driver);
 //		driver.findElement(By.xpath("(//*[text()='Add'])[2]/../button[2]/span")).click();
 		/*Sync.waitForSeconds(Constants.WAIT_3);
 		Sync.waitUntilObjectDisappears(driver, "Wait for Materials", By.xpath((".//*[@id='mxui_widget_Progress_0']/div[2]")));

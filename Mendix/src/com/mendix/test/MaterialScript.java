@@ -231,9 +231,11 @@ public class MaterialScript {
 			throws InterruptedException, FileNotFoundException, IOException {
 
 		SharedDriver.pageContainer.materialPage.validateTestCreate();
-		SharedDriver.pageContainer.materialPage.clickDuplicateCheck();
+		//SharedDriver.pageContainer.materialPage.clickDuplicateCheckButton();		
+		
 		SharedDriver.pageContainer.materialPage.submitGlobalRequestTest();
-		SharedDriver.pageContainer.materialPage.getRequestId_Create();
+		SharedDriver.pageContainer.materialPage.clickDuplicateCheck();
+		SharedDriver.pageContainer.materialPage.getRequestId_CreateNew();
 		// SharedDriver.pageContainer.materialPage.getRequestId();
 		SharedDriver.pageContainer.materialApprovalPage.submitRequestOkBtnClick();
 		// SharedDriver.pageContainer.materialApprovalPage.okbuttonClick();
@@ -663,8 +665,9 @@ public class MaterialScript {
 		SharedDriver.pageContainer.material_Change_Page.clickReferencebutton();
 		Sync.waitForSeconds(Constants.WAIT_5);
 		SharedDriver.pageContainer.materialNavPage.createWithReferenceRequestforNav();
-		SharedDriver.pageContainer.materialPage.materialDescCreate("Heineken_Sample_One_Twelve");
-		//SharedDriver.pageContainer.materialPage.clickLocalAction();
+		SharedDriver.pageContainer.materialPage.materialDescCreate(dataMap.get("Material Description"));
+		//Heineken_Sample_two_one"
+		SharedDriver.pageContainer.materialPage.clickLocalAction();
 		SharedDriver.pageContainer.materialPage.duplicateCheckButton();
 		SharedDriver.pageContainer.materialPage.clickDuplicateCheck();
 		SharedDriver.pageContainer.materialPage.validateTestCreate();

@@ -133,13 +133,22 @@ public class ProceesInfoPage {
 		Textbox.click("Click Request Id Text Box", txtboxRequestId);
 		Sync.waitForSeconds(Constants.WAIT_1);
 		Textbox.enterValue("Enter Request Id", txtboxRequestId, strValue);
-		Sync.waitForSeconds(Constants.WAIT_2);
-		Sync.waitForSeconds(Constants.WAIT_2);
+		
+		Sync.waitForSeconds(Constants.WAIT_10);
+		DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+
+		//get current date time with Date()
+		Date date = new Date();
+
+		// Now format the date
+		String dateFormatted= dateFormat.format(date);
+		Textbox.enterValue("Enter TextBox Value", txtBoxRequestedStrtDate, dateFormatted);
+
 /*		driver.findElement(By.xpath("(.//*[@class='btn mx-button mx-dateinput-select-button'])[1]")).click();
 		driver.findElement(By.xpath(".//*[@aria-selected='true']/span")).click();
 		Sync.waitForSeconds(Constants.WAIT_5);*/
 		driver.findElement(By.xpath(".//*[@class='glyphicon glyphicon-search']")).click();
-		Sync.waitForSeconds(Constants.WAIT_6);
+		Sync.waitForSeconds(Constants.WAIT_10);
 	}
 
 	public void reqIdSearch_Local(String strValue) throws InterruptedException, FileNotFoundException, IOException {
@@ -168,6 +177,14 @@ public class ProceesInfoPage {
 		Textbox.enterValue("Enter Request Id", txtboxRequestId, strValue);
 		Sync.waitForSeconds(Constants.WAIT_2);
 		Sync.waitForSeconds(Constants.WAIT_2);
+		DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+
+		//get current date time with Date()
+		Date date = new Date();
+
+		// Now format the date
+		String dateFormatted= dateFormat.format(date);
+		Textbox.enterValue("Enter TextBox Value", txtBoxRequestedStrtDate, dateFormatted);
 		/*driver.findElement(By.xpath("(.//*[@class='btn mx-button mx-dateinput-select-button'])[1]")).click();
 		driver.findElement(By.xpath(".//*[@aria-selected='true']/span")).click();*/
 		Sync.waitForSeconds(Constants.WAIT_5);
@@ -178,7 +195,7 @@ public class ProceesInfoPage {
 		
 		Sync.waitForSeconds(Constants.WAIT_10);
 		Sync.waitForSeconds(Constants.WAIT_5);
-		WebDriverWait wait = new WebDriverWait(driver,120);
+		WebDriverWait wait = new WebDriverWait(driver,150);
 	    wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//a[contains(text(),'Process Information')]")));
 		
 		//WebElement el = driver.findElement(By.xpath("//a[contains(text(),'Process Information')]"));
@@ -208,15 +225,8 @@ public class ProceesInfoPage {
 		state=driver.findElement(By.xpath(".//*[text()='"+strValue+"']/../../td[9]/div")).getText();
 //		String status=driver.findElement(By.xpath("//*[text()='Task status']/../../../../../../../table[2]/tbody/tr[1]/td[10]/div" )).getText();
 //		if(status.equalsIgnoreCase("Submitted")) {
-		DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
-
-		//get current date time with Date()
-		Date date = new Date();
-
-		// Now format the date
-		String dateFormatted= dateFormat.format(date);
-		Textbox.enterValue("Enter TextBox Value", txtBoxRequestedStrtDate, dateFormatted);
-			driver.findElement(By.xpath(".//*[@class='glyphicon glyphicon-search']")).click();
+		
+			
 			Sync.waitForSeconds(Constants.WAIT_3);
 //		}
 //		else {
@@ -293,10 +303,13 @@ public class ProceesInfoPage {
 		//String taskStatus=driver.findElement(By.xpath("(.//*[text()='"+strValue+"']/../../td[10]/div)[2]")).getText();
 		Assert.assertEquals(stateOne, "LDR","Staus is LDR");
 		if(!("LDR".equalsIgnoreCase(stateOne))){			
-		   ResultUtil.reporter.log(LogStatus.FAIL,"The State is"+stateOne);		   
+		   ResultUtil.reporter.log(LogStatus.FAIL,"The State is"+stateOne);	
+		   System.out.println("Canot Proceed Futher");
 		}	
 		else {
-			ResultUtil.reporter.log(LogStatus.PASS,"The State is"+stateOne);		   
+			ResultUtil.reporter.log(LogStatus.PASS,"The State is"+stateOne);
+			System.out.println(stateOne);
+			
 		}
 		
 		Sync.waitForSeconds(Constants.WAIT_10);		

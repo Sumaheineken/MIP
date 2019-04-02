@@ -63,7 +63,7 @@ public class Material_JDE_Page {
 	WebElement btnEditFinance;
 
 
-	@FindBy(how=How.XPATH, using="(.//*[@class='glyphicon glyphicon-new-window'])[13]")
+	@FindBy(how=How.XPATH, using=".//*[text()='Finance']/../../../div/div[8]/div/div/div[2]/div[2]//*[text()='Add']")
 	WebElement BtnAddPlant;
 
 	@FindBy(how=How.XPATH, using="//button[text()='Select']")
@@ -95,6 +95,8 @@ public class Material_JDE_Page {
 	public void editPlantPlaning() {
 		if(Button.verifyObject(btnEditPlaning)) {
 			Sync.waitForSeconds(Constants.WAIT_6);
+			WebDriverWait wait=new WebDriverWait(driver,80);
+			wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[text()='Finance']/../../../div/div[8]/div/div/div[2]/div[2]//*[text()='Edit']")));
 			Sync.waitForObject(driver, btnEditPlaning);
 			Button.click("Click on Edit Plant Data",btnEditPlaning);
 		}
@@ -107,6 +109,8 @@ public class Material_JDE_Page {
 	public void editPlantFinance() {
 		if(Button.verifyObject(btnEditFinance)) {
 			Sync.waitForSeconds(Constants.WAIT_6);
+			WebDriverWait wait=new WebDriverWait(driver,80);
+			wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[text()='Finance']/../../../div/div[9]/div/div/div[2]/div[2]//*[text()='Edit']")));
 			Sync.waitForObject(driver, btnEditFinance);
 			Button.click("Click on Edit Plant Data",btnEditFinance);
 		}
@@ -717,8 +721,8 @@ public class Material_JDE_Page {
 	{
 		Sync.waitForSeconds(Constants.WAIT_6);
 		WebDriverWait wait= new WebDriverWait(driver, 80);
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//button[text()='Edit'])[2]")));
-		driver.findElement(By.xpath("(//button[text()='Edit'])[2]")).click();
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(" .//*[text()='Finance']/../../../div/div[8]/div/div/div[2]/div[2]//*[text()='Edit']")));
+		driver.findElement(By.xpath(" .//*[text()='Finance']/../../../div/div[8]/div/div/div[2]/div[2]//*[text()='Edit']")).click();
 		Sync.waitForSeconds(Constants.WAIT_3);
 		Sync.waitUntilObjectDisappears(driver, "Wait for Materials", By.xpath((".//*[@id='mxui_widget_Progress_0']/div[2]")));
 		
