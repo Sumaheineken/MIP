@@ -2120,6 +2120,8 @@ public class MaterialPage {
 
 	public void validateAndsubmitGlobalLocalRequest() {
 		Sync.waitForSeconds(Constants.WAIT_1);
+		Sync.waitForSeconds(Constants.WAIT_6);
+		Sync.waitForObject(driver, btnLocalActions);
 		Button.click("Local Actions button", btnLocalActions);
 		Sync.waitForSeconds(Constants.WAIT_6);
 		Button.click("Validate Local Data", btnValidateLocalRequest);
@@ -2275,7 +2277,7 @@ public class MaterialPage {
 	public void checkSyndication(String strValue) {
 		Sync.waitForSeconds(Constants.WAIT_5);
 		//Sync.waitForObject(driver, driver.findElement(By.xpath("(.//*[text()='" + strValue + "']/../../td[9]/div)[1]")));
-		if(driver.findElement(By.xpath("(.//*[text()='" + strValue + "']/../../td[9]/div)[1]")).isEnabled() && driver.findElement(By.xpath("(.//*[text()='" + strValue + "']/../../td[9]/div)[2]")).isEnabled())
+		if(driver.findElement(By.xpath("(.//*[text()='" + strValue + "']/../../td[9]/div)[1]")) != null && driver.findElement(By.xpath("(.//*[text()='" + strValue + "']/../../td[9]/div)[2]")) != null)
 		{
 			globalState = driver.findElement(By.xpath("(.//*[text()='" + strValue + "']/../../td[9]/div)[1]")).getText();
 			localState = driver.findElement(By.xpath("(.//*[text()='" + strValue + "']/../../td[9]/div)[2]")).getText();
@@ -2287,7 +2289,7 @@ public class MaterialPage {
 			assertSyndication.assertEquals(globalState, "Syndication", "Not changed to Syndication State");
 			assertSyndication.assertEquals(localState, "Syndication", "Not changed to Syndication State");
 		}
-		else if(driver.findElement(By.xpath("(.//*[text()='" + strValue + "']/../../td[9]/div)[1]")).isEnabled())
+		else if(driver.findElement(By.xpath("(.//*[text()='" + strValue + "']/../../td[9]/div)[1]")) != null)
 		{
 			globalState = driver.findElement(By.xpath("(.//*[text()='" + strValue + "']/../../td[9]/div)[1]")).getText();
 			System.out.println("Global State : " + globalState);
@@ -2303,7 +2305,7 @@ public class MaterialPage {
 public void checkSyndicationDoneStatus(String strValue) throws InterruptedException {
 		
 	Sync.waitForSeconds(Constants.WAIT_6);
-	if(driver.findElement(By.xpath("(.//*[text()='" + strValue + "']/../../td[9]/div)[1]")).isEnabled() && driver.findElement(By.xpath("(.//*[text()='" + strValue + "']/../../td[9]/div)[2]")).isEnabled())
+	if(driver.findElement(By.xpath("(.//*[text()='" + strValue + "']/../../td[9]/div)[1]")) != null && driver.findElement(By.xpath("(.//*[text()='" + strValue + "']/../../td[9]/div)[2]")) != null)
 	{	
 		globalState=driver.findElement(By.xpath("(.//*[text()='"+strValue+"']/../../td[9]/div)[1]")).getText();
  		localState = driver.findElement(By.xpath("(.//*[text()='"+strValue+"']/../../td[9]/div)[2]")).getText();
@@ -2339,7 +2341,7 @@ public void checkSyndicationDoneStatus(String strValue) throws InterruptedExcept
  
  		}
 	}
-	else if(driver.findElement(By.xpath("(.//*[text()='" + strValue + "']/../../td[9]/div)[1]")).isEnabled())
+	else if(driver.findElement(By.xpath("(.//*[text()='" + strValue + "']/../../td[9]/div)[1]")) != null)
 	{
 		globalState=driver.findElement(By.xpath("(.//*[text()='"+strValue+"']/../../td[9]/div)[1]")).getText();
 		if(globalState.equalsIgnoreCase("Completed"))

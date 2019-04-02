@@ -354,7 +354,8 @@ public class MaterialNavScript {
 	@Test(dataProvider="Process_Information_Check",dataProviderClass=staticProviderClass.class)
 	public void validate_And_Submit_Global_Local_Request(Map<String,String> dataMap) throws FileNotFoundException, InterruptedException, IOException
 	{
-		SharedDriver.pageContainer.materialNavPage.switchToGlobal();
+		//SharedDriver.pageContainer.materialNavPage.switchToGlobal();
+		SharedDriver.pageContainer.materialPage.clickLocalAction();
 		SharedDriver.pageContainer.materialPage.validateAndsubmitGlobalLocalRequest();
 		SharedDriver.pageContainer.materialPage.getRequestId_CreateNew();
 		SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
