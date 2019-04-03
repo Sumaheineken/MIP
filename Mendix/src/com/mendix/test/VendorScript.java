@@ -248,14 +248,9 @@ public class VendorScript {
 		SharedDriver.pageContainer.homePage.navigateToWorkflow();
 		SharedDriver.pageContainer.vendorPage.switchToMDMPortal();
 		SharedDriver.pageContainer.vendorPage.navigateToDashboard();
-		SharedDriver.pageContainer.vendorPage.advancedSearch();
-		//SharedDriver.pageContainer.vendorPage.scrolltoGlobalSearch();
+		SharedDriver.pageContainer.vendorPage.advancedSearch();		
 		SharedDriver.pageContainer.vendorPage.globalSearch(dataMap.get("Global_ID"));
-		SharedDriver.pageContainer.vendorPage.checkDashboardLockVendor();
-		//SharedDriver.pageContainer.vendorPage.getGlobalId();
-		//SharedDriver.pageContainer.vendorPage.GetFullVendorData();
-		//SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
-		//SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
+		SharedDriver.pageContainer.vendorPage.checkDashboardLockVendor();		
 		SharedDriver.pageContainer.vendorPage.getVendorAccountNumber();
 		SharedDriver.pageContainer.processInfoPage.browserClose();
 	}
