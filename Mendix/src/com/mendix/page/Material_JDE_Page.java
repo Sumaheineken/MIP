@@ -462,7 +462,7 @@ public class Material_JDE_Page {
 		}
 
 	}
-	public void selectGLClass(String strValue)
+	public void selectGLClass()
 	{
 		Sync.waitForSeconds(Constants.WAIT_5);
 		Sync.waitForSeconds(Constants.WAIT_3);
@@ -765,7 +765,7 @@ public class Material_JDE_Page {
 		Button.jsclick("Click Finance Tab", driver.findElement(By.xpath("//a[text()='Finance']")), driver);
 	}
 	
-	public void selectGLClass()
+	/*public void selectGLClass()
 	{
 		Sync.waitForSeconds(Constants.WAIT_1);
 		WebDriverWait wait = new WebDriverWait(driver,40);
@@ -779,7 +779,7 @@ public class Material_JDE_Page {
 		Select roundVATPostingGroupDown= new Select(dropdown);
 		roundVATPostingGroupDown.selectByIndex(1);
 		
-	}
+	}*/
 	
 	public void selectCostingMethodPurchasing()
 	{
