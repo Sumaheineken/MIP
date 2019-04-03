@@ -356,8 +356,9 @@ public class MaterialNavScript {
 	public void validate_And_Submit_Global_Local_Request(Map<String,String> dataMap) throws FileNotFoundException, InterruptedException, IOException
 	{
 		//SharedDriver.pageContainer.materialNavPage.switchToGlobal();
-		SharedDriver.pageContainer.materialPage.clickLocalAction();
-		SharedDriver.pageContainer.materialPage.validateAndsubmitGlobalLocalRequest();
+		//SharedDriver.pageContainer.materialPage.clickLocalAction();
+		SharedDriver.pageContainer.materialPage.submitGlobalLocalRequest();
+		SharedDriver.pageContainer.materialPage.clickDuplicateCheck();
 		SharedDriver.pageContainer.materialPage.getRequestId_CreateNew();
 		SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
 		Sync.waitForSeconds(Constants.WAIT_3);
