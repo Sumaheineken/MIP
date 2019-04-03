@@ -208,7 +208,7 @@ public class MaterialScript {
 		SharedDriver.pageContainer.materialApprovalPage.reqIdSearchMyTasks(dataMap.get("RequestId"));
 		SharedDriver.pageContainer.materialApprovalPage.approvalBtnClick();
 		SharedDriver.pageContainer.materialApprovalPage.duplicateCheck();
-		SharedDriver.pageContainer.materialApprovalPage.okbuttonClick();
+		SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
 
 	}
 
@@ -630,8 +630,8 @@ public class MaterialScript {
 		SharedDriver.pageContainer.materialApprovalPage.reqIdSearchMyTasks(dataMap.get("RequestId"));
 		SharedDriver.pageContainer.materialApprovalPage.approvalBtnClick();
 		Sync.waitForSeconds(Constants.WAIT_10);
-		SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
-		SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
+		SharedDriver.pageContainer.materialApprovalPage.duplicateCheck();
+		//SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
 		//SharedDriver.pageContainer.materialPage.browserClose();
 
 	}
@@ -727,12 +727,27 @@ public class MaterialScript {
 		Assert.assertTrue(SharedDriver.pageContainer.homePage.navigateToWorkflow());
 		SharedDriver.pageContainer.materialPage.switchToPopup();
 		SharedDriver.pageContainer.materialApprovalPage.reqIdSearchMyTasks(dataMap.get("RequestId"));
-		SharedDriver.pageContainer.materialPage.clickLocalAction();
+		//SharedDriver.pageContainer.materialPage.clickLocalAction();
 		SharedDriver.pageContainer.materialPage.validateTestCreate();
 		SharedDriver.pageContainer.materialPage.submitGlobalRequestTest();
 		Sync.waitForSeconds(Constants.WAIT_5);
+		SharedDriver.pageContainer.materialPage.clickDuplicateCheck_without_Extend();
 		SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
-		SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
+	}
+	
+	@Test(dataProvider="Process_Information_Check",dataProviderClass=staticProviderClass.class)
+	public void material_Create_Review_Global_Data_Approve_GBDA_NAV(Map<String,String> dataMap) throws InterruptedException, FileNotFoundException, IOException 
+	{
+		Assert.assertTrue(SharedDriver.pageContainer.homePage.navigateToWorkflow());
+		SharedDriver.pageContainer.materialPage.switchToPopup();
+		SharedDriver.pageContainer.materialApprovalPage.reqIdSearchMyTasks(dataMap.get("RequestId"));
+		//SharedDriver.pageContainer.materialPage.clickLocalAction();
+		SharedDriver.pageContainer.materialPage.validateTestCreate();
+		SharedDriver.pageContainer.materialPage.clickLocalAction();
+		SharedDriver.pageContainer.materialApprovalPage.approvalBtnClick();
+		Sync.waitForSeconds(Constants.WAIT_5);
+		SharedDriver.pageContainer.materialApprovalPage.duplicateCheck();
+		//SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
 	}
 	
 	@Test(dataProvider="Process_Information_Check",dataProviderClass=staticProviderClass.class)

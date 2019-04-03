@@ -1898,6 +1898,7 @@ public class MaterialPage {
 		Sync.waitForSeconds(Constants.WAIT_3);
 		System.out.println("Clicked on proceed");
 
+		driver.manage().window().maximize();
 		/*
 		 * driver.manage().window().maximize(); Actions actions = new Actions(driver);
 		 * actions.moveToElement(btnMsgReqIdOk); actions.perform();
@@ -1922,6 +1923,60 @@ public class MaterialPage {
 		//
 		// }
 	}
+	
+	public void duplicateCheck_LDP_WithoutExtend() {
+		
+		Sync.waitForSeconds(Constants.WAIT_5);
+		
+		WebDriverWait wait = new WebDriverWait(driver, 100);
+
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(".//*[text()='Open Record']")));
+		System.out.println("Clicked on Open Record");
+
+		// }
+
+		driver.manage().window().setPosition(new Point(-2000, 0));
+		driver.findElement(By.xpath(".//*[text()='Open Record']")).sendKeys(Keys.TAB);
+		Sync.waitForSeconds(Constants.WAIT_2);
+		driver.findElement(By.xpath("//*[text()='Export to Excel']")).sendKeys(Keys.TAB);
+		Sync.waitForSeconds(Constants.WAIT_2);
+		driver.findElement(By.xpath("//*[text()='My record is not a duplicate! Submit.']")).sendKeys(Keys.RETURN);
+		Sync.waitForSeconds(Constants.WAIT_2);
+		driver.findElement(By.xpath("//*[text()='Proceed']")).click();
+		Sync.waitForSeconds(Constants.WAIT_3);
+		System.out.println("Clicked on proceed");
+		
+		driver.manage().window().maximize();
+		Actions actions = new Actions(driver);
+		actions.moveToElement(btnMsgReqIdOk);
+		actions.perform();
+
+		Button.click("Click Ok Button", btnMsgReqIdOk);
+		/*
+		 * driver.manage().window().maximize(); Actions actions = new Actions(driver);
+		 * actions.moveToElement(btnMsgReqIdOk); actions.perform();
+		 * 
+		 * Button.click("Click Ok Button", btnMsgReqIdOk);
+		 */
+
+		/*
+		 * try { if(btnMsgReqIdOkdraft.isEnabled()) { Button.click("Click Ok Button",
+		 * btnMsgReqIdOkdraft); System.out.println("Button is Clicked"); }
+		 * 
+		 * } catch(Exception e) { System.err.println(e.getMessage());
+		 * 
+		 * 
+		 * }
+		 */
+
+		// }
+		// catch(Exception e) {
+		// System.err.println(e.getMessage());
+		//
+		//
+		// }
+	}
+
 
 	public void duplicateCheck_New_ExtendSelected() {
 		try {
@@ -2023,6 +2078,24 @@ public class MaterialPage {
 			this.clickCloseButtonToPopUp();
 		}
 	}
+	
+	public void clickDuplicateCheck_without_Extend() {
+		Sync.waitUntilObjectDisappears(driver, "Wait for Duplicate check",
+				By.xpath(".//*[@id='mxui_widget_Progress_0']/div[2]"));
+		Sync.waitForSeconds(Constants.WAIT_5);
+		//WebDriverWait wait = new WebDriverWait(driver, 50);
+		//wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[text()='My record is not a duplicate! Submit.']")));
+
+		if (Button.verifyObject(btnDuplicateSubmit)) {
+			Sync.waitForSeconds(Constants.WAIT_5);
+			duplicateCheck_LDP_WithoutExtend();
+		} else if (Button.verifyObject(btnClose)) {
+
+			Sync.waitForSeconds(Constants.WAIT_5);
+			//Sync.waitForObject(driver, "Wait for the information PopUp", msgRequestSuccess);
+			this.clickCloseButtonToPopUp();
+		}
+	}
 
 	public void clickDuplicateCheckDuplicateFound() {
 		Sync.waitUntilObjectDisappears(driver, "Wait for Duplicate check",
@@ -2104,6 +2177,27 @@ public class MaterialPage {
 		Sync.waitForSeconds(Constants.WAIT_6);
 		Sync.waitForObject(driver, "Verify Validate message", txtValidationMsg);
 		Sync.waitForSeconds(Constants.WAIT_5);
+
+		// Sync.waitForSeconds(Constants.WAIT_5);
+		// Sync.waitForObject(driver, "Verify Validate message", txtValidationMsg);
+		// Sync.waitForSeconds(Constants.WAIT_5);
+		Sync.waitForSeconds(Constants.WAIT_5);
+		// Sync.waitForObject(driver, textLocalData);
+		Button.click("Click Global and Local submit Request", btnGlobalLocalRequest);
+		Sync.waitForSeconds(Constants.WAIT_5);
+
+	}
+	
+	public void submitGlobalLocalRequest() {
+		Sync.waitForSeconds(Constants.WAIT_1);
+		Sync.waitForSeconds(Constants.WAIT_6);
+//		Sync.waitForObject(driver, btnLocalActions);
+//		Button.click("Local Actions button", btnLocalActions);
+//		Sync.waitForSeconds(Constants.WAIT_6);
+//		Button.click("Validate Local Data", btnValidateLocalRequest);
+//		Sync.waitForSeconds(Constants.WAIT_6);
+//		Sync.waitForObject(driver, "Verify Validate message", txtValidationMsg);
+//		Sync.waitForSeconds(Constants.WAIT_5);
 
 		// Sync.waitForSeconds(Constants.WAIT_5);
 		// Sync.waitForObject(driver, "Verify Validate message", txtValidationMsg);
