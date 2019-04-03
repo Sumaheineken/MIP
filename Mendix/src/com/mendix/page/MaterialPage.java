@@ -496,11 +496,14 @@ public class MaterialPage {
 		Sync.WaitForPageLoad(driver);
 		Sync.waitUntilObjectDisappears(driver, "Waiting of Create page to Load",
 				By.xpath(".//*[@id='mxui_widget_Progress_0']/div[2]"));
+		WebDriverWait wait = new WebDriverWait(driver,40);
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[text()='Local Data']")));
 		Sync.waitForObject(driver, textLocalData);
 		Button.click("Local Data", textLocalData);
 		Button.click("Local Actions button", btnLocalActions);
 		Button.click("Disable Local Request", btnDisableLocalRequest);
-		return Button.click("Proceed", btnProceed);
+	    Button.click("Proceed", btnProceed);
+	    return Button.click("Local Actions button", btnLocalActions);
 	}
 
 	public void Localactionbutton() {

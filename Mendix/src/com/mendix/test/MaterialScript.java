@@ -231,9 +231,9 @@ public class MaterialScript {
 			throws InterruptedException, FileNotFoundException, IOException {
 
 		SharedDriver.pageContainer.materialPage.validateTestCreate();
-		SharedDriver.pageContainer.materialPage.clickDuplicateCheck();
 		SharedDriver.pageContainer.materialPage.submitGlobalRequestTest();
-		SharedDriver.pageContainer.materialPage.getRequestId_Create();
+		SharedDriver.pageContainer.materialPage.clickDuplicateCheck();
+		SharedDriver.pageContainer.materialPage.getRequestId_CreateNew();
 		// SharedDriver.pageContainer.materialPage.getRequestId();
 		SharedDriver.pageContainer.materialApprovalPage.submitRequestOkBtnClick();
 		// SharedDriver.pageContainer.materialApprovalPage.okbuttonClick();
@@ -318,6 +318,7 @@ public class MaterialScript {
 		SharedDriver.pageContainer.materialPage.getGlobalIdProcessInfo_Extend(dataMap.get("RequestId"));
 		Sync.waitForSeconds(Constants.WAIT_5);
 		SharedDriver.pageContainer.materialPage.checkSyndicationDoneStatus(dataMap.get("RequestId"));
+		Sync.waitForSeconds(Constants.WAIT_5);
 		SharedDriver.pageContainer.processInfoPage.browserClose();
 		
 	}

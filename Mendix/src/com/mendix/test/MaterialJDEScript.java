@@ -47,7 +47,7 @@ public class MaterialJDEScript {
 		SharedDriver.pageContainer.materialNavPage.enterLocalData();
 //		SharedDriver.pageContainer.materialJdePage.clickAddPlantData();
 		SharedDriver.pageContainer.materialJdePage.enterPlantData(dataMap.get("Plant"));
-		SharedDriver.pageContainer.materialJdePage.clickEditPlanningData();
+		SharedDriver.pageContainer.materialJdePage.editPlantPlaning();
 		SharedDriver.pageContainer.materialJdePage.selectStockingTypeLocal(dataMap.get("Stocking Type Global"));
 		SharedDriver.pageContainer.materialJdePage.selectCommitmentDateMethod(dataMap.get("Commitment Method"));
 		SharedDriver.pageContainer.materialJdePage.selectLotCalculationAlgorithm(dataMap.get("Lot Calculation Algorithm"));
@@ -64,7 +64,7 @@ public class MaterialJDEScript {
 	public void Material_Create_Fill_In_Data_JDE_Finance(Map<String,String> dataMap) throws InterruptedException, FileNotFoundException, IOException, AWTException 
 	{
 		SharedDriver.pageContainer.materialJdePage.clickFinancetab();
-		SharedDriver.pageContainer.materialNavPage.clickEditFinanceData();
+		SharedDriver.pageContainer.materialJdePage.editPlantFinance();
 		/*SharedDriver.pageContainer.materialApprovalPage.submitRequestOkBtnClick();
 		SharedDriver.pageContainer.materialPage.clickLocalAction();
 		SharedDriver.pageContainer.materialJdePage.clickBackAction();
@@ -73,7 +73,7 @@ public class MaterialJDEScript {
 //		SharedDriver.pageContainer.materialNavPage.clickEditFinanceData();
 		
 	/*	SharedDriver.pageContainer.materialNavPage.clickEditFinanceData();*/
-		SharedDriver.pageContainer.materialJdePage.selectGLClass(dataMap.get("G/L Class"));
+		SharedDriver.pageContainer.materialJdePage.selectGLClass();
 		SharedDriver.pageContainer.materialJdePage.selectCostingMethodPurchasing(dataMap.get("Costing Method - Purchasing"));
 		SharedDriver.pageContainer.materialJdePage.selectCostingMethodSales(dataMap.get("Costing Method - Sales"));
 		/*SharedDriver.pageContainer.materialNavPage.selectGenProdPostingGroup();
@@ -84,8 +84,9 @@ public class MaterialJDEScript {
 		SharedDriver.pageContainer.materialNavPage.clickSaveButton();
 		SharedDriver.pageContainer.materialNavPage.clickLocalAction();
 		SharedDriver.pageContainer.materialNavPage.submitGlobalRequestTest();
+		SharedDriver.pageContainer.materialPage.clickDuplicateCheck();
 //		SharedDriver.pageContainer.materialPage.getRequestId();
-		SharedDriver.pageContainer.materialPage.getRequestId_Create();
+		SharedDriver.pageContainer.materialPage.getRequestId_CreateNew();
 	}
 
 	@Test(dataProvider="CreateMaterial_Fill_In",dataProviderClass=staticProviderClass.class)
@@ -236,7 +237,7 @@ public class MaterialJDEScript {
 		/********************Edit Finance Data************************************************/
 		SharedDriver.pageContainer.materialJdePage.clickFinancetab();
 		SharedDriver.pageContainer.materialJdePage.editPlantFinance();
-		SharedDriver.pageContainer.materialJdePage.selectGLClass(dataMap.get("G/L Class"));
+		SharedDriver.pageContainer.materialJdePage.selectGLClass();
 		SharedDriver.pageContainer.materialJdePage.selectCostingMethodPurchasing(dataMap.get("Costing Method - Purchasing"));
 		SharedDriver.pageContainer.materialJdePage.selectCostingMethodSales(dataMap.get("Costing Method - Sales"));
 		SharedDriver.pageContainer.materialNavPage.clickLocalAction();
@@ -270,7 +271,7 @@ public class MaterialJDEScript {
 		/********************Edit Finance Data************************************************/
 		SharedDriver.pageContainer.materialJdePage.clickFinancetab();
 		SharedDriver.pageContainer.materialJdePage.editPlantFinance();
-		SharedDriver.pageContainer.materialJdePage.selectGLClass(dataMap.get("G/L Class"));
+		SharedDriver.pageContainer.materialJdePage.selectGLClass();
 		SharedDriver.pageContainer.materialJdePage.selectCostingMethodPurchasing(dataMap.get("Costing Method - Purchasing"));
 		SharedDriver.pageContainer.materialJdePage.selectCostingMethodSales(dataMap.get("Costing Method - Sales"));
 		SharedDriver.pageContainer.materialNavPage.clickLocalAction();
@@ -319,7 +320,7 @@ public class MaterialJDEScript {
 //		SharedDriver.pageContainer.materialNavPage.clickEditFinanceData();
 		
 	/*	SharedDriver.pageContainer.materialNavPage.clickEditFinanceData();*/
-		SharedDriver.pageContainer.materialJdePage.selectGLClass(dataMap.get("G/L Class"));
+		SharedDriver.pageContainer.materialJdePage.selectGLClass();
 		SharedDriver.pageContainer.materialJdePage.selectCostingMethodPurchasing(dataMap.get("Costing Method - Purchasing"));
 		SharedDriver.pageContainer.materialJdePage.selectCostingMethodSales(dataMap.get("Costing Method - Sales"));
 		SharedDriver.pageContainer.materialNavPage.clickLocalAction();
