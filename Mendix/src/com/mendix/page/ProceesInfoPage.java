@@ -6,6 +6,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.time.Duration;
 import java.util.Date;
+import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.function.Function;
 
@@ -23,6 +24,7 @@ import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
+import org.testng.asserts.SoftAssert;
 
 import com.mendix.tool.Button;
 import com.mendix.tool.Constants;
@@ -208,14 +210,17 @@ public class ProceesInfoPage {
 		return Button.click("Click the Procees info search menu", menuProcessInfoSearch);
 	}
 
-	public String getState(String strValue) throws InterruptedException{
+	public void getState(String strValue) throws InterruptedException{
 		Sync.waitForSeconds(Constants.WAIT_6);
 		Sync.waitForSeconds(Constants.WAIT_3);
-		Sync.waitForObject(driver, "Wait for the status to display", txtStatus);
-		String state=driver.findElement(By.xpath(".//*[text()='"+strValue+"']/../../td[9]/div")).getText();
-		System.out.println(state);
+//		Sync.waitForObject(driver, "Wait for the status to display", txtStatus);
+//		String state=driver.findElement(By.xpath(".//*[text()='"+strValue+"']/../../td[9]/div")).getText();
+//		System.out.println(state);
+		List<WebElement> states= driver.findElements(By.xpath(".//div[contains(@class,'searchResults')]/div[3]/div/table[2]/tbody/tr/td[9]"));
+		for(WebElement state:states) {
+			System.out.println("Request Id status details "+state.getText());						
+		}
 //		ExcelUtil.setCellData("MDM", "Level2", 2, state);
-		return state;
 	}
 
 	public String getState_New(String strValue){
