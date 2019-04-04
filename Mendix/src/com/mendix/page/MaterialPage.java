@@ -230,6 +230,9 @@ public class MaterialPage {
 
 	@FindBy(how = How.XPATH, using = "//*[text()='Duplicate Check']")
 	WebElement btnDuplicateCheck;
+	
+	@FindBy(how = How.XPATH, using = "//*[text()='Validate and Duplicate Check']")
+	WebElement btnValidateDuplicateCheck;
 
 	// *************************************************************************************************
 	@FindBy(how = How.XPATH, using = ".//*[@id='mxui_widget_DialogMessage_0']/div[1]/div[2]/p")
@@ -2064,8 +2067,10 @@ public class MaterialPage {
 	public void duplicateCheckButton() {
 		Sync.waitForSeconds(Constants.WAIT_5);
 		// WebDriverWait wait = new WebDriverWait(driver, 100);
-		Sync.waitUntilObjectDisappears(driver, "Wait for Duplicate check",
-				By.xpath(".//*[@id='mxui_widget_Progress_0']/div[2]"));
+		//Sync.waitUntilObjectDisappears(driver, "Wait for Duplicate check",
+			//	By.xpath(".//*[@id='mxui_widget_Progress_0']/div[2]"));
+		Sync.waitForObject(driver, btnDuplicateCheck);
+		Sync.waitForSeconds(Constants.WAIT_6);
 		if (Button.verifyObject(duplicateBtn)) {
 			Sync.waitForObject(driver, "Wait for the duplicate button", duplicateBtn);
 			Button.click("Click on Duplicate button", duplicateBtn);
@@ -2073,6 +2078,7 @@ public class MaterialPage {
 			Button.click("Clicked on Duplicate button", duplicateBtn);
 		}
 	}
+
 
 	public void clickDuplicateCheck() 
     {
@@ -2095,6 +2101,25 @@ public class MaterialPage {
    		 clickOkToHandlePopup();
    	 }
     }
+
+	public void validateAndDuplicateCheckButton() {
+		Sync.waitForSeconds(Constants.WAIT_5);
+		// WebDriverWait wait = new WebDriverWait(driver, 100);
+		//Sync.waitUntilObjectDisappears(driver, "Wait for Duplicate check",
+			//	By.xpath(".//*[@id='mxui_widget_Progress_0']/div[2]"));
+		Sync.waitForObject(driver, btnValidateDuplicateCheck);
+		Sync.waitForSeconds(Constants.WAIT_6);
+		if (Button.verifyObject(btnValidateDuplicateCheck)) {
+			Sync.waitForObject(driver, "Wait for the duplicate button", btnValidateDuplicateCheck);
+			Button.click("Click on Duplicate button", btnValidateDuplicateCheck);
+		} else {
+			Button.click("Clicked on Duplicate button", btnValidateDuplicateCheck);
+		}
+	}
+	
+	
+	
+
 	
 	public void clickDuplicateCheck_without_Extend() {
 		Sync.waitUntilObjectDisappears(driver, "Wait for Duplicate check",
@@ -2113,6 +2138,7 @@ public class MaterialPage {
 			this.clickCloseButtonToPopUp();
 		}
 	}
+	
 
 	public void clickDuplicateCheckDuplicateFound() {
 		Sync.waitUntilObjectDisappears(driver, "Wait for Duplicate check",
@@ -2166,19 +2192,20 @@ public class MaterialPage {
 		}
 	}
 
-	public boolean clickCloseButtonToPopUp() {
+	public void clickCloseButtonToPopUp() {
+		
 		if (Button.verifyObject(btnClose)) {
 
 			Sync.waitForSeconds(Constants.WAIT_5);
 			Sync.waitForObject(driver, "Wait for the information PopUp", msgRequestSuccess);
 			// WebElement popUp = driver.findElement(By.xpath("//*[@class='close
 			// mx-dialog-close']"));
-			return Button.jsclick("Click close PopUp", btnClose, driver);
+			Button.jsclick("Click close PopUp", btnClose, driver);
 
 		} else {
 			Sync.waitForSeconds(Constants.WAIT_5);
 			Sync.waitForObject(driver, "Wait for the information PopUp", msgRequestSuccess);
-			return Button.jsclick("Click close PopUp", btnClose, driver);
+			Button.jsclick("Click close PopUp", btnClose, driver);
 		}
 		// Sync.waitForSeconds(Constants.WAIT_3);
 		// return Button.jsclick("Click ok on info Popup", btnOkay, driver);

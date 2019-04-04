@@ -30,21 +30,37 @@ public class VendorScript {
 	}
 	
 
-	@Test(dataProvider="Process_Information_Check",dataProviderClass=staticProviderClass.class)
-	public void process_Information_Check_GlobalID_Extend(Map<String,String> dataMap) throws InterruptedException, FileNotFoundException, IOException 
-	{
 
-		SharedDriver.pageContainer.processInfoPage.processInfoSearch();
-		SharedDriver.pageContainer.processInfoPage.reqIdSearch_Global(dataMap.get("RequestId"));
-		//SharedDriver.pageContainer.processInfoPage.getState_New(dataMap.get("RequestId"));
-		//SharedDriver.pageContainer.processInfoPage.capturing_GlobalID();
-		SharedDriver.pageContainer.materialPage.checkSyndication(dataMap.get("RequestId"));
-		SharedDriver.pageContainer.materialPage.getGlobalIdProcessInfo_Extend(dataMap.get("RequestId"));
-		Sync.waitForSeconds(Constants.WAIT_5);
-		SharedDriver.pageContainer.materialPage.checkSyndicationDoneStatus(dataMap.get("RequestId"));
-		SharedDriver.pageContainer.processInfoPage.browserClose();
+	@Test(dataProvider="Vendor_Create_Global_Disable_BankData",dataProviderClass=staticProviderClass.class)
+	public void vendor_Create_Fill_In_Data_Global_Nav(Map<String,String> dataMap) throws InterruptedException, FileNotFoundException, IOException, AWTException 
+	{
+		Sync.waitForSeconds(Constants.WAIT_10);
+		//SharedDriver.pageContainer.vendorPage.disableLocaData();
+		//Sync.waitForSeconds(Constants.WAIT_10);
+		SharedDriver.pageContainer.vendorPage.disableBankData();
+		SharedDriver.pageContainer.vendorPage.VendorName(dataMap.get("Name1"));
+		SharedDriver.pageContainer.vendorPage.AddressStreet("Hauptstrasse");//dataMap.get("Street")
+		SharedDriver.pageContainer.vendorPage.AddresHouseNumber("11"); //dataMap.get("House number")
+		SharedDriver.pageContainer.vendorPage.AddresPostalCode("2551"); //dataMap.get("Postal Code")
+		SharedDriver.pageContainer.vendorPage.AddresCity("Enzesfeld-Lindabrunn");
+		SharedDriver.pageContainer.vendorPage.ScrollDown();
+		//'DropDowns
+		SharedDriver.pageContainer.vendorPage.AddresCountry("AT, Austria"); //dataMap.get("Country")
+		SharedDriver.pageContainer.vendorPage.AddresRegion("NOE, Lower Austria");  //dataMap.get("Region")
+		SharedDriver.pageContainer.vendorPage.AddresLanguageKey("EN, English");
+		SharedDriver.pageContainer.vendorPage.AddressCreditInformationNumber("301536819");
+		SharedDriver.pageContainer.vendorPage.AddresIndustryKey("Y001, Trade/Serv/Transport");
+		SharedDriver.pageContainer.vendorPage.AddresCorporateGroup("PR-PACK, PR-Packaging materials");
+		SharedDriver.pageContainer.vendorPage.validateTestCreate();
+		SharedDriver.pageContainer.materialPage.duplicateCheckButton();
+		SharedDriver.pageContainer.materialPage.clickDuplicateCheck();
+		//SharedDriver.pageContainer.vendorPage.submitGlobalRequestTest();
+//		SharedDriver.pageContainer.vendorPage.getRequestId();
+				
 	}
+
 /****************************************************************************************************/	
+
 	@Test(dataProvider="Vendor_Create_Global_Disable_Bank_and_LocalData",dataProviderClass=staticProviderClass.class)
 	public void Vendor_Create_Fill_In_Data(Map<String,String> dataMap) throws InterruptedException, FileNotFoundException, IOException, AWTException 
 	{
@@ -248,9 +264,14 @@ public class VendorScript {
 		SharedDriver.pageContainer.homePage.navigateToWorkflow();
 		SharedDriver.pageContainer.vendorPage.switchToMDMPortal();
 		SharedDriver.pageContainer.vendorPage.navigateToDashboard();
-		SharedDriver.pageContainer.vendorPage.advancedSearch();		
+		SharedDriver.pageContainer.vendorPage.advancedSearch();
+		//SharedDriver.pageContainer.vendorPage.scrolltoGlobalSearch();
 		SharedDriver.pageContainer.vendorPage.globalSearch(dataMap.get("Global_ID"));
-		SharedDriver.pageContainer.vendorPage.checkDashboardLockVendor();		
+		SharedDriver.pageContainer.vendorPage.checkDashboardLockVendor();
+		//SharedDriver.pageContainer.vendorPage.getGlobalId();
+		//SharedDriver.pageContainer.vendorPage.GetFullVendorData();
+		//SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
+		//SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
 		SharedDriver.pageContainer.vendorPage.getVendorAccountNumber();
 		SharedDriver.pageContainer.processInfoPage.browserClose();
 	}
@@ -509,6 +530,7 @@ public class VendorScript {
 	@Test(dataProvider="CreateVendor_Fill_In_Local",dataProviderClass=staticProviderClass.class)
 	public void vendor_Create_Fill_In_Local_Finance_Tab(Map<String,String> dataMap) throws InterruptedException
 	{
+		SharedDriver.pageContainer.materialNavPage.switchToLocal();
 		SharedDriver.pageContainer.vendorPageNAV.localAddInNewFinanceNav();
 		SharedDriver.pageContainer.vendorPageNAV.clickAndSelectVendorPostingGroupDropDown(dataMap.get("Vendor Posting Group"));
 		SharedDriver.pageContainer.vendorPageNAV.clickAndSelectVATBusPostingGroupDropDown(dataMap.get("VAT Bus. Posting Group"));

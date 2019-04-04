@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Create Vendor with JDE">
-	  <test name="HeiPort_Login_LDR">
+  	  <test name="HeiPort_Login_LDR">
 		<classes>
 			<class name="com.mendix.test.LoginScript">
 				<methods>
@@ -93,10 +93,10 @@
 	</test>
 	<test name="Material_Create_Review_Global_Data_Approve_GDA">
 		<classes>
-			<class name="com.mendix.test.MaterialScript">
+			<class name="com.mendix.test.VendorScript">
 				<methods>
 					<include
-						name="Material_Create_Review_Global_Data_Approve_GDA" />
+						name="Vendor_Create_Review_Global_Data_Approve_GDA" />
 				</methods>
 			</class>
 		</classes>
