@@ -358,16 +358,9 @@ public class VendorPage {
 	}
 
 	/*****************************************************************************/
-	public boolean VendorTypeSelection() throws InterruptedException {
-
-		Sync.waitForSeconds(Constants.WAIT_6);
-		if (Button.verifyObject(btnvendorTypeSelect)) {
-			Sync.waitForObject(driver, "Material Type Select", btnvendorTypeSelect);
-			Sync.waitForSeconds(Constants.WAIT_1);
-			return Button.click("Material Type Select", btnvendorTypeSelect);
-		} else {
-			return Button.click("Material Type Selection", btnvendorTypeSelect);
-		}
+	public void VendorTypeSelection() throws InterruptedException {
+		Sync.waitForObject(driver, "Material Type Select", btnvendorTypeSelect);
+		Button.click("Material Type Select", btnvendorTypeSelect);	
 	}
 
 	/*****************************************************************************/
