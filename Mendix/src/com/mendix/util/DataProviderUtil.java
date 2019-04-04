@@ -92,6 +92,12 @@ public class DataProviderUtil {
 			return testData;
 		}
 		
+		@DataProvider(name="Vendor_Create_Global_Disable_BankData",parallel=false)
+		public static Iterator<Object[]> vendorPageGlobal(){
+			Iterator<Object[]> testData=ExcelUtil.getTestData("input/data/Global_"+Constants.MDM_TYPE_VENDOR+"_Data"+Constants.EXCEL_FORMAT_XLSX, "Y001");
+			return testData;
+		}
+		
 		@DataProvider(name="Vendor_Create_Global_Bank_and_LocalData",parallel=false)
 		public static Iterator<Object[]> VendorBankPage(){
 			Iterator<Object[]> testData=ExcelUtil.getTestData("input/data/Global_"+Constants.MDM_TYPE_VENDOR+"_Data"+Constants.EXCEL_FORMAT_XLSX, "Y001");

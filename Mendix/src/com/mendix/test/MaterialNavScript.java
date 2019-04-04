@@ -38,7 +38,8 @@ public class MaterialNavScript {
 		SharedDriver.pageContainer.materialPage.uomPrimarySelectionTest();
 		//SharedDriver.pageContainer.materialNavPage.clickLocalAction();
 		SharedDriver.pageContainer.materialPage.validateTestCreate();
-
+		SharedDriver.pageContainer.materialPage.duplicateCheckButton();
+		SharedDriver.pageContainer.materialPage.clickDuplicateCheck();
 	}
 
 	@Test(dataProvider = "CreateMaterial_Fill_In_Nav", dataProviderClass = staticProviderClass.class)
