@@ -154,7 +154,7 @@ public class ProceesInfoPage {
 	public void reqIdSearch_Local(String strValue) throws InterruptedException, FileNotFoundException, IOException {
 
 		driver.switchTo().window("Application");
-		Sync.waitForSeconds(Constants.WAIT_3);
+		Sync.waitForSeconds(Constants.WAIT_5);
 		Sync.waitForObject(driver, "Wait for Request Id", txtboxRequestId);
 		Wait<WebDriver> Wait = new FluentWait<WebDriver>(driver).withTimeout(Duration.ofSeconds(100))
 				.pollingEvery(Duration.ofMillis(600)).ignoring(NoSuchElementException.class);
