@@ -19,17 +19,14 @@ public class Vendor_JDE_Script {
 	public void Vendor_Create_Fill_In_Data_JDE_Local_Purchasing(Map<String,String> dataMap) throws InterruptedException, FileNotFoundException, IOException, AWTException 
 	{
 
-		//		SharedDriver.pageContainer.vendorPage.clickLocalAction();
-//		SharedDriver.pageContainer.vendorPage.disableBankData();
+
 		SharedDriver.pageContainer.vendor_JDE_Page.enterLocalData();
 		SharedDriver.pageContainer.vendor_JDE_Page.clickAddPlantData();
-		SharedDriver.pageContainer.vendor_JDE_Page.selectingAdjustmentSchedule(dataMap.get("Adjustment Schedule"));
-		//SharedDriver.pageContainer.vendor_JDE_Page.selectselectSendMethod("3, Email");
-		SharedDriver.pageContainer.vendor_JDE_Page.selectingSendMethod(dataMap.get("Send Method"));
+		SharedDriver.pageContainer.vendor_JDE_Page.selectAdjustmentSchedule();
+		//SharedDriver.pageContainer.vendor_JDE_Page.selectSendMethod();		
 		SharedDriver.pageContainer.vendorPage.clickLocalAction_Local();
-		SharedDriver.pageContainer.vendor_JDE_Page.clickValidatLocalData();
+		SharedDriver.pageContainer.vendor_JDE_Page.clickValidatLocalData();		
 		SharedDriver.pageContainer.vendor_JDE_Page.clickPlanningSaveButton();
-
 
 	}
 
@@ -60,9 +57,10 @@ public class Vendor_JDE_Script {
 		SharedDriver.pageContainer.vendorPage.clickLocalAction_Local();
 		//		SharedDriver.pageContainer.materialNavPage.clickLocalAction();
 		SharedDriver.pageContainer.materialNavPage.submitGlobalRequestTest();
-		SharedDriver.pageContainer.vendorPage.duplicateCheck();
+		SharedDriver.pageContainer.materialPage.duplicateCheck_New();
 		SharedDriver.pageContainer.vendorPage.getRequestId_Vendor();
 //		SharedDriver.pageContainer.materialPage.getRequestId_Create();
+		
 
 	}
 
