@@ -207,7 +207,8 @@ public class Vendor_JDE_Page {
 	public boolean clickAddFinanceData() {
 
 		Sync.waitForObject(driver, BtnAddFinanceData);
-		return Button.click("Click Edit button", BtnAddFinanceData);
+		return Button.click("Click BtnAddFinanceData", BtnAddFinanceData);
+		
 
 	}
 
@@ -441,7 +442,7 @@ public class Vendor_JDE_Page {
 
 	public void selectMvmtTypeInvoicePayment1()
 	{
-		Sync.waitForSeconds(Constants.WAIT_5);
+		Sync.waitForSeconds(Constants.WAIT_6);
 		Button.click("Select Invoce Payment1", selectMvmtTypeInvoicePayment1);
 		Select option= new Select(selectMvmtTypeInvoicePayment1);
 		option.selectByIndex(1);
