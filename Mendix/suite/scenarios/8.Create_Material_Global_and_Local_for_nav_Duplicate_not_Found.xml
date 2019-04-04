@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Create Material Global and Local for NAV Duplicate not Found">
-     <test name="HeiPort_Login_LDR">
+   <test name="HeiPort_Login_LDR">
 		<classes>
 			<class name="com.mendix.test.LoginScript">
 				<methods>
@@ -52,9 +52,9 @@
 			</class>
 		</classes>
 	</test>
-	
+
 	<!--=================================Local Data Approvar LDP Start============================================================== -->
-	  
+  
 	 <test name="HeiPort_Login_LDP">
 		<classes>
 			<class name="com.mendix.test.LoginScript">
@@ -85,11 +85,11 @@
 			</class>
 		</classes>
 	</test>
-	
+
 	<!--=======================================LDP Local Approve END======================================================================================== -->  
 	
 	<!-- =============================================LDS login and approving local Start=============================================================== -->
-	    
+	   
 	  <test name="HeiPort_Login_LDS">
 		<classes>
 			<class name="com.mendix.test.LoginScript">
@@ -120,7 +120,7 @@
 			</class>
 		</classes>
 	</test>
-	  
+	 
 	<!-- =====================================LDS Approval Local End============================================================================ -->
 	<!-- =====================================LBDA Global Approval Level Start==================================================  -->
  	  
@@ -155,7 +155,7 @@
 	</test>
 	
 <!-- ==================================LDP Global Material Approval Level Start=============================================================== -->
-   
+    
 	<test name="HeiPort_Login_LDP_Global">
 		<classes>
 			<class name="com.mendix.test.LoginScript">
@@ -186,9 +186,9 @@
 			</class>
 		</classes>
 	</test>
-	 
+	
 <!-- ============================================================LDP Global Approval Level End=========================================================== -->	
-  
+    
 	<test name="HeiPort_Login_GBDA_Global">
 		<classes>
 			<class name="com.mendix.test.LoginScript">
