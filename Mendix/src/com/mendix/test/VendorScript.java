@@ -559,11 +559,14 @@ public class VendorScript {
 
 	/** *************************************************************************************************************************************/
 	@Test(dataProvider="Process_Information_Check",dataProviderClass=staticProviderClass.class)
-	public void vendor_Submit_Global_And_Local_Request() throws FileNotFoundException, InterruptedException, IOException
+	public void vendor_Submit_Global_And_Local_Request(Map<String,String> dataMap) throws FileNotFoundException, InterruptedException, IOException
 	{
 		SharedDriver.pageContainer.materialPage.clickLocalAction();
 		SharedDriver.pageContainer.materialPage.submitGlobalLocalRequest();
-		SharedDriver.pageContainer.vendorPage.getRequestId();
+		//SharedDriver.pageContainer.materialPage.clickDuplicateCheck();
+		SharedDriver.pageContainer.materialPage.getRequestId_CreateNew();
+		SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
+		Sync.waitForSeconds(Constants.WAIT_3);
 	}
 	
 	/****************************************************************************************************************************************/
