@@ -24,6 +24,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.mendix.tool.Button;
 import com.mendix.tool.Constants;
+import com.mendix.tool.SharedDriver;
 import com.mendix.tool.Sync;
 import com.mendix.tool.Textbox;
 import com.mendix.util.ExcelUtil;
@@ -130,7 +131,7 @@ public class MaterialApprovalPage {
 	public boolean reqIdSearchMyTasks(String strValue)
 
 	{
-		Sync.waitForSeconds(Constants.WAIT_6);
+		Sync.waitForSeconds(Constants.WAIT_10);
 		Sync.waitForElementToBeClickable(driver, menuMyTask);
 
 		Button.jsclick("Search My task", menuMyTask, driver);
@@ -464,7 +465,7 @@ public class MaterialApprovalPage {
 	}
 
 	public void submitRequestOkButtonClick() {
-
+		Sync.waitForSeconds(Constants.WAIT_10);
 		WebDriverWait wait = new WebDriverWait(driver, 120);
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[text()='OK']")));
 		Button.click("Click On OK button", btnOK);
@@ -559,6 +560,32 @@ public class MaterialApprovalPage {
 
 		}
 	}
+	
+	@FindBy(how=How.XPATH, using = ".//*[text()='Open Record']")
+	WebElement btnDuplicateOpenRecord;
+	
+	@FindBy(how = How.XPATH, using = "//*[@class='close mx-dialog-close']")
+	WebElement btnClose;
+	
+	
+	public void clickDuplicateCheck_GDA() {
+		Sync.waitUntilObjectDisappears(driver, "Wait for Duplicate check",
+				By.xpath(".//*[@id='mxui_widget_Progress_0']/div[2]"));
+		Sync.waitForSeconds(Constants.WAIT_5);
+		//WebDriverWait wait = new WebDriverWait(driver, 50);
+		//wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[text()='My record is not a duplicate! Submit.']")));
+
+		if (Button.verifyObject(btnDuplicateOpenRecord)) {
+			Sync.waitForSeconds(Constants.WAIT_5);
+			this.duplicateCheck();
+		} else if (Button.verifyObject(btnClose)) {
+
+			Sync.waitForSeconds(Constants.WAIT_5);
+			//Sync.waitForObject(driver, "Wait for the information PopUp", msgRequestSuccess);
+			SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
+		}
+	}
+
 	// }
 
 	public void okbuttonClick() {
