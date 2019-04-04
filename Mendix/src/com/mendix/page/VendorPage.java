@@ -159,6 +159,9 @@ public class VendorPage {
 
 	@FindBy(how = How.XPATH, using = ".//button[text()='Submit Global Request']")
 	WebElement btnGlobalRequest;
+	
+	@FindBy(how = How.XPATH, using = ".//button[text()='Submit Local Request']")
+	WebElement btnLocalRequest;
 
 	@FindBy(how = How.XPATH, using = ".//button[text()='Save As Draft']")
 	WebElement btnSaveAsDraft;
@@ -1427,6 +1430,19 @@ public class VendorPage {
 		Sync.waitForSeconds(Constants.WAIT_1);
 		wait.until(ExpectedConditions.elementToBeClickable(btnGlobalRequest));
 		Button.click("Click Global submit Global Request", btnGlobalRequest);
+		Sync.waitForSeconds(Constants.WAIT_2);
+		Thread.sleep(8000);
+	}
+	/***************************************************************************************************************/
+	public void clickResubmitLocalRequest() throws InterruptedException {
+		WebDriverWait wait = new WebDriverWait(driver, 30);
+		wait.until(ExpectedConditions.elementToBeClickable(btnLocalActions));
+		Button.click("Local Actions button", btnLocalActions);
+		Sync.waitForSeconds(Constants.WAIT_2);
+		// Button.click("Local Actions button", btnLocalActions);
+		Sync.waitForSeconds(Constants.WAIT_1);
+		wait.until(ExpectedConditions.elementToBeClickable(btnLocalRequest));
+		Button.click("Click Global submit Global Request", btnLocalRequest);
 		Sync.waitForSeconds(Constants.WAIT_2);
 		Thread.sleep(8000);
 	}
