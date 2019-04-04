@@ -234,11 +234,13 @@ public class MaterialScript {
 			throws InterruptedException, FileNotFoundException, IOException {
 
 		SharedDriver.pageContainer.materialPage.validateTestCreate();
-		SharedDriver.pageContainer.materialPage.submitGlobalRequestTest();
+		SharedDriver.pageContainer.materialPage.duplicateCheckButton();
 		SharedDriver.pageContainer.materialPage.clickDuplicateCheck();
+		SharedDriver.pageContainer.materialPage.submitGlobalRequestTest();
 		SharedDriver.pageContainer.materialPage.getRequestId_CreateNew();
+		SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
 		// SharedDriver.pageContainer.materialPage.getRequestId();
-		SharedDriver.pageContainer.materialApprovalPage.submitRequestOkBtnClick();
+		//SharedDriver.pageContainer.materialApprovalPage.submitRequestOkBtnClick();
 		// SharedDriver.pageContainer.materialApprovalPage.okbuttonClick();
 
 	}

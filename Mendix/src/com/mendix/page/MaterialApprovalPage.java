@@ -465,7 +465,7 @@ public class MaterialApprovalPage {
 	}
 
 	public void submitRequestOkButtonClick() {
-
+		Sync.waitForSeconds(Constants.WAIT_10);
 		WebDriverWait wait = new WebDriverWait(driver, 120);
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[text()='OK']")));
 		Button.click("Click On OK button", btnOK);
