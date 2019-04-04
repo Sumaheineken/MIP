@@ -10,7 +10,9 @@ import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import com.mendix.tool.Constants;
 import com.mendix.tool.SharedDriver;
+import com.mendix.tool.Sync;
 import com.mendix.util.DataProviderUtil.staticProviderClass;
 
 public class VendorScript_NAV {
@@ -27,6 +29,8 @@ public class VendorScript_NAV {
 		SharedDriver.pageContainer.vendorPage.VendorTypeSelection();
 		SharedDriver.pageContainer.vendorPage.createButtonClick();
 	}
+	
+	
 /****************************************************************************************************/	
 	@Test(dataProvider="Vendor_Create_Global_Disable_Bank_and_LocalData",dataProviderClass=staticProviderClass.class)
 	public void Vendor_Create_Fill_In_Data_Global_Local_NAV(Map<String,String> dataMap) throws InterruptedException, FileNotFoundException, IOException, AWTException 
