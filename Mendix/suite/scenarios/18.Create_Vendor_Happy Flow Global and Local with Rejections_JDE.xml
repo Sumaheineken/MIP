@@ -103,7 +103,7 @@
 		</classes>
 	</test> 
 	  
-	<test name="HeiPort_Login_LDS">
+	<test name="HeiPort_Login_LDS_2">
 		<classes>
 			<class name="com.mendix.test.LoginScript">
 				<methods>
