@@ -359,7 +359,6 @@ public class VendorPage {
 
 	/*****************************************************************************/
 	public boolean VendorTypeSelection() throws InterruptedException {
-
 		Sync.waitForSeconds(Constants.WAIT_6);
 		if (Button.verifyObject(btnvendorTypeSelect)) {
 			Sync.waitForObject(driver, "Material Type Select", btnvendorTypeSelect);
