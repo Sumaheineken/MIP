@@ -506,6 +506,7 @@ public class MaterialPage {
 		Button.click("Local Actions button", btnLocalActions);
 		Button.click("Disable Local Request", btnDisableLocalRequest);
 	    Button.click("Proceed", btnProceed);
+	    Sync.waitForSeconds(Constants.WAIT_5);
 	    return Button.click("Local Actions button", btnLocalActions);
 	}
 
@@ -2083,10 +2084,7 @@ public class MaterialPage {
 	public void clickDuplicateCheck() 
     {
    	 Sync.waitUntilObjectDisappears(driver, "Wait for Duplicate check", By.xpath(".//*[@id='mxui_widget_Progress_0']/div[2]"));
-   	 Sync.waitForSeconds(Constants.WAIT_5);
-   	 WebDriverWait wait = new WebDriverWait(driver,50);
-   	 wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[text()='My record is not a duplicate! Submit.']")));
-   	 
+   	 Sync.waitForSeconds(Constants.WAIT_5);   	
    	 if(Button.verifyObject(btnDuplicateSubmit)) 
    	 {
    		 Sync.waitForSeconds(Constants.WAIT_5);
@@ -2098,7 +2096,7 @@ public class MaterialPage {
    		 Sync.waitForSeconds(Constants.WAIT_5);
    		 Sync.waitForObject(driver, "Wait for the information PopUp", msgRequestSuccess);
 
-   		 clickOkToHandlePopup();
+   		clickCloseButtonToPopUp();
    	 }
     }
 

@@ -108,7 +108,7 @@ public class ProceesInfoPage {
 		Textbox.click("Click Request Id Text Box", txtboxRequestId);
 		Textbox.clear("Clear Request Id Text Box", txtboxRequestId);
 		Textbox.enterValue("Enter Request Id", txtboxRequestId, strValue);
-		Sync.waitForSeconds(Constants.WAIT_5);
+		Sync.waitForSeconds(Constants.WAIT_10);
 		return Button.click("Click Request Id Search Button", btnReqIdSearch);
 	}
 	public void reqIdSearch_Global(String strValue) throws InterruptedException, FileNotFoundException, IOException {
@@ -196,7 +196,7 @@ public class ProceesInfoPage {
 	public boolean processInfoSearch() {
 		
 		Sync.waitForSeconds(Constants.WAIT_10);
-		Sync.waitForSeconds(Constants.WAIT_5);
+		Sync.waitForSeconds(Constants.WAIT_10);
 		WebDriverWait wait = new WebDriverWait(driver,150);
 	    wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//a[contains(text(),'Process Information')]")));
 		
