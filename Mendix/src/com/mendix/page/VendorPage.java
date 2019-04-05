@@ -361,9 +361,11 @@ public class VendorPage {
 	}
 
 	/*****************************************************************************/
+
 	public void VendorTypeSelection() throws InterruptedException {
 		Sync.waitForObject(driver, "Material Type Select", btnvendorTypeSelect);
 		Button.click("Material Type Select", btnvendorTypeSelect);	
+
 	}
 
 	/*****************************************************************************/
