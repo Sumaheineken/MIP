@@ -2090,6 +2090,7 @@ public class MaterialPage {
    	 Sync.waitForSeconds(Constants.WAIT_5); 
    	 Sync.waitForSeconds(Constants.WAIT_6);
    	 //btnDuplicateSubmit
+   	 
    	 Thread.sleep(20000);
    	 if(driver.findElements(By.xpath(".//*[text()='Open Record']")).size()>0) 
    	 {
