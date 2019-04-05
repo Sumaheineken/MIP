@@ -96,7 +96,7 @@
 		</classes>
 	</test> 
 	  
-	<test name="HeiPort_Login_LDS">
+	<test name="HeiPort_ReLogin_LDS">
 		<classes>
 			<class name="com.mendix.test.LoginScript">
 				<methods>
@@ -107,7 +107,7 @@
 		</classes>
 	</test>
 	
-	<test name="Vendor_Create_Review_Local_Data_Approve_LDS">
+	<test name="Vendor_Create_Review_Local_Data_ReApprove_LDS">
 		<classes>
 			<class name="com.mendix.test.VendorScript_NAV">
 				<methods>
@@ -116,7 +116,7 @@
 			</class>
 		</classes>
 	</test>
-	<test name="Process_Information_Check_Approved_LDS">
+	<test name="Process_Information_Check_ReApproved_LDS">
 		<classes>
 			<class name="com.mendix.test.VendorScript">
 				<methods>
@@ -227,7 +227,7 @@
 			</class>
 		</classes>
 	</test>
- 	<test name="Vendor_Create_Review_Global_Data_Approve_GDA">
+ 	<test name="Vendor_Create_Review_Global_Data_ReApprove_GDA">
 		<classes>
 			<class name="com.mendix.test.VendorScript">
 				<methods>
@@ -236,7 +236,7 @@
 			</class>
 		</classes>
 	</test>
-		<test name="Process_Information_Check_Approved_GDA">
+		<test name="Process_Information_Check_ReApproved_GDA">
 		<classes>
 			<class name="com.mendix.test.MaterialScript">
 				<methods>
