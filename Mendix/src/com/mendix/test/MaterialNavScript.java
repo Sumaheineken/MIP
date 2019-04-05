@@ -114,10 +114,10 @@ public class MaterialNavScript {
 		SharedDriver.pageContainer.materialApprovalPage.reqIdSearchMyTasks(dataMap.get("RequestId"));
 		//SharedDriver.pageContainer.materialApprovalPage.approvalBtnClick_Local();
 		SharedDriver.pageContainer.materialApprovalPage.markViewsBtnClick_Local();
-		SharedDriver.pageContainer.materialApprovalPage.submitRequestOkBtnClick();
+		SharedDriver.pageContainer.materialApprovalPage.submitRequestOkButtonClick();
 		SharedDriver.pageContainer.materialApprovalPage.approveLocalRequest();
 		// SharedDriver.pageContainer.materialPage.getRequestId();
-		SharedDriver.pageContainer.materialApprovalPage.submitRequestOkBtnClick();
+		SharedDriver.pageContainer.materialApprovalPage.submitRequestOkButtonClick();
 		/*
 		 * SharedDriver.pageContainer.materialApprovalPage.approvalBtnClick_Global();
 		 * SharedDriver.pageContainer.materialApprovalPage.submitRequestOkBtnClick();

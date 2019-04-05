@@ -319,6 +319,7 @@ public class MaterialScript {
 	@Test(dataProvider="Process_Information_Check",dataProviderClass=staticProviderClass.class)
 	public void process_Information_Check_GlobalID_Extend(Map<String,String> dataMap) throws InterruptedException, FileNotFoundException, IOException 
 	{
+		System.out.println("Waiting for Clicking on Process Info Search");
 		SharedDriver.pageContainer.processInfoPage.processInfoSearch();
 		SharedDriver.pageContainer.processInfoPage.reqIdSearch_Global(dataMap.get("RequestId"));
 		//SharedDriver.pageContainer.processInfoPage.getState_New(dataMap.get("RequestId"));
