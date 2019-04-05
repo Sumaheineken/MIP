@@ -170,9 +170,9 @@ public class MaterialApprovalPage {
 		Textbox.click("Click Enter Request Id", txtboxReqIdSearch);
 		Sync.waitForSeconds(Constants.WAIT_3);
 		Textbox.enterValue("Enter Request Id textbox", txtboxReqIdSearch, strValue);
-		Sync.waitForSeconds(Constants.WAIT_1);
+		Sync.waitForSeconds(Constants.WAIT_5);
 		Button.click("Click Search Button", btnReqIdEnterSearch);
-		Sync.waitForSeconds(Constants.WAIT_1);
+		Sync.waitForSeconds(Constants.WAIT_5);
 		return Button.click("Click Open Task", btnOpenTask);
 
 	}
