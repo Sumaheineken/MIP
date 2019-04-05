@@ -568,13 +568,13 @@ public class MaterialApprovalPage {
 	WebElement btnClose;
 	
 	
-	public void clickDuplicateCheck_GDA() {
+	public void clickDuplicateCheck_GDA() throws InterruptedException {
 		Sync.waitUntilObjectDisappears(driver, "Wait for Duplicate check",
 				By.xpath(".//*[@id='mxui_widget_Progress_0']/div[2]"));
 		Sync.waitForSeconds(Constants.WAIT_5);
 		//WebDriverWait wait = new WebDriverWait(driver, 50);
 		//wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[text()='My record is not a duplicate! Submit.']")));
-
+        Thread.sleep(20000);
 		if (Button.verifyObject(btnDuplicateOpenRecord)) {
 			Sync.waitForSeconds(Constants.WAIT_5);
 			this.duplicateCheck();

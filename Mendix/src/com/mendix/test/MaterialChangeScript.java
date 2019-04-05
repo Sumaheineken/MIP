@@ -241,7 +241,7 @@ public class MaterialChangeScript {
 	public void Material_Extend_SAP (Map<String,String> dataMap) throws InterruptedException, FileNotFoundException, IOException 
 	{
 		SharedDriver.pageContainer.homePage.navigateToWorkflow();
-		SharedDriver.pageContainer.materialPage.switchToPopup();
+		SharedDriver.pageContainer.materialPage.switchToPopup();		
 		SharedDriver.pageContainer.materialPage.navigateToDashboard();
 		SharedDriver.pageContainer.materialPage.advancedSearch();
 		SharedDriver.pageContainer.materialPage.scrolltoGlobalSearch();
@@ -252,17 +252,15 @@ public class MaterialChangeScript {
 		SharedDriver.pageContainer.material_Change_Page.selectOperatingEntity();
 		SharedDriver.pageContainer.material_Change_Page.clickExtendbutton();
 		SharedDriver.pageContainer.materialPage.clickLocalAction();
-	       SharedDriver.pageContainer.material_Change_Page.clickConfirmExtension();
-	       SharedDriver.pageContainer.materialPage.getRequestId_CreateNew();
-		   SharedDriver.pageContainer.materialApprovalPage.submitRequestOkButtonClick();
+	    SharedDriver.pageContainer.material_Change_Page.clickConfirmExtension();
+	    SharedDriver.pageContainer.materialPage.getRequestId_CreateNew();
+		SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
 		
 		//SharedDriver.pageContainer.materialPage.clickOkToHandlePopup();
 		//SharedDriver.pageContainer.materialApprovalPage.submitRequestOkBtnClick();
 		
+		
 	}
-	
-
-
 	
 	
 }

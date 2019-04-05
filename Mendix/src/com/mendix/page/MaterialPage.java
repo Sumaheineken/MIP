@@ -243,6 +243,10 @@ public class MaterialPage {
 
 	@FindBy(how = How.CSS, using = ".btn.btn-primary")
 	WebElement btnMsgReqIdOk;
+	
+	@FindBy(how = How.XPATH, using = ".//*[text()='Open Record']")
+	WebElement btnOpenRecord;
+	
 
 	// @FindBy(how=How.XPATH, using="(.//*[text()='New'])[4]")
 	/*
@@ -1868,7 +1872,7 @@ public class MaterialPage {
 	public void duplicateCheck_New() {
 		try {
 		// Sync.waitUntilObjectDisappears(driver, "Wait for Duplicate check", By.xpath(".//*[@id='mxui_widget_Progress_0']/div[2]"));
-        Sync.waitForSeconds(Constants.WAIT_5);
+        Sync.waitForSeconds(Constants.WAIT_10);
        // Sync.waitForSeconds(Constants.WAIT_5);
 		/*WebElement waitElement = null;
 		FluentWait<WebDriver> fwait = new FluentWait<WebDriver>(driver)
@@ -1891,13 +1895,14 @@ public class MaterialPage {
 		//checking if loading indicator was found and if so we wait for it to
 		//disappear
 		if (waitElement != null) {
-*/		WebDriverWait wait = new WebDriverWait(driver, 100);
+*/		WebDriverWait wait = new WebDriverWait(driver, 150);
         
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(".//*[text()='Open Record']")));
 	    System.out.println("Clicked on Open Record");
 		
 		//}
-
+	    
+	    Sync.waitForSeconds(Constants.WAIT_10);
 		driver.manage().window().setPosition(new Point(-2000, 0)) ;
 		driver.findElement(By.xpath(".//*[text()='Open Record']")).sendKeys(Keys.TAB);
 		Sync.waitForSeconds(Constants.WAIT_2);
@@ -1912,8 +1917,8 @@ public class MaterialPage {
 		System.out.println("Clicked on proceed");
 
 
-		driver.manage().window().maximize();
-		/*Actions actions = new Actions(driver);
+		/*driver.manage().window().maximize();
+		Actions actions = new Actions(driver);
 		actions.moveToElement(btnMsgReqIdOk);
 		actions.perform();
 
@@ -2081,19 +2086,18 @@ public class MaterialPage {
 	}
 
 
-	public void clickDuplicateCheck() 
+	public void clickDuplicateCheck() throws InterruptedException 
     {
-   	 Sync.waitUntilObjectDisappears(driver, "Wait for Duplicate check", By.xpath(".//*[@id='mxui_widget_Progress_0']/div[2]"));
-   	 Sync.waitForSeconds(Constants.WAIT_5);   	
-   	 if(Button.verifyObject(btnDuplicateSubmit)) 
+   	// Sync.waitUntilObjectDisappears(driver, "Wait for Duplicate check", By.xpath(".//*[@id='mxui_widget_Progress_0']/div[2]"));
+   	 Thread.sleep(20000);
+   	 if(driver.findElements(By.xpath(".//*[text()='Open Record']")).size()>0) 
    	 {
-   		 Sync.waitForSeconds(Constants.WAIT_5);
+   		 Sync.waitForSeconds(Constants.WAIT_10); 
    		 duplicateCheck_New();
    	 }
    	 else if(Button.verifyObject(btnClose))
    	 {
 
-   		 Sync.waitForSeconds(Constants.WAIT_5);
    		 Sync.waitForObject(driver, "Wait for the information PopUp", msgRequestSuccess);
 
    		clickCloseButtonToPopUp();

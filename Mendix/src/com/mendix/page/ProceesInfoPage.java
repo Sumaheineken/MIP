@@ -193,17 +193,16 @@ public class ProceesInfoPage {
 		driver.findElement(By.xpath(".//*[@class='glyphicon glyphicon-search']")).click();
 	}
 
-	public boolean processInfoSearch() {
+	public boolean processInfoSearch() throws InterruptedException {
 		
-		Sync.waitForSeconds(Constants.WAIT_10);
-		Sync.waitForSeconds(Constants.WAIT_10);
-		WebDriverWait wait = new WebDriverWait(driver,150);
+       
+		WebDriverWait wait = new WebDriverWait(driver,160);
 	    wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//a[contains(text(),'Process Information')]")));
 		
 		//WebElement el = driver.findElement(By.xpath("//a[contains(text(),'Process Information')]"));
 		//((JavascriptExecutor)driver).executeScript("arguments[0].click()", el);
 		Sync.waitForObjectFluent(driver, menuProcessInfo);
-		Button.click("Click the Process Info Menu", menuProcessInfo);
+		Button.jsclick("Click the Process Info Menu", menuProcessInfo, driver);
 		Sync.waitForSeconds(Constants.WAIT_5);
 		//Sync.waitForSeconds(Constants.WAIT_5);
 		
