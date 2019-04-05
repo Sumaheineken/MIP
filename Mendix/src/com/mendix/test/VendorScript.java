@@ -37,6 +37,7 @@ public class VendorScript {
 		Sync.waitForSeconds(Constants.WAIT_10);
 		//SharedDriver.pageContainer.vendorPage.disableLocaData();
 		//Sync.waitForSeconds(Constants.WAIT_10);
+		SharedDriver.pageContainer.materialPage.clickLocalAction();
 		SharedDriver.pageContainer.vendorPage.disableBankData();
 		SharedDriver.pageContainer.vendorPage.VendorName(dataMap.get("Name1"));
 		SharedDriver.pageContainer.vendorPage.AddressStreet("Hauptstrasse");//dataMap.get("Street")
@@ -209,8 +210,12 @@ public class VendorScript {
 		Assert.assertTrue(SharedDriver.pageContainer.homePage.navigateToWorkflow());
 		SharedDriver.pageContainer.vendorPage.switchToMDMPortal();
 		SharedDriver.pageContainer.materialApprovalPage.reqIdSearchMyTasks(dataMap.get("RequestId"));
+		SharedDriver.pageContainer.materialPage.clickLocalAction();
+		SharedDriver.pageContainer.materialPage.validateAndDuplicateCheckButton();
+		SharedDriver.pageContainer.materialApprovalPage.clickDuplicateCheck_GDA();
+		SharedDriver.pageContainer.materialPage.clickLocalAction();
 		SharedDriver.pageContainer.materialApprovalPage.approvalBtnClick();
-		SharedDriver.pageContainer.vendorPage.duplicateCheck();
+		//SharedDriver.pageContainer.vendorPage.duplicateCheck();
 	
 	}
 /****************************************************************************************************/	
@@ -222,6 +227,16 @@ public class VendorScript {
 		SharedDriver.pageContainer.materialApprovalPage.reqIdSearchMyTasks(dataMap.get("RequestId"));
 		SharedDriver.pageContainer.vendorPage.RejectGDA();
 	}
+	
+	@Test(dataProvider="Process_Information_Check",dataProviderClass=staticProviderClass.class)
+	public void Vendor_Create_Review_Local_Data_Reject_LDS(Map<String,String> dataMap) throws InterruptedException, FileNotFoundException, IOException, AWTException 
+	{
+		Assert.assertTrue(SharedDriver.pageContainer.homePage.navigateToWorkflow());
+		SharedDriver.pageContainer.vendorPage.switchToMDMPortal();
+		SharedDriver.pageContainer.materialApprovalPage.reqIdSearchMyTasks(dataMap.get("RequestId"));
+		SharedDriver.pageContainer.materialPage.rejectLDS();
+	}
+	
 	@Test(dataProvider="Process_Information_Check",dataProviderClass=staticProviderClass.class)
 	public void Vendor_Create_Review_Global_Data_Reject_LDP(Map<String,String> dataMap) throws InterruptedException, FileNotFoundException, IOException, AWTException 
 	{
@@ -476,10 +491,14 @@ public class VendorScript {
 		Assert.assertTrue(SharedDriver.pageContainer.homePage.navigateToWorkflow());
 		SharedDriver.pageContainer.materialPage.switchToPopup();
 		SharedDriver.pageContainer.materialApprovalPage.reqIdSearchMyTasks(dataMap.get("RequestId"));
+		SharedDriver.pageContainer.materialPage.clickLocalAction();
+		SharedDriver.pageContainer.materialPage.duplicateCheckButton();
+		SharedDriver.pageContainer.materialApprovalPage.clickDuplicateCheck_GDA();
+		SharedDriver.pageContainer.materialPage.clickLocalAction();
 		SharedDriver.pageContainer.materialApprovalPage.approvalBtnClick();
 		Sync.waitForSeconds(Constants.WAIT_10);
 		SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
-		SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
+		//SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
 		//SharedDriver.pageContainer.materialPage.browserClose();
 
 	}
@@ -548,8 +567,19 @@ public class VendorScript {
 		SharedDriver.pageContainer.vendorPageNAV.validateAndSaveLocalData();
 	}
 
-	/***************************************************************************************************************************************/
+	/** *************************************************************************************************************************************/
+	@Test(dataProvider="Process_Information_Check",dataProviderClass=staticProviderClass.class)
+	public void vendor_Submit_Global_And_Local_Request(Map<String,String> dataMap) throws FileNotFoundException, InterruptedException, IOException
+	{
+		SharedDriver.pageContainer.materialPage.clickLocalAction();
+		SharedDriver.pageContainer.materialPage.submitGlobalLocalRequest();
+		//SharedDriver.pageContainer.materialPage.clickDuplicateCheck();
+		SharedDriver.pageContainer.materialPage.getRequestId_CreateNew();
+		SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
+		Sync.waitForSeconds(Constants.WAIT_3);
+	}
 	
+	/****************************************************************************************************************************************/
 	@Test(dataProvider="Process_Information_Check",dataProviderClass=staticProviderClass.class)
 	public void vendor_Create_Review_Local_Data_Approve_LDS(Map<String,String> dataMap) throws InterruptedException, FileNotFoundException, IOException
 	{
@@ -569,9 +599,27 @@ public class VendorScript {
 		SharedDriver.pageContainer.homePage.navigateToWorkflow();
 		SharedDriver.pageContainer.vendorPage.switchToMDMPortal();
 		SharedDriver.pageContainer.materialApprovalPage.reqIdSearchMyTasks(dataMap.get("RequestId"));
-		//SharedDriver.pageContainer.vendorPage.validateTestCreate();		
-		SharedDriver.pageContainer.vendorPage.clickResubmitGlobalRequest();
+		//SharedDriver.pageContainer.vendorPage.validateTestCreate();	
+		SharedDriver.pageContainer.materialPage.clickLocalAction();
+		SharedDriver.pageContainer.materialPage.duplicateCheckButton();
 		SharedDriver.pageContainer.materialPage.clickDuplicateCheck();
+		SharedDriver.pageContainer.materialPage.clickLocalAction();
+		SharedDriver.pageContainer.vendorPage.clickResubmitGlobalRequest();
+		//SharedDriver.pageContainer.materialPage.clickDuplicateCheck();
+		SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
+		
+	}
+	
+	/******************************************************************************************************************************/
+	
+	@Test(dataProvider="Process_Information_Check",dataProviderClass=staticProviderClass.class)
+	public void vendor_Reject_Resubmit_Local_LDR(Map<String,String> dataMap) throws InterruptedException, FileNotFoundException, IOException
+	{
+		SharedDriver.pageContainer.homePage.navigateToWorkflow();
+		SharedDriver.pageContainer.vendorPage.switchToMDMPortal();
+		SharedDriver.pageContainer.materialApprovalPage.reqIdSearchMyTasks(dataMap.get("RequestId"));
+		//SharedDriver.pageContainer.vendorPage.validateTestCreate();		
+		SharedDriver.pageContainer.vendorPage.clickResubmitLocalRequest();
 		SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
 		
 	}

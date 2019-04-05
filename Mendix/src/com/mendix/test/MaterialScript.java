@@ -134,9 +134,13 @@ public class MaterialScript {
 		Assert.assertTrue(SharedDriver.pageContainer.homePage.navigateToWorkflow());
 		SharedDriver.pageContainer.materialPage.switchToPopup();
 		SharedDriver.pageContainer.materialApprovalPage.reqIdSearchMyTasks(dataMap.get("RequestId"));
+		SharedDriver.pageContainer.materialPage.clickLocalAction();
+		SharedDriver.pageContainer.materialPage.validateAndDuplicateCheckButton();
+		SharedDriver.pageContainer.materialApprovalPage.clickDuplicateCheck_GDA();
+		SharedDriver.pageContainer.materialPage.clickLocalAction();
 		SharedDriver.pageContainer.materialApprovalPage.approvalBtnClick();
-		SharedDriver.pageContainer.materialApprovalPage.duplicateCheck();
-		SharedDriver.pageContainer.materialApprovalPage.okbuttonClick();
+		//SharedDriver.pageContainer.materialApprovalPage.duplicateCheck();
+		//SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
 		// SharedDriver.pageContainer.materialApprovalPage.submitRequestOkBtnClick();
 		// SharedDriver.pageContainer.processInfoPage.browserClose();
 		// SharedDriver.pageContainer.materialApprovalPage.duplicateCheck();
@@ -223,10 +227,10 @@ public class MaterialScript {
 		SharedDriver.pageContainer.materialApprovalPage.reqIdSearchMyTasks(dataMap.get("RequestId"));
 		// SharedDriver.pageContainer.materialPage.clickLocalAction();
 		SharedDriver.pageContainer.materialPage.validateTestCreate();
-		SharedDriver.pageContainer.materialPage.submitGlobalRequestTest();
-		// SharedDriver.pageContainer.materialApprovalPage.submitRequestOkBtnClick();
-		SharedDriver.pageContainer.materialApprovalPage.submitRequestOkButtonClick();
-
+		SharedDriver.pageContainer.materialPage.duplicateCheckButton();
+		SharedDriver.pageContainer.materialPage.clickDuplicateCheck();
+		SharedDriver.pageContainer.materialPage.submitGlobalRequestTest();		
+		SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
 	}
 
 	@Test

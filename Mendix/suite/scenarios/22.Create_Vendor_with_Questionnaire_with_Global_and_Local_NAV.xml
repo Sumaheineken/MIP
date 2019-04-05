@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Create Vendor with Questionnaire with Global and Local_NAV">
- 	 <test name="HeiPort_Login_LDR">
+      <test name="HeiPort_Login_LDR">
 		<classes>
 			<class name="com.mendix.test.LoginScript">
 				<methods>
@@ -12,26 +12,21 @@
 			</class>
 		</classes>
 	</test>
-	<test name="Vendor_Create_Fill_In_Questionnaire">
+	
+		<test name="Vendor_Create_Fill_In_Questionnaire">
 		<classes>
 			<class name="com.mendix.test.VendorScript">
 				<methods>
 					<include name="Vendor_Create_Fill_In_Questionnaire" />
+					<include name="vendor_Create_Fill_In_Data_Global_Nav"/>
+					<include name="vendor_Create_Fill_In_Local_Finance_Tab"/>
+					<include name="vendor_Create_Fill_In_Local_Purchasing_Tab"/>
+					<include name="vendor_Submit_Global_And_Local_Request"/>
 				</methods>
 			</class>
 		</classes>
 	</test>
-	
-	<test name="Vendor_Create_Fill_In_Data_Global_Local_NAV">
-		<classes>
-			<class name="com.mendix.test.VendorScript_NAV">
-				<methods>
-					<include name="Vendor_Create_Fill_In_Data_Global_Local_NAV" />
-				</methods>
-			</class>
-		</classes>
-	</test>
-	 <test name="Process_Information_Check GDA">
+	<test name="Process_Information_Check">
 		<classes>
 			<class name="com.mendix.test.VendorScript">
 				<methods>
@@ -39,7 +34,8 @@
 				</methods>
 			</class>
 		</classes>
-	</test>  
+	</test> 
+
 	<test name="HeiPort_Login_LDS">
 		<classes>
 			<class name="com.mendix.test.LoginScript">
@@ -67,7 +63,39 @@
 				</methods>
 			</class>
 		</classes>		
-	</test> 
+	</test>
+
+	<test name="HeiPort_Login_LBDA">
+		<classes>
+			<class name="com.mendix.test.LoginScript">
+				<methods>
+					<include name="openBrowser" />
+					<include name="loginAsLBDAVendor" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	
+	<test name="Vendor_Create_Review_Global_Data_Approve_LBDA">
+		<classes>
+			<class name="com.mendix.test.VendorScript">
+				<methods>
+					<include
+						name="vendor_Create_Review_Global_Data_Approve_LBDA" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	<test name="Process_Information_Check_Syndication_LBDA">
+		<classes>
+			<class name="com.mendix.test.MaterialScript">
+				<methods>
+					<include name="Process_Information_Check" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	 
 	<test name="HeiPort_Login_GDA">
 		<classes>
 			<class name="com.mendix.test.LoginScript">

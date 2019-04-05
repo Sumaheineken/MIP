@@ -118,9 +118,9 @@ public class LoginScript {
 	public void loginAsLBDA(Map<String,String> dataMap){
 		ResultUtil.reporter.startTest("Login As LBDA");
 		String opcoLogin= dataMap.get("OpCo");
-		String Opco=opcoLogin.replaceAll("\\d","");
-		String OpL=Opco.length() < 4 ? Opco : Opco.substring(0, 4);
-		SharedDriver.pageContainer.loginPage.login("MDMM_"+OpL+"_LBDA","Heineken01");
+		//String Opco=opcoLogin.replaceAll("\\d","");
+		//String OpL=Opco.length() < 4 ? Opco : Opco.substring(0, 4);
+		SharedDriver.pageContainer.loginPage.login("MDMM_"+opcoLogin+"_LBDA","Heineken01");
 	}
 
 
@@ -133,14 +133,24 @@ public class LoginScript {
 		String OpL=Opco.length() < 2 ? Opco : Opco.substring(0, 2);
 		SharedDriver.pageContainer.loginPage.login("MDVM_"+OpL+"01_LBDA","Heineken01");
 	}
+	
+	@Test(dataProvider="HeiPort_Login",dataProviderClass=staticProviderClass.class)
+	public void loginAsLBDAVendor(Map<String,String> dataMap){
+		ResultUtil.reporter.startTest("Login As LBDA");
+		String opcoLogin= dataMap.get("OpCo");
+		//String Opco=opcoLogin.replaceAll("\\d","");
+		//String OpL=Opco.length() < 2 ? Opco : Opco.substring(0, 2);
+		SharedDriver.pageContainer.loginPage.login("MDVM_"+opcoLogin+"_LBDA","Heineken01");
+	}
+	
 
 	@Test(dataProvider="HeiPort_Login",dataProviderClass=staticProviderClass.class)
 	public void loginAsLDP(Map<String,String> dataMap){
 		ResultUtil.reporter.startTest("Login As LDP");
 		String opcoLogin= dataMap.get("OpCo");
-		String Opco=opcoLogin.replaceAll("\\d","");
-		String OpL=Opco.length() < 4 ? Opco : Opco.substring(0, 4);
-		SharedDriver.pageContainer.loginPage.login("MDMM_"+OpL+"_LDP","Heineken01");
+		//String Opco=opcoLogin.replaceAll("\\d","");
+		//String OpL=Opco.length() < 4 ? Opco : Opco.substring(0, 4);
+		SharedDriver.pageContainer.loginPage.login("MDMM_"+opcoLogin+"_LDP","Heineken01");
 	}
 	
 	@Test(dataProvider="HeiPort_Login",dataProviderClass=staticProviderClass.class)
@@ -176,9 +186,9 @@ public class LoginScript {
 	public void loginAsLDS(Map<String,String> dataMap){
 		ResultUtil.reporter.startTest("Login As LDS");
 		String opcoLogin= dataMap.get("OpCo");
-		String Opco=opcoLogin.replaceAll("\\d","");
-		String OpL=Opco.length() < 4 ? Opco : Opco.substring(0, 4);
-		SharedDriver.pageContainer.loginPage.login("MDMM_"+OpL+"_LDS","Heineken01");
+		//String Opco=opcoLogin.replaceAll("\\d","");
+		//String OpL=Opco.length() < 4 ? Opco : Opco.substring(0, 4);
+		SharedDriver.pageContainer.loginPage.login("MDMM_"+opcoLogin+"_LDS","Heineken01");
 	}
 
 	@Test(dataProvider="HeiPort_Login",dataProviderClass=staticProviderClass.class)
@@ -225,9 +235,9 @@ public class LoginScript {
 
 		ResultUtil.reporter.startTest("Login As SGLDR");
 		String opcoLogin= dataMap.get("OpCo");
-		String Opco=opcoLogin.replaceAll("\\d","");
-		String OpL=Opco.length() < 2 ? Opco : Opco.substring(0, 2);
-		SharedDriver.pageContainer.loginPage.login("MDMM_"+OpL+"02_LDR","Heineken01");
+		//String Opco=opcoLogin.replaceAll("\\d","");
+		//String OpL=Opco.length() < 2 ? Opco : Opco.substring(0, 2);
+		SharedDriver.pageContainer.loginPage.login("MDMM_"+opcoLogin+"_LDR","Heineken01");
 	}
  
 
@@ -245,18 +255,19 @@ public class LoginScript {
 	public void loginAsSGLDSVendor(Map<String,String> dataMap){
 		ResultUtil.reporter.startTest("Login As LDS");
 		String opcoLogin= dataMap.get("OpCo");
-		String Opco=opcoLogin.replaceAll("\\d","");
-		String OpL=Opco.length() < 4 ? Opco : Opco.substring(0, 4);
-		SharedDriver.pageContainer.loginPage.login("MDMM_"+OpL+"_LDS","Heineken01");
+		//String Opco=opcoLogin.replaceAll("\\d","");
+		//String OpL=Opco.length() < 4 ? Opco : Opco.substring(0, 4);
+		SharedDriver.pageContainer.loginPage.login("MDMM_"+opcoLogin+"_LDS","Heineken01");
 	}
 	
 	@Test(dataProvider="HeiPort_Login",dataProviderClass=staticProviderClass.class)
 	public void loginAsSGLDS(Map<String,String> dataMap){
 		ResultUtil.reporter.startTest("Login As LDS");
 		String opcoLogin= dataMap.get("OpCo");
-		String Opco=opcoLogin.replaceAll("\\d","");
-		String OpL=Opco.length() < 4 ? Opco : Opco.substring(0, 4);
-		SharedDriver.pageContainer.loginPage.login("MDMM_"+OpL+"_LDS","Heineken01");}
+		//String Opco=opcoLogin.replaceAll("\\d","");
+		//String OpL=Opco.length() < 4 ? Opco : Opco.substring(0, 4);
+		SharedDriver.pageContainer.loginPage.login("MDMM_"+opcoLogin+"_LDS","Heineken01");
+		}
 
 
 	@Test
@@ -281,9 +292,9 @@ public class LoginScript {
 		//SharedDriver.createDriver();
 		//		SharedDriver.pageContainer.loginPage.login_Vendor("MDVM_"+HelperUtil.executionConfigMap.get(Constants.OPCO)+"01_LDS","Heineken01");
 		String opcoLogin= dataMap.get("OpCo");
-		String Opco=opcoLogin.replaceAll("\\d","");
-		String OpL=Opco.length() < 4 ? Opco : Opco.substring(0, 4);
-		SharedDriver.pageContainer.loginPage.login("MDVM_"+OpL+"_LDS","Heineken01");
+		//String Opco=opcoLogin.replaceAll("\\d","");
+		//String OpL=Opco.length() < 4 ? Opco : Opco.substring(0, 4);
+		SharedDriver.pageContainer.loginPage.login("MDVM_"+opcoLogin+"_LDS","Heineken01");
 	}
 
 	/**

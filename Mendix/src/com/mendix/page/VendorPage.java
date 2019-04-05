@@ -159,6 +159,9 @@ public class VendorPage {
 
 	@FindBy(how = How.XPATH, using = ".//button[text()='Submit Global Request']")
 	WebElement btnGlobalRequest;
+	
+	@FindBy(how = How.XPATH, using = ".//button[text()='Submit Local Request']")
+	WebElement btnLocalRequest;
 
 	@FindBy(how = How.XPATH, using = ".//button[text()='Save As Draft']")
 	WebElement btnSaveAsDraft;
@@ -358,15 +361,11 @@ public class VendorPage {
 	}
 
 	/*****************************************************************************/
-	public boolean VendorTypeSelection() throws InterruptedException {
-		Sync.waitForSeconds(Constants.WAIT_6);
-		if (Button.verifyObject(btnvendorTypeSelect)) {
-			Sync.waitForObject(driver, "Material Type Select", btnvendorTypeSelect);
-			Sync.waitForSeconds(Constants.WAIT_1);
-			return Button.click("Material Type Select", btnvendorTypeSelect);
-		} else {
-			return Button.click("Material Type Selection", btnvendorTypeSelect);
-		}
+
+	public void VendorTypeSelection() throws InterruptedException {
+		Sync.waitForObject(driver, "Material Type Select", btnvendorTypeSelect);
+		Button.click("Material Type Select", btnvendorTypeSelect);	
+
 	}
 
 	/*****************************************************************************/
@@ -472,28 +471,6 @@ public class VendorPage {
 
 
 	public boolean disableBankData() {
-//		WebElement waitElement = null;
-//		FluentWait<WebDriver> fwait = new FluentWait<WebDriver>(driver).withTimeout(Duration.ofMinutes(3))
-//				.pollingEvery(Duration.ofSeconds(600)).ignoring(NoSuchElementException.class)
-//				.ignoring(TimeoutException.class);
-//
-//		// First checking to see if the loading indicator is found
-//		// we catch and throw no exception here in case they aren't ignored
-//		try {
-//			waitElement = fwait.until(new Function<WebDriver, WebElement>() {
-//				public WebElement apply(WebDriver driver) {
-//					return driver.findElement(By.xpath(".//*[@id='mxui_widget_Progress_0']"));
-//				}
-//			});
-//		} catch (Exception e) {
-//		}
-//
-//		// checking if loading indicator was found and if so we wait for it to
-//		// disappear
-//		if (waitElement != null) {
-//			WebDriverWait wait = new WebDriverWait(driver, 120);
-//			wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[text()='Bank Data']")));
-//		}
 		Sync.waitForSeconds(Constants.WAIT_10);
 		Sync.waitUntilObjectDisappears(driver, "Waiting of Create page to Load",
 				By.xpath(".//*[@id='mxui_widget_Progress_0']/div[2]"));
@@ -1448,6 +1425,19 @@ public class VendorPage {
 		Sync.waitForSeconds(Constants.WAIT_1);
 		wait.until(ExpectedConditions.elementToBeClickable(btnGlobalRequest));
 		Button.click("Click Global submit Global Request", btnGlobalRequest);
+		Sync.waitForSeconds(Constants.WAIT_2);
+		Thread.sleep(8000);
+	}
+	/***************************************************************************************************************/
+	public void clickResubmitLocalRequest() throws InterruptedException {
+		WebDriverWait wait = new WebDriverWait(driver, 30);
+		wait.until(ExpectedConditions.elementToBeClickable(btnLocalActions));
+		Button.click("Local Actions button", btnLocalActions);
+		Sync.waitForSeconds(Constants.WAIT_2);
+		// Button.click("Local Actions button", btnLocalActions);
+		Sync.waitForSeconds(Constants.WAIT_1);
+		wait.until(ExpectedConditions.elementToBeClickable(btnLocalRequest));
+		Button.click("Click Global submit Global Request", btnLocalRequest);
 		Sync.waitForSeconds(Constants.WAIT_2);
 		Thread.sleep(8000);
 	}
