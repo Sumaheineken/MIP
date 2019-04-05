@@ -1869,6 +1869,9 @@ public class MaterialPage {
 		}
 	}
 
+	@FindBy(how=How.XPATH, using = ".//*[text()='Open Record']")
+	WebElement btnDuplicateCheckOpenRecord;
+	
 	public void duplicateCheck_New() {
 		try {
 		// Sync.waitUntilObjectDisappears(driver, "Wait for Duplicate check", By.xpath(".//*[@id='mxui_widget_Progress_0']/div[2]"));
@@ -2088,12 +2091,19 @@ public class MaterialPage {
 
 	public void clickDuplicateCheck() throws InterruptedException 
     {
-   	// Sync.waitUntilObjectDisappears(driver, "Wait for Duplicate check", By.xpath(".//*[@id='mxui_widget_Progress_0']/div[2]"));
+
+   	 //Sync.waitUntilObjectDisappears(driver, "Wait for Duplicate check", By.xpath(".//*[@id='mxui_widget_Progress_0']/div[2]"));
+   	 Sync.waitForSeconds(Constants.WAIT_5); 
+   	 Sync.waitForSeconds(Constants.WAIT_6);
+   	 //btnDuplicateSubmit
+   	 
    	 Thread.sleep(20000);
    	 if(driver.findElements(By.xpath(".//*[text()='Open Record']")).size()>0) 
    	 {
-   		 Sync.waitForSeconds(Constants.WAIT_10); 
-   		 duplicateCheck_New();
+   		 System.out.println("Entered into the if loop");
+   		 Sync.waitForSeconds(Constants.WAIT_5);
+   		 this.duplicateCheck_New();
+
    	 }
    	 else if(Button.verifyObject(btnClose))
    	 {
@@ -2123,14 +2133,14 @@ public class MaterialPage {
 	
 
 	
-	public void clickDuplicateCheck_without_Extend() {
+	public void clickDuplicateCheck_without_Extend() throws InterruptedException {
 		Sync.waitUntilObjectDisappears(driver, "Wait for Duplicate check",
 		By.xpath(".//*[@id='mxui_widget_Progress_0']/div[2]"));
 		Sync.waitForSeconds(Constants.WAIT_5);
 		//WebDriverWait wait = new WebDriverWait(driver, 50);
 		//wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[text()='My record is not a duplicate! Submit.']")));
-
-		if (Button.verifyObject(btnDuplicateSubmit)) {
+		Thread.sleep(20000);
+		if (driver.findElements(By.xpath(".//*[text()='Open Record']")).size()>0) {
 			Sync.waitForSeconds(Constants.WAIT_5);
 			duplicateCheck_LDP_WithoutExtend();
 		} else if (Button.verifyObject(btnClose)) {

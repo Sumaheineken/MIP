@@ -574,8 +574,11 @@ public class MaterialApprovalPage {
 		Sync.waitForSeconds(Constants.WAIT_5);
 		//WebDriverWait wait = new WebDriverWait(driver, 50);
 		//wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[text()='My record is not a duplicate! Submit.']")));
-        Thread.sleep(20000);
-		if (Button.verifyObject(btnDuplicateOpenRecord)) {
+
+		
+		Thread.sleep(20000);
+		//Button.verifyObject(btnDuplicateOpenRecord)
+		if (driver.findElements(By.xpath(".//*[text()='Open Record']")).size()>0) {
 			Sync.waitForSeconds(Constants.WAIT_5);
 			this.duplicateCheck();
 		} else if (Button.verifyObject(btnClose)) {

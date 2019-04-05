@@ -201,12 +201,14 @@ public class ProceesInfoPage {
 		
 		//WebElement el = driver.findElement(By.xpath("//a[contains(text(),'Process Information')]"));
 		//((JavascriptExecutor)driver).executeScript("arguments[0].click()", el);
+
 		Sync.waitForObjectFluent(driver, menuProcessInfo);
 		Button.jsclick("Click the Process Info Menu", menuProcessInfo, driver);
+
 		Sync.waitForSeconds(Constants.WAIT_5);
 		//Sync.waitForSeconds(Constants.WAIT_5);
 		
-		return Button.click("Click the Procees info search menu", menuProcessInfoSearch);
+		return Button.jsclick("Click the Procees info search menu", menuProcessInfoSearch, driver);
 	}
 
 	public void getState(String strValue) throws InterruptedException{
