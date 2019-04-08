@@ -769,10 +769,10 @@ public class VendorScript {
 	{
 		SharedDriver.pageContainer.vendorPageNAV.ClickBankData_NAV();
 		SharedDriver.pageContainer.vendorPageNAV.ClickBankDetailsNew();
-		SharedDriver.pageContainer.vendorPageNAV.VendorBankCountry(dataMap.get("Bank Country"));//"PA, Panama");
-		SharedDriver.pageContainer.vendorPageNAV.SelectBankKey(dataMap.get("Bank key"));//"002");
-		SharedDriver.pageContainer.vendorPageNAV.VendorCurrencyCode(dataMap.get("Currency Code"));//"PAB, Panamanian Balboa");
-		SharedDriver.pageContainer.vendorPageNAV.VendorPatnerBankType(dataMap.get("Partner Bank Type"));//"PAB");
+		SharedDriver.pageContainer.vendorPageNAV.VendorBankCountry(dataMap.get("Bank Country"));  //"PA, Panama");
+		SharedDriver.pageContainer.vendorPageNAV.SelectBankKey(dataMap.get("Bank key"));  //"002");
+		SharedDriver.pageContainer.vendorPageNAV.VendorCurrencyCode(dataMap.get("Currency Code"));  //"PAB, Panamanian Balboa")
+		SharedDriver.pageContainer.vendorPageNAV.VendorPatnerBankType(dataMap.get("Partner Bank Type"));  //"PAB");
 	}
 
 }
