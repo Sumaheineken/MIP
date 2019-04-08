@@ -439,13 +439,10 @@ public class VendorPage {
 	/*****************************************************************************/
 	public void EditVendorData() {
 		Button.click("Select EDit button", EditGlobalData);
+		Sync.waitForSeconds(Constants.WAIT_2);
 		Button.click("Click EDit button", btnEdit);
-		Sync.waitForSeconds(Constants.WAIT_3);
-		Sync.waitForElementToBeClickable(driver, btnOK1);
-		Button.click("Click on OK", btnOK1);
-		Sync.waitForSeconds(Constants.WAIT_1);
-		Button.click("Click on OK", btnOK);
-		Sync.waitForSeconds(Constants.WAIT_1);
+		Sync.waitForSeconds(Constants.WAIT_5);
+		
 	}
 
 	public void EditVendorDataGlobalLocal() 
@@ -1406,11 +1403,12 @@ public class VendorPage {
 	}
 
 	public void GetFullVendorDataNew() throws InterruptedException {
-		Sync.waitForSeconds(Constants.WAIT_2);
+		Sync.waitForSeconds(Constants.WAIT_5);
 		Sync.waitUntilObjectDisappears(driver, "Waiting of Create page to Load",
 				By.xpath(".//*[@id='mxui_widget_Progress_0']/div[2]"));
 		Sync.waitForObject(driver, GetFullVendorData);
 		Button.click("GetFullVendorData", GetFullVendorData);
+		
 		Sync.waitForSeconds(Constants.WAIT_10);
 		Sync.waitForSeconds(Constants.WAIT_10);
 	}

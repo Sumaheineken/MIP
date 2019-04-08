@@ -215,6 +215,7 @@ public class VendorScript {
 		SharedDriver.pageContainer.materialApprovalPage.clickDuplicateCheck_GDA();
 		SharedDriver.pageContainer.materialPage.clickLocalAction();
 		SharedDriver.pageContainer.materialApprovalPage.approvalBtnClick();
+		SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
 		//SharedDriver.pageContainer.vendorPage.duplicateCheck();
 	
 	}
@@ -393,9 +394,16 @@ public class VendorScript {
 	@Test(dataProvider="Process_Information_Check",dataProviderClass=staticProviderClass.class)
 	public void Vendor_Change_DashBoard_SearchWith_GlobalID(Map<String,String> dataMap) throws InterruptedException
 	{
-		SharedDriver.pageContainer.vendorPage.SearchGlobalID(dataMap.get("Global_Id"));
-		SharedDriver.pageContainer.vendorPage.GetFullVendorData();
+		SharedDriver.pageContainer.vendorPage.advancedSearch();
+		SharedDriver.pageContainer.vendorPage.globalSearch(dataMap.get("Global_ID"));	
+		SharedDriver.pageContainer.vendorPage.GetFullVendorDataNew();
+		SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
+		SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
 		SharedDriver.pageContainer.vendorPage.EditVendorData();
+		SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
+		SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
+		SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
+		
 	}
 /************************************************************************************************************/	
 	@Test(dataProvider="Process_Information_Check",dataProviderClass=staticProviderClass.class)
@@ -429,7 +437,7 @@ public class VendorScript {
 		SharedDriver.pageContainer.vendorPage.BtnLocalActions();
 		SharedDriver.pageContainer.vendorPage.validateTestCreate();		
 		SharedDriver.pageContainer.vendorPage.submitGlobalRequestTest();
-		SharedDriver.pageContainer.vendorPage.getRequestId();
+		SharedDriver.pageContainer.vendorPage.getRequestId_Vendor();
 				
 	}
 	@Test(dataProvider="Process_Information_Check",dataProviderClass=staticProviderClass.class)
