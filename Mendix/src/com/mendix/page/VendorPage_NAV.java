@@ -409,9 +409,9 @@ public class VendorPage_NAV {
 	{
 
 		Sync.waitForSeconds(Constants.WAIT_6);
-		Sync.waitUntilObjectDisappears(driver, "Waiting of Create page to Load", By.xpath(".//*[@id='mxui_widget_Progress_0']/div[2]"));
+		//Sync.waitUntilObjectDisappears(driver, "Waiting of Create page to Load", By.xpath(".//*[@id='mxui_widget_Progress_0']/div[2]"));
 		Sync.waitForObject(driver, textBankData);
-		Button.click("Local Data", textBankData);
+		Button.jsclick("Local Data", textBankData, driver);
 	}
 /*****************************************************************************/
 	public void ClickLocaData_NAV() 
@@ -482,9 +482,9 @@ public class VendorPage_NAV {
 	{
 		Sync.waitForSeconds(Constants.WAIT_6);
 		Sync.waitForObject(driver, btnBankNew);
-		Button.click("New Bank Button", btnBankNew);
+		Button.jsclick("New Bank Button", btnBankNew, driver);
 		Sync.waitForSeconds(Constants.WAIT_3);
-		Sync.waitUntilObjectDisappears(driver, "Waiting of Create page to Load", By.xpath(".//*[@id='mxui_widget_Progress_0']/div[2]"));
+		//Sync.waitUntilObjectDisappears(driver, "Waiting of Create page to Load", By.xpath(".//*[@id='mxui_widget_Progress_0']/div[2]"));
 
 	}
 /*****************************************************************************/
@@ -822,8 +822,9 @@ public class VendorPage_NAV {
 /****************************************************************************************************/
 	public void VendorBankCountry(String strValue)
 	{
-		Sync.waitUntilObjectDisappears(driver, "Waiting of Create page to Load", By.xpath(".//*[@id='mxui_widget_Progress_0']/div[2]"));
+		//Sync.waitUntilObjectDisappears(driver, "Waiting of Create page to Load", By.xpath(".//*[@id='mxui_widget_Progress_0']/div[2]"));
 		Sync.waitForSeconds(Constants.WAIT_2);
+		Sync.waitForObject(driver, SelectBankCountry);
 		Select BankCountry= new Select(SelectBankCountry);
 		Sync.waitForSeconds(Constants.WAIT_1);
 		BankCountry.selectByVisibleText(strValue);	
@@ -832,8 +833,9 @@ public class VendorPage_NAV {
 /****************************************************************************************************/
 	public void VendorCurrencyCode(String strValue)
 	{
-		Sync.waitUntilObjectDisappears(driver, "Waiting of Create page to Load", By.xpath(".//*[@id='mxui_widget_Progress_0']/div[2]"));
+		//Sync.waitUntilObjectDisappears(driver, "Waiting of Create page to Load", By.xpath(".//*[@id='mxui_widget_Progress_0']/div[2]"));
 		Sync.waitForSeconds(Constants.WAIT_2);
+		Sync.waitForObject(driver, SelectCurrencyCode);
 		Select CurrencyCode= new Select(SelectCurrencyCode);
 		Sync.waitForSeconds(Constants.WAIT_1);
 		CurrencyCode.selectByVisibleText(strValue);	
@@ -847,8 +849,8 @@ public class VendorPage_NAV {
 		Sync.waitForSeconds(Constants.WAIT_1);
 		CurrencyCode.selectByVisibleText(strValue);	
 		Sync.waitForSeconds(Constants.WAIT_1);
-		Button.click("Click on Save", btnSave);
-		Sync.waitUntilObjectDisappears(driver, "Waiting of Create page to Load", By.xpath(".//*[@id='mxui_widget_Progress_0']/div[2]"));		
+		Button.jsclick("Click on Save", btnSave, driver);
+		//Sync.waitUntilObjectDisappears(driver, "Waiting of Create page to Load", By.xpath(".//*[@id='mxui_widget_Progress_0']/div[2]"));		
 	}
 	
 /****************************************************************************************************/
@@ -1340,16 +1342,17 @@ public class VendorPage_NAV {
 /****************************************************************************************************/
 	public void SelectBankKey(String strValue)
 	{
-		Button.click("Click Select button", btnSelectBankKey);
+		Button.jsclick("Click Select button", btnSelectBankKey, driver);
 		Sync.waitForSeconds(Constants.WAIT_3);
-		Sync.waitUntilObjectDisappears(driver, "Waiting of Create page to Load", By.xpath(".//*[@id='mxui_widget_Progress_0']/div[2]"));
-		Button.click("Click Search button", btnSearch);
+		//Sync.waitUntilObjectDisappears(driver, "Waiting of Create page to Load", By.xpath(".//*[@id='mxui_widget_Progress_0']/div[2]"));
+		Sync.waitForObject(driver, btnSearch);
+		Button.jsclick("Click Search button", btnSearch, driver);
 		Sync.waitForSeconds(Constants.WAIT_2);
 		Textbox.enterValue("Bank Key type", textBankKey, strValue);
-		Button.click("Click Search button", btnSearch2);
+		Button.jsclick("Click Search button", btnSearch2, driver);
 		Sync.waitForSeconds(Constants.WAIT_2);
-		Button.click("Select Row 1 in Bank Key", SelectRow1);
-		Button.click("click on select", btnSelect);
+		Button.jsclick("Select Row 1 in Bank Key", SelectRow1, driver);
+		Button.jsclick("click on select", btnSelect, driver);
 		Sync.waitForSeconds(Constants.WAIT_2);
 	}
 	

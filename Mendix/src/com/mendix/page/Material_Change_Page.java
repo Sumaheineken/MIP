@@ -106,12 +106,12 @@ public class Material_Change_Page {
 		//Sync.waitForSeconds(Constants.WAIT_5);
 		Sync.waitUntilObjectDisappears(driver, "Wait for Materials", By.xpath((".//*[@id='mxui_widget_Progress_0']/div[2]")));
 		Sync.waitForObject(driver, "Wait until the Material appears", btnEdit);
-		Button.click("Click Extend Button", btnExtend);
+		Button.jsclick("Click Extend Button", btnExtend, driver);
 		Sync.waitForSeconds(Constants.WAIT_10);
-		FluentWait<WebDriver> fwait = new FluentWait<WebDriver>(driver).withTimeout(Duration.ofMinutes(4))
-		        .pollingEvery(Duration.ofSeconds(600))
-		        .ignoring(NoSuchElementException.class)
-		        .ignoring(TimeoutException.class);
+//		FluentWait<WebDriver> fwait = new FluentWait<WebDriver>(driver).withTimeout(Duration.ofMinutes(4))
+//		        .pollingEvery(Duration.ofSeconds(600))
+//		        .ignoring(NoSuchElementException.class)
+//		        .ignoring(TimeoutException.class);
 		//Sync.waitForSeconds(Constants.WAIT_5);
 	}
 

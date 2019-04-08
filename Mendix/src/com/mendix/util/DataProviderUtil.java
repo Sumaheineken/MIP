@@ -85,6 +85,12 @@ public class DataProviderUtil {
 			return testData;
 		}
 		
+		@DataProvider(name="CreateVendor_Fill_In_Bank",parallel=false)
+		public static Iterator<Object[]> vendorPageBank(){
+			Iterator<Object[]> testData=ExcelUtil.getTestData("input/data/Bank_Vendor_Data"+Constants.EXCEL_FORMAT_XLSX, "TestPlan");
+			return testData;
+		}
+		
 		
 		@DataProvider(name="Vendor_Create_Global_Disable_Bank_and_LocalData",parallel=false)
 		public static Iterator<Object[]> VendorPage(){
