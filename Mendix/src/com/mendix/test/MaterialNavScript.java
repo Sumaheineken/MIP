@@ -38,8 +38,8 @@ public class MaterialNavScript {
 		SharedDriver.pageContainer.materialPage.uomPrimarySelectionTest();
 		//SharedDriver.pageContainer.materialNavPage.clickLocalAction();
 		SharedDriver.pageContainer.materialPage.validateTestCreate();
-		SharedDriver.pageContainer.materialPage.duplicateCheckButton();
-		SharedDriver.pageContainer.materialPage.clickDuplicateCheck();
+		//SharedDriver.pageContainer.materialPage.duplicateCheckButton();
+		//SharedDriver.pageContainer.materialPage.clickDuplicateCheck();
 	}
 
 	@Test(dataProvider = "CreateMaterial_Fill_In_Nav", dataProviderClass = staticProviderClass.class)
@@ -356,8 +356,10 @@ public class MaterialNavScript {
 	@Test(dataProvider="Process_Information_Check",dataProviderClass=staticProviderClass.class)
 	public void validate_And_Submit_Global_Local_Request(Map<String,String> dataMap) throws FileNotFoundException, InterruptedException, IOException
 	{
-		//SharedDriver.pageContainer.materialNavPage.switchToGlobal();
-		//SharedDriver.pageContainer.materialPage.clickLocalAction();
+		SharedDriver.pageContainer.materialNavPage.switchToGlobal();
+		SharedDriver.pageContainer.materialPage.clickLocalAction();
+		SharedDriver.pageContainer.materialPage.duplicateCheckButton();
+		SharedDriver.pageContainer.materialPage.clickDuplicateCheck();
 		SharedDriver.pageContainer.materialPage.submitGlobalLocalRequest();
 		//SharedDriver.pageContainer.materialPage.clickDuplicateCheck();
 		SharedDriver.pageContainer.materialPage.getRequestId_CreateNew();

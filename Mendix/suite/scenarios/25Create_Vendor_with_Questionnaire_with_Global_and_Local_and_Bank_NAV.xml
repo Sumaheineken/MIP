@@ -17,20 +17,16 @@
 			<class name="com.mendix.test.VendorScript">
 				<methods>
 					<include name="Vendor_Create_Fill_In_Questionnaire" />
+					<include name="vendor_Create_Fill_In_Data_Global_Nav_IncludeBank"/>
+					<include name="vendor_Create_Fill_In_Bank_Tab"/>
+					<include name="vendor_Create_Fill_In_Local_Finance_Tab"/>
+					<include name="vendor_Create_Fill_In_Local_Purchasing_Tab"/>
+					<include name="vendor_Submit_Global_And_Local_Request"/>
 				</methods>
 			</class>
 		</classes>
 	</test>
-	<test name="Vendor_Create_Fill_In_Data_Global_Local_Bank_NAV">
-		<classes>
-			<class name="com.mendix.test.VendorScript_NAV">
-				<methods>
-					<include name="Vendor_Create_Fill_In_Data_Global_Local_Bank_NAV" />
-				</methods>
-			</class>
-		</classes>
-	</test>
-	  <test name="Process_Information_Check GDA">
+	<test name="Process_Information_Check">
 		<classes>
 			<class name="com.mendix.test.VendorScript">
 				<methods>
@@ -38,7 +34,8 @@
 				</methods>
 			</class>
 		</classes>
-	</test>  
+	</test> 
+
 	<test name="HeiPort_Login_LDS">
 		<classes>
 			<class name="com.mendix.test.LoginScript">
@@ -66,8 +63,40 @@
 				</methods>
 			</class>
 		</classes>		
-	</test> 
-	  <test name="HeiPort_Login_GDA">
+	</test>
+
+	<test name="HeiPort_Login_LBDA">
+		<classes>
+			<class name="com.mendix.test.LoginScript">
+				<methods>
+					<include name="openBrowser" />
+					<include name="loginAsLBDAVendor" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	
+	<test name="Vendor_Create_Review_Global_Data_Approve_LBDA">
+		<classes>
+			<class name="com.mendix.test.VendorScript">
+				<methods>
+					<include
+						name="vendor_Create_Review_Global_Data_Approve_LBDA" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	<test name="Process_Information_Check_Syndication_LBDA">
+		<classes>
+			<class name="com.mendix.test.MaterialScript">
+				<methods>
+					<include name="Process_Information_Check" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	 
+	<test name="HeiPort_Login_GDA">
 		<classes>
 			<class name="com.mendix.test.LoginScript">
 				<methods>
@@ -109,12 +138,12 @@
 		<classes>
 			<class name="com.mendix.test.VendorScript">
 				<methods>
-				    <include name="Vendor_Create_Syndication_Check_NAV" />
+					<include name="Vendor_Create_Syndication_Check_NAV" />
 					<include name="launchUFT_NAV_Vendor"/>
 				</methods>
 			</class>
 		</classes>
-	</test>
+	</test> 
 </suite> 
 
 
