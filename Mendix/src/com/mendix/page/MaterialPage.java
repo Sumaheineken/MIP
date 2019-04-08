@@ -2202,6 +2202,7 @@ public class MaterialPage {
 			Button.click("Click on Validate and duplicate check", validateDuplicate);
 		}
 	}
+	
 
 	public void clickCloseButtonToPopUp() {
 		

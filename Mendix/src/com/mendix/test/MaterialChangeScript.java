@@ -13,6 +13,7 @@ import com.mendix.tool.Sync;
 import com.mendix.util.DataProviderUtil.staticProviderClass;
 
 public class MaterialChangeScript {
+	
 
 	@Test(dataProvider="Process_Information_Check",dataProviderClass=staticProviderClass.class)
 	public void Material_Change_Syndication_Check (Map<String,String> dataMap) throws InterruptedException, FileNotFoundException, IOException 
