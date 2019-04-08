@@ -139,6 +139,7 @@ public class MaterialScript {
 		SharedDriver.pageContainer.materialApprovalPage.clickDuplicateCheck_GDA();
 		SharedDriver.pageContainer.materialPage.clickLocalAction();
 		SharedDriver.pageContainer.materialApprovalPage.approvalBtnClick();
+		SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
 		//SharedDriver.pageContainer.materialApprovalPage.duplicateCheck();
 		//SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
 		// SharedDriver.pageContainer.materialApprovalPage.submitRequestOkBtnClick();
@@ -185,8 +186,13 @@ public class MaterialScript {
 			throws InterruptedException, FileNotFoundException, IOException {
 		Assert.assertTrue(SharedDriver.pageContainer.homePage.navigateToWorkflow());
 		SharedDriver.pageContainer.materialPage.switchToPopup();
-		SharedDriver.pageContainer.materialApprovalPage.reqIdSearchMyTasks(dataMap.get("RequestId"));
+		SharedDriver.pageContainer.materialApprovalPage.reqIdSearchMyTasks(dataMap.get("RequestId"));		
+		SharedDriver.pageContainer.materialPage.validateTestCreate();
+		SharedDriver.pageContainer.materialPage.duplicateCheckButton();
+		SharedDriver.pageContainer.materialApprovalPage.clickDuplicateCheck_GDA();
+		SharedDriver.pageContainer.materialPage.clickLocalAction();		
 		SharedDriver.pageContainer.materialApprovalPage.approvalBtnClick();
+		SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
 
 	}
 

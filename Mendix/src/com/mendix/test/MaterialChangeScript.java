@@ -24,13 +24,11 @@ public class MaterialChangeScript {
 		SharedDriver.pageContainer.materialPage.scrolltoGlobalSearch();
 //		SharedDriver.pageContainer.materialPage.getCurrDate();
 		SharedDriver.pageContainer.materialPage.globalSearch(dataMap.get("Global_ID"));
-			SharedDriver.pageContainer.materialPage.getGlobalId();
+		//	SharedDriver.pageContainer.materialPage.getGlobalId();
 		SharedDriver.pageContainer.materialPage.clickFullMaterialData();
 		//SharedDriver.pageContainer.materialApprovalPage.submitRequestOkBtnClick();
 		SharedDriver.pageContainer.material_Change_Page.clickEditCheckBox();
 		SharedDriver.pageContainer.material_Change_Page.clickEditbutton();
-
-
 	}
 
 	@Test(dataProvider="Process_Information_Check",dataProviderClass=staticProviderClass.class)
@@ -160,12 +158,12 @@ public class MaterialChangeScript {
 	public void Material_Create_Fill_In_Data_Change(Map<String,String> dataMap) throws InterruptedException, FileNotFoundException, IOException 
 	{
 		//		SharedDriver.pageContainer.materialPage.disableLocaData();
-		//		SharedDriver.pageContainer.materialPage.materialDescCreate(dataMap.get("Description"));
-		SharedDriver.pageContainer.materialPage.materialGrpSelectionTest("CMG0012");
-		SharedDriver.pageContainer.materialPage.grossWeightEntestTest("200");
-		SharedDriver.pageContainer.materialPage.unitOfWeightSelectionTest("KG");
-		SharedDriver.pageContainer.materialPage.baseUOMSelectionTest("KG");
-		SharedDriver.pageContainer.materialPage.netWeightEnterTest("200");
+		SharedDriver.pageContainer.materialPage.materialDescCreate(dataMap.get("Description"));
+		SharedDriver.pageContainer.materialPage.materialGrpSelectionTest(dataMap.get("Material Group"));
+		SharedDriver.pageContainer.materialPage.grossWeightEntestTest(dataMap.get("Gross Weight Base UoM"));
+		SharedDriver.pageContainer.materialPage.unitOfWeightSelectionTest(dataMap.get("Unit of Weight"));
+		SharedDriver.pageContainer.materialPage.baseUOMSelectionTest(dataMap.get("Base UoM"));
+		SharedDriver.pageContainer.materialPage.netWeightEnterTest(dataMap.get("Net Weight Base UoM"));
 		SharedDriver.pageContainer.materialPage.uomPrimarySelectionTest();
 
 	}

@@ -208,7 +208,7 @@ public class MaterialApprovalPage {
 
 		Sync.waitForElementToBeClickable(driver, btnlocalAction);
 		Button.click("Click Local Action button", btnlocalAction);
-		Sync.waitForSeconds(Constants.WAIT_2);
+		Sync.waitForSeconds(Constants.WAIT_10);
 		
 		if(Button.verifyObject(btnApproveGlobalRequest))
 		{

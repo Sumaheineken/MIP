@@ -1103,10 +1103,11 @@ public class MaterialPage {
 
 	public boolean clickFullMaterialData() {
 		Sync.waitForSeconds(Constants.WAIT_3);
-		Sync.waitUntilObjectDisappears(driver, "Wait for Materials",
-				By.xpath((".//*[@id='mxui_widget_Progress_0']/div[2]")));
+		/*Sync.waitUntilObjectDisappears(driver, "Wait for Materials",
+				By.xpath((".//*[@id='mxui_widget_Progress_0']/div[2]")));*/
 
-		Sync.waitForSeconds(Constants.WAIT_2);
+		WebDriverWait wait =new WebDriverWait(driver,30);
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[text()='Get Full Material Data']")));
 		Sync.waitForObject(driver, "Wait until the Material appears", btnFullMaterailData);
 		return Button.click("Click Get Full Material Data", btnFullMaterailData);
 	}
@@ -1564,10 +1565,8 @@ public class MaterialPage {
 		Sync.waitForSeconds(Constants.WAIT_5);
 
 		Sync.waitForObject(driver, txtboxGlobalIdEnter);
+		Sync.waitForSeconds(Constants.WAIT_10);		
 		Sync.waitForSeconds(Constants.WAIT_10);
-		Sync.waitForSeconds(Constants.WAIT_5);
-		// Sync.waitForSeconds(Constants.WAIT_10);
-
 		// Textbox.clear("Clear TextBox Value", txtboxGlobalIdEnter);
 		Textbox.enterValue("Enter TextBox Value", txtboxGlobalIdEnter, strValue);
 		Sync.waitForSeconds(Constants.WAIT_5);
@@ -2097,7 +2096,7 @@ public class MaterialPage {
    	 Sync.waitForSeconds(Constants.WAIT_6);
    	 //btnDuplicateSubmit
    	 
-   	 Thread.sleep(20000);
+   	 Thread.sleep(30000);
    	 if(driver.findElements(By.xpath(".//*[text()='Open Record']")).size()>0) 
    	 {
    		 System.out.println("Entered into the if loop");

@@ -82,19 +82,19 @@ public class Material_Change_Page {
 	@FindBy(how=How.XPATH, using=".//*[text()='Select Operating Entity']/../div/div/select")
 	WebElement slctOperatingEntity;
 	public void clickEditCheckBox() {
-		Sync.waitForSeconds(Constants.WAIT_5);
-		Sync.waitForSeconds(Constants.WAIT_5);
-		Sync.waitUntilObjectDisappears(driver, "Wait for Materials", By.xpath((".//*[@id='mxui_widget_Progress_0']/div[2]")));
+		WebDriverWait wait = new WebDriverWait(driver,60);
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[text()='Edit Global Data']/../div/input")));		
+		//Sync.waitUntilObjectDisappears(driver, "Wait for Materials", By.xpath((".//*[@id='mxui_widget_Progress_0']/div[2]")));
 		Sync.waitForObject(driver, "Wait until the Material appears", checkBoxEdit);
-		Button.click("Click Materials Menu", checkBoxEdit);
+		Button.jsclick("Click Edit Global Global Data Checkbox", checkBoxEdit,driver);
 		Sync.waitForSeconds(Constants.WAIT_5);
 		Sync.waitForSeconds(Constants.WAIT_5);
 	}
 	
 	public void clickEditbutton() {
-		Sync.waitForSeconds(Constants.WAIT_5);
-		Sync.waitForSeconds(Constants.WAIT_5);
-		Sync.waitUntilObjectDisappears(driver, "Wait for Materials", By.xpath((".//*[@id='mxui_widget_Progress_0']/div[2]")));
+		WebDriverWait wait = new WebDriverWait(driver,30);
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[text()='Edit']")));	
+		//Sync.waitUntilObjectDisappears(driver, "Wait for Materials", By.xpath((".//*[@id='mxui_widget_Progress_0']/div[2]")));
 		Sync.waitForObject(driver, "Wait until the Material appears", btnEdit);
 		Button.click("Click Edit Button", btnEdit);
 		Sync.waitForSeconds(Constants.WAIT_5);
