@@ -21,7 +21,7 @@
 			</class>
 		</classes>
 	</test>	
-	<test name="Process_Information_Check">
+<!--  	<test name="Process_Information_Check">
 		<classes>
 			<class name="com.mendix.test.MaterialScript">
 				<methods>
@@ -49,7 +49,7 @@
 				</methods>
 			</class>
 		</classes>
-	</test>
+	</test>-->
 	<test name="Process_Information_Check_Syndication">
 		<classes>
 			<class name="com.mendix.test.MaterialScript">
