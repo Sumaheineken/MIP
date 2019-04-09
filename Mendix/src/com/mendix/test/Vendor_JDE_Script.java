@@ -100,17 +100,17 @@ public class Vendor_JDE_Script {
 	{
 
 		
-		SharedDriver.pageContainer.vendor_JDE_Page.enterBankData();
+		//SharedDriver.pageContainer.vendor_JDE_Page.enterBankData();
+		SharedDriver.pageContainer.vendorPage.clickLocalAction_Bank();
 		SharedDriver.pageContainer.vendor_JDE_Page.clickNewBankButton();
-		SharedDriver.pageContainer.vendor_JDE_Page.selectBankCountry();
-		SharedDriver.pageContainer.vendor_JDE_Page.clickBankKey();
-		SharedDriver.pageContainer.vendor_JDE_Page.selectBankKey();
-		SharedDriver.pageContainer.vendor_JDE_Page.clickSelectBankKey();
-		SharedDriver.pageContainer.vendor_JDE_Page.selectCurrencyCode();
-		SharedDriver.pageContainer.vendor_JDE_Page.selectPartnerBankType();
+		SharedDriver.pageContainer.vendorPageNAV.VendorBankCountry(dataMap.get("Bank Country"));  //"PA, Panama");
+		SharedDriver.pageContainer.vendorPageNAV.SelectBankKey(dataMap.get("Bank key"));  //"002");
+		SharedDriver.pageContainer.vendorPageNAV.VendorCurrencyCode(dataMap.get("Currency Code"));  //"PAB, Panamanian Balboa")
+		SharedDriver.pageContainer.vendorPageNAV.VendorPatnerBankType(dataMap.get("Partner Bank Type"));  //"PAB");
 		SharedDriver.pageContainer.vendor_JDE_Page.clickSaveBankDetails();
 		SharedDriver.pageContainer.vendorPage.clickLocalAction_Bank();
 		SharedDriver.pageContainer.vendorPage.submitBankRequestTest();
+		
 		
 
 	}

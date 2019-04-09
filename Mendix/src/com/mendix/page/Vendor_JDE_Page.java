@@ -49,6 +49,8 @@ public class Vendor_JDE_Page {
 
 	@FindBy(how=How.XPATH, using="//*[text()='JDE Purchasing']/../../../div/div[3]/div/div/div[2]/div[2]/div[2]/button[1]")
 	WebElement BtnAddPlantData;
+	@FindBy(how=How.XPATH, using="//*[text()='JDE Purchasing']/../../../div/div[3]/div/div/div[2]/div[2]/div[2]/button[1]")
+	WebElement BtnAddBanknData;
 
 	@FindBy(how=How.XPATH, using="//*[text()='JDE Finance']/../../../div/div[4]/div/div/div[2]/div[2]/div[2]/button[1]")
 	WebElement BtnAddFinanceData;
@@ -86,6 +88,9 @@ public class Vendor_JDE_Page {
 
 	@FindBy(how=How.XPATH, using="//*[text()='G/L Class']/../div/div/select")
 	WebElement selectGlClass;
+	@FindBy(how=How.XPATH, using="//*[text()='Bank Details']/../../../../div[2]/div/div/div[1]/div[2]/div/div/div[2]/div[2]/div[2]//*[text()='New']")
+	WebElement 	BtnAddBankData;
+
 
 
 	@FindBy(how=How.XPATH, using="//*[text()='Mvmt Type Invoice/Payment 2']/../div/div/select")
@@ -164,6 +169,13 @@ public class Vendor_JDE_Page {
 
 
 	public boolean enterBankData() {
+		Sync.waitForSeconds(Constants.WAIT_10);
+		Sync.waitUntilObjectDisappears(driver, "Waiting of Create page to Load",
+				By.xpath(".//*[@id='mxui_widget_Progress_0']/div[2]"));
+		Sync.waitForObject(driver, textBankData);
+		return Button.click("Bank Data", textBankData);
+		/*// Button.click("Local Actions button", btnLocalActions);
+		Sync.waitForSeconds(Constants.WAIT_1);
 		WebElement waitElement = null;
 		FluentWait<WebDriver> fwait = new FluentWait<WebDriver>(driver)
 				.withTimeout(Duration.ofMinutes(3))
@@ -193,7 +205,7 @@ public class Vendor_JDE_Page {
 
 		Sync.waitUntilObjectDisappears(driver, "Waiting of Create page to Load", By.xpath(".//*[@id='mxui_widget_Progress_0']/div[2]"));
 		Sync.waitForObject(driver, textBankData);
-		return Button.click("Local Data", textBankData);
+		return Button.click("Local Data", textBankData);*/
 	}
 
 
@@ -770,7 +782,7 @@ public class Vendor_JDE_Page {
 
 	public void selectBankCountry()
 	{
-		Sync.waitForSeconds(Constants.WAIT_5);
+		Sync.waitForSeconds(Constants.WAIT_10);
 		Sync.waitForSeconds(Constants.WAIT_5);
 		Sync.waitForSeconds(Constants.WAIT_5);
 //		selectBankCountry.click();
@@ -1209,13 +1221,15 @@ public void bankBearer(String strValue) throws InterruptedException
 	}
 
 	public void clickNewBankButton()
-	{
-
-		Sync.waitForSeconds(Constants.WAIT_5);
-		driver.findElement(By.xpath("(//*[text()='New'])[5]")).click();
-
+	{		
+		Sync.waitForSeconds(Constants.WAIT_10);
+		//Sync.waitForObject(driver, BtnAddBankData);
+		Button.click("New Bank Button", BtnAddBankData);
+		Sync.waitForSeconds(Constants.WAIT_3);
+		Sync.waitUntilObjectDisappears(driver, "Waiting of Create page to Load", By.xpath(".//*[@id='mxui_widget_Progress_0']/div[2]"));
 
 	}
+	
 
 	public void clickSelectBankKey()
 	{
