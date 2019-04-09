@@ -48,6 +48,9 @@ public class Material_Change_Page {
 	@FindBy(how=How.XPATH, using="//*[text()='Edit Global Data']/../div/input")
 	WebElement checkBoxEdit;
 	
+	@FindBy(how=How.XPATH, using="//*[text()='Edit Local Data']/../div/input")
+	WebElement checkBoxEditLocal;
+	
 	@FindBy(how=How.XPATH, using="//button[text()='Edit']")
 	WebElement btnEdit;
 	
@@ -90,12 +93,23 @@ public class Material_Change_Page {
 		Sync.waitForSeconds(Constants.WAIT_5);
 		Sync.waitForSeconds(Constants.WAIT_5);
 	}	
+	
+	public void clickEditCheckBoxForLocal() {
+		WebDriverWait wait = new WebDriverWait(driver,60);
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[text()='Edit Local Data']/../div/input")));		
+		//Sync.waitUntilObjectDisappears(driver, "Wait for Materials", By.xpath((".//*[@id='mxui_widget_Progress_0']/div[2]")));
+		Sync.waitForObject(driver, "Wait until the Material Check box for Local appears", checkBoxEditLocal);
+		Button.jsclick("Click Edit Global Local Data Checkbox", checkBoxEditLocal,driver);
+		Sync.waitForSeconds(Constants.WAIT_5);
+		Sync.waitForSeconds(Constants.WAIT_5);
+	}
+	
 	public void clickEditbutton() {
 		WebDriverWait wait = new WebDriverWait(driver,30);
 		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[text()='Edit']")));	
 		//Sync.waitUntilObjectDisappears(driver, "Wait for Materials", By.xpath((".//*[@id='mxui_widget_Progress_0']/div[2]")));
 		Sync.waitForObject(driver, "Wait until the Material appears", btnEdit);
-		Button.click("Click Edit Button", btnEdit);
+		Button.jsclick("Click Edit Button", btnEdit, driver);
 		Sync.waitForSeconds(Constants.WAIT_5);
 		Sync.waitForSeconds(Constants.WAIT_5);
 	}
@@ -104,7 +118,7 @@ public class Material_Change_Page {
 	public void clickExtendbutton() {
 		Sync.waitForSeconds(Constants.WAIT_5);
 		//Sync.waitForSeconds(Constants.WAIT_5);
-		Sync.waitUntilObjectDisappears(driver, "Wait for Materials", By.xpath((".//*[@id='mxui_widget_Progress_0']/div[2]")));
+		//Sync.waitUntilObjectDisappears(driver, "Wait for Materials", By.xpath((".//*[@id='mxui_widget_Progress_0']/div[2]")));
 		Sync.waitForObject(driver, "Wait until the Material appears", btnEdit);
 		Button.jsclick("Click Extend Button", btnExtend, driver);
 		Sync.waitForSeconds(Constants.WAIT_10);

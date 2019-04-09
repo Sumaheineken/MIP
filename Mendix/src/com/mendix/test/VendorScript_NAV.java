@@ -377,7 +377,20 @@ public class VendorScript_NAV {
 		//SharedDriver.pageContainer.vendorPageNAV.submitBankRequest();
 	}
 
-	
+	@Test(dataProvider="Process_Information_Check",dataProviderClass=staticProviderClass.class)
+	public void vendor_Create_Review_Bank_Data_Approve_LDS(Map<String,String> dataMap) throws InterruptedException, FileNotFoundException, IOException 
+	{
+		Assert.assertTrue(SharedDriver.pageContainer.homePage.navigateToWorkflow());
+		SharedDriver.pageContainer.vendorPage.switchToMDMPortal();
+		SharedDriver.pageContainer.materialApprovalPage.reqIdSearchMyTasks(dataMap.get("RequestId"));
+		//SharedDriver.pageContainer.vendorPageNAV.markViewsBtnClick_Local();
+		//SharedDriver.pageContainer.vendorPageNAV.submitRequestPopup_NAV();
+		SharedDriver.pageContainer.materialPage.clickLocalAction();
+		SharedDriver.pageContainer.vendorPageNAV.approveBankRequest();
+        SharedDriver.pageContainer.vendorPageNAV.submitRequestPopup_NAV();
+		
+		/*SharedDriver.pageContainer.vendorPage.duplicateCheck();*/	
+	}
 	
 }
 

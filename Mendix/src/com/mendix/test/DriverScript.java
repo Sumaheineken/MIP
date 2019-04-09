@@ -63,7 +63,7 @@ public class DriverScript {
 		  
 		  
 
-			if(rowMap.get("Test_Case").equalsIgnoreCase("Create_Material_Draft")){
+			if(rowMap.get("Test_Case").equalsIgnoreCase("20.Create_Vendor_with_Questionnaire_with_Global_and_Local_and_Bank_JDE")){
 				TestNG runner=new TestNG();
 
 
@@ -72,8 +72,7 @@ public class DriverScript {
 			    List<String> suitefiles=new ArrayList<String>();
 
 				// Add xml file which you have to execute
-				suitefiles.add("C:\\Mendix_Workspace\\Mendix\\suite\\scenarios\\Create_Material_Draft.xml");
-
+				suitefiles.add("C:\\Heineken\\Suma\\Mendix\\suite\\scenarios\\20.Create_Vendor_with_Questionnaire_with_Global_and_Local_and_Bank_JDE.xml");
 				// now set xml file for execution
 				runner.setTestSuites(suitefiles);
 				
@@ -82,32 +81,14 @@ public class DriverScript {
 				runner.run();
 
 			}
-			else if(rowMap.get("Test_Case").equalsIgnoreCase("Create_Material_Global_Local_NAV")){
-				TestNG runner=new TestNG();
-
-
-
-				// Create a list of String 
-			    List<String> suitefiles=new ArrayList<String>();
-
-			   // Add xml file which you have to execute
-				suitefiles.add("C:\\Mendix_Workspace\\Mendix\\suite\\scenarios\\Create_Material_Global_Local_NAV.xml");
-
-				// now set xml file for execution
-				runner.setTestSuites(suitefiles);
-
-				// finally execute the runner using run method
-				runner.run();
-
-			}
-			else if(rowMap.get("Test_Case").equalsIgnoreCase("Create_Material")){
+						else if(rowMap.get("Test_Case").equalsIgnoreCase("14.Create_Vendor_with_Questionnaire_only_Global")){
 				TestNG runner=new TestNG();
 
 				// Create a list of String 
 			    List<String> suitefiles=new ArrayList<String>();
 
 			   // Add xml file which you have to execute
-				suitefiles.add("C:\\Mendix_Workspace\\Mendix\\suite\\scenarios\\CreateMaterial.xml");
+				suitefiles.add("C:\\Heineken\\Suma\\Mendix\\suite\\scenarios\\14.Create_Vendor_with_Questionnaire_only_Global.xml");
 
 				// now set xml file for execution
 				runner.setTestSuites(suitefiles);
@@ -159,7 +140,7 @@ public class DriverScript {
 	private static Iterator<Object[]> excelExtract() throws FileNotFoundException, IOException {
 		List<Object[]> data = new ArrayList<Object[]>();
 
-		String strWorkbookPath="C:\\Mendix_Workspace\\Mendix\\input\\Mendix_TestPlan.xlsx";
+		String strWorkbookPath="C:\\Heineken\\Suma\\Mendix\\input\\Mendix_TestPlan.xlsx";
 		String strWorksheetName="TestPlan";
 		FileInputStream file = new FileInputStream(new File(strWorkbookPath));
 

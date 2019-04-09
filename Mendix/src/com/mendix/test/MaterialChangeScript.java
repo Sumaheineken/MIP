@@ -23,14 +23,33 @@ public class MaterialChangeScript {
 		SharedDriver.pageContainer.materialPage.advancedSearch();
 		SharedDriver.pageContainer.materialPage.scrolltoGlobalSearch();
 //		SharedDriver.pageContainer.materialPage.getCurrDate();
+
 		SharedDriver.pageContainer.materialPage.globalSearch(dataMap.get("Global_ID"));			
+
 		SharedDriver.pageContainer.materialPage.clickFullMaterialData();
 		//SharedDriver.pageContainer.materialApprovalPage.submitRequestOkBtnClick();
 		SharedDriver.pageContainer.material_Change_Page.clickEditCheckBox();
 		SharedDriver.pageContainer.material_Change_Page.clickEditbutton();
-
-
 	}
+	
+	@Test(dataProvider="Process_Information_Check",dataProviderClass=staticProviderClass.class)
+	public void material_Change_Syndication_Check_Global_Local_Nav(Map<String,String> dataMap) throws InterruptedException, FileNotFoundException, IOException 
+	{
+		SharedDriver.pageContainer.homePage.navigateToWorkflow();
+		SharedDriver.pageContainer.materialPage.switchToPopup();
+		SharedDriver.pageContainer.materialPage.navigateToDashboard();
+		SharedDriver.pageContainer.materialPage.advancedSearch();
+		SharedDriver.pageContainer.materialPage.scrolltoGlobalSearch();
+//		SharedDriver.pageContainer.materialPage.getCurrDate();
+		SharedDriver.pageContainer.materialPage.globalSearch(dataMap.get("Global_ID"));
+		SharedDriver.pageContainer.materialPage.clickFullMaterialData();
+		SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
+		//SharedDriver.pageContainer.materialApprovalPage.submitRequestOkBtnClick();
+		SharedDriver.pageContainer.material_Change_Page.clickEditCheckBox();
+		SharedDriver.pageContainer.material_Change_Page.clickEditCheckBoxForLocal();
+		SharedDriver.pageContainer.material_Change_Page.clickEditbutton();
+	}
+
 
 	@Test(dataProvider="Process_Information_Check",dataProviderClass=staticProviderClass.class)
 	public void Material_Extend (Map<String,String> dataMap) throws InterruptedException, FileNotFoundException, IOException 
@@ -170,7 +189,6 @@ public class MaterialChangeScript {
 			SharedDriver.pageContainer.materialPage.baseUOMSelectionTest(dataMap.get("Base UoM"));
 			SharedDriver.pageContainer.materialPage.netWeightEnterTest(dataMap.get("Net Weight Base UoM"));
 			SharedDriver.pageContainer.materialPage.uomPrimarySelectionTest();
-
 		
 	}
 
@@ -180,8 +198,8 @@ public class MaterialChangeScript {
 		//SharedDriver.pageContainer.materialPage.clickLocalAction();
 		SharedDriver.pageContainer.materialPage.validateTestCreate();
 		SharedDriver.pageContainer.materialPage.submitGlobalRequestTest();
-		SharedDriver.pageContainer.materialPage.getRequestId();
-		SharedDriver.pageContainer.materialApprovalPage.submitRequestOkBtnClick();
+		SharedDriver.pageContainer.materialPage.getRequestId_CreateNew();
+		SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
 	}
 	
 	@Test(dataProvider="Process_Information_Check",dataProviderClass=staticProviderClass.class)

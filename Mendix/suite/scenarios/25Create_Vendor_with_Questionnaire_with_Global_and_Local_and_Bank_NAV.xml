@@ -22,6 +22,7 @@
 					<include name="vendor_Create_Fill_In_Local_Finance_Tab"/>
 					<include name="vendor_Create_Fill_In_Local_Purchasing_Tab"/>
 					<include name="vendor_Submit_Global_And_Local_Request"/>
+					<include name="vendor_Submit_Bank_Request"/>
 				</methods>
 			</class>
 		</classes>
@@ -56,6 +57,35 @@
 		</classes>
 	</test>
 	<test name="Process_Information_Check_Approved_LDS">
+		<classes>
+			<class name="com.mendix.test.VendorScript">
+				<methods>
+					<include name="Process_Information_Check" />
+				</methods>
+			</class>
+		</classes>		
+	</test>
+	
+	<test name="HeiPort_Login_LDS_Bank">
+		<classes>
+			<class name="com.mendix.test.LoginScript">
+				<methods>
+					<include name="openBrowser" />
+					<include name="loginAsLDSVendor" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+		<test name="Vendor_Create_Review_Bank_Data_Approve_LDS">
+		<classes>
+			<class name="com.mendix.test.VendorScript_NAV">
+				<methods>
+					<include name="vendor_Create_Review_Bank_Data_Approve_LDS" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	<test name="Process_Information_Check_Approved_LDS_Bank">
 		<classes>
 			<class name="com.mendix.test.VendorScript">
 				<methods>

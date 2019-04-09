@@ -630,6 +630,15 @@ public class VendorScript {
 		Sync.waitForSeconds(Constants.WAIT_3);
 	}
 	
+	@Test
+	public void vendor_Submit_Bank_Request() 
+	{
+		Sync.waitForSeconds(Constants.WAIT_6);
+		SharedDriver.pageContainer.vendorPage.submitBankRequest();
+		SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
+		Sync.waitForSeconds(Constants.WAIT_3);
+	}
+	
 	/****************************************************************************************************************************************/
 	@Test(dataProvider="Process_Information_Check",dataProviderClass=staticProviderClass.class)
 	public void vendor_Create_Review_Local_Data_Approve_LDS(Map<String,String> dataMap) throws InterruptedException, FileNotFoundException, IOException
