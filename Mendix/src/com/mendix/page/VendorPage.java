@@ -1595,5 +1595,17 @@ public class VendorPage {
 			}
 			
 		}
+				
+		public void submitBankRequest() {
+			Sync.waitForSeconds(Constants.WAIT_1);
+			Sync.waitForSeconds(Constants.WAIT_6);
+			//Sync.waitForSeconds(Constants.WAIT_5);
+			// Sync.waitForObject(driver, textLocalData);
+			Sync.waitForObject(driver, btnBankRequest);
+			Button.jsclick("Click Submit bank Request", btnBankRequest, driver);
+			Sync.waitForSeconds(Constants.WAIT_5);
+
+		}
+
 	
 }

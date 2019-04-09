@@ -104,7 +104,7 @@ public class Material_Change_Page {
 	public void clickExtendbutton() {
 		Sync.waitForSeconds(Constants.WAIT_5);
 		//Sync.waitForSeconds(Constants.WAIT_5);
-		Sync.waitUntilObjectDisappears(driver, "Wait for Materials", By.xpath((".//*[@id='mxui_widget_Progress_0']/div[2]")));
+		//Sync.waitUntilObjectDisappears(driver, "Wait for Materials", By.xpath((".//*[@id='mxui_widget_Progress_0']/div[2]")));
 		Sync.waitForObject(driver, "Wait until the Material appears", btnEdit);
 		Button.jsclick("Click Extend Button", btnExtend, driver);
 		Sync.waitForSeconds(Constants.WAIT_10);
