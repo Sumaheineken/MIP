@@ -23,7 +23,9 @@ public class MaterialChangeScript {
 		SharedDriver.pageContainer.materialPage.advancedSearch();
 		SharedDriver.pageContainer.materialPage.scrolltoGlobalSearch();
 //		SharedDriver.pageContainer.materialPage.getCurrDate();
-		SharedDriver.pageContainer.materialPage.globalSearch(dataMap.get("Global_ID"));
+
+		SharedDriver.pageContainer.materialPage.globalSearch(dataMap.get("Global_ID"));			
+
 		SharedDriver.pageContainer.materialPage.clickFullMaterialData();
 		//SharedDriver.pageContainer.materialApprovalPage.submitRequestOkBtnClick();
 		SharedDriver.pageContainer.material_Change_Page.clickEditCheckBox();

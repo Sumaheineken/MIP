@@ -86,6 +86,7 @@ public class MaterialScript {
 		//SharedDriver.pageContainer.processInfoPage.getState_New(dataMap.get("RequestId"));
 		// SharedDriver.pageContainer.processInfoPage.requestCreated_between();
 		SharedDriver.pageContainer.processInfoPage.getState(dataMap.get("RequestId"));
+		Sync.waitForSeconds(Constants.WAIT_5);
 		SharedDriver.pageContainer.processInfoPage.browserClose();
 	}
 

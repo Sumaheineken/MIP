@@ -115,7 +115,7 @@ public class VendorScript {
 		SharedDriver.pageContainer.materialPage.duplicateCheckButton();
 		SharedDriver.pageContainer.materialPage.clickDuplicateCheck();
 		//SharedDriver.pageContainer.vendorPage.submitGlobalRequestTest();
-		SharedDriver.pageContainer.vendorPage.getRequestId();
+		SharedDriver.pageContainer.vendorPage.getRequestId();		
 				
 	}
 	

@@ -36,8 +36,7 @@ public class MaterialJDEScript {
 		SharedDriver.pageContainer.materialPage.unitOfWeightSelectionTest(dataMap.get("Unit of Weight"));
 		SharedDriver.pageContainer.materialPage.baseUOMSelectionTest(dataMap.get("Base UoM"));
 		SharedDriver.pageContainer.materialPage.netWeightEnterTest(dataMap.get("Net Weight Base UoM"));
-		SharedDriver.pageContainer.materialPage.uomPrimarySelectionTest();
-		SharedDriver.pageContainer.materialNavPage.clickLocalAction();
+		SharedDriver.pageContainer.materialPage.uomPrimarySelectionTest();		
 		SharedDriver.pageContainer.materialPage.validateTestCreate();
 //		SharedDriver.pageContainer.materialNavPage.clickLocalAction();
 	}
@@ -83,10 +82,14 @@ public class MaterialJDEScript {
 		SharedDriver.pageContainer.materialNavPage.clickValidatLocalData();
 		SharedDriver.pageContainer.materialNavPage.clickSaveButton();
 		SharedDriver.pageContainer.materialNavPage.clickLocalAction();
-		SharedDriver.pageContainer.materialNavPage.submitGlobalRequestTest();
+		SharedDriver.pageContainer.materialNavPage.clickValidatLocalRequest();
+		SharedDriver.pageContainer.materialNavPage.enterGlobalData();
+		SharedDriver.pageContainer.materialPage.duplicateCheckButton();
 		SharedDriver.pageContainer.materialPage.clickDuplicateCheck();
+		SharedDriver.pageContainer.materialNavPage.submitGlobalRequestTest();		
 //		SharedDriver.pageContainer.materialPage.getRequestId();
 		SharedDriver.pageContainer.materialPage.getRequestId_CreateNew();
+		SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
 	}
 
 	@Test(dataProvider="CreateMaterial_Fill_In",dataProviderClass=staticProviderClass.class)
