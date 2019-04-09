@@ -2097,7 +2097,7 @@ public class MaterialPage {
    	 Sync.waitForSeconds(Constants.WAIT_6);
    	 //btnDuplicateSubmit
    	 
-   	 Thread.sleep(20000);
+   	 Thread.sleep(30000);
    	 if(driver.findElements(By.xpath(".//*[text()='Open Record']")).size()>0) 
    	 {
    		 System.out.println("Entered into the if loop");
@@ -2208,7 +2208,7 @@ public class MaterialPage {
 		
 		if (Button.verifyObject(btnClose)) {
 
-			Sync.waitForSeconds(Constants.WAIT_5);
+			Sync.waitForSeconds(Constants.WAIT_10);
 			Sync.waitForObject(driver, "Wait for the information PopUp", msgRequestSuccess);
 			// WebElement popUp = driver.findElement(By.xpath("//*[@class='close
 			// mx-dialog-close']"));

@@ -641,10 +641,10 @@ public class VendorPage {
 		Sync.waitForSeconds(Constants.WAIT_2);
 		Sync.waitForObject(driver, "Verify Validate message", txtValidationMsg);
 		WebDriverWait wait = new WebDriverWait(driver, 30);
-		wait.until(ExpectedConditions.elementToBeClickable(btnLocalActions));
-		Button.click("Local Actions button", btnLocalActions);
-		Sync.waitForSeconds(Constants.WAIT_2);
-		Button.click("Local Actions button", btnLocalActions);
+		//wait.until(ExpectedConditions.elementToBeClickable(btnLocalActions));
+		//Button.click("Local Actions button", btnLocalActions);
+		//Sync.waitForSeconds(Constants.WAIT_2);
+		//Button.click("Local Actions button", btnLocalActions);
 		Sync.waitForSeconds(Constants.WAIT_1);
 		wait.until(ExpectedConditions.elementToBeClickable(btnGlobalRequest));
 		Button.click("Click Global submit Global Request", btnGlobalRequest);

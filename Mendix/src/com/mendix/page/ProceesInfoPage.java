@@ -133,7 +133,7 @@ public class ProceesInfoPage {
 		Wait.until(function);*/
 		Sync.waitForSeconds(Constants.WAIT_6);
 		Textbox.click("Click Request Id Text Box", txtboxRequestId);
-		Sync.waitForSeconds(Constants.WAIT_1);
+		Sync.waitForSeconds(Constants.WAIT_5);
 		Textbox.enterValue("Enter Request Id", txtboxRequestId, strValue);
 		
 		Sync.waitForSeconds(Constants.WAIT_10);
@@ -150,7 +150,7 @@ public class ProceesInfoPage {
 		driver.findElement(By.xpath(".//*[@aria-selected='true']/span")).click();
 		Sync.waitForSeconds(Constants.WAIT_5);*/
 		driver.findElement(By.xpath(".//*[@class='glyphicon glyphicon-search']")).click();
-		Sync.waitForSeconds(Constants.WAIT_10);
+         Thread.sleep(2000);
 	}
 
 	public void reqIdSearch_Local(String strValue) throws InterruptedException, FileNotFoundException, IOException {
