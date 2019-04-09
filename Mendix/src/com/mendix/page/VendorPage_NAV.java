@@ -839,6 +839,7 @@ public class VendorPage_NAV {
 		Select CurrencyCode= new Select(SelectCurrencyCode);
 		Sync.waitForSeconds(Constants.WAIT_1);
 		CurrencyCode.selectByVisibleText(strValue);	
+		Sync.waitForSeconds(Constants.WAIT_5);
 	}
 	
 /****************************************************************************************************/
@@ -919,7 +920,16 @@ public class VendorPage_NAV {
 		Button.click("Click Local submit Local Request", btnLocalRequest);
 		Sync.waitForSeconds(Constants.WAIT_2);
 	}
-/*******************************************************************************************/
+
+	public void approveBankRequest() throws InterruptedException {
+		Sync.waitForSeconds(Constants.WAIT_1);
+		WebDriverWait wait=new WebDriverWait(driver, 60);
+		wait.until(ExpectedConditions.elementToBeClickable(btnBankRequest));
+		Button.click("Click Local submit Local Request", btnBankRequest);
+		Sync.waitForSeconds(Constants.WAIT_2);
+	}
+
+	/*******************************************************************************************/
 	
 	public void submitGlobalRequestTest() throws InterruptedException {
 
