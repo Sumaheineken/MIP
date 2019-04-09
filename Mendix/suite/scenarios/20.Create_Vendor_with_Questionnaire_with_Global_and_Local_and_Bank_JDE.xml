@@ -181,7 +181,7 @@
 			</class>
 		</classes>		
 	</test> 
-	 <test name="HeiPort_Login_LDR_Get GlobalID">
+	 <test name="HeiPort_Login_LDR_Get GlobalID1">
 		<classes>
 			<class name="com.mendix.test.LoginScript">
 				<methods>
@@ -191,7 +191,8 @@
 			</class>
 		</classes>
 		</test> 
-	<test name="Vendor_Create_Syndication_Check">
+		
+	<test name="Vendor_Create_Syndication_Check2">
 		<classes>
 			<class name="com.mendix.test.VendorScript">
 				<methods>
@@ -200,7 +201,7 @@
 				</methods>
 			</class>
 		</classes>
-	</test> 
+	</test>	 
   </suite> 
 
 	
