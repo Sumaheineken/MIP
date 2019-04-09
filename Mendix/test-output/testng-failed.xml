@@ -1,22 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite guice-stage="DEVELOPMENT" name="Failed suite [Create Vendor Happy flow - with disable Local and Bank Request(SAP)]">
-  <test thread-count="5" name="Process_Information_Check_Approved(failed)">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Create Vendor with JDE Bank]">
+  <test thread-count="5" name="Vendor_Create_Fill_In_Data_Bank(failed)">
     <classes>
-      <class name="com.mendix.test.VendorScript">
+      <class name="com.mendix.test.Vendor_JDE_Script">
         <methods>
-          <include name="process_Information_Check_GlobalID_Extend" invocation-numbers="0"/>
+          <include name="Vendor_Create_Fill_In_Data_Bank_Local" invocation-numbers="0"/>
         </methods>
-      </class> <!-- com.mendix.test.VendorScript -->
+      </class> <!-- com.mendix.test.Vendor_JDE_Script -->
     </classes>
-  </test> <!-- Process_Information_Check_Approved(failed) -->
-  <test thread-count="5" name="Vendor_Create_Syndication_Check(failed)">
-    <classes>
-      <class name="com.mendix.test.VendorScript">
-        <methods>
-          <include name="Vendor_Create_Syndication_Check_SAP" invocation-numbers="0"/>
-        </methods>
-      </class> <!-- com.mendix.test.VendorScript -->
-    </classes>
-  </test> <!-- Vendor_Create_Syndication_Check(failed) -->
-</suite> <!-- Failed suite [Create Vendor Happy flow - with disable Local and Bank Request(SAP)] -->
+  </test> <!-- Vendor_Create_Fill_In_Data_Bank(failed) -->
+</suite> <!-- Failed suite [Create Vendor with JDE Bank] -->
