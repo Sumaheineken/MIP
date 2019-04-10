@@ -54,7 +54,7 @@
 		</classes>
 	</test>
 	
- <test name="Process_Information_Check">
+	<test name="Process_Information_Check">
 		<classes>
 			<class name="com.mendix.test.VendorScript">
 				<methods>
@@ -121,39 +121,7 @@
 			</class>
 		</classes>		
 	</test>
-
-	<test name="HeiPort_Login_LBDA">
-		<classes>
-			<class name="com.mendix.test.LoginScript">
-				<methods>
-					<include name="openBrowser" />
-					<include name="loginAsLBDAVendor" />
-				</methods>
-			</class>
-		</classes>
-	</test>
-	
-	<test name="Vendor_Create_Review_Global_Data_Approve_LBDA">
-		<classes>
-			<class name="com.mendix.test.VendorScript">
-				<methods>
-					<include
-						name="vendor_Create_Review_Global_Data_Approve_LBDA" />
-				</methods>
-			</class>
-		</classes>
-	</test>
-	<test name="Process_Information_Check_Syndication_LBDA">
-		<classes>
-			<class name="com.mendix.test.MaterialScript">
-				<methods>
-					<include name="Process_Information_Check" />
-				</methods>
-			</class>
-		</classes>
-	</test>
-	 
-	<test name="HeiPort_Login_GDA">
+		<test name="HeiPort_Login_GDA">
 		<classes>
 			<class name="com.mendix.test.LoginScript">
 				<methods>
@@ -181,7 +149,7 @@
 			</class>
 		</classes>		
 	</test> 
-	 <test name="HeiPort_Login_LDR_Get GlobalID1">
+	<test name="HeiPort_Login_LDR_2">
 		<classes>
 			<class name="com.mendix.test.LoginScript">
 				<methods>
@@ -190,9 +158,8 @@
 				</methods>
 			</class>
 		</classes>
-		</test> 
-		
-	<test name="Vendor_Create_Syndication_Check2">
+	</test>
+		<test name="Vendor_Create_Syndication_Check">
 		<classes>
 			<class name="com.mendix.test.VendorScript">
 				<methods>
@@ -201,7 +168,7 @@
 				</methods>
 			</class>
 		</classes>
-	</test>	 
+	</test> 	
   </suite> 
 
 	
