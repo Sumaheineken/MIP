@@ -81,9 +81,6 @@ public class Material_Nav_Page{
 	@FindBy(how = How.XPATH, using = "//*[@class='btn mx-button mx-name-actionButton1 btn-success']")
 	WebElement btnCreateRequestOnPopUp;
 
-	@FindBy(how = How.XPATH, using = "(//*[text()='Edit'])[5]")
-	WebElement btnNavLocalPlantEdit;
-
 	@FindBy(how = How.XPATH, using = ".//*[contains(text(),'Rounding Precision')]/../div/div/select")
 	WebElement dropdownPlantRoundingPrecisionValue;
 
@@ -109,9 +106,12 @@ public class Material_Nav_Page{
 	@FindBy(how = How.XPATH, using = ".//*[contains(text(),'VAT Prod. Posting Group')]/../div/div/select")
 	WebElement dropDownFinanceVATPostingGroup;
 
-	@FindBy(how = How.XPATH, using = "(//*[text()='New'])[5]")
+	@FindBy(how = How.XPATH, using = ".//*[text()='Planning']/../../../div/div[1]/div/div/div/div[2]/div[2]/button[1]")
 	WebElement btnNavLocalPlantNewCreate;
-
+	
+	@FindBy(how = How.XPATH, using = ".//*[text()='Planning']/../../../div/div[1]/div/div/div/div[2]/div[2]/button[2]")
+	WebElement btnNavLocalPlantEdit;
+	
 	@FindBy(how = How.XPATH, using = "//*[@class='mx-datagrid-body']/tr/td[3]")
 	WebElement btnRowSelect;
 
@@ -136,7 +136,28 @@ public class Material_Nav_Page{
 	
 	@FindBy(how = How.XPATH, using = ".//*[text()='Site']/../../../div/div[3]/div/div/div[2]/div[2]/div[2]/button[2]")
 	WebElement btnNavLocalSiteEditExtend;
+	
+	@FindBy(how = How.XPATH, using = ".//*[contains(text(),'Purch. Unit of Measure')]/../div/div/select")
+	WebElement dropdownPlantPurchaseUOMValue;
+	
+	@FindBy(how = How.XPATH, using = ".//*[contains(text(),'Production Unit of Measure')]/../div/div/select")
+	WebElement dropdownPlantProductionUOMValue;
+	
+	@FindBy(how = How.XPATH, using = ".//*[contains(text(),'Sales Unit of Measure')]/../div/div/select")
+	WebElement dropdownPlantSalesUOMValue;
+	
+	@FindBy(how = How.XPATH, using = ".//*[contains(text(),'Inventory Unit of Measure')]/../div/div/select")
+	WebElement dropdownPlantInventoryUOMValue;
+	
+	@FindBy(how = How.XPATH, using = ".//*[contains(text(),'Inventory Posting Group')]/../div/div/select")
+	WebElement dropDownFinanceInventoryPostingGroup;
+	
+	@FindBy(how = How.XPATH, using = ".//*[contains(text(),'WHT Product Posting Group')]/../div/div/select")
+	WebElement dropDownFinanceWHTValue;
 
+	@FindBy(how = How.XPATH, using = ".//*[contains(text(),'Gen. Prod. Posting Group')]/../div/div/select")
+	WebElement dropDownFinanceGPPostingGroup;
+	
 	public void enterLocalData() {
 		WebDriverWait wait = new WebDriverWait(driver, 120);
 		wait.until(ExpectedConditions.elementToBeClickable(textLocalData));
@@ -960,7 +981,220 @@ public class Material_Nav_Page{
 		jse.executeScript("arguments[0].click()", driver.findElement(By.xpath("(//*[text()='OK'])[1]")));*/
 	}
 	
+	public void selectLocalPlantPurchaseUOMValueDropDown(String strValue) throws InterruptedException {
+
+		// Sync.waitForObject(driver,
+		// driver.findElement(By.xpath(".//*[contains(text(),'Edit Local Data
+		// Planning')]")));
+		Sync.waitForSeconds(Constants.WAIT_5);
+		if (Button.verifyObject(dropdownPlantPurchaseUOMValue)) {
+			Sync.waitForSeconds(Constants.WAIT_5);
+			Sync.waitForSeconds(Constants.WAIT_5);
+			Sync.waitForObject(driver, "Wait for Purchase UOM Select", dropdownPlantPurchaseUOMValue);
+			Sync.waitForSeconds(Constants.WAIT_5);
+			Button.click("Click on Purchase UOM Select", dropdownPlantPurchaseUOMValue);
+			Select purchUOMDropDownSelect = new Select(dropdownPlantPurchaseUOMValue);
+			purchUOMDropDownSelect.selectByVisibleText(strValue);
+
+		} else {
+			Sync.waitForSeconds(Constants.WAIT_5);
+			Sync.waitForSeconds(Constants.WAIT_5);
+			Button.click("Click on Purchase UOM Select", dropdownPlantPurchaseUOMValue);
+			Select purchUOMDropDownSelect = new Select(dropdownPlantPurchaseUOMValue);
+			purchUOMDropDownSelect.selectByVisibleText(strValue);
+		}
+	}
+
+	public void clickAndSelectPurchaseUOMValueDropDown(String strValue) throws InterruptedException {
+		Sync.waitForSeconds(Constants.WAIT_5);
+		this.selectLocalPlantPurchaseUOMValueDropDown(strValue);
+	}
+
+	public void selectLocalPlantProductionUOMValueDropDown(String strValue) throws InterruptedException {
+		// Sync.waitForObject(driver,
+		// driver.findElement(By.xpath(".//*[contains(text(),'Edit Local Data
+		// Planning')]")));
+		Sync.waitForSeconds(Constants.WAIT_5);
+		if (Button.verifyObject(dropdownPlantProductionUOMValue)) {
+			Sync.waitForSeconds(Constants.WAIT_5);
+			Sync.waitForSeconds(Constants.WAIT_5);
+			Sync.waitForObject(driver, "Wait for Production UOM Select", dropdownPlantProductionUOMValue);
+			Sync.waitForSeconds(Constants.WAIT_5);
+			Button.click("Click on Production UOM Select", dropdownPlantProductionUOMValue);
+			Select prodUOMDropDownSelect = new Select(dropdownPlantProductionUOMValue);
+			prodUOMDropDownSelect.selectByVisibleText(strValue);
+
+		} else {
+			Sync.waitForSeconds(Constants.WAIT_5);
+			Sync.waitForSeconds(Constants.WAIT_5);
+			Button.click("Click on Production UOM Select", dropdownPlantProductionUOMValue);
+			Select prodUOMDropDownSelect = new Select(dropdownPlantProductionUOMValue);
+			prodUOMDropDownSelect.selectByVisibleText(strValue);
+		}
+	}
+
+	public void clickAndSelectProdUOMValueDropDown(String strValue) throws InterruptedException {
+		Sync.waitForSeconds(Constants.WAIT_5);
+		this.selectLocalPlantProductionUOMValueDropDown(strValue);
+	}
 	
+	public void selectLocalPlantSalesUOMValueDropDown(String strValue) throws InterruptedException {
 
+		// Sync.waitForObject(driver,
+		// driver.findElement(By.xpath(".//*[contains(text(),'Edit Local Data
+		// Planning')]")));
+		Sync.waitForSeconds(Constants.WAIT_5);
+		Sync.waitForSeconds(Constants.WAIT_5);
+		if (Button.verifyObject(dropdownPlantSalesUOMValue)) {
+			Sync.waitForObject(driver, "Wait for Sales UOM Select", dropdownPlantSalesUOMValue);
+			Sync.waitForSeconds(Constants.WAIT_5);
+			Sync.waitForSeconds(Constants.WAIT_5);
+			Button.click("Click on Sales UOM Select", dropdownPlantSalesUOMValue);
+			Select salesUOMDropDownSelect = new Select(dropdownPlantSalesUOMValue);
+			salesUOMDropDownSelect.selectByVisibleText(strValue);
 
+		} else {
+			Sync.waitForSeconds(Constants.WAIT_5);
+			Sync.waitForSeconds(Constants.WAIT_5);
+			Button.click("Click on Sales UOM Select", dropdownPlantSalesUOMValue);
+			Select salesUOMDropDownSelect = new Select(dropdownPlantSalesUOMValue);
+			salesUOMDropDownSelect.selectByVisibleText(strValue);
+		}
+	}
+
+	public void clickAndSelectSalesUOMValueDropDown(String strValue) throws InterruptedException {
+		Sync.waitForSeconds(Constants.WAIT_5);
+		this.selectLocalPlantSalesUOMValueDropDown(strValue);
+	}
+	
+	public void selectLocalPlantInventoryUOMValueDropDown(String strValue) throws InterruptedException {
+		// Sync.waitForObject(driver,
+		// driver.findElement(By.xpath(".//*[contains(text(),'Edit Local Data
+		// Planning')]")));
+		Sync.waitForSeconds(Constants.WAIT_5);
+		Sync.waitForSeconds(Constants.WAIT_5);
+		if (Button.verifyObject(dropdownPlantInventoryUOMValue)) {
+			Sync.waitForObject(driver, "Wait for Sales UOM Select", dropdownPlantInventoryUOMValue);
+			Sync.waitForSeconds(Constants.WAIT_5);
+			Sync.waitForSeconds(Constants.WAIT_5);
+			Button.click("Click on Sales UOM Select", dropdownPlantInventoryUOMValue);
+			Select inventoryUOMDropDownSelect = new Select(dropdownPlantInventoryUOMValue);
+			inventoryUOMDropDownSelect.selectByVisibleText(strValue);
+
+		} else {
+			Sync.waitForSeconds(Constants.WAIT_5);
+			Sync.waitForSeconds(Constants.WAIT_5);
+			Button.click("Click on Sales UOM Select", dropdownPlantInventoryUOMValue);
+			Select inventoryUOMDropDownSelect = new Select(dropdownPlantInventoryUOMValue);
+			inventoryUOMDropDownSelect.selectByVisibleText(strValue);
+		}
+
+	}
+
+	public void clickAndSelectInventoryUOMValueDropDown(String strValue) throws InterruptedException {
+		Sync.waitForSeconds(Constants.WAIT_5);
+		this.selectLocalPlantInventoryUOMValueDropDown(strValue);
+	}
+	
+	public void localAddInEditPlantNav() {
+
+		Sync.waitForSeconds(Constants.WAIT_10);
+		Sync.waitForObject(driver, textLocalData);
+
+		if (Button.verifyObject(btnNavLocalPlantEdit)) {
+			Sync.waitForObject(driver, btnNavLocalPlantEdit);
+			Button.jsclick("Editing Plant for Nav", btnNavLocalPlantEdit, driver);
+			Sync.waitForSeconds(Constants.WAIT_10);
+		} else {
+			Sync.waitForSeconds(Constants.WAIT_10);
+			Sync.waitForObject(driver, btnNavLocalPlantEdit);
+			Button.jsclick("Editing Plant for Nav", btnNavLocalPlantEdit, driver);
+			Sync.waitForSeconds(Constants.WAIT_10);
+		}
+
+	}
+	
+	public void selectLocalFinanceInventoryPostingGroupDropDown(String strValue) throws InterruptedException {
+		// Sync.waitForSeconds(Constants.WAIT_5);
+		// Sync.waitForObject(driver, textFinanceTabNav);
+		Sync.waitForSeconds(Constants.WAIT_5);
+		Sync.waitForSeconds(Constants.WAIT_5);
+		Sync.waitForObject(driver, dropDownFinanceInventoryPostingGroup);
+		if (Button.verifyObject(dropDownFinanceInventoryPostingGroup)) {
+			Sync.waitForSeconds(Constants.WAIT_5);
+			Sync.waitForSeconds(Constants.WAIT_5);
+			Sync.waitForObject(driver, "Wait for Inventory Posting Group Select", dropDownFinanceInventoryPostingGroup);
+			Sync.waitForSeconds(Constants.WAIT_5);
+			Button.click("Click on Inventory Posting Group Select", dropDownFinanceInventoryPostingGroup);
+			Select inventoryPGDropDownSelect = new Select(dropDownFinanceInventoryPostingGroup);
+			inventoryPGDropDownSelect.selectByVisibleText(strValue);
+
+		} else {
+			Sync.waitForSeconds(Constants.WAIT_5);
+			Sync.waitForSeconds(Constants.WAIT_5);
+			Button.click("Click on Inventory Posting Group Select", dropDownFinanceInventoryPostingGroup);
+			Select inventoryPGDropDownSelect = new Select(dropDownFinanceInventoryPostingGroup);
+			inventoryPGDropDownSelect.selectByVisibleText(strValue);
+		}
+	}
+
+	public void clickAndSelectInventoryPostingGroupDropDown(String strValue) throws InterruptedException {
+		Sync.waitForSeconds(Constants.WAIT_5);
+		this.selectLocalFinanceInventoryPostingGroupDropDown(strValue);
+	}
+	
+	public void selectLocalFinanceWHTGroupDropDown(String strValue) throws InterruptedException {
+
+		// Sync.waitForObject(driver, textFinanceTabNav);
+		Sync.waitForSeconds(Constants.WAIT_5);
+		if (Button.verifyObject(dropDownFinanceWHTValue)) {
+			Sync.waitForSeconds(Constants.WAIT_5);
+			Sync.waitForSeconds(Constants.WAIT_5);
+			Sync.waitForObject(driver, "Wait for WHT Product Posting Group Select", dropDownFinanceWHTValue);
+			Sync.waitForSeconds(Constants.WAIT_5);
+			Button.click("Click on WHT Product Posting Group Select", dropDownFinanceWHTValue);
+			Select whtGroupDropDownSelect = new Select(dropDownFinanceWHTValue);
+			whtGroupDropDownSelect.selectByVisibleText(strValue);
+
+		} else {
+			Sync.waitForSeconds(Constants.WAIT_5);
+			Sync.waitForSeconds(Constants.WAIT_5);
+			Button.click("Click on WHT Product Posting Group Select", dropDownFinanceWHTValue);
+			Select whtGroupDropDownSelect = new Select(dropDownFinanceWHTValue);
+			whtGroupDropDownSelect.selectByVisibleText(strValue);
+		}
+	}
+
+	public void clickAndSelectWHTGroupDropDown(String strValue) throws InterruptedException {
+		Sync.waitForSeconds(Constants.WAIT_5);
+		this.selectLocalFinanceWHTGroupDropDown(strValue);
+	}
+	
+	public void selectLocalFinanceGenProdPostingGroupDropDown(String strValue) throws InterruptedException {
+		// Sync.waitForObject(driver, textFinanceTabNav);
+		Sync.waitForSeconds(Constants.WAIT_5);
+		Sync.waitForSeconds(Constants.WAIT_5);
+		if (Button.verifyObject(dropDownFinanceGPPostingGroup)) {
+			Sync.waitForSeconds(Constants.WAIT_5);
+			Sync.waitForSeconds(Constants.WAIT_5);
+			Sync.waitForObject(driver, "Wait for Gen. Prod. Posting Group Select", dropDownFinanceGPPostingGroup);
+			Sync.waitForSeconds(Constants.WAIT_5);
+			Button.click("Click on Gen. Prod. Posting Group Select", dropDownFinanceGPPostingGroup);
+			Select genProdGroupDropDownSelect = new Select(dropDownFinanceGPPostingGroup);
+			genProdGroupDropDownSelect.selectByVisibleText(strValue);
+
+		} else {
+			Sync.waitForSeconds(Constants.WAIT_5);
+			Sync.waitForSeconds(Constants.WAIT_5);
+			Button.click("Click on Gen. Prod. Posting Group Select", dropDownFinanceGPPostingGroup);
+			Select genProdGroupDropDownSelect = new Select(dropDownFinanceGPPostingGroup);
+			genProdGroupDropDownSelect.selectByVisibleText(strValue);
+		}
+
+	}
+
+	public void clickAndSelectGenProdPostingGroupDropDown(String strValue) throws InterruptedException {
+		Sync.waitForSeconds(Constants.WAIT_5);
+		this.selectLocalFinanceGenProdPostingGroupDropDown(strValue);
+	}
 }
