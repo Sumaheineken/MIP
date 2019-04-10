@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Create Material with JDE">
-	<!-- <test name="HeiPort_Login_LDR">
+	<test name="HeiPort_Login_LDR">
 		<classes>
 			<class name="com.mendix.test.LoginScript">
 				<methods>
@@ -50,7 +50,7 @@
 			</class>
 		</classes>
 	</test>
-	 --><test name="HeiPort_Login_LDS">
+	<test name="HeiPort_Login_LDS">
 		<classes>
 			<class name="com.mendix.test.LoginScript">
 				<methods>
@@ -109,36 +109,7 @@
 		</classes>
 	</test>
 	
-	<!-- <test name="HeiPort_Login_LBDA">
-		<classes>
-			<class name="com.mendix.test.LoginScript">
-				<methods>
-					<include name="openBrowser" />
-					<include name="loginAsLBDA" />
-				</methods>
-			</class>
-		</classes>
-	</test>
-	<test name="Material_Create_Review_Global_Data_Approve_LBDA">
-		<classes>
-			<class name="com.mendix.test.MaterialNavScript">
-				<methods>
-					<include
-						name="Material_Create_Review_Global_Data_Approve_LBDA" />
-				</methods>
-			</class>
-		</classes>
-	</test>
-	<test name="Process_Information_Check_GDA">
-		<classes>
-			<class name="com.mendix.test.MaterialNavScript">
-				<methods>
-					<include name="Process_Information_Check" />
-				</methods>
-			</class>
-		</classes>
-	</test>
-	 --><test name="HeiPort_Login_GDA">
+	<test name="HeiPort_Login_GDA">
 		<classes>
 			<class name="com.mendix.test.LoginScript">
 				<methods>
@@ -187,6 +158,36 @@
 			</class>
 		</classes>
 	</test>
+	<!-- <test name="HeiPort_Login_LBDA">
+		<classes>
+			<class name="com.mendix.test.LoginScript">
+				<methods>
+					<include name="openBrowser" />
+					<include name="loginAsLBDA" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	<test name="Material_Create_Review_Global_Data_Approve_LBDA">
+		<classes>
+			<class name="com.mendix.test.MaterialNavScript">
+				<methods>
+					<include
+						name="Material_Create_Review_Global_Data_Approve_LBDA" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	<test name="Process_Information_Check_GDA">
+		<classes>
+			<class name="com.mendix.test.MaterialNavScript">
+				<methods>
+					<include name="Process_Information_Check" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	 -->
 </suite> 
 
 
