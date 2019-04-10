@@ -822,6 +822,15 @@ public class MaterialPage {
 		Sync.waitForSeconds(Constants.WAIT_5);
 		
 	}
+	
+	public void submitGlobalRequest() throws InterruptedException {
+
+		Sync.waitForSeconds(Constants.WAIT_5);
+		Sync.waitForObject(driver, "Verify Validate message", btnGlobalRequest);
+		Button.click("Click Global submit Global Request", btnGlobalRequest);
+		Sync.waitForSeconds(Constants.WAIT_5);
+		
+	}
 
 	public void submitGlobalandLocalRequestTest() throws InterruptedException {
 
