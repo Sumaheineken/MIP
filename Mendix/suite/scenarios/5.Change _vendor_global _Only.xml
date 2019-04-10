@@ -51,7 +51,7 @@
 			</class>
 		</classes>
 	</test> 
-	<test name="HeiPort_Login_GDA">
+	<!-- <test name="HeiPort_Login_GDA">
 		<classes>
 			<class name="com.mendix.test.LoginScript">
 				<methods>
@@ -69,7 +69,7 @@
 				</methods>
 			</class>
 		</classes>
-	</test>
+	</test> -->
 		<test name="Process_Information_Check_Approved">
 		<classes>
 			<class name="com.mendix.test.MaterialScript">

@@ -169,7 +169,7 @@ public class VendorScript {
 		SharedDriver.pageContainer.vendorPage.clickLocalAction_Local();
 		SharedDriver.pageContainer.vendorPage.validateTestCreate();
 		
-		SharedDriver.pageContainer.vendorPage.submitGlobalRequestTest();
+		//SharedDriver.pageContainer.vendorPage.submitGlobalRequestTest();
 		SharedDriver.pageContainer.vendorPage.getRequestId();
 	}
 		
@@ -464,8 +464,10 @@ public class VendorScript {
 		SharedDriver.pageContainer.vendorPage.AddresIndustryKey("Y001, Trade/Serv/Transport");
 		SharedDriver.pageContainer.vendorPage.AddresCorporateGroup("PR-RAW, PR-Raw Materials");
 		SharedDriver.pageContainer.vendorPage.BtnLocalActions();
-		SharedDriver.pageContainer.vendorPage.validateTestCreate();		
-		SharedDriver.pageContainer.vendorPage.submitGlobalRequestTest();
+		SharedDriver.pageContainer.vendorPage.validateTestCreate();
+		
+		SharedDriver.pageContainer.materialPage.duplicateCheckButton();
+		SharedDriver.pageContainer.materialPage.clickDuplicateCheck();
 		SharedDriver.pageContainer.vendorPage.getRequestId_Vendor();
 				
 	}
