@@ -36,7 +36,7 @@
 			<class name="com.mendix.test.MaterialNavScript">
 			<methods>
 				<include name="material_Local_Plant_Data_Fill_In_For_Change_Nav"/>
-			 	<include name="material_Local_Finance_Data_Fill_In_For_Change_Nav"/>-->
+			 	<include name="material_Local_Finance_Data_Fill_In_For_Change_Nav"/>
 				<!--  <include name="material_Create_Fill_In_Data_Nav_Local_Adding_Site"/>-->
  				<include name="material_Submit_Global_And_Local_Requests"/>
 			</methods>
