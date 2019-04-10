@@ -131,6 +131,9 @@ public class Vendor_JDE_Page {
 	
 	@FindBy(how=How.XPATH, using="//*[text()='JDE Finance']/../../../div/div[4]/div/div/div/div[2]//button[text()='New']")
 	WebElement btnNewJdeFinance;
+	
+	@FindBy(xpath="//*[text()='Bank Account']/following::input[@type='text'][1]")
+	WebElement textBankAccount;
 
 
 	public boolean enterLocalData() {
@@ -790,7 +793,7 @@ public class Vendor_JDE_Page {
 
 //		List <WebElement> elementCount = option.getOptions();
 		Select selectBankCountrydropDown= new Select(selectBankCountry);
-		selectBankCountrydropDown.selectByVisibleText("DZ, Algeria");
+		selectBankCountrydropDown.selectByVisibleText("SG, Singapore");
 
 		/*int iSize = elementCount.size();
 
@@ -1225,7 +1228,7 @@ public void bankBearer(String strValue) throws InterruptedException
 		Sync.waitForSeconds(Constants.WAIT_10);
 		//Sync.waitForObject(driver, BtnAddBankData);
 		Button.click("New Bank Button", BtnAddBankData);
-		Sync.waitForSeconds(Constants.WAIT_3);
+		Sync.waitForSeconds(Constants.WAIT_5);
 		Sync.waitUntilObjectDisappears(driver, "Waiting of Create page to Load", By.xpath(".//*[@id='mxui_widget_Progress_0']/div[2]"));
 
 	}
@@ -1260,11 +1263,11 @@ public void bankBearer(String strValue) throws InterruptedException
 		}*/
 	}
 		
-		public void selectPartnerBankType()
+		public void enterBankaccount()
 		{
 			Sync.waitForSeconds(Constants.WAIT_1);
-			Select option= new Select(selectPartnerBankType);
-			option.selectByVisibleText("DE01");
+			textBankAccount.sendKeys("12356778");
+			
 
 			/*List <WebElement> elementCount = option.getOptions();
 			int iSize = elementCount.size();

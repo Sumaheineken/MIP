@@ -1005,7 +1005,7 @@ public class VendorPage {
 	}
 
 	public void clickLocalAction_Bank() {
-		Sync.waitForSeconds(Constants.WAIT_5);
+		Sync.waitForSeconds(Constants.WAIT_6);
 		/*
 		 * WebElement waitElement = null; FluentWait<WebDriver> fwait = new
 		 * FluentWait<WebDriver>(driver) .withTimeout(Duration.ofMinutes(3))
