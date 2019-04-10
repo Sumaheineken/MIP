@@ -186,6 +186,9 @@ public class VendorPage_NAV {
 	
 	@FindBy(how=How.XPATH, using="//*[text()='Discard Create']")
 	WebElement btnDiscardCreate;
+	@FindBy(how=How.XPATH, using="//*[text()='Is DefaultBank']/../div/div/label//input[@value='true']")
+	WebElement SelectRadiobutton;
+	
 	
 	//****************************************************************************************************************
 	
@@ -243,8 +246,7 @@ public class VendorPage_NAV {
 	@FindBy(how=How.XPATH, using=".//*[text()='Select']")
 	WebElement btnSelectBankKey;
 	
-	@FindBy(how=How.XPATH, using=".//*[text()='Select the correct Bank Key']/../../div/div/div/div/div/div/div/div/div/div[2]/button[1]")
-	WebElement btnSearch;
+	
 		
 	@FindBy(how=How.XPATH, using=".//*[text()='Select the correct Bank Key']/../../div/div/div/div/div/div/div/div/div[1]/div[1]/button[1]")
 	WebElement btnSearch2;	
@@ -254,6 +256,18 @@ public class VendorPage_NAV {
 	
 	@FindBy(how=How.XPATH, using=".//*[text()='Select the correct Bank Key']/../../div/div/div/div/div/div/div/div/div[1]/div[2]/div[1]/div[2]/input")
 	WebElement textBankKey;
+	
+	@FindBy(how=How.XPATH, using=".//*[text()='Select the correct Bank Key']/../../div/div/div/div/div/div/div/div/div[3]/div/table[2]/tbody/tr[1]/td[1]")
+	WebElement SelectRow12;
+	@FindBy(how=How.XPATH, using=".//*[text()='Select the correct Bank Key']/../../div/div/div/div/div/div/div/div/div/div[2]/button[1]")
+	WebElement btnSearch;
+		
+		
+	
+	
+	
+	//@FindBy(how=How.XPATH, using=".//*[text()='Select the correct Bank Key']/../../div/div/div/div/div/div/div/div/div[1]/div[2]/div[1]/div[2]/input")
+	//WebElement textBankKey;
 	
 	@FindBy(how=How.XPATH, using=".//*[text()='Select the correct Bank Key']/../../div/div/div/div/div/div/div/div/div[3]/div/table[2]/tbody/tr[1]/td[1]/div")
 	WebElement SelectRow1;
@@ -830,6 +844,15 @@ public class VendorPage_NAV {
 		BankCountry.selectByVisibleText(strValue);	
 	}
 	
+	public void VendorBankCountry_JDE()
+	{
+		//Sync.waitUntilObjectDisappears(driver, "Waiting of Create page to Load", By.xpath(".//*[@id='mxui_widget_Progress_0']/div[2]"));
+		Sync.waitForSeconds(Constants.WAIT_5);
+		Sync.waitForObject(driver, SelectBankCountry);
+		Select BankCountry= new Select(SelectBankCountry);
+		Sync.waitForSeconds(Constants.WAIT_2);
+		BankCountry.selectByVisibleText("SG, Singapore");	
+	}
 /****************************************************************************************************/
 	public void VendorCurrencyCode(String strValue)
 	{
@@ -1350,6 +1373,26 @@ public class VendorPage_NAV {
 	}
 	
 /****************************************************************************************************/
+	public void SelectBankKey_JDE()
+	{
+		Sync.waitForSeconds(Constants.WAIT_6);
+		Button.jsclick("Click Select button", btnSelectBankKey, driver);
+		Sync.waitForSeconds(Constants.WAIT_6);
+		//Sync.waitUntilObjectDisappears(driver, "Waiting of Create page to Load", By.xpath(".//*[@id='mxui_widget_Progress_0']/div[2]"));
+		Sync.waitForObject(driver, btnSearch);
+		Button.jsclick("Click Search button", btnSearch, driver);
+		Sync.waitForSeconds(Constants.WAIT_3);
+		Textbox.enterValue("Bank Key type", textBankKey, "319002");
+		Sync.waitForSeconds(Constants.WAIT_3);
+		Button.jsclick("Select Row 1 in Bank Key", SelectRadiobutton, driver);
+		Sync.waitForSeconds(Constants.WAIT_2);
+		Button.jsclick("Click Search button", btnSearch2, driver);
+		Sync.waitForSeconds(Constants.WAIT_2);
+		Button.jsclick("Select Row 1 in Bank Key", SelectRow12, driver);
+		Sync.waitForSeconds(Constants.WAIT_2);		
+		Button.jsclick("click on select", btnSelect, driver);
+		Sync.waitForSeconds(Constants.WAIT_2);
+	}
 	public void SelectBankKey(String strValue)
 	{
 		Button.jsclick("Click Select button", btnSelectBankKey, driver);
