@@ -367,5 +367,42 @@ public class MaterialNavScript {
 		Sync.waitForSeconds(Constants.WAIT_3);
 	}
 	
-		
+	@Test(dataProvider = "CreateMaterial_Fill_In_Local", dataProviderClass = staticProviderClass.class)
+	public void material_Local_Plant_Data_Fill_In_For_Change_Nav(Map<String, String> dataMap) throws InterruptedException {
+		Sync.waitForSeconds(Constants.WAIT_10);
+		Sync.waitForSeconds(Constants.WAIT_6);
+		SharedDriver.pageContainer.materialNavPage.localAddInEditPlantNav();
+		SharedDriver.pageContainer.materialNavPage.clickAndSelectPurchaseUOMValueDropDown(dataMap.get("Purch. Unit of Measure"));
+		SharedDriver.pageContainer.materialNavPage.clickAndSelectProdUOMValueDropDown(dataMap.get("Production Unit of Measure"));
+		SharedDriver.pageContainer.materialNavPage.clickAndSelectSalesUOMValueDropDown(dataMap.get("Sales Unit of Measure"));
+		SharedDriver.pageContainer.materialNavPage.clickAndSelectRoundingPrecisionValueDropDown(dataMap.get("Rounding Precision"));
+		SharedDriver.pageContainer.materialNavPage.clickAndSelectInventoryUOMValueDropDown(dataMap.get("Inventory Unit of Measure"));
+		SharedDriver.pageContainer.materialNavPage.validateAndSaveLocalData();
+	}
+	
+	@Test(dataProvider = "CreateMaterial_Fill_In_Local", dataProviderClass = staticProviderClass.class)
+	public void material_Local_Finance_Data_Fill_In_For_Change_Nav(Map<String, String> dataMap) throws InterruptedException {
+		SharedDriver.pageContainer.materialNavPage.localEditFinanceDataNav();
+		SharedDriver.pageContainer.materialNavPage.clickAndSelectInventoryPostingGroupDropDown(dataMap.get("Inventory Posting Group"));
+		SharedDriver.pageContainer.materialNavPage.clickAndSelectWHTGroupDropDown(dataMap.get("WHTProduct Posting Group"));
+		SharedDriver.pageContainer.materialNavPage.clickAndSelectGenProdPostingGroupDropDown(dataMap.get("Gen.Prod. Posting Group"));
+		//SharedDriver.pageContainer.basePage.waitForPageLoad();
+		SharedDriver.pageContainer.materialNavPage.clickAndSelectVATPostingGroupDropDown(dataMap.get("VAT Prod. Posting Group"));
+		SharedDriver.pageContainer.materialNavPage.validateAndSaveLocalData();
+		// SharedDriver.pageContainer.materialNavPage
+	}
+	
+	@Test
+	public void material_Submit_Global_And_Local_Requests() throws InterruptedException, FileNotFoundException, IOException
+	{
+		SharedDriver.pageContainer.materialPage.validateTestCreate();
+		SharedDriver.pageContainer.materialPage.submitLocalRequestTest();
+		SharedDriver.pageContainer.materialPage.getRequestId_CreateNew();
+		SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
+		SharedDriver.pageContainer.materialPage.duplicateCheckButton();
+		SharedDriver.pageContainer.materialPage.clickDuplicateCheck();
+		SharedDriver.pageContainer.materialPage.submitGlobalRequest();
+		SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
+	}
+	
 }
