@@ -173,14 +173,14 @@ public class Material_Nav_Page{
 
 	}
 	public void enterGlobalData() {
-		WebDriverWait wait = new WebDriverWait(driver, 80);
+		WebDriverWait wait = new WebDriverWait(driver, 100);
 		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[text()='Global Data']")));
 		Sync.waitForSeconds(Constants.WAIT_6);
 
 		Sync.waitUntilObjectDisappears(driver, "Waiting of Create page to Load",
 				By.xpath(".//*[@id='mxui_widget_Progress_0']/div[2]"));
-		WebDriverWait wait1 = new WebDriverWait(driver, 80);
-		wait1.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[text()='Global Data']")));
+		//WebDriverWait wait1 = new WebDriverWait(driver, 80);
+		//wait1.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[text()='Global Data']")));
 		if(Button.verifyObject(btnGlobalData)) {
 			Sync.waitForSeconds(Constants.WAIT_3);
 			Sync.waitForObject(driver, btnGlobalData);

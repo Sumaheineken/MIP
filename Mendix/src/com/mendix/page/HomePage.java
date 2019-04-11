@@ -35,13 +35,14 @@ public class HomePage {
 	 * @param strUsername the str username
 	 * @param strPassword the str password
 	 * @return 
+	 * @throws InterruptedException 
 	 */
-	public boolean navigateToWorkflow(){	
+	public boolean navigateToWorkflow() throws InterruptedException{	
 		
 //		Sync.waitForSeconds(Constants.WAIT_3);
 		Sync.WaitForPageLoad(driver);
 		Sync.waitForSeconds(Constants.WAIT_5);
-		Sync.waitForSeconds(Constants.WAIT_3);
+		
 		
 		Sync.waitForObject(driver, "Work", menuWork);
 		Menu.mouseHoverJScript("Work", menuWork, driver);

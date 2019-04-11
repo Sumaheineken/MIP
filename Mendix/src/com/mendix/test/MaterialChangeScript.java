@@ -33,6 +33,28 @@ public class MaterialChangeScript {
 	}
 	
 	@Test(dataProvider="Process_Information_Check",dataProviderClass=staticProviderClass.class)
+	public void Material_Change_Syndication_Check_JDE(Map<String,String> dataMap) throws InterruptedException, FileNotFoundException, IOException 
+	{
+		SharedDriver.pageContainer.homePage.navigateToWorkflow();
+		SharedDriver.pageContainer.materialPage.switchToPopup();
+		SharedDriver.pageContainer.materialPage.navigateToDashboard();
+		SharedDriver.pageContainer.materialPage.advancedSearch();
+		SharedDriver.pageContainer.materialPage.scrolltoGlobalSearch();
+//		SharedDriver.pageContainer.materialPage.getCurrDate();
+
+		SharedDriver.pageContainer.materialPage.globalSearch(dataMap.get("Global_ID"));
+		//Thread.sleep(20000);
+
+		SharedDriver.pageContainer.materialPage.clickFullMaterialData();
+		//SharedDriver.pageContainer.materialApprovalPage.submitRequestOkBtnClick();
+		SharedDriver.pageContainer.material_Change_Page.clickEditCheckBox();
+		SharedDriver.pageContainer.material_Change_Page.clickEditCheckBoxForLocal();
+		SharedDriver.pageContainer.material_Change_Page.clickEditbutton();
+	}
+	
+	
+	
+	@Test(dataProvider="Process_Information_Check",dataProviderClass=staticProviderClass.class)
 	public void material_Change_Syndication_Check_Global_Local_Nav(Map<String,String> dataMap) throws InterruptedException, FileNotFoundException, IOException 
 	{
 		SharedDriver.pageContainer.homePage.navigateToWorkflow();
@@ -189,6 +211,28 @@ public class MaterialChangeScript {
 			SharedDriver.pageContainer.materialPage.baseUOMSelectionTest(dataMap.get("Base UoM"));
 			SharedDriver.pageContainer.materialPage.netWeightEnterTest(dataMap.get("Net Weight Base UoM"));
 			SharedDriver.pageContainer.materialPage.uomPrimarySelectionTest();
+		
+	}
+	@Test(dataProvider="CreateMaterial_Fill_In",dataProviderClass=staticProviderClass.class)
+	public void Material_Create_Fill_In_Data_Change_JDE(Map<String,String> dataMap) throws InterruptedException, FileNotFoundException, IOException 
+	{
+		//		SharedDriver.pageContainer.materialPage.disableLocaData();
+		//		SharedDriver.pageContainer.materialPage.materialDescCreate(dataMap.get("Description"));
+		 
+		
+			//		SharedDriver.pageContainer.materialPage.disableLocaData();
+			SharedDriver.pageContainer.materialPage.materialDescCreate(dataMap.get("Description"));
+			SharedDriver.pageContainer.materialPage.materialGrpSelectionTest(dataMap.get("Material Group"));
+			SharedDriver.pageContainer.materialPage.grossWeightEntestTest(dataMap.get("Gross Weight Base UoM"));
+			SharedDriver.pageContainer.materialPage.unitOfWeightSelectionTest(dataMap.get("Unit of Weight"));
+			SharedDriver.pageContainer.materialPage.baseUOMSelectionTest(dataMap.get("Base UoM"));
+			SharedDriver.pageContainer.materialPage.netWeightEnterTest(dataMap.get("Net Weight Base UoM"));
+			SharedDriver.pageContainer.materialPage.uomPrimarySelectionTest();			
+			SharedDriver.pageContainer.materialPage.validateTestCreate();
+			SharedDriver.pageContainer.materialPage.duplicateCheckButton();
+			SharedDriver.pageContainer.materialPage.clickDuplicateCheck();
+			SharedDriver.pageContainer.materialPage.submitGlobalRequestExtend();
+			SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
 		
 	}
 
