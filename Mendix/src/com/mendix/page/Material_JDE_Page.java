@@ -99,6 +99,7 @@ public class Material_JDE_Page {
 			wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[text()='Finance']/../../../div/div[8]/div/div/div[2]/div[2]//*[text()='Edit']")));
 			Sync.waitForObject(driver, btnEditPlaning);
 			Button.click("Click on Edit Plant Data",btnEditPlaning);
+			Sync.waitForSeconds(Constants.WAIT_10);
 		}
 		else {
 			Sync.waitForSeconds(Constants.WAIT_6);
@@ -113,6 +114,7 @@ public class Material_JDE_Page {
 			wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[text()='Finance']/../../../div/div[9]/div/div/div[2]/div[2]//*[text()='Edit']")));
 			Sync.waitForObject(driver, btnEditFinance);
 			Button.click("Click on Edit Plant Data",btnEditFinance);
+			Sync.waitForSeconds(Constants.WAIT_10);
 		}
 		else {
 			Sync.waitForSeconds(Constants.WAIT_6);
@@ -161,17 +163,16 @@ public class Material_JDE_Page {
 
 
 
-	public void selectStockingTypeLocal(String strValue)
+	public void selectStockingTypeLocal(String strValue) throws InterruptedException
 	{
 		Sync.waitForSeconds(Constants.WAIT_6);
 		Sync.waitForSeconds(Constants.WAIT_6);
 		WebElement stockingTypeDropdown =driver.findElement(By.xpath(".//*[text()='Stocking Type Local']/../div/div/select"));
 		if(DropDown.verifyObject(stockingTypeDropdown)) {
 			Sync.waitForObjectFluent(driver, stockingTypeDropdown);
-			Sync.waitForSeconds(Constants.WAIT_3);
-			Button.click("Waiting for clicking on Stocking type Local", stockingTypeDropdown);
-			Select stockingTypeLocaldropDown= new Select(stockingTypeDropdown);
 			Sync.waitForSeconds(Constants.WAIT_5);
+			Button.click("Waiting for clicking on Stocking type Local", stockingTypeDropdown);			
+			Select stockingTypeLocaldropDown= new Select(stockingTypeDropdown);			
 			stockingTypeLocaldropDown.selectByVisibleText(strValue);//"P, Purchased"
 			Sync.waitForSeconds(Constants.WAIT_5);
 	  }
@@ -186,16 +187,20 @@ public class Material_JDE_Page {
 	   
 	  }
 }
+	public void selectingStockingTypeLocal(String strValue) throws InterruptedException {
+		Sync.waitForSeconds(Constants.WAIT_5);
+		this.selectStockingTypeLocal(strValue);
+	}
 	
 
-	public void selectCommitmentDateMethod(String strValue)
+	public void selectCommitmentDateMethod(String strValue) throws InterruptedException
 	{
 		Sync.waitForSeconds(Constants.WAIT_3);
 		WebElement commitmentDateMethod =driver.findElement(By.xpath(".//*[text()='Commitment Date Method']/../div/div/select"));
 		if(DropDown.verifyObject(commitmentDateMethod)) {
 			Sync.waitForObjectFluent(driver, commitmentDateMethod);
 			Sync.waitForSeconds(Constants.WAIT_3);
-			Button.click("Waiting for clicking on Commitment Date Method", commitmentDateMethod);
+			Button.click("Waiting for clicking on Commitment Date Method", commitmentDateMethod);			
 			Select commitmentDateMethoddropDown= new Select(commitmentDateMethod);
 			commitmentDateMethoddropDown.selectByVisibleText(strValue);//"3, Best Before Date"
 			Sync.waitForSeconds(Constants.WAIT_5);
@@ -208,15 +213,21 @@ public class Material_JDE_Page {
 			Sync.waitForSeconds(Constants.WAIT_5);
 		}
 	}
+	
+	public void selectingCommitmentDateMethod(String strValue) throws InterruptedException {
+		Sync.waitForSeconds(Constants.WAIT_5);
+		this.selectCommitmentDateMethod(strValue);
+		
+	}
 
-	public void selectLotCalculationAlgorithm(String strValue)
+	public void selectLotCalculationAlgorithm(String strValue) throws InterruptedException
 	{
 		Sync.waitForSeconds(Constants.WAIT_3);
 		WebElement  lotCalculationAlgorithm=driver.findElement(By.xpath(".//*[text()='Lot Calculation Algorithm']/../div/div/select"));
 		if(DropDown.verifyObject(lotCalculationAlgorithm)) {
 			Sync.waitForSeconds(Constants.WAIT_3);
 			Sync.waitForObjectFluent(driver, lotCalculationAlgorithm);
-			Button.click("Waiting for clicking on Lot Caliculation Algorithm", lotCalculationAlgorithm);
+			Button.click("Waiting for clicking on Lot Caliculation Algorithm", lotCalculationAlgorithm);			
 			Select lotCalculationAlgorithmdropDown= new Select(lotCalculationAlgorithm);
 			lotCalculationAlgorithmdropDown.selectByVisibleText(strValue);//"01, Bulk Product Related Materials"
 			Sync.waitForSeconds(Constants.WAIT_2);
@@ -229,14 +240,20 @@ public class Material_JDE_Page {
 			Sync.waitForSeconds(Constants.WAIT_2);
 		}
 	}
-	public void selectLotProcessType(String strValue)
+	public void selectingLotCalculationAlgorithm(String strValue) throws InterruptedException {
+		Sync.waitForSeconds(Constants.WAIT_5);
+		this.selectingLotCalculationAlgorithm(strValue);
+	}
+
+	
+	public void selectLotProcessType(String strValue) throws InterruptedException
 	{
 		Sync.waitForSeconds(Constants.WAIT_3);
 		WebElement lotProcessType =driver.findElement(By.xpath(".//*[text()='Lot Process Type']/../div/div/select"));
 		if(DropDown.verifyObject(lotProcessType)) {
 			Sync.waitForSeconds(Constants.WAIT_3);
 			Sync.waitForObjectFluent(driver, lotProcessType);
-			Button.click("Waiting for clicking on Lot Process Type", lotProcessType);
+			Button.click("Waiting for clicking on Lot Process Type", lotProcessType);			
 			Select lotProcessTypedropDown= new Select(lotProcessType);
 			lotProcessTypedropDown.selectByVisibleText(strValue);//"3, Lots must be Assigned Manually"
 			Sync.waitForSeconds(Constants.WAIT_2);
@@ -250,14 +267,18 @@ public class Material_JDE_Page {
 			Sync.waitForSeconds(Constants.WAIT_2);
 		 }
 	}
-	public void selectLotExpiratonDateCalculationMethod(String strValue)
+	public void selectingLotProcessType(String strValue) throws InterruptedException {
+		Sync.waitForSeconds(Constants.WAIT_5);
+		this.selectingLotProcessType(strValue);
+	}
+	public void selectLotExpiratonDateCalculationMethod(String strValue) throws InterruptedException
 	{
 		Sync.waitForSeconds(Constants.WAIT_3);
 		WebElement  LotExpiratonDateCalculationMethod=driver.findElement(By.xpath(".//*[text()='Lot Expiraton Date Calculation Method']/../div/div/select"));
 		if(DropDown.verifyObject(LotExpiratonDateCalculationMethod)) {
 			Sync.waitForObjectFluent(driver,LotExpiratonDateCalculationMethod);
 			Sync.waitForSeconds(Constants.WAIT_3);
-			Button.click("Waiting for clicking on Lot Expiraton Date Calculation Method ", LotExpiratonDateCalculationMethod);
+			Button.click("Waiting for clicking on Lot Expiraton Date Calculation Method ", LotExpiratonDateCalculationMethod);			
 			Select lotExpiratonDateCalculationMethoddropDown= new Select(LotExpiratonDateCalculationMethod);
 			lotExpiratonDateCalculationMethoddropDown.selectByVisibleText(strValue);//"1, On Hand Date"
 			Sync.waitForSeconds(Constants.WAIT_2);			
@@ -270,14 +291,18 @@ public class Material_JDE_Page {
 			Sync.waitForSeconds(Constants.WAIT_2);		
 		}
 	}
-	public void selectMasterPlanningFamily(String strValue)
+	public void selectingLotExpiratonDateCalculationMethod(String strValue) throws InterruptedException {
+		Sync.waitForSeconds(Constants.WAIT_5);
+		this.selectingLotExpiratonDateCalculationMethod(strValue);
+	}
+	public void selectMasterPlanningFamily(String strValue) throws InterruptedException
 	{
 		Sync.waitForSeconds(Constants.WAIT_3);
 		WebElement  MasterPlanningFamily=driver.findElement(By.xpath(".//*[text()='Master Planning Family']/../div/div/select"));
 		if(DropDown.verifyObject(MasterPlanningFamily)) {
 			Sync.waitForObjectFluent(driver, MasterPlanningFamily);
 			Sync.waitForSeconds(Constants.WAIT_3);
-			Button.click("Waiting for clicking on Master Planning Family", MasterPlanningFamily);
+			Button.click("Waiting for clicking on Master Planning Family", MasterPlanningFamily);			
 			Select masterPlanningFamilydropDown= new Select(MasterPlanningFamily);
 			masterPlanningFamilydropDown.selectByVisibleText(strValue);//"097, Typ. 09 - S&OP - MRP"
 			Sync.waitForSeconds(Constants.WAIT_2);
@@ -288,20 +313,26 @@ public class Material_JDE_Page {
 			Button.click("Waiting for clicking on Master Planning Family", MasterPlanningFamily);
 			Select masterPlanningFamilydropDown= new Select(MasterPlanningFamily);
 			masterPlanningFamilydropDown.selectByVisibleText(strValue);//"097, Typ. 09 - S&OP - MRP"
-			Sync.waitForSeconds(Constants.WAIT_1);
+			Sync.waitForSeconds(Constants.WAIT_5);
 		}
 	}
-	public void selectPlanningCode(String strValue)
+	public void selectingMasterPlanningFamily(String strValue) throws InterruptedException {
+		Sync.waitForSeconds(Constants.WAIT_5);
+		this.selectMasterPlanningFamily(strValue);
+		
+	}
+	
+	public void selectPlanningCode(String strValue) throws InterruptedException
 	{
 		Sync.waitForSeconds(Constants.WAIT_3);
 		WebElement PlanningCode =driver.findElement(By.xpath(".//*[text()='Planning Code']/../div/div/select"));
 		if(DropDown.verifyObject(PlanningCode)) {
 			Sync.waitForSeconds(Constants.WAIT_3);
 			Sync.waitForObjectFluent(driver, PlanningCode);
-			Button.click("Waiting for clicking on Planning Code", PlanningCode);
+			Button.click("Waiting for clicking on Planning Code", PlanningCode);			
 			Select planningCodedropDown= new Select(PlanningCode);
 			planningCodedropDown.selectByVisibleText(strValue);//"0, Not Planned"
-			Sync.waitForSeconds(Constants.WAIT_2);
+			Sync.waitForSeconds(Constants.WAIT_5);
 		}
 		else {
 			Sync.waitForObjectFluent(driver, PlanningCode);
@@ -310,6 +341,10 @@ public class Material_JDE_Page {
 			planningCodedropDown.selectByVisibleText(strValue);//"0, Not Planned"
 			Sync.waitForSeconds(Constants.WAIT_2);
 		}
+	}
+	public void selectingPlanningCode(String strValue) throws InterruptedException {
+		Sync.waitForSeconds(Constants.WAIT_5);
+		this.selectPlanningCode(strValue);
 	}
 
 	public void clickLocalAction()
@@ -473,7 +508,7 @@ public class Material_JDE_Page {
 			Button.click("Wait for GL Class", GLClass);
 			Select roundVATPostingGroupDown= new Select(GLClass);
 			roundVATPostingGroupDown.selectByIndex(1);//"CTDB, CTS - DB Inst Non-Cap"
-			Sync.waitForSeconds(Constants.WAIT_5);
+			Sync.waitForSeconds(Constants.WAIT_10);
 		}
 		else {
 			Sync.waitForObject(driver, "Wait for VAT posting group Select", GLClass);
@@ -485,7 +520,7 @@ public class Material_JDE_Page {
 
 	}
 
-	public void selectCostingMethodPurchasing(String strValue)
+	public void selectCostingMethodPurchasing(String strValue) throws InterruptedException
 	{
 		Sync.waitForSeconds(Constants.WAIT_10);
 		
@@ -495,7 +530,7 @@ public class Material_JDE_Page {
 			Sync.waitForObjectFluent(driver, CostingMethodPurchasing);
 			Sync.waitForObject(driver, "Wait for click on Cost Method purchasing", CostingMethodPurchasing);
 			Sync.waitForElementToBeClickable(driver, CostingMethodPurchasing);
-			Button.click("Wait for click on Cost Method purchasing", CostingMethodPurchasing);
+			Button.click("Wait for click on Cost Method purchasing", CostingMethodPurchasing);			
 			Select roundVATPostingGroupDown= new Select(CostingMethodPurchasing);
 			roundVATPostingGroupDown.selectByVisibleText(strValue);//"07, Standard"
 			Sync.waitForSeconds(Constants.WAIT_5);
@@ -509,8 +544,12 @@ public class Material_JDE_Page {
 		}
 
 	}
+	public void selectingCostingMethodPurchasing(String strValue) throws InterruptedException {
+		Sync.waitForSeconds(Constants.WAIT_5);
+		this.selectCostingMethodPurchasing(strValue);
+	}
 
-	public void selectCostingMethodSales(String strValue)
+	public void selectCostingMethodSales(String strValue) throws InterruptedException
 	{
 		Sync.waitForSeconds(Constants.WAIT_10);
 		
@@ -519,7 +558,7 @@ public class Material_JDE_Page {
 			Sync.waitForObjectFluent(driver, CostingMethodSales);
 			Sync.waitForObject(driver, "Wait for click on Cost Method Sales", CostingMethodSales);
 			Sync.waitForElementToBeClickable(driver, CostingMethodSales);
-			Button.click("Wait for click on Cost Method Sales", CostingMethodSales);
+			Button.click("Wait for click on Cost Method Sales", CostingMethodSales);			
 			Select roundVATPostingGroupDown= new Select(CostingMethodSales);
 			roundVATPostingGroupDown.selectByVisibleText(strValue);//"08, Purchasing-Base Cost No Adds"
 			Sync.waitForSeconds(Constants.WAIT_5);
@@ -532,6 +571,10 @@ public class Material_JDE_Page {
 			roundVATPostingGroupDown.selectByVisibleText(strValue);//"08, Purchasing-Base Cost No Adds"
 		}
 
+	}
+	public void selectingCostingMethodSales(String strValue) throws InterruptedException {
+		Sync.waitForSeconds(Constants.WAIT_5);
+		this.selectCostingMethodSales(strValue);
 	}
 
 

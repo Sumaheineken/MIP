@@ -219,6 +219,8 @@ public class MaterialPage {
 
 	@FindBy(how = How.XPATH, using = ".//button[text()='Submit Global Request']")
 	WebElement btnGlobalRequest;
+	
+	
 
 	@FindBy(how = How.XPATH, using = ".//button[text()='Save As Draft']")
 	WebElement btnSaveAsDraft;
@@ -1102,9 +1104,11 @@ public class MaterialPage {
 	}
 
 	public boolean clickFullMaterialData() {
-		Sync.waitForSeconds(Constants.WAIT_3);
+		//Sync.waitForSeconds(Constants.WAIT_3);
 		Sync.waitUntilObjectDisappears(driver, "Wait for Materials",
 				By.xpath((".//*[@id='mxui_widget_Progress_0']/div[2]")));
+		WebDriverWait wait = new WebDriverWait(driver,50);
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[text()='Get Full Material Data']")));
 
 		Sync.waitForSeconds(Constants.WAIT_2);
 		Sync.waitForObject(driver, "Wait until the Material appears", btnFullMaterailData);
@@ -2372,7 +2376,7 @@ public class MaterialPage {
 		} else {
 			Sync.waitForSeconds(Constants.WAIT_6);
 			Sync.waitForSeconds(Constants.WAIT_1);
-			Button.click("Local Actions button", btnLocalActions);
+			//Button.click("Local Actions button", btnLocalActions);
 			Sync.waitForSeconds(Constants.WAIT_6);
 			Sync.waitForObject(driver, btnLocalRequest);
 			Button.click("Click Submit Local Request", btnLocalRequest);
@@ -2583,5 +2587,7 @@ public void checkSyndicationDoneStatus(String strValue) throws InterruptedExcept
 			Sync.waitForSeconds(Constants.WAIT_2);
 		}
 	}
+	
+
 
 }

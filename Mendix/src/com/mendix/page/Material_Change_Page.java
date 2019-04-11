@@ -85,11 +85,12 @@ public class Material_Change_Page {
 	@FindBy(how=How.XPATH, using=".//*[text()='Select Operating Entity']/../div/div/select")
 	WebElement slctOperatingEntity;
 	public void clickEditCheckBox() {
-		WebDriverWait wait = new WebDriverWait(driver,60);
+		WebDriverWait wait = new WebDriverWait(driver,80);
 		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[text()='Edit Global Data']/../div/input")));		
 		//Sync.waitUntilObjectDisappears(driver, "Wait for Materials", By.xpath((".//*[@id='mxui_widget_Progress_0']/div[2]")));
 		Sync.waitForObject(driver, "Wait until the Material appears", checkBoxEdit);
 		Button.jsclick("Click Edit Global Global Data Checkbox", checkBoxEdit,driver);
+		System.out.println("Clicked on Golbal Edit Check box");
 		Sync.waitForSeconds(Constants.WAIT_5);
 		Sync.waitForSeconds(Constants.WAIT_5);
 	}	
