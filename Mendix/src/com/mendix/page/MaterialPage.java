@@ -2120,7 +2120,7 @@ public class MaterialPage {
    	 }
    	 else if(Button.verifyObject(btnClose))
    	 {
-
+   		 Sync.waitForSeconds(Constants.WAIT_5);
    		 Sync.waitForObject(driver, "Wait for the information PopUp", msgRequestSuccess);
 
    		clickCloseButtonToPopUp();
@@ -2218,6 +2218,7 @@ public class MaterialPage {
 	}
 
 	public void clickCloseButtonToPopUp() {
+		Sync.waitForSeconds(Constants.WAIT_10);
 		
 		if (Button.verifyObject(btnClose)) {
 
@@ -2377,7 +2378,8 @@ public class MaterialPage {
 	}
 
 	public void submitLocalRequestTest() throws InterruptedException {
-
+		WebDriverWait wait=new WebDriverWait(driver,50);
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath(".//button[text()='Submit Local Request']")));
 		if (Button.verifyObject(btnLocalRequest)) {
 			Sync.waitForSeconds(Constants.WAIT_5);
 			Button.click("Click Submit Local Request", btnLocalRequest);
