@@ -212,6 +212,7 @@ public class MaterialApprovalPage {
 		
 		if(Button.verifyObject(btnApproveGlobalRequest))
 		{
+			Sync.waitForSeconds(Constants.WAIT_2);
 			Sync.waitForObject(driver, btnApproveGlobalRequest);
 			Button.jsclick("Click Approve Button", btnApproveGlobalRequest, driver);
 		}
