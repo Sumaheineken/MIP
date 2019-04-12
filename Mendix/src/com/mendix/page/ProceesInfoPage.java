@@ -297,7 +297,7 @@ public class ProceesInfoPage {
 		return state;
 	}
 	public void browserClose() {
-		Sync.waitForSeconds(Constants.WAIT_2);
+		Sync.waitForSeconds(Constants.WAIT_10);
 		Sync.waitForSeconds(Constants.SCRIPT_WAIT_TIME);
 		driver.close();
 		driver.quit();
