@@ -69,7 +69,7 @@
 			</class>
 		</classes>
 	</test>
-	<test name="Process_Information_Check_submit">
+	<test name="Process_Information_Check">
 		<classes>
 			<class name="com.mendix.test.MaterialScript">
 				<methods>
@@ -98,11 +98,11 @@
 			</class>
 		</classes>
 	</test>
-	 <test name="Process_Information_Check_synidication">
+	<test name="Process_Information_Check_Syndication">
 		<classes>
 			<class name="com.mendix.test.MaterialScript">
 				<methods>
-					<include name="Process_Information_Check_GlobalID_Extend" />
+					<include name="process_Information_Check_GlobalID_Extend" />
 				</methods>
 			</class>
 		</classes>

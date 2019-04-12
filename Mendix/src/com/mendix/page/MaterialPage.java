@@ -1023,8 +1023,8 @@ public class MaterialPage {
 		// reqId=driver.findElement(By.xpath(".//*[@id='mxui_widget_DialogMessage_0']/div[1]/div[2]/p")).getText();
 		String reqId = driver.findElement(By.cssSelector(".modal-body.mx-dialog-body>p")).getText();
 		String[] parts = reqId.split(" ");
-		String Id = parts[14];
-		System.out.println(Id);
+		//String Id = parts[14];
+		String Id = parts[parts.length-1];
 		String IdNum = Id.replaceAll("\\.", "");
 		System.out.println("RequestId is: " + Id);
 		// ExcelUtil.excelWrite(IdNum);
