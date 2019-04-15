@@ -22,25 +22,34 @@
 			</class>
 		</classes>
 	</test>
-	<test name="Material_Create_Fill_In_Data_Reject">
+	<test name="Material_Create_Fill_In_Data">
 		<classes>
 			<class name="com.mendix.test.MaterialScript">
 				<methods>
-					<include name="Material_Create_Fill_In_Data_Reject" />
+					<include name="Material_Create_Fill_In_Data" />
+				</methods>
+			</class>
+		</classes>
+	</test>	
+	<test name="Material_Validate_Submit_Check">
+		<classes>
+			<class name="com.mendix.test.MaterialScript">
+				<methods>
+					<include name="Material_Create_Validate_Submit_Check" />
 				</methods>
 			</class>
 		</classes>
 	</test>
-	<test name="Process_Information Check_GDA">
+	<test name="Process_Information_Check">
 		<classes>
 			<class name="com.mendix.test.MaterialScript">
 				<methods>
-					<include name="Process_Information_Check_GDA" />
+					<include name="Process_Information_Check" />
 				</methods>
 			</class>
 		</classes>
 	</test>
-	
+ 	
 	 <test name="HeiPort_Login_GDA">
 		<classes>
 			<class name="com.mendix.test.LoginScript">
@@ -64,12 +73,11 @@
 		<classes>
 			<class name="com.mendix.test.MaterialScript">
 				<methods>
-					<include name="Process_Information_Check_LDRInitiator" />
+					<include name="Process_Information_Check" />
 				</methods>
 			</class>
 		</classes>
-	</test> 
-	
+	</test> 	 
 	<test name="HeiPort_Login_LDR_SecondTime">
 		<classes>
 			<class name="com.mendix.test.LoginScript">
@@ -94,12 +102,11 @@
 		<classes>
 			<class name="com.mendix.test.MaterialScript">
 				<methods>
-					<include name="Process_Information_Check_Discard" />
+					<include name="Process_Information_Check" />
 				</methods>
 			</class>
 		</classes>
 	</test>
 	
  </suite> 
-
 

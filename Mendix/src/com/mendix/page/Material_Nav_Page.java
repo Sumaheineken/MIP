@@ -158,7 +158,8 @@ public class Material_Nav_Page{
 	@FindBy(how = How.XPATH, using = ".//*[contains(text(),'Gen. Prod. Posting Group')]/../div/div/select")
 	WebElement dropDownFinanceGPPostingGroup;
 	
-	public void enterLocalData() {
+	public void enterLocalData() throws InterruptedException {
+		Thread.sleep(20000);
 		WebDriverWait wait = new WebDriverWait(driver, 200);		
 		wait.until(ExpectedConditions.elementToBeClickable(textLocalData));
 		Sync.waitForSeconds(Constants.WAIT_6);

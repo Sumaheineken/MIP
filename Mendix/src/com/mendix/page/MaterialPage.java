@@ -2378,7 +2378,7 @@ public class MaterialPage {
 	}
 
 	public void submitLocalRequestTest() throws InterruptedException {
-		WebDriverWait wait=new WebDriverWait(driver,50);
+		WebDriverWait wait=new WebDriverWait(driver,100);
 		wait.until(ExpectedConditions.elementToBeClickable(By.xpath(".//button[text()='Submit Local Request']")));
 		if (Button.verifyObject(btnLocalRequest)) {
 			Sync.waitForSeconds(Constants.WAIT_5);
@@ -2585,6 +2585,8 @@ public void checkSyndicationDoneStatus(String strValue) throws InterruptedExcept
 	}
 	
 	public void submitGlobalRequestExtend() throws InterruptedException {
+		WebDriverWait wait = new WebDriverWait(driver,100);
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath(".//button[text()='Submit Global Request']")));
 
 		if (Button.verifyObject(btnGlobalRequest)) {
 			Sync.waitForSeconds(Constants.WAIT_5);
