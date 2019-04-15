@@ -141,6 +141,24 @@ public class Sync {
 
 		}
 	}
+	
+	public static void waitForSeconds(int ms) {
+        try {
+            Thread.sleep(ms*1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    } 
+	
+	public static void waitForSec(String strWaitName){
+		try{
+
+      		Thread.sleep(Long.parseLong(strWaitName) *1000);
+		}
+		catch(Exception e){
+
+		}
+	} 
 
 	/**
 	 * Wait until object disappears.

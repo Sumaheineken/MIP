@@ -179,8 +179,8 @@ public class MaterialApprovalPage {
 
 	public boolean approvalBtnClick() {
 		Sync.waitForSeconds(Constants.WAIT_2);
-		Sync.waitUntilObjectDisappears(driver, "Wait My tasks to load",
-				By.xpath(".//*[@id='mxui_widget_Progress_0']/div[2]"));
+		//Sync.waitUntilObjectDisappears(driver, "Wait My tasks to load",
+			//	By.xpath(".//*[@id='mxui_widget_Progress_0']/div[2]"));
 
 		WebElement waitElement = null;
 		FluentWait<WebDriver> fwait = new FluentWait<WebDriver>(driver).withTimeout(Duration.ofMinutes(3))

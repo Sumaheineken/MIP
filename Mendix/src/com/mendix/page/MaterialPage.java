@@ -1080,8 +1080,8 @@ public class MaterialPage {
 		// Sync.waitUntilObjectDisappears(driver, "Wait for Materials",
 		// By.xpath((".//*[@id='mxui_widget_Progress_0']/div[2]")));
 		Sync.waitForObject(driver, "Wait until the Material appears", textMaterial);
-		Button.click("Click Materials Menu", textMaterial);
-		return Button.click("Click Dashboard Menu", menuMaterialDashboard);
+		Button.jsclick("Click Materials Menu", textMaterial, driver);
+		return Button.jsclick("Click Dashboard Menu", menuMaterialDashboard, driver);
 	}
 
 	public void scrolltoGlobalSearch() {
