@@ -87,6 +87,8 @@
 	
 	<!--=======================================LDP Local Approve END======================================================================================== -->  
 	    
+<!-- ======================================LDS Local Approval Level Start With Rejections===============================================================================-->
+	  
 	 <test name="HeiPort_Login_LDS">
 		<classes>
 			<class name="com.mendix.test.LoginScript">
@@ -98,17 +100,18 @@
 		</classes>
 	</test>
 	
-	<test name="Material_Create_Review_Global_Data_Approve_LDS">
+	
+	<test name="Reject_Material_Request_Local">
 		<classes>
 			<class name="com.mendix.test.MaterialScript">
 				<methods>
-					<include name="material_Create_Review_Local_Data_Approve_LDS"/>
+					<include name="material_Reject_LDS"/>
 				</methods>
 			</class>
 		</classes>
-	</test>	
+	</test>
 	
-	<test name="Process_Information_Check_Local">
+	<test name="Process_Information_Check_After_Reject_Local">
 		<classes>
 			<class name="com.mendix.test.MaterialScript">
 				<methods>
@@ -117,6 +120,8 @@
 			</class>
 		</classes>
 	</test> 
+	
+	<!-- =======================================================Local Rejections End at LDS================================================================== -->
 	
 	<!-- ==================================LDP Global Material Approval Level Start=============================================================== -->
     
@@ -194,30 +199,26 @@
 			</class>
 		</classes>
 	</test>
-	
-	<test name="Material_Create_Review_Global_Data_Approve_GDA">
+	<test name="Material_Data_With_Reject_GDA">
 		<classes>
 			<class name="com.mendix.test.MaterialScript">
 				<methods>
-					<include
-						name="Material_Create_Review_Global_Data_Approve_GDA" />
+					<include name="Material_Data_With_Reject_GDA" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	<test name="Process_Information_Check_GDA">
+		<classes>
+			<class name="com.mendix.test.MaterialScript">
+				<methods>
+					<include name="Process_Information_Check" />
 				</methods>
 			</class>
 		</classes>
 	</test>
 	
-	<test name="Process_Information_Check_Syndication_GDA">
-		<classes>
-			<class name="com.mendix.test.MaterialScript">
-				<methods>
-					<include name="process_Information_Check_GlobalID_Extend" />
-				</methods>
-			</class>
-		</classes>
-	</test>
- 
-			
-	<test name="HeiPort_Login_LDR_Syndication">
+    <test name="HeiPort_Login_LDR_SecondTime">
 		<classes>
 			<class name="com.mendix.test.LoginScript">
 				<methods>
@@ -227,12 +228,20 @@
 			</class>
 		</classes>
 	</test>
-	<test name="Material_Create_Syndication_Check">
+	<test name="Create_Material_Rejections_with_Discard">
 		<classes>
 			<class name="com.mendix.test.MaterialScript">
 				<methods>
-					<include name="material_Create_Syndication_Check_GlobalId" />
-					<include name="launchUFT_NAV_Material"/>
+					<include name="Create_Material_Rejections_with_Discard" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	<test name="Process_Information_Check_Discard">
+		<classes>
+			<class name="com.mendix.test.MaterialScript">
+				<methods>
+					<include name="Process_Information_Check" />
 				</methods>
 			</class>
 		</classes>
