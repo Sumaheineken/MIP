@@ -19,9 +19,9 @@ public class MaterialChangeScript {
 	{
 		SharedDriver.pageContainer.homePage.navigateToWorkflow();
 		SharedDriver.pageContainer.materialPage.switchToPopup();
-		SharedDriver.pageContainer.materialPage.navigateToDashboard();
+		/*SharedDriver.pageContainer.materialPage.navigateToDashboard();
 		SharedDriver.pageContainer.materialPage.advancedSearch();
-		SharedDriver.pageContainer.materialPage.scrolltoGlobalSearch();
+		SharedDriver.pageContainer.materialPage.scrolltoGlobalSearch();*/
 //		SharedDriver.pageContainer.materialPage.getCurrDate();
 
 		SharedDriver.pageContainer.materialPage.globalSearch(dataMap.get("Global_ID"));			
@@ -228,11 +228,7 @@ public class MaterialChangeScript {
 			SharedDriver.pageContainer.materialPage.baseUOMSelectionTest(dataMap.get("Base UoM"));
 			SharedDriver.pageContainer.materialPage.netWeightEnterTest(dataMap.get("Net Weight Base UoM"));
 			SharedDriver.pageContainer.materialPage.uomPrimarySelectionTest();			
-			SharedDriver.pageContainer.materialPage.validateTestCreate();
-			SharedDriver.pageContainer.materialPage.duplicateCheckButton();
-			SharedDriver.pageContainer.materialPage.clickDuplicateCheck();
-			SharedDriver.pageContainer.materialPage.submitGlobalRequestExtend();
-			SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
+			
 		
 	}
 
