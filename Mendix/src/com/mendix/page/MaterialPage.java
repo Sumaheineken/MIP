@@ -1592,8 +1592,8 @@ public class MaterialPage {
 
 	public void DiscardCreateGDA() throws InterruptedException {
 
-		Sync.waitForSeconds(Constants.WAIT_5);
-		Button.click("Local Actions button click", btnLocalActions);
+		//Sync.waitForSeconds(Constants.WAIT_5);
+		//Button.click("Local Actions button click", btnLocalActions);
 		Sync.waitForSeconds(Constants.WAIT_5);
 		Sync.waitForObject(driver, btnDiscardCreate);
 		Textbox.click("Click on discard button in locl action", btnDiscardCreate);
