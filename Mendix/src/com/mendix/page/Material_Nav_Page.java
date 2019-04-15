@@ -430,8 +430,9 @@ public class Material_Nav_Page{
 	}
 
 	public void submitGlobalLocalRequestTest() throws InterruptedException {
+		Sync.WaitForPageLoad(driver);
 
-		Sync.waitForSeconds(Constants.WAIT_5);
+		Sync.waitForSeconds(Constants.WAIT_10);
 		Sync.waitForObject(driver, "Wait for Submit Global Request",
 				driver.findElement(By.xpath(".//*[text()='Global Actions:']/..//*[text()='Submit Global and Local Request']")));
 		Sync.waitForElementToBeClickable(driver,

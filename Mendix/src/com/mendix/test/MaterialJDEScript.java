@@ -99,11 +99,10 @@ public class MaterialJDEScript {
 		SharedDriver.pageContainer.materialNavPage.clickSaveButton();
 		SharedDriver.pageContainer.materialNavPage.clickLocalAction();
 		SharedDriver.pageContainer.materialNavPage.clickValidatLocalRequest();
-		SharedDriver.pageContainer.materialNavPage.enterGlobalData();
+		SharedDriver.pageContainer.materialNavPage.enterGlobalData();		
 		SharedDriver.pageContainer.materialPage.duplicateCheckButton();
 		SharedDriver.pageContainer.materialPage.clickDuplicateCheck();
-		SharedDriver.pageContainer.materialNavPage.submitGlobalRequestTest();		
-//		SharedDriver.pageContainer.materialPage.getRequestId();
+		SharedDriver.pageContainer.materialPage.submitGlobalandLocalRequestTest();
 		SharedDriver.pageContainer.materialPage.getRequestId_CreateNew();
 		SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
 	}
@@ -128,8 +127,15 @@ public class MaterialJDEScript {
 		SharedDriver.pageContainer.materialNavPage.clickValidatLocalRequest();
 		SharedDriver.pageContainer.materialPage.submitLocalRequestTest();				
 //		SharedDriver.pageContainer.materialPage.getRequestId();
-		SharedDriver.pageContainer.materialPage.getRequestId_CreateNew();
+		SharedDriver.pageContainer.materialPage.getRequestId_CreateNew();		
 		SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
+		SharedDriver.pageContainer.materialNavPage.clickLocalAction();
+		SharedDriver.pageContainer.materialPage.validateTestCreate();
+		SharedDriver.pageContainer.materialPage.duplicateCheckButton();
+		SharedDriver.pageContainer.materialPage.clickDuplicateCheck();
+		SharedDriver.pageContainer.materialPage.submitGlobalRequestExtend();
+		SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
+
 	}
 
 

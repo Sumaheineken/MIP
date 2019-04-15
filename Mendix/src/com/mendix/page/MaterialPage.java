@@ -708,10 +708,12 @@ public class MaterialPage {
 	}
 
 	public boolean validateTestCreate() {
-		Sync.waitForSeconds(Constants.WAIT_5);
-		Sync.waitForSeconds(Constants.WAIT_5);
+		WebDriverWait wait = new WebDriverWait(driver,70);
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath(".//*[@class='mx-layoutcontainer-wrapper mx-scrollcontainer-wrapper']/div[2]/button/span")));
+		
 		if(Button.verifyObject(btnLocalActions))
 		{
+			Sync.waitForSeconds(Constants.WAIT_10);
 			Button.click("Local Actions button", btnLocalActions);
 			Sync.waitForSeconds(Constants.WAIT_6);
 			Sync.waitForSeconds(Constants.WAIT_1);
@@ -1793,7 +1795,7 @@ public class MaterialPage {
 	public String getRequestId_CreateNew() throws InterruptedException, FileNotFoundException, IOException {
 
 		Sync.waitForSeconds(Constants.WAIT_10);
-		WebDriverWait wait = new WebDriverWait(driver, 140);
+		WebDriverWait wait = new WebDriverWait(driver, 180);
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".modal-body.mx-dialog-body>p")));
 
 		Sync.waitForObject(driver, "Wait of Dialog Box Success Message", msgRequestSuccessMsg);
@@ -2116,6 +2118,7 @@ public class MaterialPage {
    		 System.out.println("Entered into the if loop");
    		 Sync.waitForSeconds(Constants.WAIT_5);
    		 this.duplicateCheck_New();
+   		
 
    	 }
    	 else if(Button.verifyObject(btnClose))
@@ -2354,12 +2357,13 @@ public class MaterialPage {
 		String text1 = driver.findElement(By.xpath("(.//*[@class='btn mx-button mx-name-newButton2 btn-default'])[2]"))
 				.getText();
 		System.out.println(text1);
+		Sync.waitForSeconds(Constants.WAIT_10);
 
 		driver.findElement(By.xpath("(.//*[@class='btn mx-button mx-name-newButton2 btn-default'])[2]")).click();
 		// Button.jsclick("Click on New Button TO Add comment", btnCommentLocalNewNav,
 		// driver);
 		System.out.println("clicked new button");
-		Sync.waitForSeconds(Constants.WAIT_2);
+		Sync.waitForSeconds(Constants.WAIT_10);
 		Sync.waitForObject(driver, textComment);
 		Textbox.enterValue("typing comment", textComment, "material data");
 		Button.click("Click on Save Button", btnSave);

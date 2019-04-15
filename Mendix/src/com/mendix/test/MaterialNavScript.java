@@ -292,12 +292,12 @@ public class MaterialNavScript {
 	{
 		Assert.assertTrue(SharedDriver.pageContainer.homePage.navigateToWorkflow());
 		SharedDriver.pageContainer.materialPage.switchToPopup();
-		/*SharedDriver.pageContainer.materialApprovalPage.reqIdSearchMyTasks(dataMap.get("RequestId"));
+		SharedDriver.pageContainer.materialApprovalPage.reqIdSearchMyTasks(dataMap.get("RequestId"));
 		
 		//SharedDriver.pageContainer.materialApprovalPage.approvalBtnClick_Local();
 		SharedDriver.pageContainer.materialApprovalPage.markViewsBtnClick_Local();
 		SharedDriver.pageContainer.materialPage.clickOkToHandlePopup();
-		SharedDriver.pageContainer.materialPage.rejectLDS();*/
+		SharedDriver.pageContainer.materialPage.rejectLDS();
 		//SharedDriver.pageContainer.materialApprovalPage.submitRequestOkButtonClick();	
 
 	}
