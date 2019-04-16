@@ -68,7 +68,7 @@
 			</class>
 		</classes>		
 	</test> 
-	<test name="HeiPort_Login_GDA_Reject">
+<!--  	<test name="HeiPort_Login_GDA_Reject">
 		<classes>
 			<class name="com.mendix.test.LoginScript">
 				<methods>
@@ -77,7 +77,10 @@
 				</methods>
 			</class>
 		</classes>
-	</test> 
+	</test>-->
+	
+	
+	
  	<test name="Vendor_Create_Review_Global_Data_Reject_GDA">
 		<classes>
 			<class name="com.mendix.test.VendorScript">
