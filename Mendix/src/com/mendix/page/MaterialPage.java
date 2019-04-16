@@ -1935,8 +1935,8 @@ public class MaterialPage {
 		System.out.println("Clicked on proceed");
 
 
-		/*driver.manage().window().maximize();
-		Actions actions = new Actions(driver);
+		driver.manage().window().maximize();
+		/*Actions actions = new Actions(driver);
 		actions.moveToElement(btnMsgReqIdOk);
 		actions.perform();
 

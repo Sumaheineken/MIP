@@ -5,6 +5,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Map;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -115,7 +116,8 @@ public class VendorScript {
 		SharedDriver.pageContainer.materialPage.duplicateCheckButton();
 		SharedDriver.pageContainer.materialPage.clickDuplicateCheck();
 		//SharedDriver.pageContainer.vendorPage.submitGlobalRequestTest();
-		SharedDriver.pageContainer.vendorPage.getRequestId();		
+		SharedDriver.pageContainer.vendorPage.getRequestId();
+		//SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
 				
 	}
 	
@@ -202,7 +204,7 @@ public class VendorScript {
 		
 		SharedDriver.pageContainer.vendorPage.SaveAsDraft();
 		SharedDriver.pageContainer.vendorPage.getRequestId_Draft();
-		SharedDriver.pageContainer.processInfoPage.browserClose();
+		//SharedDriver.pageContainer.processInfoPage.browserClose();
 				
 	}
 	
@@ -219,6 +221,7 @@ public class VendorScript {
 		SharedDriver.pageContainer.vendorPage.Localactionbutton();
 		SharedDriver.pageContainer.vendorPage.validateTestCreate();
 		SharedDriver.pageContainer.vendorPage.submitGlobalRequestTest();
+		SharedDriver.pageContainer.materialPage.clickDuplicateCheck();
 		SharedDriver.pageContainer.vendorPage.submitRequestPopup();
 		
 	}
@@ -242,10 +245,19 @@ public class VendorScript {
 		SharedDriver.pageContainer.materialPage.clickLocalAction();
 		SharedDriver.pageContainer.materialPage.validateAndDuplicateCheckButton();
 		SharedDriver.pageContainer.materialApprovalPage.clickDuplicateCheck_GDA();
-		SharedDriver.pageContainer.materialPage.clickLocalAction();
-		SharedDriver.pageContainer.materialApprovalPage.approvalBtnClick();
-		SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
-		//SharedDriver.pageContainer.vendorPage.duplicateCheck();
+		if(driver.findElements(By.xpath(".//button[text()='Approve Global Request']")).size()>0)
+		{
+			//SharedDriver.pageContainer.materialPage.clickLocalAction();
+			SharedDriver.pageContainer.materialApprovalPage.approvalBtnClick();
+			SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
+			//SharedDriver.pageContainer.vendorPage.duplicateCheck();
+		}
+		else
+		{
+			SharedDriver.pageContainer.materialPage.clickLocalAction();
+			SharedDriver.pageContainer.materialApprovalPage.approvalBtnClick();
+			SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
+		}
 	
 	}
 /****************************************************************************************************/	
