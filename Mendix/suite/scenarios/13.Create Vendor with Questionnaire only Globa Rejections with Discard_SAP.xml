@@ -17,20 +17,12 @@
 			<class name="com.mendix.test.VendorScript">
 				<methods>
 					<include name="Vendor_Create_Fill_In_Questionnaire" />
-				</methods>
-			</class>
-		</classes>
-	</test>
-	
-	<test name="Vendor_Create_Fill_In_Data">
-		<classes>
-			<class name="com.mendix.test.VendorScript">
-				<methods>
 					<include name="Vendor_Create_Fill_In_Data" />
 				</methods>
 			</class>
 		</classes>
 	</test>
+	
 	<test name="Process_Information_Check GDA">
 		<classes>
 			<class name="com.mendix.test.VendorScript">
