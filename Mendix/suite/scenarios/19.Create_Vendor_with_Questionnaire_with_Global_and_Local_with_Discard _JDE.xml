@@ -43,6 +43,8 @@
 			</class>
 		</classes>
 	</test>
+	
+	
 	<test name="Process_Information_Check GDA">
 		<classes>
 			<class name="com.mendix.test.VendorScript">
