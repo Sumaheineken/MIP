@@ -333,7 +333,7 @@ public class VendorPage {
 		Sync.waitForObject(driver, "Vendors", textVendor);
 		Button.NewmouseOver("Vendors", driver, textVendor);
 		Sync.waitForSeconds(Constants.WAIT_1);
-		Button.click("clicking on vendor link", textVendor);
+		Button.jsclick("clicking on vendor link", textVendor, driver);
 
 	}
 
@@ -364,7 +364,7 @@ public class VendorPage {
 
 	public void VendorTypeSelection() throws InterruptedException {
 		Sync.waitForObject(driver, "Material Type Select", btnvendorTypeSelect);
-		Button.click("Material Type Select", btnvendorTypeSelect);	
+		Button.jsclick("Material Type Select", btnvendorTypeSelect, driver);	
 
 	}
 
@@ -645,10 +645,10 @@ public class VendorPage {
 		//Button.click("Local Actions button", btnLocalActions);
 		//Sync.waitForSeconds(Constants.WAIT_2);
 		//Button.click("Local Actions button", btnLocalActions);
-		Sync.waitForSeconds(Constants.WAIT_1);
+		Sync.waitForSec(Constants.WAIT_1);
 		wait.until(ExpectedConditions.elementToBeClickable(btnGlobalRequest));
-		Button.click("Click Global submit Global Request", btnGlobalRequest);
-		Sync.waitForSeconds(Constants.WAIT_2);
+		Button.jsclick("Click Global submit Global Request", btnGlobalRequest, driver);
+		Sync.waitForSec(Constants.WAIT_2);
 		Thread.sleep(8000);
 	}
 
@@ -661,13 +661,27 @@ public class VendorPage {
 		WebDriverWait wait = new WebDriverWait(driver, 60);
 		wait.until(ExpectedConditions.elementToBeClickable(btnLocalActions));
 		Button.click("Local Actions button", btnLocalActions);
-		Sync.waitForSeconds(Constants.WAIT_2);
-		Button.click("Local Actions button", btnLocalActions);
-		Sync.waitForSeconds(Constants.WAIT_1);
+		if(driver.findElements(By.xpath(".//button[text()='Save As Draft']")).size()>0)
+		{
+		Sync.waitForSec(Constants.WAIT_2);
+		//Button.click("Local Actions button", btnLocalActions);
+		Sync.waitForSec(Constants.WAIT_5);
 		wait.until(ExpectedConditions.elementToBeClickable(btnSaveAsDraft));
-		Button.click("Click Save as Draft button", btnSaveAsDraft);
+		Button.jsclick("Click Save as Draft button", btnSaveAsDraft, driver);
 		Sync.waitForSeconds(Constants.WAIT_2);
 		Thread.sleep(8000);
+		}
+		else
+		{
+			Sync.waitForSec(Constants.WAIT_2);
+			Button.click("Local Actions button", btnLocalActions);
+			Sync.waitForSec(Constants.WAIT_5);
+			wait.until(ExpectedConditions.elementToBeClickable(btnSaveAsDraft));
+			Button.jsclick("Click Save as Draft button", btnSaveAsDraft, driver);
+			Sync.waitForSeconds(Constants.WAIT_2);
+			Thread.sleep(8000);
+
+		}
 	}
 
 	/****************************************************************************************************/
@@ -754,11 +768,11 @@ public class VendorPage {
 		String reqId = driver.findElement(By.xpath(".//*[@id='mxui_widget_DialogMessage_0']/div[1]/div[2]/p"))
 				.getText();
 		String[] parts = reqId.split(" ");
-		String Id = parts[16];
+		String Id = parts[parts.length-1];
 		String Idnum = Id.replaceAll("\\.", "");
 		System.out.println("RequestId is: " + Idnum);
 
-		ExcelUtil.excelWrite(Idnum);
+		ExcelUtil.setCellData_New("TestPlan", "RequestId", Idnum);
 		System.out.println("Excel write is done");
 		wait.until(ExpectedConditions.elementToBeClickable(btnOK));
 		Sync.waitForSeconds(Constants.WAIT_2);
