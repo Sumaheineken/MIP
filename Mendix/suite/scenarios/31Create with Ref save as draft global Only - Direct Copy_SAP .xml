@@ -86,7 +86,7 @@
 			<class name="com.mendix.test.MaterialScript">
 				<methods>
 					<include
-						name="Material_Extend_Review_Global_Data_Approve_GBDA" />
+						name="Material_Create_Review_Global_Data_Approve_GBDA" />
 				</methods>
 			</class>
 		</classes>
@@ -96,14 +96,12 @@
 			<class name="com.mendix.test.MaterialScript">
 				<methods>
 					<include name="Process_Information_Check" />
-					<include name="loginAsApprover" />
-					<include name="openBrowser" />
 				</methods>
 			</class>
 		</classes>
 	</test>
 	
-	 <test name="HeiPort_Login_GDA">
+	<test name="HeiPort_Login_GDA">
 		<classes>
 			<class name="com.mendix.test.LoginScript">
 				<methods>
@@ -113,26 +111,26 @@
 			</class>
 		</classes>
 	</test>
-	<test name="Material_Change_Review_Global_Data_Approve_GDA">
+	<test name="Material_Create_Review_Global_Data_Approve_GDA">
 		<classes>
 			<class name="com.mendix.test.MaterialScript">
 				<methods>
 					<include
-						name="Material_Create_Review_Global_Data_Approve_GDA" />
+						name="Material_Create_Review_Global_Data_Approve_GDA_Duplicate" />
 				</methods>
 			</class>
 		</classes>
 	</test>
-	<test name="Process_Information_Check_Syndication_GDA">
+	<test name="Process_Information_Check_Syndication">
 		<classes>
 			<class name="com.mendix.test.MaterialScript">
 				<methods>
-					<include name="process_Information_Check_GlobalID_Extend" />
-					
+					<include name="process_Information_Check_GlobalID_Extend"/>
 				</methods>
 			</class>
 		</classes>
 	</test>
+	
 	<test name="HeiPort_Login_BE_ThirdTime">
 		<classes>
 			<class name="com.mendix.test.LoginScript">

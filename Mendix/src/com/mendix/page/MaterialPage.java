@@ -1745,11 +1745,16 @@ public class MaterialPage {
 		Sync.waitForSeconds(Constants.WAIT_5);
 	}
 
-	public boolean clickOkToHandlePopup() {
-		Sync.waitForSeconds(Constants.WAIT_5);
-		Sync.waitForSeconds(Constants.WAIT_2);
-		WebElement popUp = driver.findElement(By.xpath("//*[@class='close mx-dialog-close']"));
-		return Button.jsclick("Click on Popup", popUp, driver);
+	public void clickOkToHandlePopup() {
+		Sync.waitForSec(Constants.WAIT_5);
+		if(Button.verifyObject(btnClose)) {
+	    
+		//WebElement popUp = driver.findElement(By.xpath("//*[@class='close mx-dialog-close']"));
+		 Button.jsclick("Click on Popup", btnClose, driver);
+		}
+		else {
+			Sync.waitForSec(Constants.WAIT_5);
+		}
 		// Sync.waitForSeconds(Constants.WAIT_1);
 		// Button.jsclick("Click ok on info Popup", btnOkay, driver);
 	}
@@ -2382,9 +2387,11 @@ public class MaterialPage {
 	}
 
 	public void submitLocalRequestTest() throws InterruptedException {
-		WebDriverWait wait=new WebDriverWait(driver,100);
-		wait.until(ExpectedConditions.elementToBeClickable(By.xpath(".//button[text()='Submit Local Request']")));
+		Sync.waitForSeconds(Constants.WAIT_10);
+	
 		if (Button.verifyObject(btnLocalRequest)) {
+			WebDriverWait wait=new WebDriverWait(driver,80);
+			wait.until(ExpectedConditions.elementToBeClickable(By.xpath(".//button[text()='Submit Local Request']")));
 			Sync.waitForSeconds(Constants.WAIT_5);
 			Button.click("Click Submit Local Request", btnLocalRequest);
 			Sync.waitForSeconds(Constants.WAIT_5);

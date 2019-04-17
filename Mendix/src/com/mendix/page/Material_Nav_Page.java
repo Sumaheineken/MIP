@@ -295,7 +295,7 @@ public class Material_Nav_Page{
 		Sync.waitForSeconds(Constants.WAIT_5);
 
 		driver.findElement(By.xpath(".//*[text()='Validate Local Request']")).click();
-		Sync.waitForSeconds(Constants.WAIT_5);
+		Sync.waitForSeconds(Constants.WAIT_10);
 	}
 
 	public void clickValidateLocalData_Planning() {

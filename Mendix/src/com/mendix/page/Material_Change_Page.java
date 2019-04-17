@@ -132,9 +132,10 @@ public class Material_Change_Page {
 
 	
 	public void clickReferencebutton() {
-		//WebDriverWait wait = new WebDriverWait(driver,100);
+		WebDriverWait wait = new WebDriverWait(driver,60);
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[text()='Create With Reference']")));
 
-		Sync.waitForSeconds(Constants.WAIT_5);
+		
 		//Sync.waitForSeconds(Constants.WAIT_5);
 		//Sync.waitUntilObjectDisappears(driver, "Wait for Materials", By.xpath((".//*[@id='mxui_widget_Progress_0']/div[2]")));
 		if(Button.verifyObject(btnCreateRef))
@@ -145,7 +146,7 @@ public class Material_Change_Page {
 
 		Button.jsclick("Click Materials Menu", btnCreateRef, driver);
 
-		Sync.waitForSeconds(Constants.WAIT_2);
+		Sync.waitForSeconds(Constants.WAIT_5);
 		}
 		else
 		{
