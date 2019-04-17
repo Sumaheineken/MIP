@@ -11,18 +11,25 @@
 				</methods>
 			</class>
 		</classes>
-	</test>
-	
-	<test name="Create_with_ref_Global_Only_SAP_Direct_Copy_with_Rejections">
+	</test>	
+    <test name="Material_Change_Check">
 		<classes>
-			<class name="com.mendix.test.MaterialScript">
+			<class name="com.mendix.test.MaterialChangeScript">
 				<methods>
-					<include name="Material_Direct_Copy_With_References"/>
+					<include name="Material_Create_Reference_Syndication_Check" />
 				</methods>
 			</class>
 		</classes>
-	</test>  
-	
+	</test> 
+	<test name="Material_RequestId_Generation">
+		<classes>
+			<class name="com.mendix.test.MaterialChangeScript">
+				<methods>
+					<include name="Material_RequestId_Generation" />
+				</methods>
+			</class>
+		</classes>
+	</test>	
 	<test name="Process_Information_Check">
 		<classes>
 			<class name="com.mendix.test.MaterialScript">
@@ -51,9 +58,7 @@
 				</methods>
 			</class>
 		</classes>
-	</test>
-	
-	
+	</test>	
 	<test name="Process_Information_Check_After_Reject">
 		<classes>
 			<class name="com.mendix.test.MaterialScript">
@@ -73,19 +78,17 @@
 				</methods>
 			</class>
 		</classes>
+	</test>	
+	<test name="Material_Resubmit_To_Approval_Global">
+		<classes>
+			<class name="com.mendix.test.MaterialScript">
+				<methods>
+					<include name="navigate_To_MDM_Workflow"/>
+					<include name="material_Resubmit_To_Global_Approval"/>
+				</methods>
+			</class>
+		</classes>
 	</test>
-	
-	<test name="Material_Resubmit_To_Approval">
-	<classes>
-		<class name="com.mendix.test.MaterialScript">
-			<methods>
-				<include name="navigate_To_MDM_Workflow"/>
-				<include name="Material_Resubmit_To_GDA_Approval"/>
-			</methods>
-		</class>
-	</classes>
-	</test>
-	
 	<test name="Process_Information_ReCheck_After_Resubmit">
 		<classes>
 			<class name="com.mendix.test.MaterialScript">
@@ -111,7 +114,7 @@
 			<class name="com.mendix.test.MaterialScript">
 				<methods>
 					<include
-						name="Material_Create_Review_Global_Data_Approve_GDA" />
+						name="Material_Create_Review_Global_Data_Approve_GDA_Duplicate" />
 				</methods>
 			</class>
 		</classes>

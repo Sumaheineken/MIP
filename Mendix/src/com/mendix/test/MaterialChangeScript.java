@@ -256,10 +256,10 @@ public class MaterialChangeScript {
 		SharedDriver.pageContainer.materialPage.globalSearch(dataMap.get("Global_ID"));
 //		SharedDriver.pageContainer.materialPage.getGlobalId();
 		SharedDriver.pageContainer.materialPage.clickFullMaterialData();
-		SharedDriver.pageContainer.materialApprovalPage.submitRequestOkBtnClick();
-		SharedDriver.pageContainer.material_Change_Page.clickEditCheckBox();
+		SharedDriver.pageContainer.materialPage.clickOkToHandlePopup();
+		//SharedDriver.pageContainer.material_Change_Page.clickEditCheckBox();
 		SharedDriver.pageContainer.material_Change_Page.clickReferencebutton();
-		SharedDriver.pageContainer.materialApprovalPage.submitRequestOkBtnClick();
+		SharedDriver.pageContainer.materialPage.clickOkToHandlePopup();
 	}
 	
 	@Test(dataProvider="CreateMaterial_Fill_In",dataProviderClass=staticProviderClass.class)
