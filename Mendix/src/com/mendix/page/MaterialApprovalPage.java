@@ -176,6 +176,18 @@ public class MaterialApprovalPage {
 		return Button.click("Click Open Task", btnOpenTask);
 
 	}
+	public void clickOnOpenTask() {
+		WebDriverWait wait = new WebDriverWait(driver,50);
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath(".//button[text()='Open Task']")));
+		if(Button.verifyObject(btnOpenTask)) {
+			Button.click("Click Open Task", btnOpenTask);
+		}
+		else {
+			Sync.waitForSeconds(Constants.WAIT_5);
+			Button.click("Click Open Task", btnOpenTask);
+			
+		}
+	}
 
 	public boolean approvalBtnClick() {
 		Sync.waitForSeconds(Constants.WAIT_2);

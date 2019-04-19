@@ -105,6 +105,9 @@ public class MaterialPage {
 	 */
 	@FindBy(how = How.XPATH, using = ".//span[@class='glyphicon glyphicon-ban-circle']")
 	WebElement btnDiscardCreate;
+	
+	@FindBy(how = How.XPATH, using = "//*[text()='Discard Local Change']")
+	WebElement btnDiscardLocalChange;
 
 	@FindBy(how = How.XPATH, using = "//*[text()='OK']")
 	WebElement btnOK;
@@ -729,6 +732,17 @@ public class MaterialPage {
 			return Sync.waitForObject(driver, "Verify Validate message", txtValidationMsg);
 		}
 
+	}
+	public void validate() {
+		WebDriverWait wait=new WebDriverWait(driver,50);
+		wait.until(ExpectedConditions.elementToBeClickable(driver.findElement(By.xpath("//*[text()='Validate']"))));
+				if(Button.verifyObject(btnValidate))  {
+					Sync.waitForSeconds(Constants.WAIT_5);
+					Button.click("Click on Validate",btnValidate);
+				}
+				else {
+					Button.click("Click on Validate",btnValidate);
+				}
 	}
 
 	public void DuplicateCheck() {
@@ -1604,6 +1618,19 @@ public class MaterialPage {
 		Button.click("Click On OK button", btnOK);
 		Sync.waitForSeconds(Constants.WAIT_5);
 	}
+	public void DiscardCreateLocal() throws InterruptedException {
+
+		//Sync.waitForSeconds(Constants.WAIT_5);
+		//Button.click("Local Actions button click", btnLocalActions);
+		Sync.waitForSeconds(Constants.WAIT_5);
+		Sync.waitForObject(driver, btnDiscardLocalChange);
+		Textbox.click("Click on discard button in Local Request", btnDiscardLocalChange);
+		Sync.waitForSeconds(Constants.WAIT_5);
+		Sync.waitForObject(driver, btnOK);
+		Button.click("Click On OK button", btnOK);
+		Sync.waitForSeconds(Constants.WAIT_5);
+	}
+
 
 	/*
 	 * public void SaveAsDraft() throws InterruptedException {
