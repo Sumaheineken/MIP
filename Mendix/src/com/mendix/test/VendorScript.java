@@ -303,7 +303,7 @@ public class VendorScript {
 		SharedDriver.pageContainer.vendorPage.switchToMDMPortal();
 		SharedDriver.pageContainer.materialApprovalPage.reqIdSearchMyTasks(dataMap.get("RequestId"));
 		SharedDriver.pageContainer.vendorPage.DiscardCreateLDR();
-		
+		SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
 		System.out.println("End:Create_Vendor_Rejections_with_Discard-Done");
 		
 	}catch(Exception e){

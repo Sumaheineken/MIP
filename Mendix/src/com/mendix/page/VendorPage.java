@@ -938,10 +938,10 @@ public class VendorPage {
 		Button.click("Local Actions button click", btnLocalActions);
 		Thread.sleep(2000);
 		Sync.waitForObject(driver, btnDiscardCreate);
-		Textbox.click("Click on reject button in locl action", btnDiscardCreate);
+		Button.jsclick("Click on Discard button in locl action", btnDiscardCreate, driver);
 		Thread.sleep(4000);
-		Sync.waitForObject(driver, btnOK);
-		Button.click("Click On OK button", btnOK);
+		//Sync.waitForObject(driver, btnOK);
+		//Button.click("Click On OK button", btnOK);
 		Thread.sleep(2000);
 	}
 
