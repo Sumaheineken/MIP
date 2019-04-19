@@ -128,9 +128,8 @@ public class MaterialJDEScript {
 		SharedDriver.pageContainer.materialPage.submitLocalRequestTest();				
 //		SharedDriver.pageContainer.materialPage.getRequestId();
 		SharedDriver.pageContainer.materialPage.getRequestId_CreateNew();		
-		SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
-		SharedDriver.pageContainer.materialNavPage.clickLocalAction();
-		SharedDriver.pageContainer.materialPage.validateTestCreate();
+		SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();	
+		SharedDriver.pageContainer.materialPage.validate();
 		SharedDriver.pageContainer.materialPage.duplicateCheckButton();
 		SharedDriver.pageContainer.materialPage.clickDuplicateCheck();
 		SharedDriver.pageContainer.materialPage.submitGlobalRequestExtend();

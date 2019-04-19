@@ -9,6 +9,7 @@ import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import com.mendix.tool.Button;
 import com.mendix.tool.Constants;
 import com.mendix.tool.SharedDriver;
 import com.mendix.tool.Sync;
@@ -534,6 +535,26 @@ public class MaterialScript {
 			System.out.println("search task opened");
 			SharedDriver.pageContainer.materialPage.clickLocalAction();
 			SharedDriver.pageContainer.materialPage.DiscardCreateGDA();
+
+			System.out.println("Create_Material_Rejections_with_Discard-Done");
+
+		} catch (Exception e) {
+
+			System.out.println("Create_Material_Rejections_with_Discard is not completed");
+			driver.close();
+		}
+	}
+	
+	@Test(dataProvider="Process_Information_Check",dataProviderClass=staticProviderClass.class)
+	public void Create_Material_Rejections_with_Discard_Local(Map<String, String> dataMap)
+			throws InterruptedException, FileNotFoundException, IOException {
+		try {
+			System.out.println("Start:Create_Material_Rejections_with_Discard Local");
+			SharedDriver.pageContainer.materialApprovalPage.clickOnOpenTask();
+			//SharedDriver.pageContainer.materialApprovalPage.reqIdSearchMyTasks(dataMap.get("RequestId"));
+			System.out.println("search task opened");
+			SharedDriver.pageContainer.materialPage.clickLocalAction();
+			SharedDriver.pageContainer.materialPage.DiscardCreateLocal();
 
 			System.out.println("Create_Material_Rejections_with_Discard-Done");
 

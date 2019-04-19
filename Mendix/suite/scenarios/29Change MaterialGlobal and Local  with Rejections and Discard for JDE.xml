@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Change Material">
-	<test name="HeiPort_Login_LDR">
+	 <test name="HeiPort_Login_LDR">
 		<classes>
 			<class name="com.mendix.test.LoginScript">
 				<methods>
@@ -159,7 +159,7 @@
 		<classes>
 			<class name="com.mendix.test.MaterialScript">
 				<methods>
-					<include name="process_Information_Check" />
+					<include name="Process_Information_Check" />
 				</methods>
 			</class>
 		</classes>
@@ -193,7 +193,7 @@
 			</class>
 		</classes>
 	</test> 
-	<test name="HeiPort_Login_LDR_Syndication check">
+ 	<test name="HeiPort_Login_LDR_Syndication check">
 		<classes>
 			<class name="com.mendix.test.LoginScript">
 				<methods>				    
@@ -207,7 +207,9 @@
 		<classes>
 			<class name="com.mendix.test.MaterialScript">
 				<methods>
-					<include name="Create_Material_Rejections_with_Discard" />
+					 <include name="Create_Material_Rejections_with_Discard" /> 
+					<include name="Create_Material_Rejections_with_Discard_Local" />
+					
 				</methods>
 			</class>
 		</classes>
