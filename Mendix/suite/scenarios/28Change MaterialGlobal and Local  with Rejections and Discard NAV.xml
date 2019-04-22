@@ -54,7 +54,7 @@
 	</test>
 	
 	<!--=================================Local Data Approvar LDP Start============================================================== -->
-  
+   
 	 <test name="HeiPort_Login_LDP">
 		<classes>
 			<class name="com.mendix.test.LoginScript">
@@ -89,7 +89,7 @@
 	<!--=======================================LDP Local Approve END======================================================================================== -->  
 	    
 <!-- ======================================LDS Local Approval Level Start With Rejections===============================================================================-->
-  
+    
 	 <test name="HeiPort_Login_LDS">
 		<classes>
 			<class name="com.mendix.test.LoginScript">
@@ -125,7 +125,7 @@
 	<!-- =======================================================Local Rejections End at LDS================================================================== -->
 	
 	<!-- ==================================LDP Global Material Approval Level Start=============================================================== -->
-      
+       
 	<test name="HeiPort_Login_LDP_Global">
 		<classes>
 			<class name="com.mendix.test.LoginScript">
@@ -190,7 +190,7 @@
 		</classes>
 	</test>
 	 -->
-	  
+    
 	<test name="HeiPort_Login_GDA">
 		<classes>
 			<class name="com.mendix.test.LoginScript">
@@ -219,7 +219,7 @@
 			</class>
 		</classes>
 	</test>
-	
+
     <test name="HeiPort_Login_LDR_SecondTime">
 		<classes>
 			<class name="com.mendix.test.LoginScript">
@@ -232,9 +232,9 @@
 	</test>
 	<test name="Create_Material_Rejections_with_Discard">
 		<classes>
-			<class name="com.mendix.test.MaterialScript">
+			<class name="com.mendix.test.MaterialNavScript">
 				<methods>
-					<include name="Create_Material_Rejections_with_Discard" />
+					<include name="Create_Material_Rejections_with_Discard_Change_Nav" />
 				</methods>
 			</class>
 		</classes>
