@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Create with ref Global and local-NAV Direct Copy with rejections">
-       <test name="HeiPort_Login_LDR">
+      <!-- <test name="HeiPort_Login_LDR">
 		<classes>
 			<class name="com.mendix.test.LoginScript">
 				<methods>
 					<include name="tasKill" />
 					<include name="openBrowser" />
-					<include name="loginAsLDRNAVMZCB" />
+					<include name="loginAsLDR" />
 				</methods>
 			</class>
 		</classes>
@@ -32,7 +32,7 @@
 			</class>
 		</classes>
 	</test> 
-	
+	 -->
 	<!--=================================Local Data Approvar LDP Start============================================================== -->
 	
 	 <test name="HeiPort_Login_LDP">
@@ -40,7 +40,7 @@
 			<class name="com.mendix.test.LoginScript">
 				<methods>
 					<include name="openBrowser" />
-					<include name="loginAsLDPNAVMZCB" />
+					<include name="loginAsLDP" />
 				</methods>
 			</class>
 		</classes>
@@ -74,7 +74,7 @@
 			<class name="com.mendix.test.LoginScript">
 				<methods>
 					<include name="openBrowser" />
-					<include name="loginAsLDSNAVMZCB" />
+					<include name="loginAsLDS" />
 				</methods>
 			</class>
 		</classes>
@@ -109,7 +109,7 @@
 			<class name="com.mendix.test.LoginScript">
 				<methods>
 					<include name="openBrowser" />
-					<include name="loginAsLDRNAVMZCB" />
+					<include name="loginAsLDR" />
 				</methods>
 			</class>
 		</classes>
@@ -143,7 +143,7 @@
 			<class name="com.mendix.test.LoginScript">
 				<methods>
 					<include name="openBrowser" />
-					<include name="loginAsLDPNAVMZCB" />
+					<include name="loginAsLDP" />
 				</methods>
 			</class>
 		</classes>
@@ -176,7 +176,7 @@
 			<class name="com.mendix.test.LoginScript">
 				<methods>
 					<include name="openBrowser" />
-					<include name="loginAsLDSNAVMZCB" />
+					<include name="loginAsLDS" />
 				</methods>
 			</class>
 		</classes>
@@ -210,7 +210,7 @@
 			<class name="com.mendix.test.LoginScript">
 				<methods>
 					<include name="openBrowser" />
-					<include name="loginAsLBDANAVMZCB" />
+					<include name="loginAsLBDA" />
 				</methods>
 			</class>
 		</classes>
@@ -242,7 +242,7 @@
 			<class name="com.mendix.test.LoginScript">
 				<methods>
 					<include name="openBrowser" />
-					<include name="loginAsLDPNAVMZCB" />
+					<include name="loginAsLDP" />
 				</methods>
 			</class>
 		</classes>
@@ -312,7 +312,7 @@
 			<class name="com.mendix.test.LoginScript">
 				<methods>
 					<include name="openBrowser" />
-					<include name="loginAsLDRNAVMZCB" />
+					<include name="loginAsLDR" />
 				</methods>
 			</class>
 		</classes>
@@ -348,7 +348,7 @@
 			<class name="com.mendix.test.LoginScript">
 				<methods>
 					<include name="openBrowser" />
-					<include name="loginAsLDPNAVMZCB" />
+					<include name="loginAsLDP" />
 				</methods>
 			</class>
 		</classes>
@@ -373,6 +373,38 @@
 			</class>
 		</classes>
 	</test>  
+	
+	 <!--  Depending on the CMG value this GBDA is getting added for CMG0472 there is no GBDA approval level so commenting that-->  
+	 <test name="HeiPort_Login_GBDA_Global">
+		<classes>
+			<class name="com.mendix.test.LoginScript">
+				<methods>
+					<include name="openBrowser" />
+					<include name="loginAsGBDA" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	
+	<test name="Material_Create_Review_Global_Data_Approve_GBDA">
+		<classes>
+			<class name="com.mendix.test.MaterialScript">
+				<methods>
+					<include name="material_Create_Review_Global_Data_Approve_GBDA_NAV"/>
+				</methods>
+			</class>
+		</classes>
+	</test>
+	
+	<test name="Process_Information_Check_Syndication_GBDA_Global">
+		<classes>
+			<class name="com.mendix.test.MaterialScript">
+				<methods>
+					<include name="Process_Information_Check" />
+				</methods>
+			</class>
+		</classes>
+	</test>
 	<!-- =================================================GDA Approval level Start For Global============================================================ -->
 	 
 	<test name="HeiPort_ReLogin_GDA">

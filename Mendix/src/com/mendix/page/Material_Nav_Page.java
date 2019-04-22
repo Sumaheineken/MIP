@@ -684,7 +684,7 @@ public class Material_Nav_Page{
 		Sync.waitForSeconds(Constants.WAIT_2);
 		// Button.jsclick("Select all listed elements for GlobalId",
 		// btnSelectAllOnPopUpPlants, driver);
-		Button.jsclick("Select All for Sales Organizations", btnSelectAllOnPopUpSalesOrg, driver);
+		//Button.jsclick("Select All for Sales Organizations", btnSelectAllOnPopUpSalesOrg, driver);
 		Button.jsclick("Create Request Button for Nav", btnCreateRequestOnPopUp, driver);
 		Sync.waitForSeconds(Constants.WAIT_6);
 

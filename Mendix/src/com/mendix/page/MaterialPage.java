@@ -546,7 +546,7 @@ public class MaterialPage {
 		Sync.waitForObject(driver, txtboxDesc);
 		Button.mouseClick(driver, "Click Material Desc Field", txtBoxDesc);
 		Textbox.enterValue("Enter Material Desc", txtBoxDesc, strValue);
-		WebDriverWait wait = new WebDriverWait(driver, 50);
+		//WebDriverWait wait = new WebDriverWait(driver, 50);
 		Sync.waitForSeconds(Constants.WAIT_5);
 		Sync.waitForSeconds(Constants.WAIT_5);
 		return Button.jsclick("Material Description Save", btnMaterialDescSave, driver);
