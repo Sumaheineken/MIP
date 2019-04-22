@@ -357,7 +357,7 @@ public class MaterialNavScript {
 	public void validate_And_Submit_Global_Local_Request(Map<String,String> dataMap) throws FileNotFoundException, InterruptedException, IOException
 	{
 		SharedDriver.pageContainer.materialNavPage.switchToGlobal();
-		SharedDriver.pageContainer.materialPage.clickLocalAction();
+		//SharedDriver.pageContainer.materialPage.clickLocalAction();
 		SharedDriver.pageContainer.materialPage.duplicateCheckButton();
 		SharedDriver.pageContainer.materialPage.clickDuplicateCheck();
 		SharedDriver.pageContainer.materialPage.submitGlobalLocalRequest();
@@ -384,10 +384,10 @@ public class MaterialNavScript {
 	public void material_Local_Finance_Data_Fill_In_For_Change_Nav(Map<String, String> dataMap) throws InterruptedException {
 		SharedDriver.pageContainer.materialNavPage.localEditFinanceDataNav();
 		SharedDriver.pageContainer.materialNavPage.clickAndSelectInventoryPostingGroupDropDown(dataMap.get("Inventory Posting Group"));
-		SharedDriver.pageContainer.materialNavPage.clickAndSelectWHTGroupDropDown(dataMap.get("WHTProduct Posting Group"));
+		//SharedDriver.pageContainer.materialNavPage.clickAndSelectWHTGroupDropDown(dataMap.get("WHTProduct Posting Group"));
 		SharedDriver.pageContainer.materialNavPage.clickAndSelectGenProdPostingGroupDropDown(dataMap.get("Gen.Prod. Posting Group"));
 		//SharedDriver.pageContainer.basePage.waitForPageLoad();
-		SharedDriver.pageContainer.materialNavPage.clickAndSelectVATPostingGroupDropDown(dataMap.get("VAT Prod. Posting Group"));
+		//SharedDriver.pageContainer.materialNavPage.clickAndSelectVATPostingGroupDropDown(dataMap.get("VAT Prod. Posting Group"));
 		SharedDriver.pageContainer.materialNavPage.validateAndSaveLocalData();
 		// SharedDriver.pageContainer.materialNavPage
 	}

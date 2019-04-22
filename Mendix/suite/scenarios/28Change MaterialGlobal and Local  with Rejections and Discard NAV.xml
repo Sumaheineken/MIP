@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Change Material">
+<suite name="Change Material with Rejections and Discard">
 	<test name="HeiPort_Login_LDR">
 		<classes>
 			<class name="com.mendix.test.LoginScript">
@@ -52,8 +52,9 @@
 			</class>
 		</classes>
 	</test>
+	
 	<!--=================================Local Data Approvar LDP Start============================================================== -->
-	   
+  
 	 <test name="HeiPort_Login_LDP">
 		<classes>
 			<class name="com.mendix.test.LoginScript">
@@ -84,11 +85,11 @@
 			</class>
 		</classes>
 	</test>
-	
+
 	<!--=======================================LDP Local Approve END======================================================================================== -->  
 	    
 <!-- ======================================LDS Local Approval Level Start With Rejections===============================================================================-->
-	  
+  
 	 <test name="HeiPort_Login_LDS">
 		<classes>
 			<class name="com.mendix.test.LoginScript">
@@ -124,7 +125,7 @@
 	<!-- =======================================================Local Rejections End at LDS================================================================== -->
 	
 	<!-- ==================================LDP Global Material Approval Level Start=============================================================== -->
-    
+      
 	<test name="HeiPort_Login_LDP_Global">
 		<classes>
 			<class name="com.mendix.test.LoginScript">
@@ -157,8 +158,8 @@
 	</test>
 	
 <!-- ============================================================LDP Global Approval Level End=========================================================== -->	
-    
-	<test name="HeiPort_Login_GBDA_Global">
+   <!--  Depending on the CMG value this GBDA is getting added for CMG0472 there is no GBDA approval level so commenting that-->  
+	<!-- <test name="HeiPort_Login_GBDA_Global">
 		<classes>
 			<class name="com.mendix.test.LoginScript">
 				<methods>
@@ -188,7 +189,8 @@
 			</class>
 		</classes>
 	</test>
-	 
+	 -->
+	  
 	<test name="HeiPort_Login_GDA">
 		<classes>
 			<class name="com.mendix.test.LoginScript">

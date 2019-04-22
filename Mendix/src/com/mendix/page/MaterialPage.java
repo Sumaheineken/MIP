@@ -1598,7 +1598,7 @@ public class MaterialPage {
 		//Button.click("Local Actions button click", btnLocalActions);
 		Sync.waitForSeconds(Constants.WAIT_5);
 		Sync.waitForObject(driver, btnDiscardCreate);
-		Textbox.click("Click on discard button in locl action", btnDiscardCreate);
+		Button.jsclick("Click on discard button in locl action", btnDiscardCreate, driver);
 		Sync.waitForSeconds(Constants.WAIT_5);
 		Sync.waitForObject(driver, btnOK);
 		Button.click("Click On OK button", btnOK);
@@ -2342,6 +2342,10 @@ public class MaterialPage {
 			roundVATPostingGroupDown.selectByVisibleText(strValue);
 		}
 	}
+	
+	@FindBy(how=How.XPATH, using = "(.//*[@class='btn mx-button mx-name-newButton2 btn-default'])[2]")
+	WebElement btnNewLDS;
+	//driver.findElement(By.xpath("(.//*[@class='btn mx-button mx-name-newButton2 btn-default'])[2]"))
 
 	public void rejectLDS() throws AWTException {
 
@@ -2359,9 +2363,8 @@ public class MaterialPage {
 		System.out.println(text1);
 		Sync.waitForSeconds(Constants.WAIT_10);
 
-		driver.findElement(By.xpath("(.//*[@class='btn mx-button mx-name-newButton2 btn-default'])[2]")).click();
-		// Button.jsclick("Click on New Button TO Add comment", btnCommentLocalNewNav,
-		// driver);
+		//driver.findElement(By.xpath("(.//*[@class='btn mx-button mx-name-newButton2 btn-default'])[2]")).click();
+		Button.jsclick("Click on New Button TO Add comment", btnNewLDS, driver);
 		System.out.println("clicked new button");
 		Sync.waitForSeconds(Constants.WAIT_10);
 		Sync.waitForObject(driver, textComment);
@@ -2372,7 +2375,7 @@ public class MaterialPage {
 		//Button.click("Local Actions button click", btnLocalActions);
 		Sync.waitForSeconds(Constants.WAIT_2);
 		Sync.waitForObject(driver, btnRejectLocalRequest);
-		Button.click("Click on reject button in locl action", btnRejectLocalRequest);
+		Button.jsclick("Click on reject button in locl action", btnRejectLocalRequest, driver);
 		Sync.waitForSeconds(Constants.WAIT_2);
 		Sync.waitForObject(driver, btnOK);
 		Button.click("Click On OK button", btnOK);
