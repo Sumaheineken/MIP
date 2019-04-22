@@ -711,12 +711,14 @@ public class MaterialPage {
 	}
 
 	public boolean validateTestCreate() {
-		WebDriverWait wait = new WebDriverWait(driver,70);
-		wait.until(ExpectedConditions.elementToBeClickable(By.xpath(".//*[@class='mx-layoutcontainer-wrapper mx-scrollcontainer-wrapper']/div[2]/button/span")));
+		Sync.waitForSeconds(Constants.WAIT_10);
 		
 		if(Button.verifyObject(btnLocalActions))
 		{
 			Sync.waitForSeconds(Constants.WAIT_10);
+			WebDriverWait wait = new WebDriverWait(driver,100);
+			wait.until(ExpectedConditions.elementToBeClickable(By.xpath(".//*[@class='mx-layoutcontainer-wrapper mx-scrollcontainer-wrapper']/div[2]/button/span")));
+			
 			Button.click("Local Actions button", btnLocalActions);
 			Sync.waitForSeconds(Constants.WAIT_6);
 			Sync.waitForSeconds(Constants.WAIT_1);
@@ -1773,7 +1775,7 @@ public class MaterialPage {
 	}
 
 	public void clickOkToHandlePopup() {
-		Sync.waitForSec(Constants.WAIT_5);
+		Sync.waitForSeconds(Constants.WAIT_10);
 		if(Button.verifyObject(btnClose)) {
 	    
 		//WebElement popUp = driver.findElement(By.xpath("//*[@class='close mx-dialog-close']"));

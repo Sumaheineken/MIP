@@ -12,6 +12,7 @@
 			</class>
 		</classes>
 	</test>	
+	
     <test name="Material_Change_Check">
 		<classes>
 			<class name="com.mendix.test.MaterialChangeScript">

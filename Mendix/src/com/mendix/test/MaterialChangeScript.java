@@ -130,7 +130,7 @@ public class MaterialChangeScript {
 	}
 	@Test(dataProvider="CreateMaterial_Fill_In",dataProviderClass=staticProviderClass.class)
 	public void Material_Edit_Desc(Map<String,String> dataMap) throws InterruptedException, FileNotFoundException, IOException
-	{   Sync.waitForSeconds(Constants.WAIT_3);
+	{   Sync.waitForSeconds(Constants.WAIT_10);
 		SharedDriver.pageContainer.materialPage.materialDescCreate(dataMap.get("Description"));
 		
       // SharedDriver.pageContainer.materialPage.clickLocalAction();
@@ -138,6 +138,7 @@ public class MaterialChangeScript {
        
        SharedDriver.pageContainer.materialPage.SaveAsDraft();
        SharedDriver.pageContainer.materialPage.getRequestId_draft();
+       SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
   
 	   //SharedDriver.pageContainer.materialApprovalPage.submitRequestOkButtonClick();
 	}
