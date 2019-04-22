@@ -719,12 +719,15 @@ public class MaterialScript {
 		SharedDriver.pageContainer.materialNavPage.createWithReferenceRequestforNav();
 		SharedDriver.pageContainer.materialPage.materialDescCreate(dataMap.get("Material Description"));
 		//Heineken_Sample_two_one"
-		SharedDriver.pageContainer.materialPage.clickLocalAction();
+		SharedDriver.pageContainer.materialPage.validateTestCreate();
+		//SharedDriver.pageContainer.materialPage.validateLocalDataForNAVCreateRef("WHT_OTH_G");
+		SharedDriver.pageContainer.materialNavPage.switchToLocal();
+		SharedDriver.pageContainer.materialPage.validateTestCreateLocal();
+		//SharedDriver.pageContainer.materialNavPage.switchToGlobal();
+		//SharedDriver.pageContainer.materialPage.clickLocalAction();
 		SharedDriver.pageContainer.materialPage.duplicateCheckButton();
 		SharedDriver.pageContainer.materialPage.clickDuplicateCheck();
-		SharedDriver.pageContainer.materialPage.validateTestCreate();
-		SharedDriver.pageContainer.materialPage.validateLocalDataForNAVCreateRef("WHT_OTH_G");
-		SharedDriver.pageContainer.materialPage.validateAndsubmitGlobalLocalRequest();
+		SharedDriver.pageContainer.materialPage.submitGlobalLocalRequest();
 		Sync.waitForSeconds(Constants.WAIT_10);
 		//SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
 		Sync.waitForSeconds(Constants.WAIT_10);
