@@ -229,7 +229,10 @@ public class MaterialPage {
 	WebElement btnSaveAsDraft;
 	@FindBy(how = How.XPATH, using = ".//span[@class='glyphicon glyphicon-saved']")
 	WebElement btnSavingAsDraft;
-
+	
+	@FindBy(how = How.XPATH, using = ".//button[text()='Discard Create']")
+	WebElement clickdiscardGlobalRequest;
+	
 	@FindBy(how = How.XPATH, using = "//*[text()='Validate']")
 	WebElement btnValidate;
 
@@ -403,6 +406,9 @@ public class MaterialPage {
 
 	@FindBy(how = How.XPATH, using = "//*[text()='Reject Local Request']")
 	WebElement btnRejectLocalRequest;
+	
+	@FindBy(how = How.XPATH, using = "//*[text()='Reject Bank Request']")
+	WebElement btnRejectBankRequest;
 
 	@FindBy(how = How.XPATH, using = ".//button[text()='Submit Local Request']")
 	WebElement btnLocalRequest;
@@ -1013,6 +1019,19 @@ public class MaterialPage {
 		// Sync.waitForElementToBeClickable(driver,
 		// driver.findElement(By.xpath(".//*[@class='glyphicon glyphicon-flash']")));
 		driver.findElement(By.xpath(".//*[@class='glyphicon glyphicon-flash']")).click();
+	}
+	
+	
+	public void clickdiscardGlobalRequest() throws InterruptedException {
+
+		Sync.waitForSeconds(Constants.WAIT_6);
+		
+				
+		//Sync.waitForObject(drivr, "Verify Validate message", txtValidationMsg);
+		/* Button.click("Click Save as Draft", btnSaveAsDraft); */
+		Button.click("Click Save as Draft", clickdiscardGlobalRequest);
+		Sync.waitForSeconds(Constants.WAIT_5);
+		// Sync.waitForSeconds(Constants.WAIT_6);
 	}
 
 	// ***********************************************************************************
@@ -2417,6 +2436,44 @@ public class MaterialPage {
 		Sync.waitForSeconds(Constants.WAIT_2);
 
 	}
+	public void rejectLDSBank() throws AWTException {
+
+		System.out.println("Scrolling action");
+
+		Sync.waitForSeconds(Constants.WAIT_2);
+		System.out.println("Scrolling");
+
+		Sync.waitForObject(driver, btnCommentLocalNewNav);
+		Sync.waitForSeconds(Constants.WAIT_2);
+		System.out.println("checking for new button");
+
+		String text1 = driver.findElement(By.xpath("(.//*[@class='btn mx-button mx-name-newButton2 btn-default'])[2]"))
+				.getText();
+		System.out.println(text1);
+		Sync.waitForSeconds(Constants.WAIT_10);
+
+		driver.findElement(By.xpath("(.//*[@class='btn mx-button mx-name-newButton2 btn-default'])[2]")).click();
+		// Button.jsclick("Click on New Button TO Add comment", btnCommentLocalNewNav,
+		// driver);
+		System.out.println("clicked new button");
+		Sync.waitForSeconds(Constants.WAIT_10);
+		Sync.waitForObject(driver, textComment);
+		Textbox.enterValue("typing comment", textComment, "material data");
+		Button.click("Click on Save Button", btnSave);
+		Sync.waitForSeconds(Constants.WAIT_2);
+		//Sync.waitForObject(driver, btnLocalActions);
+		//Button.click("Local Actions button click", btnLocalActions);
+		Sync.waitForSeconds(Constants.WAIT_2);
+		Sync.waitForObject(driver, btnRejectBankRequest);
+		Button.click("Click on reject button in locl action", btnRejectBankRequest);
+		Sync.waitForSeconds(Constants.WAIT_2);
+		Sync.waitForObject(driver, btnOK);
+		Button.click("Click On OK button", btnOK);
+		Sync.waitForSeconds(Constants.WAIT_5);
+		Sync.waitForSeconds(Constants.WAIT_2);
+
+	}
+
 
 	public void submitLocalRequestTest() throws InterruptedException {
 		Sync.waitForSeconds(Constants.WAIT_10);

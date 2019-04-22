@@ -60,22 +60,22 @@
 			<class name="com.mendix.test.LoginScript">
 				<methods>
 					<include name="openBrowser" />
-					<include name="loginAsSGLDSVendor" />
+					<include name="loginAsLDSVendor" />
 				</methods>
 			</class>
 		</classes>
 	</test>
-	<test name="Material_Create_Review_Local_Data_Reject_LDS">
+
+	<test name="Vendor_Create_Review_Local_Data_Reject_LDS">
 		<classes>
-			<class name="com.mendix.test.MaterialNavScript">
+			<class name="com.mendix.test.VendorScript_NAV">
 				<methods>
-					<include
-						name="Material_Create_Review_Local_Data_Reject_LDS" />
+					<include name="Vendor_Create_Review_Local_Data_Reject_LDS" />
 				</methods>
 			</class>
 		</classes>
 	</test>
-	<test name="Process_Information_Check_LBDA">
+	<test name="Process_Information_Check_L1">
 		<classes>
 			<class name="com.mendix.test.MaterialNavScript">
 				<methods>
@@ -84,7 +84,7 @@
 			</class>
 		</classes>
 	</test>
-	<test name="HeiPort_Login_LDR_Submitting">
+	<test name="HeiPort_Login_LDR_Submitting2">
 		<classes>
 			<class name="com.mendix.test.LoginScript">
 				<methods>
@@ -104,7 +104,7 @@
 			</class>
 		</classes>
 	</test>
-	<test name="Process_Information_Check_LDR">
+	<test name="Process_Information_Check_L">
 		<classes>
 			<class name="com.mendix.test.MaterialNavScript">
 				<methods>
@@ -112,38 +112,27 @@
 				</methods>
 			</class>
 		</classes>
-	</test> 
-	
-	<test name="HeiPort_Login_LDS_Approve">
+	</test>
+	<test name="HeiPort_Login_LDS2">
 		<classes>
 			<class name="com.mendix.test.LoginScript">
 				<methods>
 					<include name="openBrowser" />
-					<include name="loginAsSGLDSVendor" />
+					<include name="loginAsLDSVendor" />
 				</methods>
 			</class>
 		</classes>
 	</test>
-	<test name="Material_Create_Review_Global_Data_Approve_LDS">
+		<test name="Vendor_Create_Review_Local_Data_Approve_LDS">
 		<classes>
-			<class name="com.mendix.test.MaterialNavScript">
+			<class name="com.mendix.test.VendorScript_NAV">
 				<methods>
-					<include
-						name="Material_Create_Review_Global_Data_Approve_LDS" />
+					<include name="Vendor_Create_Review_Local_Data_Approve_LDS" />
 				</methods>
 			</class>
 		</classes>
 	</test>
-	<test name="Process_Information_Check_LDS_Approve">
-		<classes>
-			<class name="com.mendix.test.MaterialNavScript">
-				<methods>
-					<include name="Process_Information_Check_Local" />
-				</methods>
-			</class>
-		</classes>
-	</test>
-	  <test name="HeiPort_Login_GDA">
+	<test name="HeiPort_Login_GDA">
 		<classes>
 			<class name="com.mendix.test.LoginScript">
 				<methods>
@@ -153,26 +142,28 @@
 			</class>
 		</classes>
 	</test>
-	<test name="Material_Data_With_Reject_GDA">
+ 	
+ 	<test name="Vendor Create Global Reject GDA">
+ 		<classes>
+ 			<class name="com.mendix.test.VendorScript">
+ 				<methods>
+ 					<include name="Vendor_Create_Review_Global_Data_Reject_GDA"/>
+ 				</methods>
+ 			</class>
+ 		</classes>
+ 	</test>
+ 	
+ 	<test name="Process_Information_Check_Reject_GDA">
 		<classes>
 			<class name="com.mendix.test.MaterialScript">
 				<methods>
-					<include name="Material_Data_With_Reject_GDA" />
+					<include name="Process_Information_Check" />
 				</methods>
 			</class>
 		</classes>
 	</test>
 	
-	<test name="Process_Information_Check_Syndication">
-		<classes>
-			<class name="com.mendix.test.MaterialNavScript">
-				<methods>
-					<include name="Process_Information_Check_GlobalID" />
-				</methods>
-			</class>
-		</classes>
-	</test>
-	<test name="HeiPort_Login_LDR_Syndication">
+	<test name="HeiPort_ReLogin_Global_Resubmit_LDR">
 		<classes>
 			<class name="com.mendix.test.LoginScript">
 				<methods>
@@ -182,15 +173,16 @@
 			</class>
 		</classes>
 	</test>
-	<test name="Create_Material_Rejections_with_Discard">
+	<test name="Vendor_Create_Global_Resubmit">
 		<classes>
-			<class name="com.mendix.test.MaterialScript">
+			<class name="com.mendix.test.VendorScript">
 				<methods>
-					<include name="Create_Material_Rejections_with_Discard" />
+					<include name="vendor_Reject_discard_LDR" />
 				</methods>
 			</class>
 		</classes>
 	</test>
+	
 	<test name="Process_Information_Check_Discard">
 		<classes>
 			<class name="com.mendix.test.MaterialScript">
@@ -199,7 +191,7 @@
 				</methods>
 			</class>
 		</classes>
-	</test>
+	</test>	
 </suite> 
 
 

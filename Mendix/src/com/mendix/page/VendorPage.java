@@ -1039,7 +1039,7 @@ public class VendorPage {
 		 * wait.until(ExpectedConditions.visibilityOfElementLocated(
 		 * By.cssSelector(".glyphicon.glyphicon-flash")) ); }
 		 */
-
+		
 		Button.jsclick("Click Local Action Flash Button",
 				driver.findElement(By.cssSelector(".glyphicon.glyphicon-flash")), driver);
 	}
@@ -1077,7 +1077,19 @@ public class VendorPage {
 		Sync.waitForSeconds(Constants.WAIT_2);
 		Thread.sleep(8000);
 	}
+		
+	public void submitBankRequestTest1() throws InterruptedException {
 
+		/*
+		 * driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS) ;
+		 * Sync.waitForSeconds(Constants.WAIT_2); Sync.waitForObject(driver,
+		 * "Verify Validate message", txtValidationMsg);
+		 */
+		Sync.waitForSeconds(Constants.WAIT_10);
+		Button.click("Click Global submit Global Request", btnBankRequest);
+		Sync.waitForSeconds(Constants.WAIT_2);
+		Thread.sleep(8000);
+	}
 	public boolean clickToConfirm() throws InterruptedException {
 
 		if (Button.verifyObject(btnToConfirm)) {

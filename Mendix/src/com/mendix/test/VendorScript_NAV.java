@@ -262,7 +262,18 @@ public class VendorScript_NAV {
 		
 		/*SharedDriver.pageContainer.vendorPage.duplicateCheck();*/	
 	}
-	
+	@Test(dataProvider="Process_Information_Check",dataProviderClass=staticProviderClass.class)
+	public void Vendor_Create_Review_Local_Data_reApprove_LDS(Map<String,String> dataMap) throws InterruptedException, FileNotFoundException, IOException 
+	{
+
+		//SharedDriver.pageContainer.vendorPage.clickLocalAction_Local();
+			//		SharedDriver.pageContainer.materialNavPage.clickLocalAction();
+			SharedDriver.pageContainer.materialNavPage.submitGlobalRequestTest();
+			SharedDriver.pageContainer.materialPage.duplicateCheck_New();
+			SharedDriver.pageContainer.vendorPage.getRequestId_Vendor();
+		
+		/*SharedDriver.pageContainer.vendorPage.duplicateCheck();*/	
+	}
 /***************************************************************************************************/	
 	@Test(dataProvider="Process_Information_Check",dataProviderClass=staticProviderClass.class)
 	public void Vendor_Create_Review_Local_Data_Reject_LDS(Map<String,String> dataMap) throws InterruptedException, FileNotFoundException, IOException, AWTException 
