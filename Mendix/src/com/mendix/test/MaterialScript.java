@@ -534,7 +534,7 @@ public class MaterialScript {
 			SharedDriver.pageContainer.materialApprovalPage.reqIdSearchMyTasks(dataMap.get("RequestId"));
 			System.out.println("search task opened");
 			SharedDriver.pageContainer.materialPage.clickLocalAction();
-			SharedDriver.pageContainer.materialNavPage.switchToGlobal();
+			//SharedDriver.pageContainer.materialNavPage.switchToGlobal();
 			SharedDriver.pageContainer.materialPage.DiscardCreateGDA();
 
 			System.out.println("Create_Material_Rejections_with_Discard-Done");

@@ -405,4 +405,28 @@ public class MaterialNavScript {
 		SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
 	}
 	
+	@Test(dataProvider="Process_Information_Check",dataProviderClass=staticProviderClass.class)
+	public void Create_Material_Rejections_with_Discard_Change_Nav(Map<String, String> dataMap)
+			throws InterruptedException, FileNotFoundException, IOException {
+		try {
+			System.out.println("Start:Create_Material_Rejections_with_Discard");
+
+			SharedDriver.pageContainer.homePage.navigateToWorkflow();
+			SharedDriver.pageContainer.materialPage.switchToPopup();
+			SharedDriver.pageContainer.materialApprovalPage.reqIdSearchMyTasks(dataMap.get("RequestId"));
+			System.out.println("search task opened");
+			SharedDriver.pageContainer.materialPage.clickLocalAction();
+			//SharedDriver.pageContainer.materialNavPage.switchToGlobal();
+			SharedDriver.pageContainer.materialPage.DiscardCreateLocal();
+			SharedDriver.pageContainer.materialPage.DiscardCreateGDA();
+
+			System.out.println("Create_Material_Rejections_with_Discard-Done");
+
+		} catch (Exception e) {
+
+			System.out.println("Create_Material_Rejections_with_Discard is not completed");
+			driver.close();
+		}
+	}
+	
 }
