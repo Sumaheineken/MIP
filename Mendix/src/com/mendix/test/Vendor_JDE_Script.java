@@ -110,6 +110,7 @@ public class Vendor_JDE_Script {
 		SharedDriver.pageContainer.vendorPageNAV.SelectBankKey_JDE(); 
 		SharedDriver.pageContainer.vendor_JDE_Page.enterBankaccount();
 		SharedDriver.pageContainer.vendor_JDE_Page.clickSaveBankDetails();
+		
 		SharedDriver.pageContainer.vendorPage.clickLocalAction_Bank();
 		SharedDriver.pageContainer.vendorPage.submitBankRequestTest();
 		SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
