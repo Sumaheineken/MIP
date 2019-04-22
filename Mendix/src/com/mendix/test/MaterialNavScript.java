@@ -302,6 +302,20 @@ public class MaterialNavScript {
 
 	}
 	@Test(dataProvider="Process_Information_Check",dataProviderClass=staticProviderClass.class)
+	public void Material_Create_Review_Bank_Data_Reject_LDS(Map<String,String> dataMap) throws InterruptedException, FileNotFoundException, IOException, AWTException 
+	{
+		Assert.assertTrue(SharedDriver.pageContainer.homePage.navigateToWorkflow());
+		SharedDriver.pageContainer.materialPage.switchToPopup();
+		SharedDriver.pageContainer.materialApprovalPage.reqIdSearchMyTasks(dataMap.get("RequestId"));
+		
+		//SharedDriver.pageContainer.materialApprovalPage.approvalBtnClick_Local();
+		SharedDriver.pageContainer.materialApprovalPage.markViewsBtnClick_Local();
+		SharedDriver.pageContainer.materialPage.clickOkToHandlePopup();
+		SharedDriver.pageContainer.materialPage.rejectLDSBank();
+		//SharedDriver.pageContainer.materialApprovalPage.submitRequestOkButtonClick();	
+
+	}
+	@Test(dataProvider="Process_Information_Check",dataProviderClass=staticProviderClass.class)
 	public void Material_LocalData_Submit_LDR(Map<String,String> dataMap) throws InterruptedException, FileNotFoundException, IOException 
 	{
 		Assert.assertTrue(SharedDriver.pageContainer.homePage.navigateToWorkflow());
@@ -312,6 +326,21 @@ public class MaterialNavScript {
 		
 		SharedDriver.pageContainer.materialNavPage.submitLocalRequest();
 		SharedDriver.pageContainer.materialApprovalPage.submitRequestOkButtonClick();
+
+	}
+	@Test(dataProvider="Process_Information_Check",dataProviderClass=staticProviderClass.class)
+	public void Material_BankData_Submit_LDR(Map<String,String> dataMap) throws InterruptedException, FileNotFoundException, IOException 
+	{
+		Assert.assertTrue(SharedDriver.pageContainer.homePage.navigateToWorkflow());
+		SharedDriver.pageContainer.materialPage.switchToPopup();
+		SharedDriver.pageContainer.materialApprovalPage.reqIdSearchMyTasks(dataMap.get("RequestId"));
+		
+		SharedDriver.pageContainer.materialApprovalPage.approvalBtnClick_Local();
+		//SharedDriver.pageContainer.vendorPage.clickLocalAction_Bank();
+		SharedDriver.pageContainer.vendorPage.submitBankRequestTest1();
+		SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
+		
+		
 
 	}
 	
