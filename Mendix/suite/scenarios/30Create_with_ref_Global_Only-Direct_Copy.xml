@@ -21,7 +21,7 @@
 			</class>
 		</classes>
 	</test>
-	 <test name="Material_Change_Fill_In_Data">
+	 <!-- <test name="Material_Change_Fill_In_Data">
 		<classes>
 			<class name="com.mendix.test.MaterialChangeScript">
 				<methods>
@@ -29,7 +29,7 @@
 				</methods>
 			</class>
 		</classes>
-	</test>
+	</test> -->
 	<test name="Material_RequestId_Generation">
 		<classes>
 			<class name="com.mendix.test.MaterialChangeScript">
