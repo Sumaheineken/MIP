@@ -251,6 +251,8 @@ public class MaterialScript {
 	@Test
 	public void Material_Create_Validate_Submit_Check()
 			throws InterruptedException, FileNotFoundException, IOException {
+		
+		
 
 		SharedDriver.pageContainer.materialPage.validateTestCreate();
 		SharedDriver.pageContainer.materialPage.duplicateCheckButton();
@@ -846,7 +848,8 @@ public class MaterialScript {
 	public void material_Resubmit_To_Global_Approval(Map<String,String> dataMap) throws InterruptedException, FileNotFoundException, IOException
 	{
 		SharedDriver.pageContainer.materialApprovalPage.reqIdSearchMyTasks(dataMap.get("RequestId"));
-		SharedDriver.pageContainer.materialPage.validateTestCreate();
+		SharedDriver.pageContainer.materialPage.Localactionbutton();
+		SharedDriver.pageContainer.materialPage.validate();
 		SharedDriver.pageContainer.materialPage.duplicateCheckButton();
 		SharedDriver.pageContainer.materialPage.clickDuplicateCheck();
 		SharedDriver.pageContainer.materialPage.submitGlobalRequestTest();

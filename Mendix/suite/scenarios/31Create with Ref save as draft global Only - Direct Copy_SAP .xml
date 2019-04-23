@@ -31,7 +31,7 @@
 		</classes>
 	</test>
 	
-	<test name="Process_Information_Check">
+	<test name="Process_Information_Check_draft">
 		<classes>
 			<class name="com.mendix.test.MaterialScript">
 				<methods>

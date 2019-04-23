@@ -138,7 +138,7 @@ public class MaterialChangeScript {
        
        SharedDriver.pageContainer.materialPage.SaveAsDraft();
        SharedDriver.pageContainer.materialPage.getRequestId_draft();
-       SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
+		SharedDriver.pageContainer.materialApprovalPage.submitRequestOkBtnClick();
   
 	   //SharedDriver.pageContainer.materialApprovalPage.submitRequestOkButtonClick();
 	}
@@ -236,8 +236,8 @@ public class MaterialChangeScript {
 	@Test
 	public void Material_RequestId_Generation() throws InterruptedException, FileNotFoundException, IOException  
 	{
-		//SharedDriver.pageContainer.materialPage.clickLocalAction();
-		SharedDriver.pageContainer.materialPage.validateTestCreate();
+		SharedDriver.pageContainer.materialPage.clickLocalAction();
+		SharedDriver.pageContainer.materialPage.validate();
 		SharedDriver.pageContainer.materialPage.duplicateCheckButton();
 		SharedDriver.pageContainer.materialPage.clickDuplicateCheck();
 		SharedDriver.pageContainer.materialPage.submitGlobalRequestTest();

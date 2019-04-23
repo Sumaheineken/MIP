@@ -130,8 +130,8 @@ public class MaterialPage {
 	@FindBy(how = How.XPATH, using = "//*[text()='Local Data']")
 	WebElement textLocalData;
 
-	@FindBy(how = How.XPATH, using = ".//*[@class='mx-layoutcontainer-wrapper mx-scrollcontainer-wrapper']/div[2]/button/span")
-	// @FindBy(how=How.XPATH, using=".//*[@class='glyphicon glyphicon-flash']")
+	//@FindBy(how = How.XPATH, using = ".//*[@class='mx-layoutcontainer-wrapper mx-scrollcontainer-wrapper']/div[2]/button/span")
+	 @FindBy(how=How.XPATH, using=".//*[@class='glyphicon glyphicon-flash']")
 	WebElement btnLocalActions;
 
 	@FindBy(how = How.XPATH, using = "//*[text()='Disable Local Request']")
@@ -229,10 +229,7 @@ public class MaterialPage {
 	WebElement btnSaveAsDraft;
 	@FindBy(how = How.XPATH, using = ".//span[@class='glyphicon glyphicon-saved']")
 	WebElement btnSavingAsDraft;
-	
-	@FindBy(how = How.XPATH, using = ".//button[text()='Discard Create']")
-	WebElement clickdiscardGlobalRequest;
-	
+
 	@FindBy(how = How.XPATH, using = "//*[text()='Validate']")
 	WebElement btnValidate;
 
@@ -406,9 +403,6 @@ public class MaterialPage {
 
 	@FindBy(how = How.XPATH, using = "//*[text()='Reject Local Request']")
 	WebElement btnRejectLocalRequest;
-	
-	@FindBy(how = How.XPATH, using = "//*[text()='Reject Bank Request']")
-	WebElement btnRejectBankRequest;
 
 	@FindBy(how = How.XPATH, using = ".//button[text()='Submit Local Request']")
 	WebElement btnLocalRequest;
@@ -546,7 +540,7 @@ public class MaterialPage {
 		Sync.waitForObject(driver, txtboxDesc);
 		Button.mouseClick(driver, "Click Material Desc Field", txtBoxDesc);
 		Textbox.enterValue("Enter Material Desc", txtBoxDesc, strValue);
-		//WebDriverWait wait = new WebDriverWait(driver, 50);
+		WebDriverWait wait = new WebDriverWait(driver, 50);
 		Sync.waitForSeconds(Constants.WAIT_5);
 		Sync.waitForSeconds(Constants.WAIT_5);
 		return Button.jsclick("Material Description Save", btnMaterialDescSave, driver);
@@ -722,10 +716,10 @@ public class MaterialPage {
 		if(Button.verifyObject(btnLocalActions))
 		{
 			Sync.waitForSeconds(Constants.WAIT_10);
-			WebDriverWait wait = new WebDriverWait(driver,100);
-			wait.until(ExpectedConditions.elementToBeClickable(By.xpath(".//*[@class='mx-layoutcontainer-wrapper mx-scrollcontainer-wrapper']/div[2]/button/span")));
+			//WebDriverWait wait = new WebDriverWait(driver,100);
+			//wait.until(ExpectedConditions.elementToBeClickable(By.xpath(".//*[@class='mx-layoutcontainer-wrapper mx-scrollcontainer-wrapper']/div[2]/button/span")));
 			
-			Button.click("Local Actions button", btnLocalActions);
+			Button.jsclick("Click on Local Actions", btnLocalActions, driver);
 			Sync.waitForSeconds(Constants.WAIT_6);
 			Sync.waitForSeconds(Constants.WAIT_1);
 			Button.click("Click Validate", btnValidate);
@@ -992,7 +986,8 @@ public class MaterialPage {
 	}
 
 	public void clickLocalAction() {
-		WebDriverWait waitone = new WebDriverWait(driver, 50);
+		WebDriverWait wait = new WebDriverWait(driver, 50);
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath(".//*[@class='glyphicon glyphicon-flash']")));
 		Sync.waitForSeconds(Constants.WAIT_5);
 		Sync.waitForSeconds(Constants.WAIT_1);
 		WebElement waitElement = null;
@@ -1011,27 +1006,14 @@ public class MaterialPage {
 		// checking if loading indicator was found and if so we wait for it to
 		// disappear
 		// if (waitElement != null) {
-		WebDriverWait wait = new WebDriverWait(driver, 120);
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(".//*[@class='glyphicon glyphicon-flash']")));
+		//WebDriverWait wait = new WebDriverWait(driver, 120);
+		//wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(".//*[@class='glyphicon glyphicon-flash']")));
 		// }
 		// Sync.waitUntilObjectDisappears(driver, "Wait for Materials",
 		// By.xpath((".//*[@id='mxui_widget_Progress_0']/div[2]")));
 		// Sync.waitForElementToBeClickable(driver,
 		// driver.findElement(By.xpath(".//*[@class='glyphicon glyphicon-flash']")));
 		driver.findElement(By.xpath(".//*[@class='glyphicon glyphicon-flash']")).click();
-	}
-	
-	
-	public void clickdiscardGlobalRequest() throws InterruptedException {
-
-		Sync.waitForSeconds(Constants.WAIT_6);
-		
-				
-		//Sync.waitForObject(drivr, "Verify Validate message", txtValidationMsg);
-		/* Button.click("Click Save as Draft", btnSaveAsDraft); */
-		Button.click("Click Save as Draft", clickdiscardGlobalRequest);
-		Sync.waitForSeconds(Constants.WAIT_5);
-		// Sync.waitForSeconds(Constants.WAIT_6);
 	}
 
 	// ***********************************************************************************
@@ -1066,7 +1048,9 @@ public class MaterialPage {
 		System.out.println("RequestId is: " + Id);
 		// ExcelUtil.excelWrite(IdNum);
 		// ExcelUtil.setCellDataNew("TestPlan",4,11,Id);
+		Sync.waitForSeconds(Constants.WAIT_5);
 		ExcelUtil.setCellData_New("TestPlan", "RequestId", IdNum);
+		
 		System.out.println("RequestId is: " + IdNum);
 		Sync.waitForSeconds(Constants.WAIT_3);
 		Sync.waitForElementToBeClickable(driver, btnMsgReqIdOkdraft);
@@ -1620,10 +1604,11 @@ public class MaterialPage {
 
 		// Textbox.clear("Clear TextBox Value", txtboxGlobalIdEnter);
 		Textbox.enterValue("Enter TextBox Value", txtboxGlobalIdEnter, strValue);
+		Sync.waitForSeconds(Constants.WAIT_10);
 		Sync.waitForSeconds(Constants.WAIT_5);
-		Sync.waitForSeconds(Constants.WAIT_5);
-		Sync.waitForSeconds(Constants.WAIT_5);
+		
 		Button.click("Click Search button", btnReqIdEnter);
+		Sync.waitForSeconds(Constants.WAIT_10);
 		Sync.waitForSeconds(Constants.WAIT_10);
 	}
 
@@ -1633,7 +1618,7 @@ public class MaterialPage {
 		//Button.click("Local Actions button click", btnLocalActions);
 		Sync.waitForSeconds(Constants.WAIT_5);
 		Sync.waitForObject(driver, btnDiscardCreate);
-		Button.jsclick("Click on discard button in locl action", btnDiscardCreate, driver);
+		Textbox.click("Click on discard button in locl action", btnDiscardCreate);
 		Sync.waitForSeconds(Constants.WAIT_5);
 		Sync.waitForObject(driver, btnOK);
 		Button.click("Click On OK button", btnOK);
@@ -1796,9 +1781,11 @@ public class MaterialPage {
 	public void clickOkToHandlePopup() {
 		Sync.waitForSeconds(Constants.WAIT_10);
 		if(Button.verifyObject(btnClose)) {
-	    
+			
+			Sync.waitForSeconds(Constants.WAIT_10);
 		//WebElement popUp = driver.findElement(By.xpath("//*[@class='close mx-dialog-close']"));
 		 Button.jsclick("Click on Popup", btnClose, driver);
+		 Sync.waitForSeconds(Constants.WAIT_10);
 		}
 		else {
 			Sync.waitForSec(Constants.WAIT_5);
@@ -2395,48 +2382,8 @@ public class MaterialPage {
 			roundVATPostingGroupDown.selectByVisibleText(strValue);
 		}
 	}
-	
-	@FindBy(how=How.XPATH, using = "(.//*[@class='btn mx-button mx-name-newButton2 btn-default'])[2]")
-	WebElement btnNewLDS;
-	//driver.findElement(By.xpath("(.//*[@class='btn mx-button mx-name-newButton2 btn-default'])[2]"))
 
 	public void rejectLDS() throws AWTException {
-
-		System.out.println("Scrolling action");
-
-		Sync.waitForSeconds(Constants.WAIT_2);
-		System.out.println("Scrolling");
-
-		Sync.waitForObject(driver, btnCommentLocalNewNav);
-		Sync.waitForSeconds(Constants.WAIT_2);
-		System.out.println("checking for new button");
-
-		String text1 = driver.findElement(By.xpath("(.//*[@class='btn mx-button mx-name-newButton2 btn-default'])[2]"))
-				.getText();
-		System.out.println(text1);
-		Sync.waitForSeconds(Constants.WAIT_10);
-
-		//driver.findElement(By.xpath("(.//*[@class='btn mx-button mx-name-newButton2 btn-default'])[2]")).click();
-		Button.jsclick("Click on New Button TO Add comment", btnNewLDS, driver);
-		System.out.println("clicked new button");
-		Sync.waitForSeconds(Constants.WAIT_10);
-		Sync.waitForObject(driver, textComment);
-		Textbox.enterValue("typing comment", textComment, "material data");
-		Button.click("Click on Save Button", btnSave);
-		Sync.waitForSeconds(Constants.WAIT_2);
-		//Sync.waitForObject(driver, btnLocalActions);
-		//Button.click("Local Actions button click", btnLocalActions);
-		Sync.waitForSeconds(Constants.WAIT_2);
-		Sync.waitForObject(driver, btnRejectLocalRequest);
-		Button.jsclick("Click on reject button in locl action", btnRejectLocalRequest, driver);
-		Sync.waitForSeconds(Constants.WAIT_2);
-		Sync.waitForObject(driver, btnOK);
-		Button.click("Click On OK button", btnOK);
-		Sync.waitForSeconds(Constants.WAIT_5);
-		Sync.waitForSeconds(Constants.WAIT_2);
-
-	}
-	public void rejectLDSBank() throws AWTException {
 
 		System.out.println("Scrolling action");
 
@@ -2464,8 +2411,8 @@ public class MaterialPage {
 		//Sync.waitForObject(driver, btnLocalActions);
 		//Button.click("Local Actions button click", btnLocalActions);
 		Sync.waitForSeconds(Constants.WAIT_2);
-		Sync.waitForObject(driver, btnRejectBankRequest);
-		Button.click("Click on reject button in locl action", btnRejectBankRequest);
+		Sync.waitForObject(driver, btnRejectLocalRequest);
+		Button.click("Click on reject button in locl action", btnRejectLocalRequest);
 		Sync.waitForSeconds(Constants.WAIT_2);
 		Sync.waitForObject(driver, btnOK);
 		Button.click("Click On OK button", btnOK);
@@ -2473,7 +2420,6 @@ public class MaterialPage {
 		Sync.waitForSeconds(Constants.WAIT_2);
 
 	}
-
 
 	public void submitLocalRequestTest() throws InterruptedException {
 		Sync.waitForSeconds(Constants.WAIT_10);
