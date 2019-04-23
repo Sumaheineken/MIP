@@ -1782,7 +1782,8 @@ public class MaterialPage {
 		Sync.waitForSeconds(Constants.WAIT_10);
 		if(Button.verifyObject(btnClose)) {
 			
-			Sync.waitForSeconds(Constants.WAIT_10);
+			WebDriverWait wait = new WebDriverWait(driver,80);
+			wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@class='close mx-dialog-close']")));
 		//WebElement popUp = driver.findElement(By.xpath("//*[@class='close mx-dialog-close']"));
 		 Button.jsclick("Click on Popup", btnClose, driver);
 		 Sync.waitForSeconds(Constants.WAIT_10);
