@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Change vendor global  local  Bank">
- 	  <test name="HeiPort_Login_LDR">
+ 	 <test name="HeiPort_Login_LDR">
 		<classes>
 			<class name="com.mendix.test.LoginScript">
 				<methods>
@@ -36,6 +36,7 @@
 				<methods>
 					<include name="Vendor_Change_Fill_In_Data_Global_NAV" />
 					<include name="Vendor_Change_Fill_In_Data_Local_NAV" />
+					<include name="vendor_Submit_Global_Request"/>
 				</methods>
 			</class>
 		</classes>
@@ -50,9 +51,6 @@
 		</classes>
 	</test>  
 
-
-
-	
 	<test name="HeiPort_Login_LDS">
 		<classes>
 			<class name="com.mendix.test.LoginScript">
@@ -81,13 +79,9 @@
 				</methods>
 			</class>
 		</classes>
-
 	</test>  
-
-
-		
-	 
-	  <test name="HeiPort_Login_GDA">
+	
+	<test name="HeiPort_Login_GDA">
 		<classes>
 			<class name="com.mendix.test.LoginScript">
 				<methods>
@@ -107,16 +101,16 @@
 			</class>
 		</classes>
 	</test>	
-	<test name="Process_Information_Check_Approved_GDA">
+	<test name="Process_Information_Check_Reject_GDA">
 		<classes>
-			<class name="com.mendix.test.MaterialNavScript">
+			<class name="com.mendix.test.VendorScript">
 				<methods>
-					<include name="Process_Information_Check_GlobalID_Extend" />
+					<include name="Process_Information_Check" />
 				</methods>
 			</class>
-		</classes>		
-	</test> 
-	 <test name="HeiPort_Login_LDR_Get GlobalID">
+		</classes>
+	</test>	
+	 <test name="HeiPort_Login_LDR_Discard">
 		<classes>
 			<class name="com.mendix.test.LoginScript">
 				<methods>
@@ -139,7 +133,7 @@
 		<classes>
 			<class name="com.mendix.test.VendorScript">
 				<methods>
-					<include name="Process_Information_Check_Discard" />
+					<include name="Process_Information_Check" />
 				</methods>
 			</class>
 		</classes>
