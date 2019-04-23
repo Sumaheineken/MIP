@@ -12,36 +12,34 @@
 			</class>
 		</classes>
 	</test>
-	<test name="Material_Create_With_Ref_Process">
+	<test name="Material_Change_Check">
 		<classes>
 			<class name="com.mendix.test.MaterialChangeScript">
 				<methods>
-					<include name="Material_Create_With_Ref_SAP" />
+					<include name="Material_Create_Reference_Syndication_Check" />
 				</methods>
 			</class>
 		</classes>
 	</test>
-	<test name="Material_Validate_Submit_Check">
+	<test name="Material_RequestId_Generation">
 		<classes>
-			<class name="com.mendix.test.MaterialScript">
+			<class name="com.mendix.test.MaterialChangeScript">
 				<methods>
-					<include name="Material_Create_with_Ref_Validate_Submit_Check" />
+					<include name="Material_RequestId_Generation" />
 				</methods>
 			</class>
 		</classes>
 	</test>
-	
 	<test name="Process_Information_Check">
 		<classes>
 			<class name="com.mendix.test.MaterialScript">
 				<methods>
 					<include name="Process_Information_Check" />
-					
 				</methods>
 			</class>
 		</classes>
-	</test>
-	<test name="HeiPort_Login_GDA">
+	</test> 
+ 	<test name="HeiPort_Login_GDA">
 		<classes>
 			<class name="com.mendix.test.LoginScript">
 				<methods>
@@ -51,16 +49,17 @@
 			</class>
 		</classes>
 	</test>
-	<test name="Material_Data_With_Reject_GDA">
+	
+	 <test name="Reject_Material_Request">
 		<classes>
 			<class name="com.mendix.test.MaterialScript">
 				<methods>
-					<include name="Material_Data_With_Reject_GDA" />
+					<include name="Material_Reject_GDA"/>
 				</methods>
 			</class>
 		</classes>
-	</test>
-	<test name="Process_Information_Check_GDA">
+	</test>	
+	<test name="Process_Information_Check_After_Reject">
 		<classes>
 			<class name="com.mendix.test.MaterialScript">
 				<methods>
@@ -68,8 +67,7 @@
 				</methods>
 			</class>
 		</classes>
-	</test>
-	
+	</test>	
     <test name="HeiPort_Login_LDR_SecondTime">
 		<classes>
 			<class name="com.mendix.test.LoginScript">

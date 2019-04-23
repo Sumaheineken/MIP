@@ -261,6 +261,7 @@ public class MaterialChangeScript {
 		//SharedDriver.pageContainer.material_Change_Page.clickEditCheckBox();
 		SharedDriver.pageContainer.material_Change_Page.clickReferencebutton();
 		SharedDriver.pageContainer.materialPage.clickOkToHandlePopup();
+		SharedDriver.pageContainer.materialPage.clickOkToHandlePopup();
 	}
 	
 	@Test(dataProvider="CreateMaterial_Fill_In",dataProviderClass=staticProviderClass.class)
