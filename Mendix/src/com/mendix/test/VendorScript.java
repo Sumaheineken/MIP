@@ -452,9 +452,9 @@ public class VendorScript {
 	{
 		SharedDriver.pageContainer.materialPage.globalSearch(dataMap.get("Global_ID"));
 		SharedDriver.pageContainer.vendorPage.GetFullVendorData();
-		SharedDriver.pageContainer.vendorPage.clickOkOnInformationButton();
+		SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
 		SharedDriver.pageContainer.vendorPage.EditVendorDataGlobalLocal();
-		SharedDriver.pageContainer.vendorPage.clickOkOnInformationButton();
+		SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
 	}
 /************************************************************************************************************/
 	@Test(dataProvider="Vendor_Create_Global_Disable_Bank_and_LocalData",dataProviderClass=staticProviderClass.class)
