@@ -617,7 +617,7 @@ public class MaterialScript {
 	}
 
 	@Test(dataProvider = "Process_Information_Check", dataProviderClass = staticProviderClass.class)
-	public void material_Create_With_ref_Global_Data_Edit_Nav(Map<String, String> dataMap)
+	public void material_Create_With_ref_Edit_Nav(Map<String, String> dataMap)
 			throws InterruptedException, FileNotFoundException, IOException {
 		SharedDriver.pageContainer.homePage.navigateToWorkflow();
 		SharedDriver.pageContainer.materialPage.switchToPopup();
@@ -630,42 +630,60 @@ public class MaterialScript {
 		SharedDriver.pageContainer.material_Change_Page.clickReferencebutton();
 		Sync.waitForSeconds(Constants.WAIT_5);
 		SharedDriver.pageContainer.materialNavPage.createWithReferenceRequestforNav();
-		SharedDriver.pageContainer.materialPage.materialDescCreate("Heineken Sample One");
+		
+	}
+	
+	@Test(dataProvider = "CreateMaterial_Fill_In_Nav", dataProviderClass = staticProviderClass.class)
+	public void material_Global_Data_Edit_Nav(Map<String, String> dataMap) throws InterruptedException
+	{
+		SharedDriver.pageContainer.materialPage.materialDescCreate(dataMap.get("Description"));
 		Sync.waitForSeconds(Constants.WAIT_3);
 		// SharedDriver.pageContainer.materialPage.clickLocalAction();
-		SharedDriver.pageContainer.materialPage.grossWeightEntestTest("200");
-		SharedDriver.pageContainer.materialPage.unitOfWeightSelectionTest("KG");
-		SharedDriver.pageContainer.materialPage.baseUOMSelectionTest("KG");
-		SharedDriver.pageContainer.materialPage.netWeightEnterTest("200");
+		SharedDriver.pageContainer.materialPage.grossWeightEntestTest(dataMap.get("Gross Weight Base UoM"));
+		SharedDriver.pageContainer.materialPage.unitOfWeightSelectionTest(dataMap.get("Unit of Weight"));
+		SharedDriver.pageContainer.materialPage.baseUOMSelectionTest(dataMap.get("Base UoM"));
+		SharedDriver.pageContainer.materialPage.netWeightEnterTest(dataMap.get("Net Weight Base UoM"));
 		SharedDriver.pageContainer.materialPage.uomPrimarySelectionTest();
 		SharedDriver.pageContainer.materialPage.validateTestCreate();
 	}
 
 	
-	@Test(dataProvider = "Process_Information_Check", dataProviderClass = staticProviderClass.class)
+	@Test(dataProvider = "CreateMaterial_Fill_In_Local", dataProviderClass = staticProviderClass.class)
 	public void material_Create_With_ref_Local_Data_Edit_Nav(Map<String, String> dataMap)
-			throws InterruptedException, FileNotFoundException, IOException {
+			throws InterruptedException, FileNotFoundException, IOException, AWTException {
 		// SharedDriver.pageContainer.materialPage.validateTestCreate();
 		// SharedDriver.pageContainer.materialPage.validateLocalDataForNAVCreateRef("WHT_OTH_G");
 		SharedDriver.pageContainer.materialNavPage.switchToLocal();
 		System.out.println("Editing of Plant Data Start");
 		SharedDriver.pageContainer.materialNavPage.localEditPlantNav();
-		SharedDriver.pageContainer.materialNavPage.clickAndSelectRoundingPrecisionValueDropDown("0.001");
+		SharedDriver.pageContainer.materialNavPage.clickAndSelectPurchaseUOMValueDropDown(dataMap.get("Purch. Unit of Measure"));
+		SharedDriver.pageContainer.materialNavPage.clickAndSelectProdUOMValueDropDown(dataMap.get("Production Unit of Measure"));
+		SharedDriver.pageContainer.materialNavPage.clickAndSelectSalesUOMValueDropDown(dataMap.get("Sales Unit of Measure"));
+		SharedDriver.pageContainer.materialNavPage.clickAndSelectRoundingPrecisionValueDropDown(dataMap.get("Rounding Precision"));
+		SharedDriver.pageContainer.materialNavPage.clickAndSelectInventoryUOMValueDropDown(dataMap.get("Inventory Unit of Measure"));
 		SharedDriver.pageContainer.materialNavPage.validateAndSaveLocalData();
 		System.out.println("Editing of Local Data Start");
 		SharedDriver.pageContainer.materialNavPage.localEditFinanceDataNav();
 		SharedDriver.pageContainer.materialNavPage.clickAndSelectVATPostingGroupDropDown("NO_VAT, 0% VAT");
+		
 		SharedDriver.pageContainer.materialNavPage.validateAndSaveLocalData();
 		System.out.println("Editing of Sites Data Start");
 		// Code blocked with requirement change in application effecting previous
 		// scripts and needs to be clarified from Business Team
 		// Blocked Execution from here and needs code change to edit site data
-		SharedDriver.pageContainer.materialNavPage.localEditSiteDataNav();
+		//SharedDriver.pageContainer.materialNavPage.localEditSiteDataNav();
+		SharedDriver.pageContainer.materialNavPage.clickSiteNewTab();
+		SharedDriver.pageContainer.materialNavPage.clickEditSiteData();
 		Sync.waitForSeconds(Constants.WAIT_6);
 		Sync.waitForSeconds(Constants.WAIT_5);
-		SharedDriver.pageContainer.materialNavPage.clickAndSelectSitePlantDropDown("MZ03, In-Transit Cross Border");
+		SharedDriver.pageContainer.materialNavPage.selectingRow();
+		Sync.waitForSeconds(Constants.WAIT_10);
+		SharedDriver.pageContainer.materialNavPage.clickSiteEditButton();
 		Sync.waitForSeconds(Constants.WAIT_5);
-		SharedDriver.pageContainer.materialNavPage.clickAndSelectSiteReplenishmentSystemDropDown("2, Transfer");
+		SharedDriver.pageContainer.materialNavPage.clickAndSelectSitePlantDropDown(dataMap.get("Location Code"));
+		Sync.waitForSeconds(Constants.WAIT_5);
+		SharedDriver.pageContainer.materialNavPage.clickAndSelectSiteReplenishmentSystemDropDown(dataMap.get("Replenishment System"));
+		Sync.waitForSeconds(Constants.WAIT_6);
 		SharedDriver.pageContainer.materialNavPage.validateAndSaveLocalData();
 		SharedDriver.pageContainer.materialPage.validateAndsubmitGlobalLocalRequest();
 		SharedDriver.pageContainer.materialPage.getRequestId_CreateNew();
