@@ -2311,7 +2311,7 @@ public class MaterialPage {
 		// Sync.waitForSeconds(Constants.WAIT_5);
 		Sync.waitForSeconds(Constants.WAIT_5);
 		// Sync.waitForObject(driver, textLocalData);
-		Button.click("Click Global and Local submit Request", btnGlobalLocalRequest);
+		Button.jsclick("Click Global and Local submit Request", btnGlobalLocalRequest, driver);
 		Sync.waitForSeconds(Constants.WAIT_5);
 
 	}
