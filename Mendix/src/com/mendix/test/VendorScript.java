@@ -32,34 +32,16 @@ public class VendorScript {
 	@Test(dataProvider="Vendor_Create_Global_Disable_BankData",dataProviderClass=staticProviderClass.class)
 	public void Vendor_Create_Fill_In_Data_Bank_sap(Map<String,String> dataMap) throws InterruptedException, FileNotFoundException, IOException, AWTException 
 	{
-
-		
-		//SharedDriver.pageContainer.vendor_JDE_Page.enterBankData();
-		//SharedDriver.pageContainer.vendorPage.clickLocalAction_Bank();
 		SharedDriver.pageContainer.vendor_JDE_Page.clickNewBankButtonsap();	
 		
-		//SharedDriver.pageContainer.vendor_JDE_Page.enterBankData();
-		//SharedDriver.pageContainer.vendor_JDE_Page.clickNewBankButton();
 		SharedDriver.pageContainer.vendorPageNAV.VendorBankCountry_SAP();
 		SharedDriver.pageContainer.vendorPageNAV.SelectBankKey_SAP(); 
-		SharedDriver.pageContainer.vendor_JDE_Page.enterBankaccount();
-		SharedDriver.pageContainer.vendor_JDE_Page.partnerbank();
-		
-		SharedDriver.pageContainer.vendor_JDE_Page.clickSaveBankDetails();
-		
+		SharedDriver.pageContainer.vendor_JDE_Page.enterBankaccountsap();
+		SharedDriver.pageContainer.vendor_JDE_Page.partnerbank("BE01");		
+		SharedDriver.pageContainer.vendor_JDE_Page.clickSaveBankDetails();		
 		SharedDriver.pageContainer.vendorPage.clickLocalAction_Bank();
 		SharedDriver.pageContainer.vendorPage.submitBankRequestTest();
-		SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
-		
-		/*SharedDriver.pageContainer.vendorPageNAV.VendorBankCountry(dataMap.get("Bank Country"));  //"PA, Panama");
-		SharedDriver.pageContainer.vendorPageNAV.SelectBankKey(dataMap.get("Bank key"));  //"002");
-		SharedDriver.pageContainer.vendorPageNAV.VendorCurrencyCode(dataMap.get("Currency Code"));  //"PAB, Panamanian Balboa")
-		SharedDriver.pageContainer.vendorPageNAV.VendorPatnerBankType(dataMap.get("Partner Bank Type"));  //"PAB");
-		SharedDriver.pageContainer.vendor_JDE_Page.clickSaveBankDetails();
-		SharedDriver.pageContainer.vendorPage.clickLocalAction_Bank();
-		SharedDriver.pageContainer.vendorPage.submitBankRequestTest();
-		*/
-		
+		SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();		
 
 	}
 
@@ -94,26 +76,25 @@ public class VendorScript {
 	@Test(dataProvider="Vendor_Create_Global_Disable_BankData",dataProviderClass=staticProviderClass.class)
 	public void Vendor_Create_local_Fill_In_Data(Map<String,String> dataMap) throws InterruptedException, FileNotFoundException, IOException, AWTException 
 	{
-		SharedDriver.pageContainer.vendor_JDE_Page.enterLocalData();
-				SharedDriver.pageContainer.vendor_JDE_Page.textAddclick();
-	
-		
+	SharedDriver.pageContainer.vendor_JDE_Page.enterLocalData();
+	    SharedDriver.pageContainer.vendor_JDE_Page.textAddclick();		
 		SharedDriver.pageContainer.vendor_JDE_Page.Search();		
 		SharedDriver.pageContainer.vendor_JDE_Page.textisoinput("BE10");		
 		SharedDriver.pageContainer.vendor_JDE_Page.Search1();
 		SharedDriver.pageContainer.vendor_JDE_Page.textselect();
 		SharedDriver.pageContainer.vendor_JDE_Page.Select();
-		SharedDriver.pageContainer.vendor_JDE_Page.editAccounting();
+		SharedDriver.pageContainer.vendor_JDE_Page.editAccounting();		
+		//SharedDriver.pageContainer.materialPage.clickOkToHandlePopup();
 		Sync.waitForSeconds(Constants.WAIT_10);
-		SharedDriver.pageContainer.vendor_JDE_Page.selectReconciliation();
+		SharedDriver.pageContainer.vendor_JDE_Page.selectReconciliation("0014201001, Acc Payable Trade - Third Party Suppliers <1Yr");
 		Sync.waitForSeconds(Constants.WAIT_10);
-		SharedDriver.pageContainer.vendor_JDE_Page.selectcashmanagement();
+		SharedDriver.pageContainer.vendor_JDE_Page.selectcashmanagement("YT, Trade vendors");
 		Sync.waitForSeconds(Constants.WAIT_10);
-		SharedDriver.pageContainer.vendorPage.ScrollDown();	
+
 		Sync.waitForSeconds(Constants.WAIT_10);
-		SharedDriver.pageContainer.vendor_JDE_Page.selectsortkey();
+		SharedDriver.pageContainer.vendor_JDE_Page.selectsortkey("001, Posting date");
 		Sync.waitForSeconds(Constants.WAIT_10);
-		SharedDriver.pageContainer.vendor_JDE_Page.termsofpayment();
+		SharedDriver.pageContainer.vendor_JDE_Page.termsofpayment("V000, Pay immediately");
 		Sync.waitForSeconds(Constants.WAIT_10);
 		SharedDriver.pageContainer.vendor_JDE_Page.validateandSave();
 		Sync.waitForSeconds(Constants.WAIT_10);
@@ -125,7 +106,7 @@ public class VendorScript {
 		Sync.waitForSeconds(Constants.WAIT_10);
 		SharedDriver.pageContainer.vendor_JDE_Page.inputiso("BE01");
 		Sync.waitForSeconds(Constants.WAIT_10);
-		SharedDriver.pageContainer.vendor_JDE_Page.Search1();
+		SharedDriver.pageContainer.vendor_JDE_Page.clicksearch1();
 		Sync.waitForSeconds(Constants.WAIT_10);
 		SharedDriver.pageContainer.vendor_JDE_Page.selectbe();
 		Sync.waitForSeconds(Constants.WAIT_10);
@@ -133,15 +114,16 @@ public class VendorScript {
 		Sync.waitForSeconds(Constants.WAIT_10);
 		SharedDriver.pageContainer.vendor_JDE_Page.editpurchasing();
 		Sync.waitForSeconds(Constants.WAIT_10);
-		SharedDriver.pageContainer.vendor_JDE_Page.purchaseorder();
+		SharedDriver.pageContainer.vendor_JDE_Page.purchaseorder("CHF, Swiss Franc");
 		Sync.waitForSeconds(Constants.WAIT_10);
-		SharedDriver.pageContainer.vendor_JDE_Page.termspurchasing();
+		SharedDriver.pageContainer.vendor_JDE_Page.termspurchasing("V000, Pay immediately");
 		Sync.waitForSeconds(Constants.WAIT_10);
 		
 		SharedDriver.pageContainer.vendor_JDE_Page.validateandSave();
 		Sync.waitForSeconds(Constants.WAIT_10);
 		SharedDriver.pageContainer.vendor_JDE_Page.submitLocal();
 		Sync.waitForSeconds(Constants.WAIT_10);
+		SharedDriver.pageContainer.materialPage.clickOkToHandlePopup();
 		
 		
 		//SharedDriver.pageContainer.vendorPage.validateTestCreate();
