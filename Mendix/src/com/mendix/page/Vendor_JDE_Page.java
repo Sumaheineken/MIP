@@ -27,6 +27,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import com.mendix.tool.Button;
 import com.mendix.tool.Constants;
 import com.mendix.tool.DropDown;
+import com.mendix.tool.SharedDriver;
 import com.mendix.tool.Sync;
 
 
@@ -40,9 +41,41 @@ public class Vendor_JDE_Page {
 		PageFactory.initElements(driver, this);
 		this.driver=driver;
 	}
+	
+	@FindBy(how = How.XPATH, using = ".//*[text()='Partner Bank Type']/../div/div/select")
+	WebElement partnerbank;
 
-	@FindBy(how=How.XPATH, using="//*[text()='Local Data']")
+		@FindBy(how=How.XPATH, using="//*[text()='Local Data']")
 	WebElement textLocalData;
+	@FindBy(how=How.XPATH, using=".//*[text()='Accounting']/../../../div/div[1]/div/div/div[2]/div[2]/div[2]/button[1]")
+	WebElement textAddclick;
+	@FindBy(how=How.XPATH, using=".//*[text()='CompanyCode ISO Code']/../../div[2]/input")
+	WebElement textisoinput;
+	@FindBy(how=How.XPATH, using="//*[text()='CompanyCode ISO Code']/../../../../div//*[text()='Search']")
+	WebElement Search1;
+	@FindBy(how=How.XPATH, using="//*[text()='Select Company Code']/../../div/div[1]/div[1]/div[1]/div/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]//*[text()='Search']")
+	WebElement Search;
+	@FindBy(how=How.XPATH, using="//*[text()='BE10, Brouwerijen Alken-Maes NV']")
+	WebElement textselect;
+	@FindBy(how=How.XPATH, using="//*[text()='Reconciliation Account in General Ledger']/../div/div/select")
+	WebElement selectReconciliation;
+	@FindBy(how=How.XPATH, using="//*[text()='Cash Management Group/Planning Group']/../div/div/select")
+	WebElement selectcashmanagement;
+	
+	@FindBy(how=How.XPATH, using="//*[text()='//*[text()='Sort Key']/../div/div/select")
+	WebElement selectsortkey;
+	@FindBy(how=How.XPATH, using="//*[text()='Terms of Payment Key']/../div/div/select")
+	WebElement termsofpayment;
+	@FindBy(how=How.XPATH, using="(//*[text()='Conditions']/../div[1]/div/table/tbody/tr/td[1]/div/div/div/select)[1]")
+	WebElement purchaseorder;
+	@FindBy(how=How.XPATH, using="(//*[text()='Conditions']/../div[1]/div/table/tbody/tr/td[1]/div/div/div/select)[3]")
+	WebElement termspurchasing;
+	
+	@FindBy(how=How.XPATH, using="//*[text()='Select']")
+	WebElement select;
+	//*[text()='CompanyCode ISO Code']/../../../../div//*[text()='Search']
+	//*[text()='CompanyCode ISO Code']/../../div[2]/input
+	//*[text()='BE10, Brouwerijen Alken-Maes NV']
 
 	@FindBy(how=How.XPATH, using="//*[text()='Bank Data']")
 	WebElement textBankData;
@@ -56,11 +89,11 @@ public class Vendor_JDE_Page {
 	WebElement BtnAddFinanceData;
 
 	@FindBy(how=How.CSS, using="div[class^='mx-groupbox-body']>div:nth-child(1) >div>div:nth-of-type(1) >div:nth-child(1) >div:nth-of-type(1) >div:nth-of-type(1) >div:nth-of-type(1)>div >select")
-	WebElement selectAdjustmentSchedule;////*[text()='Adjustment Schedule']/../div/div/select
+	WebElement selectAdjustmentSchedule;
 	
 	@FindBy(how=How.XPATH, using="//*[text()='Send Method']/../div/div/select")
 	WebElement adjustmentSchedule;
-
+	
 
 	@FindBy(how=How.XPATH, using="//*[text()='Send Method']/../div/div/select")
 	WebElement selectSendMethod;
@@ -90,9 +123,17 @@ public class Vendor_JDE_Page {
 	WebElement selectGlClass;
 	@FindBy(how=How.XPATH, using="//*[text()='Bank Details']/../../../../div[2]/div/div/div[1]/div[2]/div/div/div[2]/div[2]/div[2]//*[text()='New']")
 	WebElement 	BtnAddBankData;
-
-
-
+	@FindBy(how=How.XPATH, using=".//*[text()='Bank Data']/../../../div/div[2]/div/div/div[6]/div[2]/div/div/div/div[1]/div//*[text()='New']")
+	WebElement 	BtnAddBankDatasap;
+	
+	@FindBy(how=How.XPATH, using="(//*[text()='Bank Details']/../../../div/div/div/div/div[1]/div[1]/div[2]/div[2]/div[2]//button[1])[1]")
+	WebElement 	addbanksap;
+	@FindBy(how=How.XPATH, using="//*[text()='Select Purchasing Organisation']/../../div[2]/div/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div//button[text()='Search']")
+	WebElement 	Searchinpurchasing;
+	
+	@FindBy(how = How.XPATH, using = ".//*[@class='glyphicon glyphicon-flash']")
+	WebElement btnLocalActions;
+	
 	@FindBy(how=How.XPATH, using="//*[text()='Mvmt Type Invoice/Payment 2']/../div/div/select")
 	WebElement selectMvmtTypeInvoicePayment2;
 
@@ -134,8 +175,34 @@ public class Vendor_JDE_Page {
 	
 	@FindBy(xpath="//*[text()='Bank Account']/following::input[@type='text'][1]")
 	WebElement textBankAccount;
+	@FindBy(xpath="//*[text()='Purchasing']/../../../div/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]//button[text()='Add']")
+	WebElement addpurchasing;
+	@FindBy(xpath="//*[text()='Purchasing']/../../../div/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]//button[text()='Add']")
+	WebElement editpurchasing;
+	
+	@FindBy(xpath="//*[text()='PurchaseOrg ISO Code']/../../../div/div[2]/input")
+	WebElement inputiso;
+	@FindBy(xpath="(//*[text()='Search'])[2]")
+	WebElement clicksearch2;
+	@FindBy(xpath="(//*[text()='Search'])[1]")
+	WebElement clicksearch1;
+	@FindBy(xpath="//*[text()='BE01, Alken Maes Purch.']")
+	WebElement selectbe;
+	
+	@FindBy(xpath="//*[text()='Select']")
+	WebElement clickSelect;
+	
+	@FindBy(xpath="//*[text()='Submit Local Request']")
+	WebElement submitLocal;
+	@FindBy(xpath=".//*[text()='Accounting']/../../../div/div[1]/div/div/div[2]/div[2]/div[2]/button[2]")
+	WebElement editAccounting;
+	@FindBy(xpath=".//*[text()='Validate']")
+	WebElement Validate;
+	@FindBy(xpath=".//*[text()='Save']")
+	WebElement Save;
 
-
+	
+	//*[text()='Purchasing']/../../../div/div[2]/div/div/div/div[2]/div[2]//*[text()='Add']
 	public boolean enterLocalData() {
 		WebElement waitElement = null;
 		Sync.waitForSeconds(Constants.WAIT_6);
@@ -218,7 +285,82 @@ public class Vendor_JDE_Page {
 		return Button.click("Click Edit button", BtnAddPlantData);
 
 	}
+	public boolean textAddclick() {
+		Sync.waitForSeconds(Constants.WAIT_10);
+		Sync.waitForObject(driver, textAddclick);
+		return Button.click("Click Edit button", textAddclick);
 
+	}
+	public boolean Search() {
+		Sync.waitForSeconds(Constants.WAIT_10);
+		Sync.waitForObject(driver, Search);
+		return Button.click("Click Edit button", Search);
+
+	}
+	
+	public void textisoinput(String strValue) {
+		Sync.waitForSeconds(Constants.WAIT_10);
+		Sync.waitForObject(driver, textisoinput);
+		textisoinput.sendKeys(strValue);
+
+	}
+	public boolean Search1() {
+		Sync.waitForSeconds(Constants.WAIT_10);
+		Sync.waitForObject(driver, Search);
+		return Button.click("Click Search button", Search1);
+
+	}
+	public boolean textselect() {
+		Sync.waitForSeconds(Constants.WAIT_10);
+		Sync.waitForObject(driver, textselect);
+		return Button.click("Click textselect button", textselect);
+
+	}
+	public boolean Select() {
+		Sync.waitForSeconds(Constants.WAIT_10);
+		Sync.waitForObject(driver, select);
+		return Button.click("Click select button", select);
+
+	}
+	public boolean editAccounting() {
+		Sync.waitForSeconds(Constants.WAIT_2);
+		Sync.waitForObject(driver, editAccounting);
+		return Button.click("Click edit button", editAccounting);
+		
+	}
+	
+	
+	public boolean addpurchasing() {
+		Sync.waitForSeconds(Constants.WAIT_10);
+		Sync.waitForObject(driver, addpurchasing);
+		return Button.click("Click addpurchasing button", addpurchasing);
+
+	}
+	public boolean editpurchasing() {
+		Sync.waitForSeconds(Constants.WAIT_10);
+		Sync.waitForObject(driver, editpurchasing);
+		return Button.click("Click addpurchasing button", editpurchasing);
+
+	}
+	public void inputiso(String strValue) {
+		Sync.waitForSeconds(Constants.WAIT_10);
+		//Sync.waitForObject(driver, Search);
+		inputiso.sendKeys(strValue);
+
+	}
+	public boolean selectbe() {
+		Sync.waitForSeconds(Constants.WAIT_10);
+		Sync.waitForObject(driver, selectbe);
+		return Button.click("Click selectbe button", selectbe);
+
+	}
+	public boolean submitLocal() {
+		Sync.waitForSeconds(Constants.WAIT_10);
+		Sync.waitForObject(driver, submitLocal);
+		return Button.click("Click submitLocal; button", submitLocal);
+
+	}
+	
 	public boolean clickAddFinanceData() {
 
 		Sync.waitForObject(driver, BtnAddFinanceData);
@@ -226,6 +368,14 @@ public class Vendor_JDE_Page {
 		
 
 	}
+	public boolean Searchinpurchasing() {
+
+		Sync.waitForObject(driver, Searchinpurchasing);
+		return Button.click("Click Searchinpurchasing", Searchinpurchasing);
+		
+
+	}
+	
 
 
 
@@ -245,7 +395,13 @@ public class Vendor_JDE_Page {
 		return Button.click("Click Edit button", driver.findElement(By.xpath("//*[text()='JDE Finance']/../../../div/div[4]/div/div/div[2]/div[2]/div[2]/button[2]")));
 
 	}
+	public boolean clickpurchasingData() {
 
+		Sync.waitForObject(driver, driver.findElement(By.xpath("//*[@class='mx-name-Purchasing1']")));
+		return Button.jsclick("Click Edit button", driver.findElement(By.xpath("//*[@class='mx-name-Purchasing1']")), driver);
+
+	}
+	
 	public void selectAdjustmentSchedule() throws AWTException
 	{
 		Sync.waitForSeconds(Constants.WAIT_5);
@@ -262,7 +418,96 @@ public class Vendor_JDE_Page {
 
 
 	}
+	public void selectReconciliation()
+	{
+		Sync.waitForSeconds(Constants.WAIT_10);
+		Sync.waitForSeconds(Constants.WAIT_5);
+		Sync.waitForSeconds(Constants.WAIT_5);
+		Button.click("Click on send method",selectReconciliation);
+		Select option= new Select(selectReconciliation);
+		option.selectByIndex(1);
+		Sync.waitForSeconds(Constants.WAIT_5);
 
+
+	}
+	
+	public void selectcashmanagement()
+	{
+		Sync.waitForSeconds(Constants.WAIT_5);
+		Button.click("Click on send method",selectcashmanagement);
+		Select option= new Select(selectcashmanagement);
+		option.selectByIndex(1);
+		Sync.waitForSeconds(Constants.WAIT_5);
+
+
+	}
+	public void selectsortkey()
+	{
+		Sync.waitForSeconds(Constants.WAIT_5);
+		Button.click("Click on send method",selectsortkey);
+		Select option= new Select(selectsortkey);
+		option.selectByIndex(1);
+		Sync.waitForSeconds(Constants.WAIT_5);
+
+
+	}
+	public void termsofpayment()
+	{
+		Sync.waitForSeconds(Constants.WAIT_5);
+		Button.click("Click on send method",termsofpayment);
+		Select option= new Select(termsofpayment);
+		option.selectByIndex(1);
+		Sync.waitForSeconds(Constants.WAIT_5);
+
+
+	}
+	public void partnerbank()
+	{
+		Sync.waitForSeconds(Constants.WAIT_5);
+		Button.click("Click on send method",partnerbank);
+		Select option= new Select(partnerbank);
+		option.selectByIndex(1);
+		Sync.waitForSeconds(Constants.WAIT_5);
+
+
+	}
+
+	
+	public void purchaseorder()
+	{
+		Sync.waitForSeconds(Constants.WAIT_10);
+		Sync.waitForSeconds(Constants.WAIT_5);
+		Button.click("Click on send method",purchaseorder);
+		Select option= new Select(purchaseorder);
+		option.selectByIndex(1);
+		Sync.waitForSeconds(Constants.WAIT_5);
+
+
+	}
+	public void termspurchasing()
+	{
+		Sync.waitForSeconds(Constants.WAIT_5);
+		Button.click("Click on send method",termspurchasing);
+		Select option= new Select(termspurchasing);
+		option.selectByIndex(1);
+		Sync.waitForSeconds(Constants.WAIT_5);
+
+
+	}
+	public void validateandSave()
+	{
+		
+		Sync.waitForSeconds(Constants.WAIT_3);
+		Button.click("Local Actions button", btnLocalActions);
+		Sync.waitForSeconds(Constants.WAIT_5);
+		Button.click("Click validate method",Validate);
+		
+		Sync.waitForSeconds(Constants.WAIT_5);
+		Button.click("Click save method",Save);
+
+	}
+	
+	
 	public void selectSendMethod()
 	{
 		Sync.waitForSeconds(Constants.WAIT_5);
@@ -1232,7 +1477,17 @@ public void bankBearer(String strValue) throws InterruptedException
 		Sync.waitUntilObjectDisappears(driver, "Waiting of Create page to Load", By.xpath(".//*[@id='mxui_widget_Progress_0']/div[2]"));
 
 	}
+	public void clickNewBankButtonsap()
+	{		
+		Sync.waitForSeconds(Constants.WAIT_10);
+		//Sync.waitForObject(driver, BtnAddBankData);
+		Button.click("New Bank Button", BtnAddBankDatasap);
+		Sync.waitForSeconds(Constants.WAIT_5);
+		//Sync.waitUntilObjectDisappears(driver, "Waiting of Create page to Load", By.xpath(".//*[@id='mxui_widget_Progress_0']/div[2]"));
+
+	}
 	
+
 
 	public void clickSelectBankKey()
 	{
