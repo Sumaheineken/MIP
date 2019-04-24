@@ -696,8 +696,20 @@ public class VendorScript {
 	SharedDriver.pageContainer.vendorPage.navigateToDashboard();
 	SharedDriver.pageContainer.vendorPage.advancedSearch();
 	SharedDriver.pageContainer.vendorPage.gobalIDSearchGlobal(dataMap.get("GlobalId"));	
+	SharedDriver.pageContainer.materialPage.clickFullMaterialData();
+	SharedDriver.pageContainer.materialPage.clickOkToHandlePopup();
+	SharedDriver.pageContainer.vendorPage.clickflagDeletion();		
+	}
+	@Test(dataProvider="Process_Information_Check",dataProviderClass=staticProviderClass.class)
+	public void Vendor_Delete_Record_Shared_With_Multiple_Opcos(Map<String,String> dataMap) throws InterruptedException, FileNotFoundException, IOException, AWTException 
+	{
+	SharedDriver.pageContainer.homePage.navigateToWorkflow();
+	SharedDriver.pageContainer.vendorPage.switchToMDMPortal();
+	SharedDriver.pageContainer.vendorPage.navigateToDashboard();
+	SharedDriver.pageContainer.vendorPage.advancedSearch();
+	SharedDriver.pageContainer.materialPage.globalSearch(dataMap.get("Global_ID"));
 	SharedDriver.pageContainer.vendorPage.clickflagDeletion();
-	SharedDriver.pageContainer.vendorPage.clickOk();
+	SharedDriver.pageContainer.material_Change_Page.getErrorPopupMessage();
 	}
 	@Test(dataProvider="Process_Information_Check",dataProviderClass=staticProviderClass.class)
 	public void Vendor_Global_LockCheck(Map<String,String> dataMap) throws InterruptedException, FileNotFoundException, IOException, AWTException 
@@ -881,7 +893,7 @@ public class VendorScript {
 		//SharedDriver.pageContainer.vendorPage.validateTestCreate();	
 		SharedDriver.pageContainer.materialPage.clickLocalAction();
 		
-		SharedDriver.pageContainer.materialPage.clickdiscardGlobalRequest();
+	//	SharedDriver.pageContainer.materialPage.clickdiscardGlobalRequest();
 		//SharedDriver.pageContainer.materialPage.clickDuplicateCheck();
 		SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
 		

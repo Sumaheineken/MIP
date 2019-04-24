@@ -181,7 +181,7 @@ public class MaterialChangeScript {
     	//SharedDriver.pageContainer.materialPage.getCurrDate();
 		SharedDriver.pageContainer.materialPage.globalSearch(dataMap.get("Global_ID"));
 		//		SharedDriver.pageContainer.materialPage.getGlobalId();
-		SharedDriver.pageContainer.materialPage.clickFullMaterialDataDeletion();
+		SharedDriver.pageContainer.materialPage.clickFullMaterialData();
 		//SharedDriver.pageContainer.materialApprovalPage.submitRequestOkBtnClick();
 		//SharedDriver.pageContainer.materialApprovalPage.submitRequestOkBtnClick();
 		
@@ -191,12 +191,36 @@ public class MaterialChangeScript {
 	
 		SharedDriver.pageContainer.materialPage.clickLocalAction();
 		SharedDriver.pageContainer.material_Change_Page.clickFlagForDeletion();
-		SharedDriver.pageContainer.materialPage.getRequestId();
-		SharedDriver.pageContainer.materialApprovalPage.submitRequestOkButtonClick();
-		
+		SharedDriver.pageContainer.materialPage.getRequestId_CreateNew();
+		SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
 
 
 	}
+
+	
+	@Test(dataProvider="Process_Information_Check",dataProviderClass=staticProviderClass.class)
+	public void Material_Delete_Record_Shared_With_Multiple_Opcos (Map<String,String> dataMap) throws InterruptedException, FileNotFoundException, IOException 
+	{
+		SharedDriver.pageContainer.homePage.navigateToWorkflow();
+		SharedDriver.pageContainer.materialPage.switchToPopup();
+		SharedDriver.pageContainer.materialPage.navigateToDashboard();
+		SharedDriver.pageContainer.materialPage.advancedSearch();
+		SharedDriver.pageContainer.materialPage.scrolltoGlobalSearch();
+    	//SharedDriver.pageContainer.materialPage.getCurrDate();
+		SharedDriver.pageContainer.materialPage.globalSearch(dataMap.get("Global_ID"));
+		//		SharedDriver.pageContainer.materialPage.getGlobalId();
+		SharedDriver.pageContainer.materialPage.clickFullMaterialData();
+		SharedDriver.pageContainer.materialPage.clickOkToHandlePopup();
+		//SharedDriver.pageContainer.materialApprovalPage.submitRequestOkBtnClick();
+		//SharedDriver.pageContainer.materialApprovalPage.submitRequestOkBtnClick();
+		
+		
+		SharedDriver.pageContainer.material_Change_Page.clickFlagForDeletionButton();	
+		
+		SharedDriver.pageContainer.material_Change_Page.getErrorPopupMessage();
+
+	}
+
 	@Test(dataProvider="CreateMaterial_Fill_In",dataProviderClass=staticProviderClass.class)
 	public void Material_Create_Fill_In_Data_Change(Map<String,String> dataMap) throws InterruptedException, FileNotFoundException, IOException 
 	{
