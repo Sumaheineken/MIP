@@ -369,23 +369,29 @@ public class VendorScript_NAV {
 		SharedDriver.pageContainer.vendorPageNAV.clickAndSelectPaymentMCDropDown(dataMap.get("Payment Method Code"));
 		SharedDriver.pageContainer.vendorPageNAV.validateLocalTestCreate();
 		SharedDriver.pageContainer.vendorPageNAV.LocalFinanceSave();
-		SharedDriver.pageContainer.vendorPage.Localactionbutton();
-		SharedDriver.pageContainer.vendorPageNAV.submitLocalRequest();
-		SharedDriver.pageContainer.materialPage.getRequestId_CreateNew();
 		//SharedDriver.pageContainer.materialApprovalPage.submitRequestOkButtonClick();
 		
 		//SharedDriver.pageContainer.vendorPageNAV.submitBankRequest();
 	}
 	
 	@Test
-	public void vendor_Submit_Global_Request() throws InterruptedException
+	public void vendor_Submit_Global_Request() throws InterruptedException, FileNotFoundException, IOException
 	{
-		SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
+		SharedDriver.pageContainer.materialNavPage.switchToGlobal();
+		SharedDriver.pageContainer.vendorPage.Localactionbutton();
+		//SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
 		SharedDriver.pageContainer.materialPage.duplicateCheckButton();
 		SharedDriver.pageContainer.materialPage.clickDuplicateCheck();
 		SharedDriver.pageContainer.materialPage.submitGlobalRequest();
+		SharedDriver.pageContainer.materialPage.getRequestId_CreateNew();
 		SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
-
+	}
+	
+	@Test
+	public void vendor_Submit_Local_Request() throws InterruptedException
+	{
+		SharedDriver.pageContainer.vendorPageNAV.submitLocalRequest();
+		SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
 	}
 
 	@Test(dataProvider="Process_Information_Check",dataProviderClass=staticProviderClass.class)

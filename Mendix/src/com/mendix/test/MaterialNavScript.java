@@ -287,6 +287,7 @@ public class MaterialNavScript {
 		Sync.waitForSeconds(Constants.WAIT_5);
 		SharedDriver.pageContainer.processInfoPage.browserClose();
 	}
+	
 	@Test(dataProvider="Process_Information_Check",dataProviderClass=staticProviderClass.class)
 	public void Material_Create_Review_Local_Data_Reject_LDS(Map<String,String> dataMap) throws InterruptedException, FileNotFoundException, IOException, AWTException 
 	{
