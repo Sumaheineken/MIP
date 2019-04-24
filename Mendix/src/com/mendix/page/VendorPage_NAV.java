@@ -54,7 +54,9 @@ public class VendorPage_NAV {
 	
 	@FindBy(how=How.XPATH, using="//a[contains(text(),'Vendors')]")
 	WebElement textVendor;
-	
+	@FindBy(how=How.XPATH, using=".//*[text()='Partner Bank Type']/../div/div/select")
+	WebElement partnerbank;
+		
 	@FindBy(how=How.XPATH, using="(//*[starts-with(text(),' Create')])[2]")
 	WebElement menuCreateVendor;
 	
@@ -823,6 +825,7 @@ public class VendorPage_NAV {
 		BusPostingGroup.selectByVisibleText(strValue);	
 	}
 	
+	
 /****************************************************************************************************/
 	public void VendorGenPostingGroup(String strValue)
 	{
@@ -853,6 +856,16 @@ public class VendorPage_NAV {
 		Sync.waitForSeconds(Constants.WAIT_2);
 		BankCountry.selectByVisibleText("SG, Singapore");	
 	}
+	public void VendorBankCountry_SAP()
+	{
+		//Sync.waitUntilObjectDisappears(driver, "Waiting of Create page to Load", By.xpath(".//*[@id='mxui_widget_Progress_0']/div[2]"));
+		Sync.waitForSeconds(Constants.WAIT_5);
+		Sync.waitForObject(driver, SelectBankCountry);
+		Select BankCountry= new Select(SelectBankCountry);
+		Sync.waitForSeconds(Constants.WAIT_2);
+		BankCountry.selectByVisibleText("BE, Belgium");	
+	}
+	
 /****************************************************************************************************/
 	public void VendorCurrencyCode(String strValue)
 	{
@@ -1383,6 +1396,26 @@ public class VendorPage_NAV {
 		Button.jsclick("Click Search button", btnSearch, driver);
 		Sync.waitForSeconds(Constants.WAIT_3);
 		Textbox.enterValue("Bank Key type", textBankKey, "319002");
+		Sync.waitForSeconds(Constants.WAIT_3);
+		Button.jsclick("Select Row 1 in Bank Key", SelectRadiobutton, driver);
+		Sync.waitForSeconds(Constants.WAIT_2);
+		Button.jsclick("Click Search button", btnSearch2, driver);
+		Sync.waitForSeconds(Constants.WAIT_2);
+		Button.jsclick("Select Row 1 in Bank Key", SelectRow12, driver);
+		Sync.waitForSeconds(Constants.WAIT_2);		
+		Button.jsclick("click on select", btnSelect, driver);
+		Sync.waitForSeconds(Constants.WAIT_2);
+	}
+	public void SelectBankKey_SAP()
+	{
+		Sync.waitForSeconds(Constants.WAIT_6);
+		Button.jsclick("Click Select button", btnSelectBankKey, driver);
+		Sync.waitForSeconds(Constants.WAIT_6);
+		//Sync.waitUntilObjectDisappears(driver, "Waiting of Create page to Load", By.xpath(".//*[@id='mxui_widget_Progress_0']/div[2]"));
+		Sync.waitForObject(driver, btnSearch);
+		Button.jsclick("Click Search button", btnSearch, driver);
+		Sync.waitForSeconds(Constants.WAIT_3);
+		Textbox.enterValue("Bank Key type", textBankKey, "002");
 		Sync.waitForSeconds(Constants.WAIT_3);
 		Button.jsclick("Select Row 1 in Bank Key", SelectRadiobutton, driver);
 		Sync.waitForSeconds(Constants.WAIT_2);

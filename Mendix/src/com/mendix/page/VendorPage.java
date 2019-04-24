@@ -620,14 +620,22 @@ public class VendorPage {
 	 *********************************************************/
 
 	public boolean validateTestCreate() {
-
+		
 		Sync.waitForSeconds(Constants.WAIT_3);
 		WebDriverWait wait = new WebDriverWait(driver, 60);
 		Sync.waitForSeconds(Constants.WAIT_1);
 		wait.until(ExpectedConditions.elementToBeClickable(btnValidate));
 		return Button.click("Click Validate button on local action ", btnValidate);
 	}
-
+	public boolean validateTestCreatesap() {
+		Sync.waitForSeconds(Constants.WAIT_3);
+		Button.click("Local Actions button", btnLocalActions);
+		Sync.waitForSeconds(Constants.WAIT_3);
+		WebDriverWait wait = new WebDriverWait(driver, 60);
+		Sync.waitForSeconds(Constants.WAIT_1);
+		wait.until(ExpectedConditions.elementToBeClickable(btnValidate));
+		return Button.click("Click Validate button on local action ", btnValidate);
+	}
 	/****************************************************************************************************/
 	public boolean BtnLocalActions() {
 		Sync.waitForSeconds(Constants.WAIT_1);
@@ -840,8 +848,7 @@ public class VendorPage {
 		Button.click("Click Search button", btnReqIdEnter);
 		Sync.waitForSeconds(Constants.WAIT_2);
 	}
-
-	/****************************************************************************************************/
+		/****************************************************************************************************/
 	public String getGlobalId() throws FileNotFoundException, IOException {
 		Sync.waitForSeconds(Constants.WAIT_3);
 		Sync.waitForObject(driver, "Wait for Global Vendor Id", driver

@@ -126,6 +126,7 @@ public class Vendor_JDE_Script {
 		
 
 	}
+	
      @Test(dataProvider="CreateVendor_Fill_In_Local",dataProviderClass=staticProviderClass.class)
 	
 	public void Vendor_Extend_Create_Fill_In_Data_JDE_Local_Purchasing(Map<String,String> dataMap) throws InterruptedException, FileNotFoundException, IOException, AWTException 

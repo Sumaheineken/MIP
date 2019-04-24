@@ -30,7 +30,39 @@ public class VendorScript {
 		SharedDriver.pageContainer.vendorPage.createButtonClick();
 	}
 	
+	@Test(dataProvider="Vendor_Create_Global_Disable_BankData",dataProviderClass=staticProviderClass.class)
+	public void Vendor_Create_Fill_In_Data_Bank_sap(Map<String,String> dataMap) throws InterruptedException, FileNotFoundException, IOException, AWTException 
+	{
 
+		
+		//SharedDriver.pageContainer.vendor_JDE_Page.enterBankData();
+		//SharedDriver.pageContainer.vendorPage.clickLocalAction_Bank();
+		SharedDriver.pageContainer.vendor_JDE_Page.clickNewBankButtonsap();	
+		
+		//SharedDriver.pageContainer.vendor_JDE_Page.enterBankData();
+		//SharedDriver.pageContainer.vendor_JDE_Page.clickNewBankButton();
+		SharedDriver.pageContainer.vendorPageNAV.VendorBankCountry_SAP();
+		SharedDriver.pageContainer.vendorPageNAV.SelectBankKey_SAP(); 
+		SharedDriver.pageContainer.vendor_JDE_Page.enterBankaccount();
+		SharedDriver.pageContainer.vendor_JDE_Page.partnerbank();
+		
+		SharedDriver.pageContainer.vendor_JDE_Page.clickSaveBankDetails();
+		
+		SharedDriver.pageContainer.vendorPage.clickLocalAction_Bank();
+		SharedDriver.pageContainer.vendorPage.submitBankRequestTest();
+		SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
+		
+		/*SharedDriver.pageContainer.vendorPageNAV.VendorBankCountry(dataMap.get("Bank Country"));  //"PA, Panama");
+		SharedDriver.pageContainer.vendorPageNAV.SelectBankKey(dataMap.get("Bank key"));  //"002");
+		SharedDriver.pageContainer.vendorPageNAV.VendorCurrencyCode(dataMap.get("Currency Code"));  //"PAB, Panamanian Balboa")
+		SharedDriver.pageContainer.vendorPageNAV.VendorPatnerBankType(dataMap.get("Partner Bank Type"));  //"PAB");
+		SharedDriver.pageContainer.vendor_JDE_Page.clickSaveBankDetails();
+		SharedDriver.pageContainer.vendorPage.clickLocalAction_Bank();
+		SharedDriver.pageContainer.vendorPage.submitBankRequestTest();
+		*/
+		
+
+	}
 
 	@Test(dataProvider="Vendor_Create_Global_Disable_BankData",dataProviderClass=staticProviderClass.class)
 	public void vendor_Create_Fill_In_Data_Global_Nav(Map<String,String> dataMap) throws InterruptedException, FileNotFoundException, IOException, AWTException 
@@ -64,22 +96,56 @@ public class VendorScript {
 	public void Vendor_Create_local_Fill_In_Data(Map<String,String> dataMap) throws InterruptedException, FileNotFoundException, IOException, AWTException 
 	{
 		SharedDriver.pageContainer.vendor_JDE_Page.enterLocalData();
-		SharedDriver.pageContainer.materialPage.clickLocalAction();
-		SharedDriver.pageContainer.vendorPage.disableBankData();
-		SharedDriver.pageContainer.vendorPage.VendorName(dataMap.get("Name1"));
-		SharedDriver.pageContainer.vendorPage.AddressStreet("Hauptstrasse");//dataMap.get("Street")
-		SharedDriver.pageContainer.vendorPage.AddresHouseNumber("11"); //dataMap.get("House number")
-		SharedDriver.pageContainer.vendorPage.AddresPostalCode("2551"); //dataMap.get("Postal Code")
-		SharedDriver.pageContainer.vendorPage.AddresCity("Enzesfeld-Lindabrunn");
-		SharedDriver.pageContainer.vendorPage.ScrollDown();
-		//'DropDowns
-		SharedDriver.pageContainer.vendorPage.AddresCountry("AT, Austria"); //dataMap.get("Country")
-		SharedDriver.pageContainer.vendorPage.AddresRegion("NOE, Lower Austria");  //dataMap.get("Region")
-		SharedDriver.pageContainer.vendorPage.AddresLanguageKey("EN, English");
-		SharedDriver.pageContainer.vendorPage.AddressCreditInformationNumber("301536819");
-		SharedDriver.pageContainer.vendorPage.AddresIndustryKey("Y001, Trade/Serv/Transport");
-		SharedDriver.pageContainer.vendorPage.AddresCorporateGroup("PR-PACK, PR-Packaging materials");
-		SharedDriver.pageContainer.vendorPage.validateTestCreate();
+				SharedDriver.pageContainer.vendor_JDE_Page.textAddclick();
+	
+		
+		SharedDriver.pageContainer.vendor_JDE_Page.Search();		
+		SharedDriver.pageContainer.vendor_JDE_Page.textisoinput("BE10");		
+		SharedDriver.pageContainer.vendor_JDE_Page.Search1();
+		SharedDriver.pageContainer.vendor_JDE_Page.textselect();
+		SharedDriver.pageContainer.vendor_JDE_Page.Select();
+		SharedDriver.pageContainer.vendor_JDE_Page.editAccounting();
+		Sync.waitForSeconds(Constants.WAIT_10);
+		SharedDriver.pageContainer.vendor_JDE_Page.selectReconciliation();
+		Sync.waitForSeconds(Constants.WAIT_10);
+		SharedDriver.pageContainer.vendor_JDE_Page.selectcashmanagement();
+		Sync.waitForSeconds(Constants.WAIT_10);
+		SharedDriver.pageContainer.vendorPage.ScrollDown();	
+		Sync.waitForSeconds(Constants.WAIT_10);
+		SharedDriver.pageContainer.vendor_JDE_Page.selectsortkey();
+		Sync.waitForSeconds(Constants.WAIT_10);
+		SharedDriver.pageContainer.vendor_JDE_Page.termsofpayment();
+		Sync.waitForSeconds(Constants.WAIT_10);
+		SharedDriver.pageContainer.vendor_JDE_Page.validateandSave();
+		Sync.waitForSeconds(Constants.WAIT_10);
+		SharedDriver.pageContainer.vendor_JDE_Page.clickpurchasingData();
+		Sync.waitForSeconds(Constants.WAIT_10);
+		SharedDriver.pageContainer.vendor_JDE_Page.addpurchasing();	
+		Sync.waitForSeconds(Constants.WAIT_10);
+		SharedDriver.pageContainer.vendor_JDE_Page.Searchinpurchasing();
+		Sync.waitForSeconds(Constants.WAIT_10);
+		SharedDriver.pageContainer.vendor_JDE_Page.inputiso("BE01");
+		Sync.waitForSeconds(Constants.WAIT_10);
+		SharedDriver.pageContainer.vendor_JDE_Page.Search1();
+		Sync.waitForSeconds(Constants.WAIT_10);
+		SharedDriver.pageContainer.vendor_JDE_Page.selectbe();
+		Sync.waitForSeconds(Constants.WAIT_10);
+		SharedDriver.pageContainer.vendor_JDE_Page.Select();
+		Sync.waitForSeconds(Constants.WAIT_10);
+		SharedDriver.pageContainer.vendor_JDE_Page.editpurchasing();
+		Sync.waitForSeconds(Constants.WAIT_10);
+		SharedDriver.pageContainer.vendor_JDE_Page.purchaseorder();
+		Sync.waitForSeconds(Constants.WAIT_10);
+		SharedDriver.pageContainer.vendor_JDE_Page.termspurchasing();
+		Sync.waitForSeconds(Constants.WAIT_10);
+		
+		SharedDriver.pageContainer.vendor_JDE_Page.validateandSave();
+		Sync.waitForSeconds(Constants.WAIT_10);
+		SharedDriver.pageContainer.vendor_JDE_Page.submitLocal();
+		Sync.waitForSeconds(Constants.WAIT_10);
+		
+		
+		//SharedDriver.pageContainer.vendorPage.validateTestCreate();
 		//SharedDriver.pageContainer.materialPage.duplicateCheckButton();
 		//SharedDriver.pageContainer.materialPage.clickDuplicateCheck();
 		//SharedDriver.pageContainer.vendorPage.submitGlobalRequestTest();
@@ -146,7 +212,33 @@ public class VendorScript {
 		//SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
 				
 	}
-	
+	@Test(dataProvider="Vendor_Create_Global_Disable_Bank_and_LocalData",dataProviderClass=staticProviderClass.class)
+	public void Vendor_Create_Fill_In_Data_banksap(Map<String,String> dataMap) throws InterruptedException, FileNotFoundException, IOException, AWTException 
+	{
+		Sync.waitForSeconds(Constants.WAIT_10);
+		//SharedDriver.pageContainer.vendorPage.disableLocaData();
+		//Sync.waitForSeconds(Constants.WAIT_10);
+		//SharedDriver.pageContainer.vendorPage.disableBankData();
+		SharedDriver.pageContainer.vendorPage.VendorName(dataMap.get("Name1"));
+		SharedDriver.pageContainer.vendorPage.AddressStreet("Hauptstrasse");//dataMap.get("Street")
+		SharedDriver.pageContainer.vendorPage.AddresHouseNumber("11"); //dataMap.get("House number")
+		SharedDriver.pageContainer.vendorPage.AddresPostalCode("2551"); //dataMap.get("Postal Code")
+		SharedDriver.pageContainer.vendorPage.AddresCity("Enzesfeld-Lindabrunn");
+		SharedDriver.pageContainer.vendorPage.ScrollDown();
+		//'DropDowns
+		SharedDriver.pageContainer.vendorPage.AddresCountry("AT, Austria"); //dataMap.get("Country")
+		SharedDriver.pageContainer.vendorPage.AddresRegion("NOE, Lower Austria");  //dataMap.get("Region")
+		SharedDriver.pageContainer.vendorPage.AddresLanguageKey("EN, English");
+		SharedDriver.pageContainer.vendorPage.AddressCreditInformationNumber("301536819");
+		SharedDriver.pageContainer.vendorPage.AddresIndustryKey("Y001, Trade/Serv/Transport");
+		SharedDriver.pageContainer.vendorPage.AddresCorporateGroup("PR-PACK, PR-Packaging materials");
+		SharedDriver.pageContainer.vendorPage.validateTestCreatesap();
+		SharedDriver.pageContainer.materialPage.duplicateCheckButton();
+		SharedDriver.pageContainer.materialPage.clickDuplicateCheck();
+		//SharedDriver.pageContainer.vendorPage.submitGlobalRequestTest();
+		SharedDriver.pageContainer.vendorPage.getRequestId();		
+				
+	}
 	
 	/****************************************************************************************************/	
 	@Test(dataProvider="Vendor_Create_Global_Disable_Bank_and_LocalData",dataProviderClass=staticProviderClass.class)
