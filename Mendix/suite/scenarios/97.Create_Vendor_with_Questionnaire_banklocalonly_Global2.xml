@@ -26,9 +26,9 @@
 		<classes>
 			<class name="com.mendix.test.VendorScript">
 				<methods>
-					<include name="Vendor_Create_Fill_In_Data_banksap"/>
-					<include name="Vendor_Create_Fill_In_Data_Bank_sap" />											
-					<include name="Vendor_Create_local_Fill_In_Data" />			
+					<include name="Vendor_Create_Fill_In_Data_banksap"/>																
+					<include name="Vendor_Create_local_Fill_In_Data" />	
+					<include name="Vendor_Create_Fill_In_Data_Bank_sap" />		
 					
 				</methods>
 			</class>
