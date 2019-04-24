@@ -397,6 +397,7 @@ public class VendorScript {
 		SharedDriver.pageContainer.materialPage.rejectLDS();
 	}
 	
+	
 	@Test(dataProvider="Process_Information_Check",dataProviderClass=staticProviderClass.class)
 	public void Vendor_Create_Review_Global_Data_Reject_LDP(Map<String,String> dataMap) throws InterruptedException, FileNotFoundException, IOException, AWTException 
 	{
@@ -893,14 +894,11 @@ public class VendorScript {
 		public void Create_Vendor_Resubmit_Request  (Map<String,String> dataMap) throws InterruptedException, FileNotFoundException, IOException 
 		{
 			try{
-			System.out.println("Start:Create_Vendor_Rejections_with_Discard");
 
 			SharedDriver.pageContainer.homePage.navigateToWorkflow();
 			SharedDriver.pageContainer.vendorPage.switchToMDMPortal();
 			SharedDriver.pageContainer.materialApprovalPage.reqIdSearchMyTasks(dataMap.get("RequestId"));
 			SharedDriver.pageContainer.vendorPage.resubmitLocalRequest();
-			
-			System.out.println("End:Create_Vendor_Rejections_with_Discard-Done");
 			
 		}catch(Exception e){
 			
@@ -937,6 +935,42 @@ public class VendorScript {
 		SharedDriver.pageContainer.vendorPageNAV.VendorCurrencyCode(dataMap.get("Currency Code"));  //"PAB, Panamanian Balboa")
 		SharedDriver.pageContainer.vendorPageNAV.VendorPatnerBankType(dataMap.get("Partner Bank Type"));  //"PAB");
 	}
+	
+	@Test(dataProvider="Process_Information_Check",dataProviderClass=staticProviderClass.class)
+	public void vendor_Create_Review_Local_Data_Reject_LDS(Map<String,String> dataMap) throws InterruptedException, FileNotFoundException, IOException, AWTException 
+	{
+		Assert.assertTrue(SharedDriver.pageContainer.homePage.navigateToWorkflow());
+		SharedDriver.pageContainer.materialPage.switchToPopup();
+		SharedDriver.pageContainer.materialApprovalPage.reqIdSearchMyTasks(dataMap.get("RequestId"));
+		
+		//SharedDriver.pageContainer.materialApprovalPage.approvalBtnClick_Local();
+		SharedDriver.pageContainer.materialApprovalPage.markViewsBtnClick_Local();
+		SharedDriver.pageContainer.materialPage.clickOkToHandlePopup();
+		SharedDriver.pageContainer.materialPage.rejectLDS();
+		//SharedDriver.pageContainer.materialApprovalPage.submitRequestOkButtonClick();	
+
+	}
+	
+	@Test(dataProvider="Process_Information_Check",dataProviderClass=staticProviderClass.class)
+	public void change_Vendor_Rejections_with_Discard(Map<String,String> dataMap) throws InterruptedException, FileNotFoundException, IOException 
+	{
+		try{
+		SharedDriver.pageContainer.homePage.navigateToWorkflow();
+		SharedDriver.pageContainer.vendorPage.switchToMDMPortal();
+		SharedDriver.pageContainer.materialApprovalPage.reqIdSearchMyTasks(dataMap.get("RequestId"));
+		SharedDriver.pageContainer.materialNavPage.switchToGlobal();
+		SharedDriver.pageContainer.materialPage.DiscardCreateGDA();
+		SharedDriver.pageContainer.materialPage.DiscardCreateLocal();
+		//SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
+		System.out.println("End:Change_Vendor_Rejections_with_Discard-Done");
+		
+	}catch(Exception e){
+		
+		System.out.println("Change_vendor_Rejections_with_Discard is not completed");
+		driver.close();
+	}
+	}
+
 
 }
 
