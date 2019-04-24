@@ -203,6 +203,14 @@ public class VendorPage {
 
 	@FindBy(how = How.XPATH, using = "//*[text()='Edit Global Data']/../div/input")
 	WebElement EditGlobalData;
+	@FindBy(how = How.XPATH, using = "//*[text()='Edit Local Data']/../div/input")
+	WebElement EditlocalData;
+	@FindBy(how = How.XPATH, using = "//*[text()='Edit Bank Data']/../div/input")
+   
+
+	WebElement EditbankData;
+	
+	
 	
 	@FindBy(how=How.XPATH, using = "//*[text()='Edit Local Data']/../div/input")
 	WebElement EditLocalData;
@@ -440,6 +448,18 @@ public class VendorPage {
 	public void EditVendorData() {
 		Button.click("Select EDit button", EditGlobalData);
 		Sync.waitForSeconds(Constants.WAIT_2);
+		Button.click("Click EDit button", btnEdit);
+		Sync.waitForSeconds(Constants.WAIT_5);
+		
+	}
+	public void EditVendorgloballovalsapData() {
+		Button.click("Select EDit button", EditGlobalData);
+		Sync.waitForSeconds(Constants.WAIT_2);
+		Button.click("Select EDit button", EditbankData);
+		Sync.waitForSeconds(Constants.WAIT_2);
+		Button.click("Select EDit button", EditlocalData);
+		Sync.waitForSeconds(Constants.WAIT_2);
+
 		Button.click("Click EDit button", btnEdit);
 		Sync.waitForSeconds(Constants.WAIT_5);
 		
