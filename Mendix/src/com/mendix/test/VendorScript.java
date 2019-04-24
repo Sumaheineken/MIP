@@ -44,6 +44,22 @@ public class VendorScript {
 		SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();		
 
 	}
+	@Test(dataProvider="Vendor_Create_Global_Disable_BankData",dataProviderClass=staticProviderClass.class)
+	public void Vendor_change_Fill_In_Data_Bank_sap(Map<String,String> dataMap) throws InterruptedException, FileNotFoundException, IOException, AWTException 
+	{
+		SharedDriver.pageContainer.vendor_JDE_Page.clickNewBankButtonsap();	
+		
+		SharedDriver.pageContainer.vendorPageNAV.VendorBankCountry_SAP();
+		SharedDriver.pageContainer.vendorPageNAV.SelectBankKey_SAP(); 
+		SharedDriver.pageContainer.vendor_JDE_Page.enterBankaccountsap();
+		SharedDriver.pageContainer.vendor_JDE_Page.partnerbank("BE02");		
+		SharedDriver.pageContainer.vendor_JDE_Page.clickSaveBankDetails();		
+		SharedDriver.pageContainer.vendorPage.clickLocalAction_Bank();
+		SharedDriver.pageContainer.vendorPage.submitBankRequestTest();
+		SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();		
+
+	}
+
 
 	@Test(dataProvider="Vendor_Create_Global_Disable_BankData",dataProviderClass=staticProviderClass.class)
 	public void vendor_Create_Fill_In_Data_Global_Nav(Map<String,String> dataMap) throws InterruptedException, FileNotFoundException, IOException, AWTException 
@@ -133,7 +149,67 @@ public class VendorScript {
 //		SharedDriver.pageContainer.vendorPage.getRequestId();
 				
 	}
-	
+	@Test(dataProvider="Vendor_Create_Global_Disable_BankData",dataProviderClass=staticProviderClass.class)
+	public void Vendor_Change_local_Fill_In_Data(Map<String,String> dataMap) throws InterruptedException, FileNotFoundException, IOException, AWTException 
+	{
+	SharedDriver.pageContainer.vendor_JDE_Page.enterLocalData();
+	    SharedDriver.pageContainer.vendor_JDE_Page.textAddclick();		
+		SharedDriver.pageContainer.vendor_JDE_Page.Search();		
+		SharedDriver.pageContainer.vendor_JDE_Page.textisoinput("BE11");		
+		SharedDriver.pageContainer.vendor_JDE_Page.Search1();
+		SharedDriver.pageContainer.vendor_JDE_Page.textselect();
+		SharedDriver.pageContainer.vendor_JDE_Page.Select();
+		SharedDriver.pageContainer.vendor_JDE_Page.editAccounting();		
+		//SharedDriver.pageContainer.materialPage.clickOkToHandlePopup();
+		Sync.waitForSeconds(Constants.WAIT_10);
+		SharedDriver.pageContainer.vendor_JDE_Page.selectReconciliation("0014201101, AP THIRD PARTY SUPPL <1YR OWNERS");
+		Sync.waitForSeconds(Constants.WAIT_10);
+		
+		SharedDriver.pageContainer.vendor_JDE_Page.selectcashmanagement("YV, Employee Vendors");
+		Sync.waitForSeconds(Constants.WAIT_10);
+		
+		Sync.waitForSeconds(Constants.WAIT_10);
+		SharedDriver.pageContainer.vendor_JDE_Page.selectsortkey("009, External doc.number");
+		Sync.waitForSeconds(Constants.WAIT_10);
+		SharedDriver.pageContainer.vendor_JDE_Page.termsofpayment("V000, Pay immediately");
+		Sync.waitForSeconds(Constants.WAIT_10);
+		SharedDriver.pageContainer.vendor_JDE_Page.validateandSave();
+		Sync.waitForSeconds(Constants.WAIT_10);
+		SharedDriver.pageContainer.vendor_JDE_Page.clickpurchasingData();
+		Sync.waitForSeconds(Constants.WAIT_10);
+		SharedDriver.pageContainer.vendor_JDE_Page.addpurchasing();	
+		Sync.waitForSeconds(Constants.WAIT_10);
+		SharedDriver.pageContainer.vendor_JDE_Page.Searchinpurchasing();
+		Sync.waitForSeconds(Constants.WAIT_10);
+		SharedDriver.pageContainer.vendor_JDE_Page.inputiso("BE01");
+		Sync.waitForSeconds(Constants.WAIT_10);
+		SharedDriver.pageContainer.vendor_JDE_Page.clicksearch1();
+		Sync.waitForSeconds(Constants.WAIT_10);
+		SharedDriver.pageContainer.vendor_JDE_Page.selectbe();
+		Sync.waitForSeconds(Constants.WAIT_10);
+		SharedDriver.pageContainer.vendor_JDE_Page.Select();
+		Sync.waitForSeconds(Constants.WAIT_10);
+		SharedDriver.pageContainer.vendor_JDE_Page.editpurchasing();
+		Sync.waitForSeconds(Constants.WAIT_10);
+		SharedDriver.pageContainer.vendor_JDE_Page.purchaseorder("GBP, British Pound");
+		Sync.waitForSeconds(Constants.WAIT_10);
+		SharedDriver.pageContainer.vendor_JDE_Page.termspurchasing("V002, Payment within 7 days");
+		Sync.waitForSeconds(Constants.WAIT_10);
+		
+		SharedDriver.pageContainer.vendor_JDE_Page.validateandSave();
+		Sync.waitForSeconds(Constants.WAIT_10);
+		SharedDriver.pageContainer.vendor_JDE_Page.submitLocal();
+		Sync.waitForSeconds(Constants.WAIT_10);
+		SharedDriver.pageContainer.materialPage.clickOkToHandlePopup();
+		
+		
+		//SharedDriver.pageContainer.vendorPage.validateTestCreate();
+		//SharedDriver.pageContainer.materialPage.duplicateCheckButton();
+		//SharedDriver.pageContainer.materialPage.clickDuplicateCheck();
+		//SharedDriver.pageContainer.vendorPage.submitGlobalRequestTest();
+//		SharedDriver.pageContainer.vendorPage.getRequestId();
+				
+	}
 	
 	@Test(dataProvider="Vendor_Create_Global_Bank_and_LocalData",dataProviderClass=staticProviderClass.class)
 	public void vendor_Create_Fill_In_Data_Global_Nav_IncludeBank(Map<String,String> dataMap) throws InterruptedException, FileNotFoundException, IOException, AWTException 
@@ -219,6 +295,7 @@ public class VendorScript {
 		SharedDriver.pageContainer.vendorPage.getRequestId();		
 				
 	}
+	
 	
 	/****************************************************************************************************/	
 	@Test(dataProvider="Vendor_Create_Global_Disable_Bank_and_LocalData",dataProviderClass=staticProviderClass.class)
@@ -532,6 +609,17 @@ public class VendorScript {
 		SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
 		SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
 		SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
+		
+	}
+	@Test(dataProvider="Process_Information_Check",dataProviderClass=staticProviderClass.class)
+	public void Vendor_Changesap_DashBoard_SearchWith_GlobalID(Map<String,String> dataMap) throws InterruptedException
+	{
+		SharedDriver.pageContainer.vendorPage.advancedSearch();
+		SharedDriver.pageContainer.vendorPage.globalSearch(dataMap.get("Global_ID"));	
+		SharedDriver.pageContainer.vendorPage.GetFullVendorDataNew();
+		
+		SharedDriver.pageContainer.vendorPage.EditVendorgloballovalsapData();
+		
 		
 	}
 /************************************************************************************************************/	
