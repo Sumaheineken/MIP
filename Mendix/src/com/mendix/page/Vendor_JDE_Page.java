@@ -62,7 +62,7 @@ public class Vendor_JDE_Page {
 	@FindBy(how=How.XPATH, using="//*[text()='Cash Management Group/Planning Group']/../div/div/select")
 	WebElement selectcashmanagement;
 	
-	@FindBy(how=How.XPATH, using="//*[text()='//*[text()='Sort Key']/../div/div/select")
+	@FindBy(how=How.XPATH, using="//*[text()='Sort Key']/../div/div/select")
 	WebElement selectsortkey;
 	@FindBy(how=How.XPATH, using="//*[text()='Terms of Payment Key']/../div/div/select")
 	WebElement termsofpayment;
@@ -177,7 +177,7 @@ public class Vendor_JDE_Page {
 	WebElement textBankAccount;
 	@FindBy(xpath="//*[text()='Purchasing']/../../../div/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]//button[text()='Add']")
 	WebElement addpurchasing;
-	@FindBy(xpath="//*[text()='Purchasing']/../../../div/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]//button[text()='Add']")
+	@FindBy(xpath="//*[text()='Purchasing']/../../../div/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]//button[text()='Edit']")
 	WebElement editpurchasing;
 	
 	@FindBy(xpath="//*[text()='PurchaseOrg ISO Code']/../../../div/div[2]/input")
@@ -312,11 +312,15 @@ public class Vendor_JDE_Page {
 	}
 	public boolean textselect() {
 		Sync.waitForSeconds(Constants.WAIT_10);
+		Sync.waitForSeconds(Constants.WAIT_10);
+
 		Sync.waitForObject(driver, textselect);
 		return Button.click("Click textselect button", textselect);
 
 	}
 	public boolean Select() {
+		Sync.waitForSeconds(Constants.WAIT_10);
+
 		Sync.waitForSeconds(Constants.WAIT_10);
 		Sync.waitForObject(driver, select);
 		return Button.click("Click select button", select);
@@ -324,6 +328,8 @@ public class Vendor_JDE_Page {
 	}
 	public boolean editAccounting() {
 		Sync.waitForSeconds(Constants.WAIT_2);
+		Sync.waitForSeconds(Constants.WAIT_10);
+
 		Sync.waitForObject(driver, editAccounting);
 		return Button.click("Click edit button", editAccounting);
 		
@@ -332,17 +338,23 @@ public class Vendor_JDE_Page {
 	
 	public boolean addpurchasing() {
 		Sync.waitForSeconds(Constants.WAIT_10);
+		Sync.waitForSeconds(Constants.WAIT_2);
+
 		Sync.waitForObject(driver, addpurchasing);
 		return Button.click("Click addpurchasing button", addpurchasing);
 
 	}
 	public boolean editpurchasing() {
 		Sync.waitForSeconds(Constants.WAIT_10);
+
+		Sync.waitForSeconds(Constants.WAIT_10);
 		Sync.waitForObject(driver, editpurchasing);
-		return Button.click("Click addpurchasing button", editpurchasing);
+		return Button.click("Click editpurchasing button", editpurchasing);
 
 	}
 	public void inputiso(String strValue) {
+		Sync.waitForSeconds(Constants.WAIT_10);
+
 		Sync.waitForSeconds(Constants.WAIT_10);
 		//Sync.waitForObject(driver, Search);
 		inputiso.sendKeys(strValue);
@@ -355,6 +367,10 @@ public class Vendor_JDE_Page {
 
 	}
 	public boolean submitLocal() {
+Sync.waitForSeconds(Constants.WAIT_5);
+		
+		Sync.waitForSeconds(Constants.WAIT_3);
+		Button.click("Local Actions button", btnLocalActions);
 		Sync.waitForSeconds(Constants.WAIT_10);
 		Sync.waitForObject(driver, submitLocal);
 		return Button.click("Click submitLocal; button", submitLocal);
@@ -418,84 +434,105 @@ public class Vendor_JDE_Page {
 
 
 	}
-	public void selectReconciliation()
+	public void selectReconciliation(String strValue)
+	{
+		Sync.waitForSeconds(Constants.WAIT_10);
+		Sync.waitForSeconds(Constants.WAIT_5);	
+		Sync.waitForSeconds(Constants.WAIT_5);
+		Sync.waitForSeconds(Constants.WAIT_5);
+		Button.click("Click on selectReconciliation method",selectReconciliation);
+		Select option= new Select(selectReconciliation);
+		option.selectByVisibleText(strValue);
+		Sync.waitForSeconds(Constants.WAIT_5);
+	driver.manage().window().maximize();
+
+	}
+	
+	public void selectcashmanagement(String strValue)
 	{
 		Sync.waitForSeconds(Constants.WAIT_10);
 		Sync.waitForSeconds(Constants.WAIT_5);
 		Sync.waitForSeconds(Constants.WAIT_5);
-		Button.click("Click on send method",selectReconciliation);
-		Select option= new Select(selectReconciliation);
-		option.selectByIndex(1);
-		Sync.waitForSeconds(Constants.WAIT_5);
-
-
-	}
-	
-	public void selectcashmanagement()
-	{
-		Sync.waitForSeconds(Constants.WAIT_5);
 		Button.click("Click on send method",selectcashmanagement);
-		Select option= new Select(selectcashmanagement);
-		option.selectByIndex(1);
+		Select option1= new Select(selectcashmanagement);
+		option1.selectByVisibleText(strValue);
 		Sync.waitForSeconds(Constants.WAIT_5);
 
 
 	}
-	public void selectsortkey()
+	public void selectsortkey(String strValue)
 	{
+		Sync.waitForSeconds(Constants.WAIT_10);
 		Sync.waitForSeconds(Constants.WAIT_5);
-		Button.click("Click on send method",selectsortkey);
-		Select option= new Select(selectsortkey);
-		option.selectByIndex(1);
+		Sync.waitForSeconds(Constants.WAIT_5);
+		Button.click("Click on selectsortkey method",selectsortkey);
+		Select option2= new Select(selectsortkey);
+		option2.selectByVisibleText(strValue);
+
 		Sync.waitForSeconds(Constants.WAIT_5);
 
 
 	}
-	public void termsofpayment()
+	public void termsofpayment(String strValue)
 	{
+		Sync.waitForSeconds(Constants.WAIT_10);
+		Sync.waitForSeconds(Constants.WAIT_5);
 		Sync.waitForSeconds(Constants.WAIT_5);
 		Button.click("Click on send method",termsofpayment);
-		Select option= new Select(termsofpayment);
-		option.selectByIndex(1);
+		Select option3= new Select(termsofpayment);
+		option3.selectByVisibleText(strValue);
+
 		Sync.waitForSeconds(Constants.WAIT_5);
 
 
 	}
-	public void partnerbank()
+	public void partnerbank(String strValue)
 	{
+		Sync.waitForSeconds(Constants.WAIT_10);
+		Sync.waitForSeconds(Constants.WAIT_5);
 		Sync.waitForSeconds(Constants.WAIT_5);
 		Button.click("Click on send method",partnerbank);
-		Select option= new Select(partnerbank);
-		option.selectByIndex(1);
+		Select option4= new Select(partnerbank);
+		option4.selectByVisibleText(strValue);
+
 		Sync.waitForSeconds(Constants.WAIT_5);
 
 
 	}
 
 	
-	public void purchaseorder()
+	public void purchaseorder(String strValue)
+
 	{
+		Sync.waitForSeconds(Constants.WAIT_10);
+		Sync.waitForSeconds(Constants.WAIT_5);
 		Sync.waitForSeconds(Constants.WAIT_10);
 		Sync.waitForSeconds(Constants.WAIT_5);
 		Button.click("Click on send method",purchaseorder);
-		Select option= new Select(purchaseorder);
-		option.selectByIndex(1);
+		Select option5= new Select(purchaseorder);
+		option5.selectByVisibleText(strValue);
+
 		Sync.waitForSeconds(Constants.WAIT_5);
 
 
 	}
-	public void termspurchasing()
+	public void termspurchasing(String strValue)
 	{
+		Sync.waitForSeconds(Constants.WAIT_10);
+		Sync.waitForSeconds(Constants.WAIT_5);
 		Sync.waitForSeconds(Constants.WAIT_5);
 		Button.click("Click on send method",termspurchasing);
-		Select option= new Select(termspurchasing);
-		option.selectByIndex(1);
+		Select option6= new Select(termspurchasing);
+		option6.selectByVisibleText(strValue);
+
 		Sync.waitForSeconds(Constants.WAIT_5);
 
 
 	}
 	public void validateandSave()
 	{
+		Sync.waitForSeconds(Constants.WAIT_10);
+		Sync.waitForSeconds(Constants.WAIT_5);
 		
 		Sync.waitForSeconds(Constants.WAIT_3);
 		Button.click("Local Actions button", btnLocalActions);
@@ -510,6 +547,8 @@ public class Vendor_JDE_Page {
 	
 	public void selectSendMethod()
 	{
+		Sync.waitForSeconds(Constants.WAIT_10);
+		Sync.waitForSeconds(Constants.WAIT_5);
 		Sync.waitForSeconds(Constants.WAIT_5);
 		Button.click("Click on send method",selectSendMethod );
 		Select option= new Select(selectSendMethod);
@@ -534,13 +573,26 @@ public class Vendor_JDE_Page {
 
 	public void clickValidatLocalData()
 	{
+		Sync.waitForSeconds(Constants.WAIT_10);
+		Sync.waitForSeconds(Constants.WAIT_5);
 
 		Sync.waitForSeconds(Constants.WAIT_5);
 		driver.findElement(By.xpath(".//*[@class='glyphicon glyphicon-check']")).click();
 
 
 	}
+	public boolean clicksearch1()
+	{
+		Sync.waitForSeconds(Constants.WAIT_10);
+		Sync.waitForSeconds(Constants.WAIT_5);
 
+		Sync.waitForSeconds(Constants.WAIT_5);
+		return Button.click("click",clicksearch1);
+
+
+	}
+
+	
 	public void clickPlanningSaveButton()
 	{
 		Sync.WaitForPageLoad(driver);
@@ -1524,20 +1576,17 @@ public void bankBearer(String strValue) throws InterruptedException
 			textBankAccount.sendKeys("12356778");
 			
 
-			/*List <WebElement> elementCount = option.getOptions();
-			int iSize = elementCount.size();
-
-			for(int i =0; i<iSize ; i++)
-			{
-				String sValue = elementCount.get(i).getText();
-				if(sValue.equals("DE01"))
-				{
-					option.selectByIndex(i);
-					break;
-				}
-			}*/
-
+			
+			
 	}
+		public void enterBankaccountsap()
+		{
+			Sync.waitForSeconds(Constants.WAIT_1);
+			textBankAccount.sendKeys("123-6778777-89");	
+			
+			
+	}
+
 
 
 		public void clickSaveBankDetails()
