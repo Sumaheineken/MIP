@@ -24,7 +24,7 @@
 			<methods>
 				<include name="material_Local_Plant_Data_Fill_In_Nav"/>
 				<include name="material_Local_Finance_Data_Fill_In_Nav"/>
-				<include name="material_Create_Fill_In_Data_Nav_Local_Site"/>
+				<include name="material_Create_Fill_In_Data_Nav_Local_Adding_Site"/>
 				<include name="material_Confirm_Extension"/>
 			</methods>
 		</class>
