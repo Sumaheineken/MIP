@@ -134,12 +134,12 @@ public class MaterialChangeScript {
 		SharedDriver.pageContainer.materialPage.materialDescCreate(dataMap.get("Description"));
 		
       // SharedDriver.pageContainer.materialPage.clickLocalAction();
-       SharedDriver.pageContainer.materialPage.validateTestCreate();
+       /*SharedDriver.pageContainer.materialPage.validateTestCreate();
        
        SharedDriver.pageContainer.materialPage.SaveAsDraft();
        SharedDriver.pageContainer.materialPage.getRequestId_draft();
-		SharedDriver.pageContainer.materialApprovalPage.submitRequestOkBtnClick();
-  
+	   SharedDriver.pageContainer.materialApprovalPage.submitRequestOkBtnClick();
+  */
 	   //SharedDriver.pageContainer.materialApprovalPage.submitRequestOkButtonClick();
 	}
 	
