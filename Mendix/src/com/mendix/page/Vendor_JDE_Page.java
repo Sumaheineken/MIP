@@ -91,7 +91,7 @@ public class Vendor_JDE_Page {
 	WebElement BtnAddFinanceData;
 	@FindBy(how=How.XPATH, using="//*[text()='JDE Finance']/../../../div/div[4]/div/div/div[2]/div[2]/div[2]/button[2]")
 	WebElement BtneditFinanceData;
-	@FindBy(how=How.XPATH, using="//*[text()='No']")
+	@FindBy(how=How.XPATH, using="//*[text()='25000']")
 	WebElement Btneditinpurchansing;
 	
 
