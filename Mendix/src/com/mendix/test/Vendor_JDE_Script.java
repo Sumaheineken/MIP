@@ -105,10 +105,13 @@ public class Vendor_JDE_Script {
 		SharedDriver.pageContainer.vendorPage.clickLocalAction_Local();
 		SharedDriver.pageContainer.vendor_JDE_Page.clickValidatLocalData();
 		SharedDriver.pageContainer.vendor_JDE_Page.clickPlanningSaveButton();
-		SharedDriver.pageContainer.vendorPage.clickLocalAction_Local();
+		//SharedDriver.pageContainer.vendorPage.clickLocalAction_Local();
 		SharedDriver.pageContainer.vendor_JDE_Page.submitLocal();
 		Sync.waitForSeconds(Constants.WAIT_10);
 		SharedDriver.pageContainer.materialPage.clickOkToHandlePopup();
+
+
+SharedDriver.pageContainer.materialNavPage.submitGlobalRequestTest();
 				SharedDriver.pageContainer.materialPage.duplicateCheck_New();
 		SharedDriver.pageContainer.vendorPage.getRequestId_Vendor();
 //		SharedDriver.pageContainer.materialPage.getRequestId_Create();
