@@ -125,6 +125,8 @@ public class VendorPage {
 
 	@FindBy(how = How.XPATH, using = ".//*[text()='Postal Code']/../div/input")
 	WebElement textPostalCode;
+	@FindBy(how = How.XPATH, using = "//*[text()='P.O. Box Postal Code']/../div/input")
+	WebElement textPostalCodepo;
 
 	@FindBy(how = How.XPATH, using = ".//*[text()='City']/../div/input")
 	WebElement textCity;
@@ -464,6 +466,16 @@ public class VendorPage {
 		Sync.waitForSeconds(Constants.WAIT_5);
 		
 	}
+	public void EditVendorgloballovajdeData() {
+		Button.click("Select EDit button", EditGlobalData);
+		Sync.waitForSeconds(Constants.WAIT_2);
+				Button.click("Select EDit button", EditlocalData);
+		Sync.waitForSeconds(Constants.WAIT_2);
+
+		Button.click("Click EDit button", btnEdit);
+		Sync.waitForSeconds(Constants.WAIT_5);
+		
+	}
 
 	public void EditVendorDataGlobalLocal() 
 	{
@@ -508,6 +520,14 @@ public class VendorPage {
 		Sync.waitForSeconds(Constants.WAIT_1);
 		Textbox.click("clicking name1", textSearchterm1);
 	}
+	public void VendorNamechange(String strValue) {
+		Sync.waitForSeconds(Constants.WAIT_3);
+		Sync.waitForObject(driver, textName);
+		textName.clear();
+		Textbox.enterValue("Name to create vendor", textName, strValue);
+		Sync.waitForSeconds(Constants.WAIT_1);
+		//Textbox.click("clicking name1", textSearchterm1);
+	}
 
 	/********************
 	 * Address section
@@ -530,6 +550,13 @@ public class VendorPage {
 		Sync.waitForObject(driver, textPostalCode);
 		Textbox.enterValue("Enter Street", textPostalCode, strValue);
 	}
+
+	public void AddresPostalCodepo(String strValue) {
+		// Sync.waitForSeconds(Constants.WAIT_1);
+		Sync.waitForObject(driver, textPostalCodepo);
+		Textbox.enterValue("Enter Street", textPostalCodepo, strValue);
+	}
+
 
 	public void AddresCity(String strValue) {
 		// Sync.waitForSeconds(Constants.WAIT_1);
