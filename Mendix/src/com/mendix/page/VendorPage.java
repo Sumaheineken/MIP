@@ -127,7 +127,9 @@ public class VendorPage {
 	WebElement textPostalCode;
 	@FindBy(how = How.XPATH, using = "//*[text()='P.O. Box Postal Code']/../div/input")
 	WebElement textPostalCodepo;
-
+	@FindBy(how = How.XPATH, using = "//*[text()='P.O. Box']/../div/input")
+	WebElement textPostalCodepobox;
+	
 	@FindBy(how = How.XPATH, using = ".//*[text()='City']/../div/input")
 	WebElement textCity;
 
@@ -556,6 +558,12 @@ public class VendorPage {
 		Sync.waitForObject(driver, textPostalCodepo);
 		Textbox.enterValue("Enter Street", textPostalCodepo, strValue);
 	}
+	public void AddresPostalCodepobox(String strValue) {
+		// Sync.waitForSeconds(Constants.WAIT_1);
+		Sync.waitForObject(driver, textPostalCodepobox);
+		Textbox.enterValue("Enter Street", textPostalCodepobox, strValue);
+	}
+
 
 
 	public void AddresCity(String strValue) {

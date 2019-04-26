@@ -335,7 +335,8 @@ public class VendorScript {
 		SharedDriver.pageContainer.vendorPage.AddressStreet("Hauptstrasse");//dataMap.get("Street")
 		SharedDriver.pageContainer.vendorPage.AddresHouseNumber("11"); //dataMap.get("House number")
 		SharedDriver.pageContainer.vendorPage.AddresPostalCode("255121"); //dataMap.get("Postal Code")
-		SharedDriver.pageContainer.vendorPage.AddresPostalCodepo("7400 AV"); //dataMap.get("Postal Code")
+		SharedDriver.pageContainer.vendorPage.AddresPostalCodepobox("xyz"); //dataMap.get("Postal Code")
+		SharedDriver.pageContainer.vendorPage.AddresPostalCodepo("740075"); //dataMap.get("Postal Code")
 		
 		SharedDriver.pageContainer.vendorPage.AddresCity("Enzesfeld-Lindabrunn");
 		SharedDriver.pageContainer.vendorPage.ScrollDown();
