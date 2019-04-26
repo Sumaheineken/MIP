@@ -91,7 +91,7 @@ public class Vendor_JDE_Page {
 	WebElement BtnAddFinanceData;
 	@FindBy(how=How.XPATH, using="//*[text()='JDE Finance']/../../../div/div[4]/div/div/div[2]/div[2]/div[2]/button[2]")
 	WebElement BtneditFinanceData;
-	@FindBy(how=How.XPATH, using="//*[text()='25000']")
+	@FindBy(how=How.XPATH, using="(//*[text()='25000'])[2]")
 	WebElement Btneditinpurchansing;
 	
 
@@ -466,7 +466,7 @@ Sync.waitForSeconds(Constants.WAIT_5);
 
 
 	}
-	public void selectAdjustmentSchedulechange() throws AWTException
+	public void selectAdjustmentSchedulechange(String strValue) throws AWTException
 	{
 		Sync.waitForSeconds(Constants.WAIT_5);
 		Sync.waitForSeconds(Constants.WAIT_5);
@@ -474,7 +474,7 @@ Sync.waitForSeconds(Constants.WAIT_5);
 		Button.click("Select Adjustment Schedule",selectAdjustmentSchedule);
 		Select option= new Select(driver.findElement(By.xpath("//*[text()='Adjustment Schedule']/../div/div/select")));
 		
-		option.selectByIndex(1);
+		option.selectByVisibleText(strValue);;
 
 		Sync.waitForSeconds(Constants.WAIT_5);
 

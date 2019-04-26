@@ -39,6 +39,8 @@ public class Vendor_JDE_Script {
 		SharedDriver.pageContainer.vendor_JDE_Page.enterLocalData();
 		SharedDriver.pageContainer.vendor_JDE_Page.Btneditinpurchansing();
 		SharedDriver.pageContainer.vendor_JDE_Page.BtneditPlantData();
+		
+		SharedDriver.pageContainer.vendor_JDE_Page.selectAdjustmentSchedulechange("PQ, P*Q Contracts");
 		SharedDriver.pageContainer.vendor_JDE_Page.selectsendmethod();
 		//SharedDriver.pageContainer.vendor_JDE_Page.selectSendMethod();		
 		SharedDriver.pageContainer.vendorPage.clickLocalAction_Local();
