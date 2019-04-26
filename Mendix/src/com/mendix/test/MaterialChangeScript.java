@@ -30,8 +30,7 @@ public class MaterialChangeScript {
 		//SharedDriver.pageContainer.materialApprovalPage.submitRequestOkBtnClick();
 		SharedDriver.pageContainer.material_Change_Page.clickEditCheckBox();
 		SharedDriver.pageContainer.material_Change_Page.clickEditbutton();
-	}
-	
+	}	
 	@Test(dataProvider="Process_Information_Check",dataProviderClass=staticProviderClass.class)
 	public void Material_Change_Syndication_Check_JDE(Map<String,String> dataMap) throws InterruptedException, FileNotFoundException, IOException 
 	{

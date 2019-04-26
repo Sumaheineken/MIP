@@ -301,8 +301,7 @@ public class MaterialJDEScript {
 		SharedDriver.pageContainer.materialPage.getRequestId_CreateNew();
 		SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
 		
-	}
-	
+	}	
 	
 	@Test(dataProvider="CreateMaterial_Fill_In",dataProviderClass=staticProviderClass.class)
 	public void Material_JDE_Save_As_Draft(Map<String,String> dataMap) throws InterruptedException, FileNotFoundException, IOException, AWTException
