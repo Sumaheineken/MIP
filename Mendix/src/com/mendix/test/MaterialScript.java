@@ -37,7 +37,6 @@ public class MaterialScript {
 		SharedDriver.pageContainer.materialPage.createButtonClick();
 
 	}
-
    @Test(dataProvider = "CreateMaterial_Fill_In", dataProviderClass = staticProviderClass.class)
 	public void Material_Create_Fill_In_Data(Map<String, String> dataMap)
 			throws InterruptedException, FileNotFoundException, IOException {

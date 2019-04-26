@@ -256,9 +256,9 @@ public class MaterialJDEScript {
 	public void Material_Remove_Plant_Validate_LocalData_JDE() throws InterruptedException, FileNotFoundException, IOException, AWTException 
 	{
 		SharedDriver.pageContainer.materialNavPage.enterLocalData();
-//		SharedDriver.pageContainer.materialJdePage.clickAddPlantData();
+		SharedDriver.pageContainer.materialJdePage.clickAddPlantData();
 		//SharedDriver.pageContainer.materialJdePage.SelectingPlant();
-		SharedDriver.pageContainer.materialJdePage.RemovePlant();
+		//SharedDriver.pageContainer.materialJdePage.RemovePlant();
 		//SharedDriver.pageContainer.materialNavPage.clickLocalAction();
 		SharedDriver.pageContainer.materialNavPage.clickValidatLocalRequest();
 		SharedDriver.pageContainer.materialNavPage.submitGlobalLocalRequestTest();
@@ -279,8 +279,8 @@ public class MaterialJDEScript {
 		SharedDriver.pageContainer.materialJdePage.selectLotProcessType(dataMap.get("Lot Process Type"));
 		SharedDriver.pageContainer.materialJdePage.selectLotExpiratonDateCalculationMethod(dataMap.get("Lot Expiration Date Cal Method"));
 		SharedDriver.pageContainer.materialJdePage.selectMasterPlanningFamily(dataMap.get("Master Planning Family"));
-		SharedDriver.pageContainer.materialJdePage.selectPlanningCode(dataMap.get("Planning Code"));		
-		SharedDriver.pageContainer.materialNavPage.clickLocalAction();
+		SharedDriver.pageContainer.materialJdePage.selectPlanningCode(dataMap.get("Planning Code"));
+	    SharedDriver.pageContainer.materialNavPage.clickLocalAction();
 		SharedDriver.pageContainer.materialNavPage.clickValidateLocalData_Planning();
 		SharedDriver.pageContainer.materialNavPage.clickSaveButton();
 		/********************Edit Finance Data************************************************/
@@ -292,14 +292,16 @@ public class MaterialJDEScript {
 		SharedDriver.pageContainer.materialNavPage.clickLocalAction();
 		SharedDriver.pageContainer.materialNavPage.clickValidateLocalData_Planning();
 		SharedDriver.pageContainer.materialNavPage.clickSaveButton();
-		SharedDriver.pageContainer.materialNavPage.enterGlobalData();
+		SharedDriver.pageContainer.materialNavPage.clickLocalAction();
 		SharedDriver.pageContainer.materialNavPage.clickValidatLocalRequest();
+		SharedDriver.pageContainer.materialNavPage.enterGlobalData();
+		SharedDriver.pageContainer.materialPage.duplicateCheckButton();
+		SharedDriver.pageContainer.materialPage.duplicateCheck_New();		
 		SharedDriver.pageContainer.materialNavPage.submitGlobalLocalRequestTest();
 		SharedDriver.pageContainer.materialPage.getRequestId_CreateNew();
-		SharedDriver.pageContainer.materialApprovalPage.submitRequestOkButtonClick();
+		SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
 		
-	}
-	
+	}	
 	
 	@Test(dataProvider="CreateMaterial_Fill_In",dataProviderClass=staticProviderClass.class)
 	public void Material_JDE_Save_As_Draft(Map<String,String> dataMap) throws InterruptedException, FileNotFoundException, IOException, AWTException

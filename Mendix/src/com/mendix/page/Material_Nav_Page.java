@@ -168,7 +168,7 @@ public class Material_Nav_Page{
 		//By.xpath(".//*[@id='mxui_widget_Progress_0']/div[2]"));
 		Sync.waitForSeconds(Constants.WAIT_3);
 		Sync.waitForObject(driver, textLocalData);
-		Button.click("Local Data", textLocalData);
+		Button.jsclick("Click on Local Data",textLocalData , driver);
 		// Sync.waitForObject(driver, BtnAddPlantData);
 		/* return Button.click("Click Edit button", BtnAddPlantData); */
 
@@ -178,8 +178,8 @@ public class Material_Nav_Page{
 		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[text()='Global Data']")));
 		Sync.waitForSeconds(Constants.WAIT_6);
 
-		Sync.waitUntilObjectDisappears(driver, "Waiting of Create page to Load",
-				By.xpath(".//*[@id='mxui_widget_Progress_0']/div[2]"));
+		/*Sync.waitUntilObjectDisappears(driver, "Waiting of Create page to Load",
+				By.xpath(".//*[@id='mxui_widget_Progress_0']/div[2]"));*/
 		//WebDriverWait wait1 = new WebDriverWait(driver, 80);
 		//wait1.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[text()='Global Data']")));
 		if(Button.verifyObject(btnGlobalData)) {

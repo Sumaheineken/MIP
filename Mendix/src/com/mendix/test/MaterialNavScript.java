@@ -85,7 +85,6 @@ public class MaterialNavScript {
 		SharedDriver.pageContainer.materialPage.getRequestId();
 		SharedDriver.pageContainer.materialApprovalPage.submitRequestOkBtnClick();
 	}
-
 	@Test(dataProvider = "Process_Information_Check", dataProviderClass = staticProviderClass.class)
 	public void Process_Information_Check_Global(Map<String, String> dataMap)
 			throws InterruptedException, FileNotFoundException, IOException {
@@ -317,12 +316,27 @@ public class MaterialNavScript {
 
 	}
 	@Test(dataProvider="Process_Information_Check",dataProviderClass=staticProviderClass.class)
-	public void Material_LocalData_Submit_LDR(Map<String,String> dataMap) throws InterruptedException, FileNotFoundException, IOException 
+	public void Material_Global_LocalData_Submit_LDR(Map<String,String> dataMap) throws InterruptedException, FileNotFoundException, IOException 
 	{
 		Assert.assertTrue(SharedDriver.pageContainer.homePage.navigateToWorkflow());
 		SharedDriver.pageContainer.materialPage.switchToPopup();
 		SharedDriver.pageContainer.materialApprovalPage.reqIdSearchMyTasks(dataMap.get("RequestId"));
 		
+		SharedDriver.pageContainer.materialApprovalPage.approvalBtnClick_Local();
+		SharedDriver.pageContainer.materialPage.duplicateCheckButton();
+		SharedDriver.pageContainer.materialPage.duplicateCheck_New();
+		SharedDriver.pageContainer.materialPage.submitGlobalRequestExtend();
+		SharedDriver.pageContainer.materialNavPage.clickValidatLocalRequest();
+		SharedDriver.pageContainer.materialNavPage.submitLocalRequest();
+		SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
+
+	}
+	@Test(dataProvider="Process_Information_Check",dataProviderClass=staticProviderClass.class)
+	public void Material_LocalData_Submit_LDR(Map<String,String> dataMap) throws InterruptedException, FileNotFoundException, IOException 
+	{
+		Assert.assertTrue(SharedDriver.pageContainer.homePage.navigateToWorkflow());
+		SharedDriver.pageContainer.materialPage.switchToPopup();
+		SharedDriver.pageContainer.materialApprovalPage.reqIdSearchMyTasks(dataMap.get("RequestId"));		
 		SharedDriver.pageContainer.materialApprovalPage.approvalBtnClick_Local();
 		
 		SharedDriver.pageContainer.materialNavPage.submitLocalRequest();
