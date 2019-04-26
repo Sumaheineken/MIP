@@ -297,7 +297,7 @@ public class MaterialJDEScript {
 		SharedDriver.pageContainer.materialNavPage.enterGlobalData();
 		SharedDriver.pageContainer.materialPage.duplicateCheckButton();
 		SharedDriver.pageContainer.materialPage.duplicateCheck_New();		
-		SharedDriver.pageContainer.materialNavPage.submitGlobalLocalRequestTest();
+		//SharedDriver.pageContainer.materialNavPage.submitGlobalLocalRequestTest();
 		SharedDriver.pageContainer.materialPage.getRequestId_CreateNew();
 		SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
 		
