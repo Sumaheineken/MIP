@@ -8,7 +8,9 @@ import java.util.Map;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import com.mendix.tool.Constants;
 import com.mendix.tool.SharedDriver;
+import com.mendix.tool.Sync;
 import com.mendix.util.DataProviderUtil.staticProviderClass;
 import com.mendix.page.VendorPage;
 
@@ -21,8 +23,23 @@ public class Vendor_JDE_Script {
 
 
 		SharedDriver.pageContainer.vendor_JDE_Page.enterLocalData();
-		SharedDriver.pageContainer.vendor_JDE_Page.clickAddPlantData();
+		SharedDriver.pageContainer.vendor_JDE_Page.BtnAddPlantData();
 		SharedDriver.pageContainer.vendor_JDE_Page.selectAdjustmentSchedule();
+		//SharedDriver.pageContainer.vendor_JDE_Page.selectSendMethod();		
+		SharedDriver.pageContainer.vendorPage.clickLocalAction_Local();
+		SharedDriver.pageContainer.vendor_JDE_Page.clickValidatLocalData();		
+		SharedDriver.pageContainer.vendor_JDE_Page.clickPlanningSaveButton();
+
+	}
+	@Test(dataProvider="Vendor_Create_Global_Disable_Bank_and_LocalData",dataProviderClass=staticProviderClass.class)
+	public void Vendor_Change_Fill_In_Data_JDE_Local_Purchasing(Map<String,String> dataMap) throws InterruptedException, FileNotFoundException, IOException, AWTException 
+	{
+
+
+		SharedDriver.pageContainer.vendor_JDE_Page.enterLocalData();
+		SharedDriver.pageContainer.vendor_JDE_Page.Btneditinpurchansing();
+		SharedDriver.pageContainer.vendor_JDE_Page.BtneditPlantData();
+		SharedDriver.pageContainer.vendor_JDE_Page.selectsendmethod();
 		//SharedDriver.pageContainer.vendor_JDE_Page.selectSendMethod();		
 		SharedDriver.pageContainer.vendorPage.clickLocalAction_Local();
 		SharedDriver.pageContainer.vendor_JDE_Page.clickValidatLocalData();		
@@ -63,7 +80,40 @@ public class Vendor_JDE_Script {
 		
 
 	}
+	@Test(dataProvider="Vendor_Create_Global_Disable_Bank_and_LocalData",dataProviderClass=staticProviderClass.class)
+	public void Vendor_Change_Fill_In_Data_JDE_Local_Finance(Map<String,String> dataMap) throws InterruptedException, FileNotFoundException, IOException, AWTException 
+	{
 
+		SharedDriver.pageContainer.vendor_JDE_Page.enterLocalData();
+		SharedDriver.pageContainer.vendor_JDE_Page.clickFinancetab();
+		SharedDriver.pageContainer.vendor_JDE_Page.clickeditFinanceData();
+		
+		SharedDriver.pageContainer.vendor_JDE_Page.selectABAmountCurrencychange();
+		SharedDriver.pageContainer.vendor_JDE_Page.selectPaymentTermschange();
+		SharedDriver.pageContainer.vendor_JDE_Page.selectTaxRateAreachange();
+		SharedDriver.pageContainer.vendor_JDE_Page.selectPaymentCreationchange();
+		SharedDriver.pageContainer.vendor_JDE_Page.selectHoldPayment();
+		SharedDriver.pageContainer.vendor_JDE_Page.selectGlClass();
+		SharedDriver.pageContainer.vendor_JDE_Page.selectMvmtTypeInvoicePayment2();
+		SharedDriver.pageContainer.vendor_JDE_Page.selectMvmtTypeInvoicePayment4();
+		SharedDriver.pageContainer.vendor_JDE_Page.selectDefaultCurrency();
+		SharedDriver.pageContainer.vendor_JDE_Page.selectTaxExplCode();
+		SharedDriver.pageContainer.vendor_JDE_Page.selectPaymentMethods();
+		SharedDriver.pageContainer.vendor_JDE_Page.selectBankBearer();
+		SharedDriver.pageContainer.vendorPage.clickLocalAction_Local();
+		SharedDriver.pageContainer.vendor_JDE_Page.clickValidatLocalData();
+		SharedDriver.pageContainer.vendor_JDE_Page.clickPlanningSaveButton();
+		SharedDriver.pageContainer.vendorPage.clickLocalAction_Local();
+		SharedDriver.pageContainer.vendor_JDE_Page.submitLocal();
+		Sync.waitForSeconds(Constants.WAIT_10);
+		SharedDriver.pageContainer.materialPage.clickOkToHandlePopup();
+				SharedDriver.pageContainer.materialPage.duplicateCheck_New();
+		SharedDriver.pageContainer.vendorPage.getRequestId_Vendor();
+//		SharedDriver.pageContainer.materialPage.getRequestId_Create();
+		
+
+	}
+	
 	@Test(dataProvider="Process_Information_Check",dataProviderClass=staticProviderClass.class)
 	public void Vendor_Create_Review_Global_Data_Reject_LDS(Map<String,String> dataMap) throws InterruptedException, FileNotFoundException, IOException, AWTException 
 	{
