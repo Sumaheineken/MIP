@@ -52,7 +52,7 @@ public class Material_JDE_Page {
 	@FindBy(how=How.XPATH, using="(.//*[@class='glyphicon glyphicon-edit'])[5]")
 	WebElement BtnEditPlantData;
 
-	@FindBy(how=How.XPATH, using="(.//*[@class='glyphicon glyphicon-new-window'])[6]")
+	@FindBy(how=How.XPATH, using="//*[text()='Finance']/../../../div/div[8]/div/div/div[2]/div[2]//*[text()='Add']")
 	WebElement BtnAddPlantData;
 	
 	@FindBy(how=How.XPATH, using="//*[text()='Finance']/../../../div/div[8]/div/div/div[2]/div[2]//*[text()='Edit']")
@@ -100,6 +100,7 @@ public class Material_JDE_Page {
 			Sync.waitForObject(driver, btnEditPlaning);
 			Button.click("Click on Edit Plant Data",btnEditPlaning);
 			Sync.waitForSeconds(Constants.WAIT_10);
+			Sync.waitForSeconds(Constants.WAIT_5);
 		}
 		else {
 			Sync.waitForSeconds(Constants.WAIT_6);
@@ -165,8 +166,10 @@ public class Material_JDE_Page {
 
 	public void selectStockingTypeLocal(String strValue) throws InterruptedException
 	{
-		Sync.waitForSeconds(Constants.WAIT_6);
-		Sync.waitForSeconds(Constants.WAIT_6);
+		Sync.waitForSeconds(Constants.WAIT_10);
+		Sync.waitForSeconds(Constants.WAIT_5);
+		
+	
 		WebElement stockingTypeDropdown =driver.findElement(By.xpath(".//*[text()='Stocking Type Local']/../div/div/select"));
 		if(DropDown.verifyObject(stockingTypeDropdown)) {
 			Sync.waitForObjectFluent(driver, stockingTypeDropdown);
@@ -174,7 +177,7 @@ public class Material_JDE_Page {
 			Button.click("Waiting for clicking on Stocking type Local", stockingTypeDropdown);			
 			Select stockingTypeLocaldropDown= new Select(stockingTypeDropdown);			
 			stockingTypeLocaldropDown.selectByVisibleText(strValue);//"P, Purchased"
-			Sync.waitForSeconds(Constants.WAIT_5);
+			Sync.waitForSeconds(Constants.WAIT_10);
 	  }
 	  else {
 		
@@ -195,15 +198,15 @@ public class Material_JDE_Page {
 
 	public void selectCommitmentDateMethod(String strValue) throws InterruptedException
 	{
-		Sync.waitForSeconds(Constants.WAIT_3);
+		Sync.waitForSeconds(Constants.WAIT_10);
 		WebElement commitmentDateMethod =driver.findElement(By.xpath(".//*[text()='Commitment Date Method']/../div/div/select"));
 		if(DropDown.verifyObject(commitmentDateMethod)) {
 			Sync.waitForObjectFluent(driver, commitmentDateMethod);
-			Sync.waitForSeconds(Constants.WAIT_3);
+			Sync.waitForSeconds(Constants.WAIT_5);
 			Button.click("Waiting for clicking on Commitment Date Method", commitmentDateMethod);			
 			Select commitmentDateMethoddropDown= new Select(commitmentDateMethod);
 			commitmentDateMethoddropDown.selectByVisibleText(strValue);//"3, Best Before Date"
-			Sync.waitForSeconds(Constants.WAIT_5);
+			Sync.waitForSeconds(Constants.WAIT_10);
 		}
 		else {
 			Sync.waitForObjectFluent(driver, commitmentDateMethod);
@@ -222,7 +225,7 @@ public class Material_JDE_Page {
 
 	public void selectLotCalculationAlgorithm(String strValue) throws InterruptedException
 	{
-		Sync.waitForSeconds(Constants.WAIT_3);
+		Sync.waitForSeconds(Constants.WAIT_10);
 		WebElement  lotCalculationAlgorithm=driver.findElement(By.xpath(".//*[text()='Lot Calculation Algorithm']/../div/div/select"));
 		if(DropDown.verifyObject(lotCalculationAlgorithm)) {
 			Sync.waitForSeconds(Constants.WAIT_3);
@@ -230,7 +233,7 @@ public class Material_JDE_Page {
 			Button.click("Waiting for clicking on Lot Caliculation Algorithm", lotCalculationAlgorithm);			
 			Select lotCalculationAlgorithmdropDown= new Select(lotCalculationAlgorithm);
 			lotCalculationAlgorithmdropDown.selectByVisibleText(strValue);//"01, Bulk Product Related Materials"
-			Sync.waitForSeconds(Constants.WAIT_2);
+			Sync.waitForSeconds(Constants.WAIT_10);
 		}
 		else {
 			Sync.waitForObjectFluent(driver, lotCalculationAlgorithm);
@@ -248,7 +251,7 @@ public class Material_JDE_Page {
 	
 	public void selectLotProcessType(String strValue) throws InterruptedException
 	{
-		Sync.waitForSeconds(Constants.WAIT_3);
+		Sync.waitForSeconds(Constants.WAIT_10);
 		WebElement lotProcessType =driver.findElement(By.xpath(".//*[text()='Lot Process Type']/../div/div/select"));
 		if(DropDown.verifyObject(lotProcessType)) {
 			Sync.waitForSeconds(Constants.WAIT_3);
@@ -256,7 +259,7 @@ public class Material_JDE_Page {
 			Button.click("Waiting for clicking on Lot Process Type", lotProcessType);			
 			Select lotProcessTypedropDown= new Select(lotProcessType);
 			lotProcessTypedropDown.selectByVisibleText(strValue);//"3, Lots must be Assigned Manually"
-			Sync.waitForSeconds(Constants.WAIT_2);
+			Sync.waitForSeconds(Constants.WAIT_10);
 		}
 		else
 		 {
@@ -273,7 +276,7 @@ public class Material_JDE_Page {
 	}
 	public void selectLotExpiratonDateCalculationMethod(String strValue) throws InterruptedException
 	{
-		Sync.waitForSeconds(Constants.WAIT_3);
+		Sync.waitForSeconds(Constants.WAIT_10);
 		WebElement  LotExpiratonDateCalculationMethod=driver.findElement(By.xpath(".//*[text()='Lot Expiraton Date Calculation Method']/../div/div/select"));
 		if(DropDown.verifyObject(LotExpiratonDateCalculationMethod)) {
 			Sync.waitForObjectFluent(driver,LotExpiratonDateCalculationMethod);
@@ -281,7 +284,7 @@ public class Material_JDE_Page {
 			Button.click("Waiting for clicking on Lot Expiraton Date Calculation Method ", LotExpiratonDateCalculationMethod);			
 			Select lotExpiratonDateCalculationMethoddropDown= new Select(LotExpiratonDateCalculationMethod);
 			lotExpiratonDateCalculationMethoddropDown.selectByVisibleText(strValue);//"1, On Hand Date"
-			Sync.waitForSeconds(Constants.WAIT_2);			
+			Sync.waitForSeconds(Constants.WAIT_10);			
 		}
 		else {
 			Sync.waitForObjectFluent(driver,LotExpiratonDateCalculationMethod);
@@ -297,7 +300,7 @@ public class Material_JDE_Page {
 	}
 	public void selectMasterPlanningFamily(String strValue) throws InterruptedException
 	{
-		Sync.waitForSeconds(Constants.WAIT_3);
+		Sync.waitForSeconds(Constants.WAIT_10);
 		WebElement  MasterPlanningFamily=driver.findElement(By.xpath(".//*[text()='Master Planning Family']/../div/div/select"));
 		if(DropDown.verifyObject(MasterPlanningFamily)) {
 			Sync.waitForObjectFluent(driver, MasterPlanningFamily);
@@ -305,7 +308,7 @@ public class Material_JDE_Page {
 			Button.click("Waiting for clicking on Master Planning Family", MasterPlanningFamily);			
 			Select masterPlanningFamilydropDown= new Select(MasterPlanningFamily);
 			masterPlanningFamilydropDown.selectByVisibleText(strValue);//"097, Typ. 09 - S&OP - MRP"
-			Sync.waitForSeconds(Constants.WAIT_2);
+			Sync.waitForSeconds(Constants.WAIT_10);
 		}
 		else {
 			Sync.waitForObjectFluent(driver, MasterPlanningFamily);
@@ -324,7 +327,7 @@ public class Material_JDE_Page {
 	
 	public void selectPlanningCode(String strValue) throws InterruptedException
 	{
-		Sync.waitForSeconds(Constants.WAIT_3);
+		Sync.waitForSeconds(Constants.WAIT_10);
 		WebElement PlanningCode =driver.findElement(By.xpath(".//*[text()='Planning Code']/../div/div/select"));
 		if(DropDown.verifyObject(PlanningCode)) {
 			Sync.waitForSeconds(Constants.WAIT_3);
@@ -332,7 +335,7 @@ public class Material_JDE_Page {
 			Button.click("Waiting for clicking on Planning Code", PlanningCode);			
 			Select planningCodedropDown= new Select(PlanningCode);
 			planningCodedropDown.selectByVisibleText(strValue);//"0, Not Planned"
-			Sync.waitForSeconds(Constants.WAIT_5);
+			Sync.waitForSeconds(Constants.WAIT_10);
 		}
 		else {
 			Sync.waitForObjectFluent(driver, PlanningCode);
@@ -708,8 +711,8 @@ public class Material_JDE_Page {
 		WebDriverWait wait = new WebDriverWait(driver,100);
 		Sync.waitForSeconds(Constants.WAIT_5);
 		Sync.waitForSeconds(Constants.WAIT_2);
-		Sync.waitForElementToBeClickable(driver, driver.findElement(By.xpath("(.//*[text()='Remove'])[9]")));
-		Button.click("Click Remove Button",driver.findElement(By.xpath("(.//*[text()='Remove'])[9]")));
+		Sync.waitForElementToBeClickable(driver, driver.findElement(By.xpath("//*[text()='Finance']/../../../div/div[8]/div/div/div[2]/div[2]//*[text()='Remove']")));
+		Button.click("Click Remove Button",driver.findElement(By.xpath("//*[text()='Finance']/../../../div/div[8]/div/div/div[2]/div[2]//*[text()='Remove']")));
 		System.out.println("plant get removed");
 	}
 	public void selectLocationCode()

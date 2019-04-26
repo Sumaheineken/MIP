@@ -41,18 +41,47 @@
 			</class>
 		</classes>
 	</test>
-	<test name="Process_Information_Check_LDS">
+	<test name="Process_Information_Check">
 		<classes>
-			<class name="com.mendix.test.MaterialNavScript">
+			<class name="com.mendix.test.MaterialScript">
 				<methods>
-					<include name="Process_Information_Check_Local" />
+					<include name="Process_Information_Check" />
 				</methods>
 			</class>
 		</classes>
 	</test>
-	<test name="HeiPort_Login_LDS">
+	<test name="HeiPort_Login_GDA">
 		<classes>
 			<class name="com.mendix.test.LoginScript">
+				<methods>
+					<include name="openBrowser" />
+					<include name="loginAsGDA" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	<test name="Material_Data_With_Reject_GDA">
+		<classes>
+			<class name="com.mendix.test.MaterialScript">
+				<methods>
+					<include name="Material_Data_With_Reject_GDA" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	<test name="Process_Information_Check_GDA">
+		<classes>
+			<class name="com.mendix.test.MaterialScript">
+				<methods>
+					<include name="Process_Information_Check" />
+				</methods>
+			</class>
+		</classes>
+	</test> 	
+	
+	<test name="HeiPort_Login_LDS">
+		<classes>
+		<class name="com.mendix.test.LoginScript">
 				<methods>
 					<include name="openBrowser" />
 					<include name="loginAsSGLDS" />
@@ -70,16 +99,16 @@
 			</class>
 		</classes>
 	</test>
-	<test name="Process_Information_Check_LBDA">
+	<test name="Process_Information_CheckReject__LDS">
 		<classes>
-			<class name="com.mendix.test.MaterialNavScript">
+			<class name="com.mendix.test.MaterialScript">
 				<methods>
-					<include name="Process_Information_Check_Local" />
+					<include name="Process_Information_Check" />
 				</methods>
 			</class>
 		</classes>
-	</test>
-	<test name="HeiPort_Login_LDR">
+	</test> 	
+	<test name="HeiPort_Login_LDR_Resubmit">
 		<classes>
 			<class name="com.mendix.test.LoginScript">
 				<methods>
@@ -94,7 +123,7 @@
 			<class name="com.mendix.test.MaterialNavScript">
 				<methods>
 					<include
-						name="Material_LocalData_Submit_LDR" />
+						name="Material_Global_LocalData_Submit_LDR" />
 				</methods>
 			</class>
 		</classes>
@@ -109,7 +138,7 @@
 		</classes>
 	</test> 
 	
-	<test name="HeiPort_Login_LDS">
+	<test name="HeiPort_Login_LDS_Approve">
 		<classes>
 			<class name="com.mendix.test.LoginScript">
 				<methods>
@@ -131,14 +160,14 @@
 	</test>
 	<test name="Process_Information_Check_LDS">
 		<classes>
-			<class name="com.mendix.test.MaterialNavScript">
+			<class name="com.mendix.test.MaterialScript">
 				<methods>
-					<include name="Process_Information_Check_Local" />
+					<include name="Process_Information_Check" />
 				</methods>
 			</class>
 		</classes>
 	</test>
-	 <test name="HeiPort_Login_GDA">
+	 <test name="HeiPort_Login_GDA_Approve">
 		<classes>
 			<class name="com.mendix.test.LoginScript">
 				<methods>
@@ -153,7 +182,7 @@
 			<class name="com.mendix.test.MaterialScript">
 				<methods>
 					<include
-						name="Material_Create_Review_Global_Data_Approve_GDA" />
+						name="Material_Create_Review_Global_Data_Approve_GDA_Duplicate" />
 				</methods>
 			</class>
 		</classes>
