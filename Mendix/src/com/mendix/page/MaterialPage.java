@@ -1620,6 +1620,7 @@ public class MaterialPage {
 		Sync.waitForObject(driver, btnDiscardCreate);
 		Textbox.click("Click on discard button in locl action", btnDiscardCreate);
 		Sync.waitForSeconds(Constants.WAIT_5);
+		Button.jsclick("Click Proceed button", btnProceed, driver);
 		Sync.waitForObject(driver, btnOK);
 		Button.click("Click On OK button", btnOK);
 		Sync.waitForSeconds(Constants.WAIT_5);
