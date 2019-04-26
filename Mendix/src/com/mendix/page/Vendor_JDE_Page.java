@@ -82,14 +82,24 @@ public class Vendor_JDE_Page {
 
 	@FindBy(how=How.XPATH, using="//*[text()='JDE Purchasing']/../../../div/div[3]/div/div/div[2]/div[2]/div[2]/button[1]")
 	WebElement BtnAddPlantData;
+	@FindBy(how=How.XPATH, using="//*[text()='JDE Purchasing']/../../../div/div[3]/div/div/div[2]/div[2]/div[2]/button[2]")
+	WebElement BtneditPlantData;
 	@FindBy(how=How.XPATH, using="//*[text()='JDE Purchasing']/../../../div/div[3]/div/div/div[2]/div[2]/div[2]/button[1]")
 	WebElement BtnAddBanknData;
 
 	@FindBy(how=How.XPATH, using="//*[text()='JDE Finance']/../../../div/div[4]/div/div/div[2]/div[2]/div[2]/button[1]")
 	WebElement BtnAddFinanceData;
+	@FindBy(how=How.XPATH, using="//*[text()='JDE Finance']/../../../div/div[4]/div/div/div[2]/div[2]/div[2]/button[2]")
+	WebElement BtneditFinanceData;
+	@FindBy(how=How.XPATH, using="//*[text()='No']")
+	WebElement Btneditinpurchansing;
+	
 
 	@FindBy(how=How.CSS, using="div[class^='mx-groupbox-body']>div:nth-child(1) >div>div:nth-of-type(1) >div:nth-child(1) >div:nth-of-type(1) >div:nth-of-type(1) >div:nth-of-type(1)>div >select")
 	WebElement selectAdjustmentSchedule;
+	
+	@FindBy(how=How.XPATH, using="//*[text()='Send Method']/../div/div/select")
+	WebElement selectsendmethod;
 	
 	@FindBy(how=How.XPATH, using="//*[text()='Send Method']/../div/div/select")
 	WebElement adjustmentSchedule;
@@ -279,12 +289,20 @@ public class Vendor_JDE_Page {
 	}
 
 
-	public boolean clickAddPlantData() {
+
+	public boolean BtneditPlantData() {
+		Sync.waitForSeconds(Constants.WAIT_10);
+		Sync.waitForObject(driver, BtneditPlantData);
+		return Button.click("Click Edit button", BtneditPlantData);
+
+	}
+	public boolean BtnAddPlantData() {
 		Sync.waitForSeconds(Constants.WAIT_10);
 		Sync.waitForObject(driver, BtnAddPlantData);
 		return Button.click("Click Edit button", BtnAddPlantData);
 
 	}
+	
 	public boolean textAddclick() {
 		Sync.waitForSeconds(Constants.WAIT_10);
 		Sync.waitForObject(driver, textAddclick);
@@ -366,6 +384,13 @@ public class Vendor_JDE_Page {
 		return Button.click("Click selectbe button", selectbe);
 
 	}
+	public boolean Btneditinpurchansing() {
+		Sync.waitForSeconds(Constants.WAIT_10);
+		Sync.waitForObject(driver, Btneditinpurchansing);
+		return Button.click("Click Btneditinpurchansing button", Btneditinpurchansing);
+
+	}
+	
 	public boolean submitLocal() {
 Sync.waitForSeconds(Constants.WAIT_5);
 		
@@ -381,6 +406,13 @@ Sync.waitForSeconds(Constants.WAIT_5);
 
 		Sync.waitForObject(driver, BtnAddFinanceData);
 		return Button.click("Click BtnAddFinanceData", BtnAddFinanceData);
+		
+
+	}
+	public boolean clickeditFinanceData() {
+
+		Sync.waitForObject(driver, BtneditFinanceData);
+		return Button.click("Click BtnAddFinanceData", BtneditFinanceData);
 		
 
 	}
@@ -434,6 +466,36 @@ Sync.waitForSeconds(Constants.WAIT_5);
 
 
 	}
+	public void selectAdjustmentSchedulechange() throws AWTException
+	{
+		Sync.waitForSeconds(Constants.WAIT_5);
+		Sync.waitForSeconds(Constants.WAIT_5);
+		
+		Button.click("Select Adjustment Schedule",selectAdjustmentSchedule);
+		Select option= new Select(driver.findElement(By.xpath("//*[text()='Adjustment Schedule']/../div/div/select")));
+		
+		option.selectByIndex(1);
+
+		Sync.waitForSeconds(Constants.WAIT_5);
+
+
+	}
+	public void selectsendmethod() throws AWTException
+	{
+		Sync.waitForSeconds(Constants.WAIT_5);
+		Sync.waitForSeconds(Constants.WAIT_5);
+		
+		Button.click("Select send Schedule",selectsendmethod);
+		Select option= new Select(driver.findElement(By.xpath("//*[text()='Send Method']/../div/div/select")));
+		
+		option.selectByIndex(2);
+
+		Sync.waitForSeconds(Constants.WAIT_5);
+
+
+	}
+
+
 	public void selectReconciliation(String strValue)
 	{
 		Sync.waitForSeconds(Constants.WAIT_10);
@@ -760,19 +822,14 @@ Sync.waitForSeconds(Constants.WAIT_5);
 		option.selectByIndex(1);
 		Sync.waitForSeconds(Constants.WAIT_5);
 
-	/*	List <WebElement> elementCount = option.getOptions();
-		int iSize = elementCount.size();
-
-		for(int i =0; i<iSize ; i++)
-		{
-			String sValue = elementCount.get(i).getText();
-			if(sValue.equals("811, Sales / Purchases"))
-			{
-				option.selectByIndex(i);
-				break;
-			}
-		}*/
-
+	}
+	public void selectMvmtTypeInvoicePayment1change()
+	{
+		Sync.waitForSeconds(Constants.WAIT_6);
+		Button.click("Select Invoce Payment1", selectMvmtTypeInvoicePayment1);
+		Select option= new Select(selectMvmtTypeInvoicePayment1);
+		option.selectByIndex(2);
+		Sync.waitForSeconds(Constants.WAIT_5);
 
 	}
 
@@ -784,21 +841,22 @@ Sync.waitForSeconds(Constants.WAIT_5);
 		option.selectByIndex(1);
 		Sync.waitForSeconds(Constants.WAIT_5);
 
-	/*	List <WebElement> elementCount = option.getOptions();
-		int iSize = elementCount.size();
+	
 
-		for(int i =0; i<iSize ; i++)
-		{
-			String sValue = elementCount.get(i).getText();
-			if(sValue.equals("902, Proceeds & Receipts"))
-			{
-				option.selectByIndex(i);
-				break;
-			}
-		}*/
+	}
+	public void selectMvmtTypeInvoicePayment3change()
+	{
+		Sync.waitForSeconds(Constants.WAIT_5);
+		Button.click("Select Invoce Payment1", selectMvmtTypeInvoicePayment3);
+		Select option= new Select(selectMvmtTypeInvoicePayment3);
+		option.selectByIndex(2);
+		Sync.waitForSeconds(Constants.WAIT_5);
+
+	
 
 
 	}
+
 
 	public void selectABAmountCurrency()
 	{
@@ -808,19 +866,18 @@ Sync.waitForSeconds(Constants.WAIT_5);
 		option.selectByVisibleText("SGD, Singapore Dollar");
 		Sync.waitForSeconds(Constants.WAIT_5);
 
-		/*List <WebElement> elementCount = option.getOptions();
-		int iSize = elementCount.size();
+		
 
-		for(int i =0; i<iSize ; i++)
-		{
-			String sValue = elementCount.get(i).getText();
-			if(sValue.equals("USD, United States Dollar"))
-			{
-				option.selectByIndex(i);
-				break;
-			}
-		}*/
+	}
+	public void selectABAmountCurrencychange()
+	{
+		Sync.waitForSeconds(Constants.WAIT_5);
+		Button.click("Select AB Amount Accuracy",selectABAmountCurrency);
+		Select option= new Select(selectABAmountCurrency);
+		option.selectByVisibleText("SGD, Singapore Dollar");
+		Sync.waitForSeconds(Constants.WAIT_5);
 
+		
 
 	}
 
@@ -833,19 +890,18 @@ Sync.waitForSeconds(Constants.WAIT_5);
 		option.selectByIndex(1);
 		Sync.waitForSeconds(Constants.WAIT_5);
 
-	/*	List <WebElement> elementCount = option.getOptions();
-		int iSize = elementCount.size();
+	
 
-		for(int i =0; i<iSize ; i++)
-		{
-			String sValue = elementCount.get(i).getText();
-			if(sValue.equals("V000, Pay immediately"))
-			{
-				option.selectByIndex(i);
-				break;
-			}
-		}*/
+	}
+	public void selectPaymentTermschange()
+	{
+		Sync.waitForSeconds(Constants.WAIT_5);
+		Button.click("Select Payment Terms",selectPaymentTerms);
+		Select option= new Select(selectPaymentTerms);
+		option.selectByIndex(2);
+		Sync.waitForSeconds(Constants.WAIT_5);
 
+	
 
 	}
 
@@ -857,21 +913,21 @@ Sync.waitForSeconds(Constants.WAIT_5);
 		option.selectByIndex(2);
 		Sync.waitForSeconds(Constants.WAIT_5);
 
-		/*List <WebElement> elementCount = option.getOptions();
-		int iSize = elementCount.size();
-
-		for(int i =0; i<iSize ; i++)
-		{
-			String sValue = elementCount.get(i).getText();
-			if(sValue.equals("KHVAT10, Cambodia VAT 10%"))
-			{
-				option.selectByIndex(i);
-				break;
-			}
-		}*/
-
+		
 
 	}
+	public void selectTaxRateAreachange()
+	{
+		Sync.waitForSeconds(Constants.WAIT_5);
+		Button.click("Click on Text Area", selectTaxRateArea);
+		Select option= new Select(selectTaxRateArea);
+		option.selectByIndex(1);
+		Sync.waitForSeconds(Constants.WAIT_5);
+
+		
+
+	}
+
 
 	public void selectPaymentCreation()
 	{
@@ -881,21 +937,19 @@ Sync.waitForSeconds(Constants.WAIT_5);
 		option.selectByIndex(1);
 		Sync.waitForSeconds(Constants.WAIT_5);
 
-	/*	List <WebElement> elementCount = option.getOptions();
-		int iSize = elementCount.size();
-
-		for(int i =0; i<iSize ; i++)
-		{
-			String sValue = elementCount.get(i).getText();
-			if(sValue.equals("N, By Supplier"))
-			{
-				option.selectByIndex(i);
-				break;
-			}
-		}*/
-
-
+	
 	}
+	public void selectPaymentCreationchange()
+	{
+		Sync.waitForSeconds(Constants.WAIT_5);
+		Button.click("Click on Payment Creation", selectPaymentCreation);
+		Select option= new Select(selectPaymentCreation);
+		option.selectByIndex(2);
+		Sync.waitForSeconds(Constants.WAIT_5);
+
+	
+	}
+
 
 	public void selectHoldPayment()
 	{
@@ -903,22 +957,18 @@ Sync.waitForSeconds(Constants.WAIT_5);
 		Button.click("Click on Payment Creation", selectPaymentCreation);
 		Select option= new Select(selectHoldPayment);
 		option.selectByIndex(1);
-	/*	List <WebElement> elementCount = option.getOptions();
-		int iSize = elementCount.size();
-
-		for(int i =0; i<iSize ; i++)
-		{
-			String sValue = elementCount.get(i).getText();
-			if(sValue.equals("N, No"))
-			{
-				option.selectByIndex(i);
-				break;
-			}
-		}*/
-
+	
 
 	}
+	public void selectHoldPaymentchange()
+	{
+		Sync.waitForSeconds(Constants.WAIT_5);
+		Button.click("Click on Payment Creation", selectPaymentCreation);
+		Select option= new Select(selectHoldPayment);
+		option.selectByIndex(2);
+	
 
+	}
 	public void selectGlClass()
 	{
 		Sync.waitForSeconds(Constants.WAIT_5);
@@ -928,20 +978,20 @@ Sync.waitForSeconds(Constants.WAIT_5);
 		Sync.waitForSeconds(Constants.WAIT_5);
 		
 
-	/*	List <WebElement> elementCount = option.getOptions();
-		int iSize = elementCount.size();
-
-		for(int i =0; i<iSize ; i++)
-		{
-			String sValue = elementCount.get(i).getText();
-			if(sValue.equals("P001, A/P Trade 3 Party Supplier"))
-			{
-				option.selectByIndex(i);
-				break;
-			}
-		}*/
-
+	
 	}
+	public void selectGlClasschange()
+	{
+		Sync.waitForSeconds(Constants.WAIT_5);
+		Button.click("Click on GL Class", selectGlClass);
+		Select option= new Select(selectGlClass);
+		option.selectByIndex(2);
+		Sync.waitForSeconds(Constants.WAIT_5);
+		
+
+	
+	}
+
 
 	public void selectMvmtTypeInvoicePayment2()
 	{
