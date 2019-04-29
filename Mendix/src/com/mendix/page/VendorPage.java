@@ -61,6 +61,9 @@ public class VendorPage {
 
 	@FindBy(how = How.XPATH, using = "//a[contains(text(),'Vendors')]")
 	WebElement textVendor;
+	@FindBy(how = How.XPATH, using = "//*[text()=' Vendors']")
+	WebElement vendorname;
+
 
 	@FindBy(how = How.XPATH, using = "(//*[starts-with(text(),' Create')])[2]")
 	WebElement menuCreateVendor;
@@ -1039,7 +1042,7 @@ public class VendorPage {
 	}
 
 	public void clickLocalAction_Local() {
-		Sync.waitForSeconds(Constants.WAIT_3);
+		Sync.waitForSeconds(Constants.WAIT_6);
 		/*
 		 * WebElement waitElement = null; FluentWait<WebDriver> fwait = new
 		 * FluentWait<WebDriver>(driver) .withTimeout(Duration.ofMinutes(3))
