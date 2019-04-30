@@ -320,10 +320,10 @@ public class MaterialChangeScript {
 		Sync.waitForSeconds(Constants.WAIT_10);
 		System.out.println("Global Data Tab");
 		
-		SharedDriver.pageContainer.materialNavPage.clickGlobalDataButton();
+		SharedDriver.pageContainer.materialNavPage.switchToGlobal();
        SharedDriver.pageContainer.material_Change_Page.clickConfirmExtension();
        SharedDriver.pageContainer.materialPage.getRequestId_CreateNew();
-	   SharedDriver.pageContainer.materialApprovalPage.submitRequestOkButtonClick();
+	   SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
 	}
 
 	@Test(dataProvider="Process_Information_Check",dataProviderClass=staticProviderClass.class)

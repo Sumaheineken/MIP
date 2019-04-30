@@ -275,7 +275,7 @@ public class Material_Change_Page {
     }
     public void clickConfirmExtension() {
     	Sync.waitForSeconds(Constants.WAIT_5);
-    	WebDriverWait wait = new WebDriverWait(driver,100);
+    	WebDriverWait wait = new WebDriverWait(driver,30);
     	wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(".//*[text()='Confirm Extension']")));
     	//Sync.waitForSeconds(Constants.WAIT_1);
     	//Sync.waitForSeconds(Constants.WAIT_5);
