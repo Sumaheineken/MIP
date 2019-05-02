@@ -433,8 +433,8 @@ Sync.waitForSeconds(Constants.WAIT_5);
 		Sync.WaitForPageLoad(driver);
 		Sync.waitForSeconds(Constants.WAIT_6);
 		Sync.waitUntilObjectDisappears(driver, "Wait for Save button", By.xpath(".//*[@id='mxui_widget_Progress_0']/div[2]"));
-		Sync.waitForElementToBeClickable(driver, driver.findElement(By.cssSelector("div[id^='mxui_widget_TabContainer']:nth-child(1) > ul:nth-child(1) >li:nth-child(4)>a")));
-		Button.jsclick("Click Finance Tab", driver.findElement(By.cssSelector("div[id^='mxui_widget_TabContainer']:nth-child(1) > ul:nth-child(1) >li:nth-child(4)>a")), driver);
+		Sync.waitForElementToBeClickable(driver, driver.findElement(By.xpath("//*[text()='Finance']")));
+		Button.jsclick("Click Finance Tab", driver.findElement(By.xpath("//*[text()='Finance']")), driver);
 	}
 
 	public boolean clickEditFinanceData() {
