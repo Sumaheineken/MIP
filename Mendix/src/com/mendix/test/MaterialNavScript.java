@@ -326,9 +326,14 @@ public class MaterialNavScript {
 		SharedDriver.pageContainer.materialPage.duplicateCheckButton();
 		SharedDriver.pageContainer.materialPage.duplicateCheck_New();
 		SharedDriver.pageContainer.materialPage.submitGlobalRequestExtend();
-		SharedDriver.pageContainer.materialNavPage.clickValidatLocalRequest();
-		SharedDriver.pageContainer.materialNavPage.submitLocalRequest();
 		SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
+		
+		SharedDriver.pageContainer.materialApprovalPage.reqIdSearchMyTasks(dataMap.get("RequestId"));		
+		SharedDriver.pageContainer.materialApprovalPage.approvalBtnClick_Local();
+		
+		SharedDriver.pageContainer.materialNavPage.submitLocalRequest();
+		SharedDriver.pageContainer.materialApprovalPage.submitRequestOkButtonClick();
+
 
 	}
 	@Test(dataProvider="Process_Information_Check",dataProviderClass=staticProviderClass.class)
