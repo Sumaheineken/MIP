@@ -59,7 +59,9 @@ public class ProceesInfoPage {
     
 //    		{ get; private set;}
 
-	@FindBy(how=How.CSS, using="div[id^='mxui_widget_NumberInput_'][class^='mx-name-textBox2'] :nth-child(1)")
+//	@FindBy(how=How.CSS, using="div[id^='mxui_widget_NumberInput_'][class^='mx-name-textBox2'] :nth-child(1)")
+	//@FindBy(how=How.XPATH, using="//*[text()='Request ID']/../../td/div/input")
+	@FindBy(how=How.XPATH, using="//span[contains(text(),'Request ID')]/following::input[1]")
 	WebElement txtboxRequestId;
 
 	@FindBy(how=How.XPATH, using=".//*[@class='glyphicon glyphicon-search']")
@@ -217,7 +219,7 @@ public class ProceesInfoPage {
 //		Sync.waitForObject(driver, "Wait for the status to display", txtStatus);
 //		String state=driver.findElement(By.xpath(".//*[text()='"+strValue+"']/../../td[9]/div")).getText();
 //		System.out.println(state);
-		List<WebElement> states= driver.findElements(By.xpath(".//div[contains(@class,'searchResults')]/div[3]/div/table[2]/tbody/tr/td[9]"));
+		List<WebElement> states= driver.findElements(By.xpath(".//div[contains(@class,'searchResults')]/div[3]/div/table[2]/tbody/tr/td[10]"));
 		for(WebElement state:states) {
 			System.out.println("Request Id status details "+state.getText());						
 		}

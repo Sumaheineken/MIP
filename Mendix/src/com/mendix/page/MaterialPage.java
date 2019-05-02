@@ -407,7 +407,8 @@ public class MaterialPage {
 	@FindBy(how = How.XPATH, using = ".//button[text()='Submit Local Request']")
 	WebElement btnLocalRequest;
 
-	@FindBy(how = How.CSS, using = "div[id^='mxui_widget_NumberInput_'][class^='mx-name-textBox2'] :nth-child(1)")
+//	@FindBy(how = How.CSS, using = "div[id^='mxui_widget_NumberInput_'][class^='mx-name-textBox2'] :nth-child(1)")
+	@FindBy(how=How.XPATH, using="//*[text()='Request ID']/../../td/div/input")
 	WebElement txtboxRequestId;
 
 	// @FindBy(how=How.XPATH, using=".//*[text()='Global
@@ -2446,7 +2447,7 @@ public class MaterialPage {
 	public void getGlobalIdProcessInfo_Extend(String strValue) throws FileNotFoundException, IOException {
 		Sync.waitForSeconds(Constants.WAIT_3);
 
-		state = driver.findElement(By.xpath(".//div[contains(@class,'searchResults')]/div[3]/div/table[2]/tbody/tr[1]/td[9]/div")).getText();
+		state = driver.findElement(By.xpath(".//div[contains(@class,'searchResults')]/div[3]/div/table[2]/tbody/tr[1]/td[10]/div")).getText();
 
 		if (state.equalsIgnoreCase("Syndication") || state.equalsIgnoreCase("Completed")) {
 			System.out.println(state);
@@ -2458,7 +2459,7 @@ public class MaterialPage {
 			ExcelUtil.setCellData_New_GlobalId("TestPlan", "Global_ID", globalId);
 			System.out.println(globalId);
 		} else {
-			state = driver.findElement(By.xpath(".//div[contains(@class,'searchResults')]/div[3]/div/table[2]/tbody/tr[1]/td[9]/div")).getText();
+			state = driver.findElement(By.xpath(".//div[contains(@class,'searchResults')]/div[3]/div/table[2]/tbody/tr[1]/td[10]/div")).getText();
 			System.out.println(state);
 
 		}
@@ -2469,7 +2470,7 @@ public class MaterialPage {
 		Sync.waitForSeconds(Constants.WAIT_5);
 		//Sync.waitForObject(driver, driver.findElement(By.xpath("(.//*[text()='" + strValue + "']/../../td[9]/div)[1]")));
 		
-		List<WebElement> states= driver.findElements(By.xpath(".//div[contains(@class,'searchResults')]/div[3]/div/table[2]/tbody/tr/td[9]"));
+		List<WebElement> states= driver.findElements(By.xpath(".//div[contains(@class,'searchResults')]/div[3]/div/table[2]/tbody/tr/td[10]"));
 		for(WebElement state:states) {
 			System.out.println("Request Id status details "+state.getText());
 			SoftAssert assertSyndication = new SoftAssert();
@@ -2510,10 +2511,10 @@ public class MaterialPage {
 public void checkSyndicationDoneStatus(String strValue) throws InterruptedException {
 		
 	Sync.waitForSeconds(Constants.WAIT_6);
-	if(driver.findElements(By.xpath(".//div[contains(@class,'searchResults')]/div[3]/div/table[2]/tbody/tr/td[9]")).size()==2)
+	if(driver.findElements(By.xpath(".//div[contains(@class,'searchResults')]/div[3]/div/table[2]/tbody/tr/td[10]")).size()==2)
 	{	
-		globalState=driver.findElement(By.xpath(".//div[contains(@class,'searchResults')]/div[3]/div/table[2]/tbody/tr[1]/td[9]/div")).getText();
- 		localState = driver.findElement(By.xpath(".//div[contains(@class,'searchResults')]/div[3]/div/table[2]/tbody/tr[2]/td[9]/div")).getText();
+		globalState=driver.findElement(By.xpath(".//div[contains(@class,'searchResults')]/div[3]/div/table[2]/tbody/tr[1]/td[10]/div")).getText();
+ 		localState = driver.findElement(By.xpath(".//div[contains(@class,'searchResults')]/div[3]/div/table[2]/tbody/tr[2]/td[10]/div")).getText();
  		
  		if(globalState.equalsIgnoreCase("Completed") && localState.equalsIgnoreCase("Completed"))
  		{
@@ -2535,8 +2536,8 @@ public void checkSyndicationDoneStatus(String strValue) throws InterruptedExcept
  			driver.findElement(By.xpath(".//*[@class='glyphicon glyphicon-search']")).click();
 		
  			Sync.waitForSeconds(Constants.WAIT_5);
- 			globalState=driver.findElement(By.xpath(".//div[contains(@class,'searchResults')]/div[3]/div/table[2]/tbody/tr[1]/td[9]/div")).getText();
- 	 		localState = driver.findElement(By.xpath(".//div[contains(@class,'searchResults')]/div[3]/div/table[2]/tbody/tr[2]/td[9]/div")).getText();
+ 			globalState=driver.findElement(By.xpath(".//div[contains(@class,'searchResults')]/div[3]/div/table[2]/tbody/tr[1]/td[10]/div")).getText();
+ 	 		localState = driver.findElement(By.xpath(".//div[contains(@class,'searchResults')]/div[3]/div/table[2]/tbody/tr[2]/td[10]/div")).getText();
  		
  			System.out.println("Global State : "+globalState);
  			System.out.println("Local State : "+localState);
@@ -2548,7 +2549,7 @@ public void checkSyndicationDoneStatus(String strValue) throws InterruptedExcept
 	}
 	else
 	{
-		globalState=driver.findElement(By.xpath(".//div[contains(@class,'searchResults')]/div[3]/div/table[2]/tbody/tr[1]/td[9]/div")).getText();
+		globalState=driver.findElement(By.xpath(".//div[contains(@class,'searchResults')]/div[3]/div/table[2]/tbody/tr[1]/td[10]/div")).getText();
 		if(globalState.equalsIgnoreCase("Completed"))
  		{
  			System.out.println("Syndication Done Not required to wait for 20 minutes");
@@ -2569,7 +2570,7 @@ public void checkSyndicationDoneStatus(String strValue) throws InterruptedExcept
  			driver.findElement(By.xpath(".//*[@class='glyphicon glyphicon-search']")).click();
 		
  			Sync.waitForSeconds(Constants.WAIT_5);
- 			globalState=driver.findElement(By.xpath(".//div[contains(@class,'searchResults')]/div[3]/div/table[2]/tbody/tr[1]/td[9]/div")).getText();
+ 			globalState=driver.findElement(By.xpath(".//div[contains(@class,'searchResults')]/div[3]/div/table[2]/tbody/tr[1]/td[10]/div")).getText();
  			System.out.println("Global State : "+globalState);
  			Assert.assertEquals(globalState, "Completed", "Syndication not yet done");
  
