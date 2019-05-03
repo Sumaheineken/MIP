@@ -429,12 +429,13 @@ Sync.waitForSeconds(Constants.WAIT_5);
 
 	public void clickFinancetab() throws InterruptedException
 	{
-		Sync.waitUntilObjectDisappears(driver, "Wait for Save button", By.xpath(".//*[@id='mxui_widget_Progress_0']/div[2]"));
-		Sync.WaitForPageLoad(driver);
-		Sync.waitForSeconds(Constants.WAIT_6);
-		Sync.waitUntilObjectDisappears(driver, "Wait for Save button", By.xpath(".//*[@id='mxui_widget_Progress_0']/div[2]"));
-		Sync.waitForElementToBeClickable(driver, driver.findElement(By.xpath("//*[text()='Finance']")));
-		Button.jsclick("Click Finance Tab", driver.findElement(By.xpath("//*[text()='Finance']")), driver);
+		//Sync.waitUntilObjectDisappears(driver, "Wait for Save button", By.xpath(".//*[@id='mxui_widget_Progress_0']/div[2]"));
+		//Sync.WaitForPageLoad(driver);
+	  WebDriverWait wait = new WebDriverWait(driver,60);
+	  wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[text()='JDE Finance']")));
+	//	Sync.waitUntilObjectDisappears(driver, "Wait for Save button", By.xpath(".//*[@id='mxui_widget_Progress_0']/div[2]"));
+		Sync.waitForElementToBeClickable(driver, driver.findElement(By.xpath("//*[text()='JDE Finance']")));
+		Button.jsclick("Click Finance Tab", driver.findElement(By.xpath("//*[text()='JDE Finance']")), driver);
 	}
 
 	public boolean clickEditFinanceData() {
