@@ -188,10 +188,10 @@ SharedDriver.pageContainer.materialNavPage.submitGlobalRequestTest();
 	{
 
 		SharedDriver.pageContainer.vendor_JDE_Page.localAddInNewPurchasingJDE();
-		//SharedDriver.pageContainer.vendor_JDE_Page.selectingAdjustmentSchedule(dataMap.get("Adjustment Schedule"));
-		SharedDriver.pageContainer.vendor_JDE_Page.selectAdjustmentSchedule();
-		SharedDriver.pageContainer.vendor_JDE_Page.selectSendMethod();
-		//SharedDriver.pageContainer.vendor_JDE_Page.selectingSendMethod(dataMap.get("Send Method"));
+		SharedDriver.pageContainer.vendor_JDE_Page.selectingAdjustmentSchedule(dataMap.get("Adjustment Schedule"));
+		/*SharedDriver.pageContainer.vendor_JDE_Page.selectAdjustmentSchedule();
+		SharedDriver.pageContainer.vendor_JDE_Page.selectSendMethod();*/
+		SharedDriver.pageContainer.vendor_JDE_Page.selectingSendMethod(dataMap.get("Send Method"));
 		SharedDriver.pageContainer.vendorPage.clickLocalAction_Local();
 		SharedDriver.pageContainer.vendor_JDE_Page.clickValidatLocalData();
 		SharedDriver.pageContainer.vendor_JDE_Page.clickPlanningSaveButton();
@@ -200,7 +200,6 @@ SharedDriver.pageContainer.materialNavPage.submitGlobalRequestTest();
      @Test(dataProvider="CreateVendor_Fill_In_Local",dataProviderClass=staticProviderClass.class)
  	public void Vendor_Extend_Create_Fill_In_Data_JDE_Local_Finance(Map<String,String> dataMap) throws InterruptedException, FileNotFoundException, IOException, AWTException 
  	{
- 		//SharedDriver.pageContainer.vendor_JDE_Page.enterLocalData();
  		SharedDriver.pageContainer.vendor_JDE_Page.clickFinancetab();
  		SharedDriver.pageContainer.vendor_JDE_Page.localAddInNewFinanceJDE();
  		SharedDriver.pageContainer.vendor_JDE_Page.selectMvmtTypeInvoicePayment1();
