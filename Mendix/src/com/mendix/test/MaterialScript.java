@@ -613,9 +613,11 @@ public class MaterialScript {
 		SharedDriver.pageContainer.materialPage.scrolltoGlobalSearch();
 		// SharedDriver.pageContainer.materialPage.getCurrDate();
 		SharedDriver.pageContainer.materialPage.globalSearch(dataMap.get("Global_ID"));
+		SharedDriver.pageContainer.materialPage.clickFullMaterialData();
 		SharedDriver.pageContainer.materialPage.clickflagDeletion();
 		SharedDriver.pageContainer.materialPage.clickOkToHandlePopup();
 	}
+	
 
 	@Test(dataProvider = "Process_Information_Check", dataProviderClass = staticProviderClass.class)
 	public void material_Create_With_ref_Edit_Nav(Map<String, String> dataMap)

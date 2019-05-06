@@ -472,4 +472,38 @@ public class MaterialNavScript {
 		}
 	}
 	
+	@Test(dataProvider = "Process_Information_Check", dataProviderClass = staticProviderClass.class)
+	public void happy_Flag_Deletion_Nav(Map<String, String> dataMap)
+			throws InterruptedException, FileNotFoundException, IOException, AWTException {
+		SharedDriver.pageContainer.homePage.navigateToWorkflow();
+		SharedDriver.pageContainer.materialPage.switchToPopup();
+		SharedDriver.pageContainer.materialPage.navigateToDashboard();
+		SharedDriver.pageContainer.materialPage.advancedSearch();
+		SharedDriver.pageContainer.materialPage.scrolltoGlobalSearch();
+		// SharedDriver.pageContainer.materialPage.getCurrDate();
+		SharedDriver.pageContainer.materialPage.globalSearch(dataMap.get("Global_ID"));
+		SharedDriver.pageContainer.materialPage.clickFullMaterialData();
+		SharedDriver.pageContainer.materialPage.clickflagDeletion();
+		SharedDriver.pageContainer.materialPage.clickOkToHandlePopup();
+		SharedDriver.pageContainer.materialPage.clickLocalAction();
+		SharedDriver.pageContainer.materialPage.clickFlagForDeletion();
+		SharedDriver.pageContainer.materialPage.getRequestId_CreateNew();
+		SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
+	}
+	
+	@Test(dataProvider = "Process_Information_Check", dataProviderClass = staticProviderClass.class)
+	public void material_Flag_For_Deletion_Syndication_Check_GlobalId(Map<String, String> dataMap)
+			throws InterruptedException, FileNotFoundException, IOException {
+		SharedDriver.pageContainer.materialPage.navigateToDashboard();
+		SharedDriver.pageContainer.materialPage.advancedSearch();
+		SharedDriver.pageContainer.materialPage.scrolltoGlobalSearch();
+		SharedDriver.pageContainer.materialPage.globalSearch(dataMap.get("Global_ID"));
+		
+		SharedDriver.pageContainer.materialPage.checkFFDLock();
+		// SharedDriver.pageContainer.materialPage.getGlobalId();
+		// SharedDriver.pageContainer.materialPage.clickFullMaterialData();
+		// SharedDriver.pageContainer.materialPage.getMaterial_Number();
+		SharedDriver.pageContainer.processInfoPage.browserClose();
+		// SharedDriver.pageContainer.materialApprovalPage.launchUFT();
+	}
 }

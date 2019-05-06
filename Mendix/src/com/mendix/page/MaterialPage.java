@@ -342,7 +342,7 @@ public class MaterialPage {
 	@FindBy(how = How.XPATH, using = "((.//*[text()='Edit Comments'])/../../div[2]/div/div/div/div/div/div[1]/div/div/div/div/div/textarea)")
 	WebElement textComment;
 
-	@FindBy(how = How.XPATH, using = "//button[text()='Flag For Deletion']")
+	@FindBy(how = How.XPATH, using = ".//span[@class='glyphicon glyphicon-flag']")
 	WebElement btnDelete;
 
 	@FindBy(how = How.CSS, using = "div[class='modal-body mx-dialog-body']")
@@ -1364,70 +1364,13 @@ public class MaterialPage {
 	}
 
 	public void clickFlagForDeletion() throws InterruptedException {
-		/*
-		 * Sync.waitForSeconds(Constants.WAIT_2); Sync.waitUntilObjectDisappears(driver,
-		 * "Wait for Materials",
-		 * By.xpath((".//*[@id='mxui_widget_Progress_0']/div[2]")));
-		 * Sync.waitForSeconds(Constants.WAIT_5); Sync.waitForObject(driver,
-		 * "Wait until the Material appears", btnFullMaterailData);
-		 * Button.click("Click Get Full Materaial", btnFullMaterailData);
-		 */
-		/*
-		 * WebElement waitElement = null; FluentWait<WebDriver> fwait = new
-		 * FluentWait<WebDriver>(driver) .withTimeout(Duration.ofMinutes(1))
-		 * .pollingEvery(Duration.ofSeconds(600))
-		 * .ignoring(NoSuchElementException.class) .ignoring(TimeoutException.class);
-		 * 
-		 * //First checking to see if the loading indicator is found // we catch and
-		 * throw no exception here in case they aren't ignored try { waitElement =
-		 * fwait.until(new Function<WebDriver, WebElement>() { public WebElement
-		 * apply(WebDriver driver) { return
-		 * driver.findElement(By.xpath(".//*[@id='mxui_widget_Progress_0']/div[2]")); }
-		 * }); } catch (Exception e) { }
-		 * 
-		 * //checking if loading indicator was found and if so we wait for it to
-		 * //disappear if (waitElement != null) { WebDriverWait wait = new
-		 * WebDriverWait(driver, 100);
-		 * wait.until(ExpectedConditions.visibilityOfElementLocated(
-		 * By.xpath(".//*[text()='OK']")));
-		 * 
-		 * 
-		 * 
-		 * }
-		 * 
-		 */
-		// Switching to Alert
-
-		/*
-		 * try { WebDriverWait wait = new WebDriverWait(driver, 100);
-		 * wait.until(ExpectedConditions.visibilityOfElementLocated(
-		 * By.xpath(".//*[@id='mxui_widget_Progress_0']/div[2]]")));
-		 * 
-		 * WebElement msgbox = driver.findElement(By.
-		 * xpath(".//p[text()='This Material does not have a local material number yet, so no local data was retrieved']"
-		 * )); while(msgbox.isDisplayed()) {
-		 * 
-		 * System.out.println("Button is Clicked");
-		 * 
-		 * Sync.waitForSeconds(Constants.WAIT_5); Button.click("Click ok button",
-		 * btnOK);
-		 * 
-		 * } //else{ JavascriptExecutor js; js = (JavascriptExecutor) driver; js.
-		 * executeScript("$(\".mx-layoutcontainer-wrapper.mx-scrollcontainer-wrapper\").animate({ scrollTop: \"100px\" })"
-		 * );
-		 */ Sync.waitForSeconds(Constants.WAIT_5);
-
+		
+		Sync.waitForObject(driver, btnDelete);
+		Sync.waitForSeconds(Constants.WAIT_5);
 		Sync.waitForSeconds(Constants.WAIT_5);
 
-		Button.click("Click Flag for Delete Button", btnDelete);
+		Button.jsclick("Click Flag for Delete Button", btnDelete, driver);
 
-		// driver.findElement(By.xpath(".//span[@class='glyphicon glyphicon-flag']"));
-		// }
-		// }
-		/*
-		 * } catch (Exception e) { // TODO Auto-generated catch block
-		 * e.printStackTrace(); }
-		 */
 	}
 
 	public String getMaterial_Number() throws FileNotFoundException, IOException {
@@ -1508,9 +1451,9 @@ public class MaterialPage {
 		if (Button.verifyObject(btnflagForDeletion)) {
 			Sync.waitForObject(driver, "Click Button To Delete", btnflagForDeletion);
 			Sync.waitForSeconds(Constants.WAIT_5);
-			return Button.click("Click Button To Delete", btnflagForDeletion);
+			return Button.jsclick("Click Button To Delete", btnflagForDeletion, driver);
 		} else {
-			return Button.click("Click Button To Delete", btnflagForDeletion);
+			return Button.jsclick("Click Button To Delete", btnflagForDeletion, driver);
 		}
 	}
 
@@ -2650,6 +2593,30 @@ public void checkSyndicationDoneStatus(String strValue) throws InterruptedExcept
 		}
 	}
 	
+	public void checkFFDLock() {
+		// TODO Auto-generated method stub
 
+		Sync.waitForSeconds(Constants.WAIT_5);
+		globalLockValue = txtGlobalLockValue.getText();
 
+		localLockValue = txtLocalLockValue.getText();
+
+		fFDValue = txtFFDValue.getText();
+
+		System.out.println("Global lock: " + globalLockValue);
+		System.out.println("Local Lock : " + localLockValue);
+		System.out.println("FFD : " + fFDValue);
+
+		if (globalLockValue.equalsIgnoreCase("Yes") && localLockValue.equalsIgnoreCase("No")
+				&& fFDValue.equalsIgnoreCase("Yes")) {
+			
+			System.out.println("Flag For Deletion Done");
+
+		} else {
+			System.out.println("Flag for Deletion not done");
+
+		}
+
+	}
+	
 }

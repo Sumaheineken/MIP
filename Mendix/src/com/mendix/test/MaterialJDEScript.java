@@ -397,14 +397,20 @@ public class MaterialJDEScript {
 		SharedDriver.pageContainer.materialApprovalPage.submitRequestOkButtonClick();*/
 	}
 	
-	
-
-
-
-	
-
-
-	
-
+	@Test(dataProvider="Process_Information_Check",dataProviderClass=staticProviderClass.class)
+	public void material_Data_Extend_JDE(Map<String,String> dataMap) throws InterruptedException, FileNotFoundException, IOException
+	{
+		SharedDriver.pageContainer.homePage.navigateToWorkflow();
+		SharedDriver.pageContainer.materialPage.switchToPopup();
+		SharedDriver.pageContainer.materialPage.navigateToDashboard();
+		SharedDriver.pageContainer.materialPage.advancedSearch();
+		SharedDriver.pageContainer.materialPage.scrolltoGlobalSearch();
+		SharedDriver.pageContainer.materialPage.globalSearch(dataMap.get("Global_ID"));
+		SharedDriver.pageContainer.materialPage.clickFullMaterialDataNew();
+		SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
+		SharedDriver.pageContainer.material_Change_Page.clickExtendbutton();
+		Sync.waitForSeconds(Constants.WAIT_3);
+		
+	}
 }
 
