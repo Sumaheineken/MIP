@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Happy Flag for deletion">
+	<test name="HeiPort_Login_LDR">
+		<classes>
+			<class name="com.mendix.test.LoginScript">
+				<methods>
+					<include name="tasKill" />
+					<include name="openBrowser" />
+					<include name="loginAsLDR" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	<test name="Happy_Flag_Deletion">
+		<classes>
+			<class name="com.mendix.test.MaterialNavScript">
+				<methods>
+					<include name="happy_Flag_Deletion_Nav" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	
+	<test name="Flag for Deletion Lock Check">
+		<classes>
+			<class name="com.mendix.test.MaterialNavScript">
+				<methods>
+					<include name="material_Flag_For_Deletion_Syndication_Check_GlobalId" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+</suite> 
+
+

@@ -138,7 +138,7 @@ public class Material_JDE_Page {
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[text()='"+strValue+"']")));
 		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[text()='"+strValue+"']")));
 		driver.findElement(By.xpath("//div[text()='"+strValue+"']")).click();
-		return Button.click("Click Select Button", BtnPlantSelect);
+		return Button.jsclick("Click Select Button", BtnPlantSelect, driver);
 
 	}
 
