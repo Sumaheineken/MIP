@@ -1041,11 +1041,10 @@ public class VendorScript {
 			SharedDriver.pageContainer.homePage.navigateToWorkflow();
 			SharedDriver.pageContainer.vendorPage.switchToMDMPortal();
 			SharedDriver.pageContainer.vendorPage.navigateToDashboard();
-			SharedDriver.pageContainer.vendorPage.advancedSearch();
-			//SharedDriver.pageContainer.vendorPage.gobalIDSearchGlobal(dataMap.get("Global_ID"));
-			//SharedDriver.pageContainer.vendorPage.globalSearch(dataMap.get("GlobalId"));
+			SharedDriver.pageContainer.vendorPage.advancedSearch();			
 			SharedDriver.pageContainer.materialPage.globalSearch(dataMap.get("Global_ID"));
 			SharedDriver.pageContainer.vendorPage.GetFullVendorDataNew();
+			SharedDriver.pageContainer.vendorPage.clickOkOnInformationButton();	
 			SharedDriver.pageContainer.vendorPage.clickOkOnInformationButton();	
 			SharedDriver.pageContainer.vendorPage.clickExtendButton();
 			SharedDriver.pageContainer.vendorPage.clickOkOnInformationButton();	

@@ -19,9 +19,9 @@ public class MaterialChangeScript {
 	{
 		SharedDriver.pageContainer.homePage.navigateToWorkflow();
 		SharedDriver.pageContainer.materialPage.switchToPopup();
-		/*SharedDriver.pageContainer.materialPage.navigateToDashboard();
+		SharedDriver.pageContainer.materialPage.navigateToDashboard();
 		SharedDriver.pageContainer.materialPage.advancedSearch();
-		SharedDriver.pageContainer.materialPage.scrolltoGlobalSearch();*/
+		SharedDriver.pageContainer.materialPage.scrolltoGlobalSearch();
 //		SharedDriver.pageContainer.materialPage.getCurrDate();
 
 		SharedDriver.pageContainer.materialPage.globalSearch(dataMap.get("Global_ID"));			
