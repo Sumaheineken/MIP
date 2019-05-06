@@ -74,7 +74,7 @@
 		<classes>
 			<class name="com.mendix.test.MaterialScript">
 				<methods>
-					<include name="Process_Information_Check" />
+					<include name="process_Information_Check_GlobalID_Extend"/>
 				</methods>
 			</class>
 		</classes>
