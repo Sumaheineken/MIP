@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Extend Material Global and Local for Nav(PA01) to JDE(SG04)">
-	<!-- <test name="HeiPort_Login_LDR">
+	<test name="HeiPort_Login_LDR">
 		<classes>
 			<class name="com.mendix.test.LoginScript">
 				<methods>
@@ -61,7 +61,7 @@
 			</class>
 		</classes>
 	</test>
-	<test name="Process_Information_Check_Syndication_GDA">
+	<test name="Process_Information_Check_Syndication">
 		<classes>
 			<class name="com.mendix.test.MaterialScript">
 				<methods>
@@ -70,8 +70,7 @@
 			</class>
 		</classes>
 	</test>
-	 -->
-	
+		
 	<test name="HeiPort_Login_LDR_Syndication">
 		<classes>
 			<class name="com.mendix.test.LoginScript">
