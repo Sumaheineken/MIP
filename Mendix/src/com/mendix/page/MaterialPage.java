@@ -728,7 +728,7 @@ public class MaterialPage {
 		}
 		else
 		{
-			Button.click("Local Actions button", btnLocalActions);
+			Button.jsclick("Local Actions button", btnLocalActions, driver);
 			Sync.waitForSeconds(Constants.WAIT_6);
 			Sync.waitForSeconds(Constants.WAIT_1);
 			Button.click("Click Validate", btnValidate);
