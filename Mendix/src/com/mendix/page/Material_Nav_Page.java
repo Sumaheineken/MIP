@@ -698,6 +698,7 @@ public class Material_Nav_Page{
 	
 	public void switchToGlobal() {
 		//Sync.waitForObject(driver, "Verify Validate message", txtValidationMsg);
+		Sync.waitForSeconds(15);
 		Sync.waitForObject(driver, btnGlobalData);
 		Button.jsclick("Global Data", btnGlobalData, driver);
 		Sync.waitForSeconds(Constants.WAIT_5);
