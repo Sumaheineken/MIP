@@ -101,7 +101,7 @@ public class Vendor_JDE_Page {
 	@FindBy(how=How.XPATH, using="//*[text()='Send Method']/../div/div/select")
 	WebElement selectsendmethod;
 	
-	@FindBy(how=How.XPATH, using="//*[text()='Send Method']/../div/div/select")
+	@FindBy(how=How.XPATH, using="//*[text()='Adjustment Schedule']/../div/div/select")
 	WebElement adjustmentSchedule;
 	
 
@@ -826,7 +826,7 @@ Sync.waitForSeconds(Constants.WAIT_5);
 	}
 	public void selectMvmtTypeInvoicePayment1change()
 	{
-		Sync.waitForSeconds(Constants.WAIT_6);
+		Sync.waitForSeconds(Constants.WAIT_10);
 		Button.click("Select Invoce Payment1", selectMvmtTypeInvoicePayment1);
 		Select option= new Select(selectMvmtTypeInvoicePayment1);
 		option.selectByIndex(2);
@@ -836,7 +836,7 @@ Sync.waitForSeconds(Constants.WAIT_5);
 
 	public void selectMvmtTypeInvoicePayment3()
 	{
-		Sync.waitForSeconds(Constants.WAIT_5);
+		Sync.waitForSeconds(Constants.WAIT_10);
 		Button.click("Select Invoce Payment1", selectMvmtTypeInvoicePayment3);
 		Select option= new Select(selectMvmtTypeInvoicePayment3);
 		option.selectByIndex(1);
@@ -1686,7 +1686,9 @@ public void bankBearer(String strValue) throws InterruptedException
 		{
 
 			Sync.waitForSeconds(Constants.WAIT_10);
-			Sync.waitForObject(driver, textLocalData);
+			WebDriverWait wait = new WebDriverWait(driver,50);
+			wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[text()='JDE Purchasing']/../../../div/div[3]/div/div/div/div[2]//button[text()='New']")));
+		//	Sync.waitForObject(driver, textLocalData);
 			if(Button.verifyObject(btnNewJdePurchasing))
 			{
 				Sync.waitForObject(driver, btnNewJdePurchasing);

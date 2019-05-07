@@ -75,6 +75,7 @@ public class MaterialJDEScript {
 		SharedDriver.pageContainer.materialNavPage.clickValidatLocalData();
 		SharedDriver.pageContainer.materialNavPage.clickPlanningSaveButton();
 	}
+	
 	@Test(dataProvider="CreateMaterial_Fill_In",dataProviderClass=staticProviderClass.class)
 	public void Material_Create_Fill_In_Data_JDE_Finance(Map<String,String> dataMap) throws InterruptedException, FileNotFoundException, IOException, AWTException 
 	{
@@ -106,6 +107,7 @@ public class MaterialJDEScript {
 		SharedDriver.pageContainer.materialPage.getRequestId_CreateNew();
 		SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
 	}
+	
 	@Test(dataProvider="CreateMaterial_Fill_In",dataProviderClass=staticProviderClass.class)
 	public void Material_Create_Fill_In_Data_JDE_Edit_Finance(Map<String,String> dataMap) throws InterruptedException, FileNotFoundException, IOException, AWTException 
 	{
@@ -411,6 +413,44 @@ public class MaterialJDEScript {
 		SharedDriver.pageContainer.material_Change_Page.clickExtendbutton();
 		Sync.waitForSeconds(Constants.WAIT_3);
 		
+	}
+	
+	@Test(dataProvider="CreateMaterial_Fill_In",dataProviderClass=staticProviderClass.class)
+	public void material_Create_Fill_In_Data_JDE_Finance_Extend_Nav(Map<String,String> dataMap) throws InterruptedException, FileNotFoundException, IOException, AWTException 
+	{
+		SharedDriver.pageContainer.materialJdePage.clickFinancetab();
+		SharedDriver.pageContainer.materialJdePage.editPlantFinance();
+	
+		SharedDriver.pageContainer.materialJdePage.selectGLClass();
+		SharedDriver.pageContainer.materialJdePage.selectingCostingMethodPurchasing(dataMap.get("Costing Method - Purchasing"));
+		SharedDriver.pageContainer.materialJdePage.selectingCostingMethodSales(dataMap.get("Costing Method - Sales"));
+		/*SharedDriver.pageContainer.materialNavPage.selectGenProdPostingGroup();
+		SharedDriver.pageContainer.materialNavPage.selectVATPostingGroup();
+		SharedDriver.pageContainer.materialNavPage.selectItemDepositGroupCode();*/
+		SharedDriver.pageContainer.materialNavPage.clickLocalAction();
+		SharedDriver.pageContainer.materialNavPage.clickValidatLocalData();
+		SharedDriver.pageContainer.materialNavPage.clickSaveButton();
+		SharedDriver.pageContainer.materialNavPage.clickLocalAction();
+		SharedDriver.pageContainer.materialNavPage.clickValidatLocalRequest();
+//		SharedDriver.pageContainer.materialNavPage.enterGlobalData();		
+//		SharedDriver.pageContainer.materialPage.duplicateCheckButton();
+//		SharedDriver.pageContainer.materialPage.clickDuplicateCheck();
+//		SharedDriver.pageContainer.materialPage.submitGlobalandLocalRequestTest();
+//		SharedDriver.pageContainer.materialPage.getRequestId_CreateNew();
+//		SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
+	}
+	
+	@Test
+	public void confirmExtensionJDE() throws InterruptedException, FileNotFoundException, IOException
+	{
+		//SharedDriver.pageContainer.material_Change_Page.clickExtendbutton();
+		Sync.waitForSeconds(Constants.WAIT_10);
+		System.out.println("Global Data Tab");
+		
+		SharedDriver.pageContainer.materialNavPage.switchToGlobal();
+       SharedDriver.pageContainer.material_Change_Page.clickConfirmExtension();
+       SharedDriver.pageContainer.materialPage.getRequestId_CreateNew();
+	   SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
 	}
 }
 

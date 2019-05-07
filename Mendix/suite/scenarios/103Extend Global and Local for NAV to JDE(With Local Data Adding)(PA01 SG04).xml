@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Extend Material Global and Local for Nav(PA01) to JDE(SG04)">
-	<test name="HeiPort_Login_LDR">
+	<!-- <test name="HeiPort_Login_LDR">
 		<classes>
 			<class name="com.mendix.test.LoginScript">
 				<methods>
@@ -26,25 +26,17 @@
 			<class name="com.mendix.test.MaterialJDEScript">
 				<methods>
 					<include name="Material_Create_Fill_In_Data_JDE_Planning" />
-					<include name="Material_Create_Fill_In_Data_JDE_Finance" />					
+					<include name="material_Create_Fill_In_Data_JDE_Finance_Extend_Nav" />
+					<include name="confirmExtensionJDE"/>					
 				</methods>
 			</class>
 		</classes>
 	</test>
-	<test name="Material_ConfirmExtension_Process">
+	<test name="Process_Information_Check_LDR">
 		<classes>
-			<class name="com.mendix.test.MaterialChangeScript">
+			<class name="com.mendix.test.MaterialScript">
 				<methods>
-					<include name="confirmExtensionNonSAP" />
-				</methods>
-			</class>
-		</classes>
-	</test>	
-	<test name="Process_Information_Check_LDS">
-		<classes>
-			<class name="com.mendix.test.MaterialNavScript">
-				<methods>
-					<include name="Process_Information_Check_Local" />
+					<include name="Process_Information_Check" />
 				</methods>
 			</class>
 		</classes>
@@ -69,16 +61,16 @@
 			</class>
 		</classes>
 	</test>
-	<test name="Process_Information_Check_Syndication">
+	<test name="Process_Information_Check_Syndication_GDA">
 		<classes>
-			<class name="com.mendix.test.MaterialNavScript">
+			<class name="com.mendix.test.MaterialScript">
 				<methods>
-					<include name="Process_Information_Check_GlobalID" />
+					<include name="Process_Information_Check_GlobalID_Extend" />
 				</methods>
 			</class>
 		</classes>
 	</test>
-	
+	 -->
 	
 	<test name="HeiPort_Login_LDR_Syndication">
 		<classes>
@@ -94,14 +86,12 @@
 		<classes>
 			<class name="com.mendix.test.MaterialScript">
 				<methods>
-					<include name="Material_Create_Syndication_Checking" />
+					<include name="material_Create_Syndication_Check_GlobalId" />
+					<include name="launchUFT_JDE" />
 				</methods>
 			</class>
 		</classes>
-	</test>
-	
-	
-	
+	</test>	
 </suite> 
 
 
