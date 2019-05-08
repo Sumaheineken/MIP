@@ -968,16 +968,20 @@ public class VendorScript {
 	//SharedDriver.pageContainer.vendorPage.gobalIDSearchGlobal(dataMap.get("Global_ID"));
 	//SharedDriver.pageContainer.vendorPage.globalSearch(dataMap.get("GlobalId"));
 	SharedDriver.pageContainer.materialPage.globalSearch(dataMap.get("Global_ID"));
-	SharedDriver.pageContainer.vendorPage.GetFullVendorData();
+
+	SharedDriver.pageContainer.vendorPage.GetFullVendorData();	
 	SharedDriver.pageContainer.vendorPage.clickOkOnInformationButton();
-	SharedDriver.pageContainer.vendorPage.clickOkOnInformationButton();	
+	SharedDriver.pageContainer.vendorPage.clickOkOnInformationButton();
 	SharedDriver.pageContainer.vendorPage.clickExtendButton();
 	//SharedDriver.pageContainer.vendorPage.clickGlobalDataButton();
-		
+	SharedDriver.pageContainer.vendorPage.clickOkOnInformationButton();
+	SharedDriver.pageContainer.vendorPage.clickOkOnInformationButton();	
 	//SharedDriver.pageContainer.vendorPage.clickToConfirm();
 	SharedDriver.pageContainer.materialPage.clickLocalAction();
 	SharedDriver.pageContainer.vendorPage.clickConfirmExtension();
-	SharedDriver.pageContainer.vendorPage.getRequestId_Extend();
+	SharedDriver.pageContainer.vendorPage.getRequestId_Vendor();
+
+
 	SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
 	}
 	

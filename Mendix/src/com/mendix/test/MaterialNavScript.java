@@ -116,15 +116,7 @@ public class MaterialNavScript {
 		SharedDriver.pageContainer.materialApprovalPage.submitRequestOkButtonClick();
 		SharedDriver.pageContainer.materialApprovalPage.approveLocalRequest();
 		// SharedDriver.pageContainer.materialPage.getRequestId();
-		SharedDriver.pageContainer.materialApprovalPage.submitRequestOkButtonClick();
-		/*
-		 * SharedDriver.pageContainer.materialApprovalPage.approvalBtnClick_Global();
-		 * SharedDriver.pageContainer.materialApprovalPage.submitRequestOkBtnClick();
-		 */
-		// SharedDriver.pageContainer.materialApprovalPage.submitRequestOkBtnClick();
-		// SharedDriver.pageContainer.materialApprovalPage.submitRequestOkBtnClick();
-		/* SharedDriver.pageContainer.materialApprovalPage.submitRequestOkBtnClick(); */
-
+		SharedDriver.pageContainer.materialApprovalPage.submitRequestOkButtonClick();		
 	}
 
 	@Test(dataProvider = "Process_Information_Check", dataProviderClass = staticProviderClass.class)
