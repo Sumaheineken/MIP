@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Extend Global only for SAP"><test name="HeiPort_Login_LDR">
+<suite name="Extend Global only for SAP">
+<!--    <test name="HeiPort_Login_LDR">
 		<classes>
 			<class name="com.mendix.test.LoginScript">
 				<methods>
@@ -28,9 +29,9 @@
 				</methods>
 			</class>
 		</classes>
-	</test> 
+	</test> -->
 	
-		<test name="HeiPort_Login_LBDA_Reject">
+ 	<test name="HeiPort_Login_LBDA_Reject">
 		<classes>
 			<class name="com.mendix.test.LoginScript">
 				<methods>
@@ -78,7 +79,7 @@
 			</class>
 		</classes>
 	</test>
-	<test name="Process_Information_Chec_Approvedk">
+	<test name="Process_Information_Chec">
 		<classes>
 			<class name="com.mendix.test.VendorScript">
 				<methods>
@@ -87,6 +88,7 @@
 			</class>
 		</classes>
 	</test>	
-</suite>
+		 
+	</suite> 
 
 
