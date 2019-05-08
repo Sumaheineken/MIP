@@ -794,12 +794,13 @@ public class VendorPage {
 
 	/****************************************************************************************************/
 	public String getRequestId_Vendor() throws InterruptedException, FileNotFoundException, IOException {
-
-		driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+		System.out.println("Waiting For Excel write to be done");
+	   	driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
 		Sync.waitForObject(driver, "Wait of Dialog Box Success Message", msgRequestSuccess);
-		Sync.waitForSeconds(Constants.WAIT_3);
+		Sync.waitForSeconds(Constants.WAIT_10);
 
 		WebDriverWait wait = new WebDriverWait(driver, 60);
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(".//*[@id='mxui_widget_DialogMessage_0']/div[1]/div[2]/p")));
 		// WebElement text =
 		// driver.findElement(By.xpath(".//*[@id='mxui_widget_DialogMessage_0']/div[1]/div[2]/p"));
 		// wait.until(ExpectedConditions.elementToBeSelected(text));
