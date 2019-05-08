@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Extend Global only for SAP">
-  <test name="HeiPort_Login_LDR">
+<suite name="Extend Global only for SAP"><test name="HeiPort_Login_LDR">
 		<classes>
 			<class name="com.mendix.test.LoginScript">
 				<methods>
@@ -31,7 +30,7 @@
 		</classes>
 	</test> 
 	
-	<test name="HeiPort_Login_LBDA_Reject">
+		<test name="HeiPort_Login_LBDA_Reject">
 		<classes>
 			<class name="com.mendix.test.LoginScript">
 				<methods>
@@ -70,16 +69,16 @@
 			</class>
 		</classes>
 	</test>
-	<test name="Vendor_Extend_Resubmit">
+	<test name="Process_Information_Chec_Approvedk">
 		<classes>
 			<class name="com.mendix.test.VendorScript">
 				<methods>
-					<include name="vendor_Reject_Resubmit_LDR" />
+					<include name="Create_Vendor_Rejections_with_Discard_Extension " />
 				</methods>
 			</class>
 		</classes>
 	</test>
-	<test name="Process_Information_Check_Resubmit">
+	<test name="Process_Information_Chec_Approvedk">
 		<classes>
 			<class name="com.mendix.test.VendorScript">
 				<methods>
@@ -87,57 +86,7 @@
 				</methods>
 			</class>
 		</classes>
-	</test>  
-	 
-	<test name="HeiPort_Login_LBDA">
-		<classes>
-			<class name="com.mendix.test.LoginScript">
-				<methods>
-					<include name="openBrowser" />
-					<include name="loginAsLBDASAPVendor" />
-				</methods>
-			</class>
-		</classes>
-	</test>
-	<test name="Vendor_Create_Review_Global_Data_Approve_LBDA">
-		<classes>
-			<class name="com.mendix.test.VendorScript">
-				<methods>
-					<include
-						name="vendor_Create_Review_Global_Data_Approve_LBDA" />
-				</methods>
-			</class>
-		</classes>
-	</test>
-	<test name="Process_Information_Check_Syndication_LBDA">
-		<classes>
-			<class name="com.mendix.test.MaterialScript">
-				<methods>
-					<include name="process_Information_Check_GlobalID_Extend" />
-				</methods>
-			</class>
-		</classes>
 	</test>	
-	 <test name="HeiPort_Login_LDR_Syndication">
-		<classes>
-			<class name="com.mendix.test.LoginScript">
-				<methods>
-					<include name="openBrowser" />
-					<include name="loginAsLDRVendor" />
-				</methods>
-			</class>
-		</classes>
-	</test>
-		<test name="Vendor_Create_Syndication_Check">
-		<classes>
-			<class name="com.mendix.test.VendorScript">
-				<methods>
-					<include name="Vendor_Create_Syndication_Check_SAP" />
-					<include name="launchUFT_SAP_Vendor"/>					
-				</methods>
-			</class>
-		</classes>
-	</test> 	
-</suite> 
+</suite>
 
 
