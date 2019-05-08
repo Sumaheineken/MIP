@@ -266,6 +266,9 @@ public class VendorPage {
 
 	@FindBy(how = How.XPATH, using = "//*[text()='Global ID']/../../td[4]/div/input")
 	WebElement txtBoxGlobalId;
+	@FindBy(how = How.XPATH, using = "//*[text()='Approve Global Request']")
+	WebElement btnGlobalRequestApprove;
+	
 
 	@FindBy(how = How.XPATH, using = "//button[text()='Extend']")
 	WebElement btnExtend;
@@ -776,8 +779,33 @@ public class VendorPage {
 		Button.click("Click Ok Button", btnOK);
 		return Id;
 	}
+	public String getRequestId_Extend() throws InterruptedException, FileNotFoundException, IOException {
 
-	/****************************************************************************************************/
+		driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+		Sync.waitForObject(driver, "Wait of Dialog Box Success Message", msgRequestSuccess);
+		Sync.waitForSeconds(Constants.WAIT_3);
+
+		WebDriverWait wait = new WebDriverWait(driver, 80);
+		// WebElement text =
+		// driver.findElement(By.xpath(".//*[@id='mxui_widget_DialogMessage_0']/div[1]/div[2]/p"));
+		// wait.until(ExpectedConditions.elementToBeSelected(text));
+		String reqId = driver.findElement(By.xpath(".//*[text()='Information']/../../div[2]/p"))
+				.getText();
+		String[] parts = reqId.split(" ");
+		String Id = parts[2];
+		System.out.println("RequestId is: " + Id);
+		// ExcelUtil.excelWrite(Id);
+		ExcelUtil.setCellData_New("TestPlan", "RequestId", Id);
+		System.out.println("Excel write is done");
+		wait.until(ExpectedConditions.elementToBeClickable(btnOK));
+		Sync.waitForSeconds(Constants.WAIT_2);
+		Sync.waitForElementToBeClickable(driver, btnOK);
+
+		Button.click("Click Ok Button", btnOK);
+		return Id;
+	}
+
+		/****************************************************************************************************/
 	public void submitRequestPopup() {
 
 		driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
@@ -1514,6 +1542,17 @@ public class VendorPage {
 		Sync.waitForSeconds(Constants.WAIT_1);
 		wait.until(ExpectedConditions.elementToBeClickable(btnGlobalRequest));
 		Button.click("Click Global submit Global Request", btnGlobalRequest);
+		Sync.waitForSeconds(Constants.WAIT_2);
+		Thread.sleep(8000);
+	}
+	public void clickResubmitGlobalApprove() throws InterruptedException {
+		WebDriverWait wait = new WebDriverWait(driver, 30);
+		wait.until(ExpectedConditions.elementToBeClickable(btnLocalActions));		
+		Sync.waitForSeconds(Constants.WAIT_2);
+		// Button.click("Local Actions button", btnLocalActions);
+		Sync.waitForSeconds(Constants.WAIT_1);
+		wait.until(ExpectedConditions.elementToBeClickable(btnGlobalRequestApprove));
+		Button.click("Click Global submit Global Request", btnGlobalRequestApprove);
 		Sync.waitForSeconds(Constants.WAIT_2);
 		Thread.sleep(8000);
 	}
