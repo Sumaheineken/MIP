@@ -972,6 +972,8 @@ public class VendorScript {
 	SharedDriver.pageContainer.vendorPage.clickOkOnInformationButton();
 	SharedDriver.pageContainer.vendorPage.clickOkOnInformationButton();	
 	SharedDriver.pageContainer.vendorPage.clickExtendButton();
+	SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
+	SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
 	//SharedDriver.pageContainer.vendorPage.clickGlobalDataButton();
 		
 	//SharedDriver.pageContainer.vendorPage.clickToConfirm();
