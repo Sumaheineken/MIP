@@ -16,7 +16,7 @@
 		<classes>
 			<class name="com.mendix.test.VendorScript">
 				<methods>
-					<include name="Vendor_Extend_Dashboard_Check" />
+					<include name="vendor_Extend_Global_Sap_With_Rejections" />
 				</methods>
 			</class>
 		</classes>
@@ -56,8 +56,6 @@
 					<include name="process_Information_Check_GlobalID_Extend" />
 				</methods>
 			</class>
-		</classes>
-	</test>
 
 	
 	 <test name="HeiPort_Login_LDR_Syndication">
