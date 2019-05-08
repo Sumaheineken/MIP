@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Change Material">		
-	<test name="HeiPort_Login_SGLDR">
+<!--  	<test name="HeiPort_Login_SGLDR">
 		<classes>		
 			<class name="com.mendix.test.LoginScript">
 				<methods>
 					<include name="tasKill" />
 					<include name="openBrowser" />
-					<include name="loginAsSGLDR" />
+					<include name="loginAsLDR" />
 				</methods>
 			</class>
 		</classes>
@@ -39,13 +39,13 @@
 				</methods>
 			</class>
 		</classes>
-	</test>	
-	<test name="HeiPort_Login_LDS">
+	</test>	-->
+<!--  	<test name="HeiPort_Login_LDS">
 		<classes>
 			<class name="com.mendix.test.LoginScript">
 				<methods>
 					<include name="openBrowser" />
-					<include name="loginAsSGLDS" />
+					<include name="loginAsLDS" />
 				</methods>
 			</class>
 		</classes>
@@ -68,13 +68,13 @@
 				</methods>
 			</class>
 		</classes>
-	</test>
+	</test>-->
 	<test name="HeiPort_Login_LDR_Submitting">
 		<classes>
 			<class name="com.mendix.test.LoginScript">
 				<methods>
 					<include name="openBrowser" />
-					<include name="loginAsSGLDR" />
+					<include name="loginAsLDR" />
 				</methods>
 			</class>
 		</classes>
@@ -99,12 +99,12 @@
 		</classes>
 	</test>  
 	
-	<test name="HeiPort_Login_LDS">
+	<test name="HeiPort_Login_LDS3">
 		<classes>
 			<class name="com.mendix.test.LoginScript">
 				<methods>
 					<include name="openBrowser" />
-					<include name="loginAsSGLDS" />
+					<include name="loginAsLDS" />
 				</methods>
 			</class>
 		</classes>
@@ -133,7 +133,7 @@
 			<class name="com.mendix.test.LoginScript">
 				<methods>
 					<include name="openBrowser" />
-					<include name="loginAsSGLDR" />
+					<include name="loginAsLDR" />
 				</methods>
 			</class>
 		</classes>
@@ -147,38 +147,8 @@
 				</methods>
 			</class>
 		</classes>
-	</test>
-	
-	<!-- <test name="HeiPort_Login_GDA">
-		<classes>
-			<class name="com.mendix.test.LoginScript">
-				<methods>
-					<include name="openBrowser" />
-					<include name="loginAsGDA" />
-				</methods>
-			</class>
-		</classes>
-	</test>
-	<test name="Material_Change_Review_Global_Data_Approve_GDA">
-		<classes>
-			<class name="com.mendix.test.MaterialScript">
-				<methods>
-					<include
-						name="Material_Create_Review_Global_Data_Approve_GDA" />
-				</methods>
-			</class>
-		</classes>
-	</test>
-	<test name="Process_Information_Check_Syndication_GDA">
-		<classes>
-			<class name="com.mendix.test.MaterialScript">
-				<methods>
-					<include name="Process_Information_Check_GlobalID_Extend" />
-				</methods>
-			</class>
-		</classes>
-	</test>
-	 -->
+	</test>	
+	 
  </suite> 
 
 
