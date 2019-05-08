@@ -895,6 +895,7 @@ public class VendorPage {
 		Button.click("Click Materials Menu", textVendor);
 		return Button.click("Click Dashboard Menu", menuMaterialDashboard);
 	}
+	
 
 	/****************************************************************************************************/
 	public void advancedSearch() throws InterruptedException {
