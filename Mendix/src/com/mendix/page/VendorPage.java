@@ -309,6 +309,9 @@ public class VendorPage {
 	
 	@FindBy(how=How.XPATH, using=".//*[text()='Global Locked']/../../../../../../table[2]/tbody/tr[1]/td[3]/div")
 	WebElement txtFFDValue;
+	
+	@FindBy(how=How.XPATH, using="//*[text()='Edit Global Data']/../div/input")
+	WebElement checkBoxEdit;
 
 
 	/**********************************************************************************************************
@@ -535,6 +538,26 @@ public class VendorPage {
 		Textbox.enterValue("Name to create vendor", textName, strValue);
 		Sync.waitForSeconds(Constants.WAIT_1);
 		//Textbox.click("clicking name1", textSearchterm1);
+	}
+	public void clickEditCheckBox() {
+		WebDriverWait wait = new WebDriverWait(driver,80);
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[text()='Edit Global Data']/../div/input")));		
+		//Sync.waitUntilObjectDisappears(driver, "Wait for Materials", By.xpath((".//*[@id='mxui_widget_Progress_0']/div[2]")));
+		Sync.waitForObject(driver, "Wait until the Material appears", checkBoxEdit);
+		Button.jsclick("Click Edit Global Global Data Checkbox", checkBoxEdit,driver);
+		System.out.println("Clicked on Golbal Edit Check box");
+		Sync.waitForSeconds(Constants.WAIT_5);
+		Sync.waitForSeconds(Constants.WAIT_5);
+	}	
+	
+	public void clickEditbutton() {
+		WebDriverWait wait = new WebDriverWait(driver,30);
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[text()='Edit']")));	
+		//Sync.waitUntilObjectDisappears(driver, "Wait for Materials", By.xpath((".//*[@id='mxui_widget_Progress_0']/div[2]")));
+		Sync.waitForObject(driver, "Wait until the Material appears", btnEdit);
+		Button.jsclick("Click Edit Button", btnEdit, driver);
+		Sync.waitForSeconds(Constants.WAIT_5);
+		Sync.waitForSeconds(Constants.WAIT_5);
 	}
 
 	/********************
@@ -1354,13 +1377,14 @@ public class VendorPage {
 				.ignoring(TimeoutException.class);
 
 		String globalLockState = driver
-				.findElement(
-						By.xpath("//*[text()='Global Locked']/../../../../../../table[2]/tbody[1]/tr[1]/td[1]/div"))
-				.getText();
-		System.out.println(globalLockState);
-		if (globalLockState.equalsIgnoreCase("Yes")) {
-			driver.quit();
-
+				.findElement(By.xpath("//*[text()='Global Locked']/../../../../../../table[2]/tbody[1]/tr[1]/td[1]/div")).getText();
+		System.out.println("Global Lock State is "+globalLockState);
+		if (globalLockState.equalsIgnoreCase("NO")) {			
+			clickEditCheckBox();
+		     clickEditbutton();
+		}
+		else if(globalLockState.equalsIgnoreCase("Yes")) {
+			System.out.println("Global Lock State is "+globalLockState);
 		}
 
 	}
