@@ -1382,6 +1382,9 @@ public class VendorPage {
 		if (globalLockState.equalsIgnoreCase("NO")) {			
 			clickEditCheckBox();
 		     clickEditbutton();
+		     clickOkOnInformationButton();
+		     clickOkOnInformationButton();
+		     
 		}
 		else if(globalLockState.equalsIgnoreCase("Yes")) {
 			System.out.println("Global Lock State is "+globalLockState);
