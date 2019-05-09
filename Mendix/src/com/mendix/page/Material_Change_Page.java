@@ -317,7 +317,7 @@ public class Material_Change_Page {
 //		Sync.waitForObject(driver, "Wait for Global Material Id", driver.findElement(By.cssSelector("tr > td.mx-name-column2.mx-right-aligned > div")));
 		//String globalLock=driver.findElement(By.cssSelector("tr > td.mx-name-column17.mx-left-aligned > div")).getText();
 		String globalLockState=driver.findElement(By.xpath("//*[text()='Global Lock']/../../../../../../table[2]/tbody[1]/tr[1]/td[1]/div")).getText();
-		System.out.println(globalLockState);
+		System.out.println("Global Lock State is "+globalLockState);
 		if(globalLockState.equalsIgnoreCase("NO")){
 	     clickEditCheckBox();
 	     clickEditbutton();    
