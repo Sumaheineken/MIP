@@ -192,12 +192,12 @@ public class LoginScript {
 	}
 
 	@Test(dataProvider="HeiPort_Login",dataProviderClass=staticProviderClass.class)
-	public void loginAsVendorLDSNAV(Map<String,String> dataMap){
+	public void loginAsVendorLDS(Map<String,String> dataMap){
 		ResultUtil.reporter.startTest("Login As LDS");
 		String opcoLogin= dataMap.get("OpCo");
-		String Opco=opcoLogin.replaceAll("\\d","");
-		String OpL=Opco.length() < 2 ? Opco : Opco.substring(0, 2);
-		SharedDriver.pageContainer.loginPage.login("MDVM_"+OpL+"01_LDS","Heineken01");
+		//String Opco=opcoLogin.replaceAll("\\d","");
+		//String OpL=Opco.length() < 2 ? Opco : Opco.substring(0, 2);
+		SharedDriver.pageContainer.loginPage.login("MDVM_"+opcoLogin+"_LDS","Heineken01");
 	}
 
 	

@@ -821,7 +821,7 @@ public class VendorScript {
 		SharedDriver.pageContainer.vendorPageNAV.switchToGlobal();
 		SharedDriver.pageContainer.materialPage.clickLocalAction();
 		SharedDriver.pageContainer.vendorPage.clickConfirmExtension();
-		SharedDriver.pageContainer.vendorPage.getRequestId();
+		SharedDriver.pageContainer.vendorPage.getRequestId_Extend();
 		SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
 	}
 	
