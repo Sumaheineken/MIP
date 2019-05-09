@@ -771,7 +771,7 @@ public class VendorScript {
 	SharedDriver.pageContainer.vendorPage.switchToMDMPortal();
 	SharedDriver.pageContainer.vendorPage.navigateToDashboard();
 	SharedDriver.pageContainer.vendorPage.advancedSearch();
-	SharedDriver.pageContainer.vendorPage.globalSearch(dataMap.get("GlobalId"));
+	SharedDriver.pageContainer.materialPage.globalSearch(dataMap.get("Global_ID"));
 	SharedDriver.pageContainer.vendorPage.checkGlobalIdYes();
 	SharedDriver.pageContainer.homePage.navigateToWorkflow();
 	SharedDriver.pageContainer.vendorPage.switchToMDMPortal();
