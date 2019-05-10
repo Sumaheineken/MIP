@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Create Vendor with JDE">
+<suite name="Extend vendor Global and Local from NAV to JDE(With local data adding)(PA01 to SG04)">
 	<test name="HeiPort_Login_LDR">
 		<classes>
 			<class name="com.mendix.test.LoginScript">
@@ -13,7 +13,7 @@
 		</classes>
 	</test>
 	
-		<test name="Vendor_Extend_Global_Data">
+	<test name="Vendor_Extend_Global_Data">
 		<classes>
 			<class name="com.mendix.test.VendorScript">
 				<methods>
