@@ -16,7 +16,7 @@
 		<classes>
 			<class name="com.mendix.test.MaterialChangeScript">
 				<methods>
-					<include name="Material_Delete_Record" />
+					<include name="Happy_Flag_Deletion_Nav" />
 				</methods>
 			</class>
 		</classes>
