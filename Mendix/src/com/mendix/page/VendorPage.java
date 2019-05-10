@@ -1372,6 +1372,8 @@ public class VendorPage {
 
 	public void checkGlobalIdYes() throws FileNotFoundException, IOException {
 		Sync.waitForSeconds(Constants.WAIT_10);
+		Sync.waitForSeconds(Constants.WAIT_10);
+		
 		FluentWait<WebDriver> fwait = new FluentWait<WebDriver>(driver).withTimeout(Duration.ofMinutes(3))
 				.pollingEvery(Duration.ofSeconds(600)).ignoring(NoSuchElementException.class)
 				.ignoring(TimeoutException.class);
@@ -1379,7 +1381,7 @@ public class VendorPage {
 		String globalLockState = driver
 				.findElement(By.xpath("//*[text()='Global Locked']/../../../../../../table[2]/tbody[1]/tr[1]/td[1]/div")).getText();
 		System.out.println("Global Lock State is "+globalLockState);
-		if (globalLockState.equalsIgnoreCase("NO")) {			
+		if (globalLockState.equalsIgnoreCase("No")) {			
 			clickEditCheckBox();
 		     clickEditbutton();
 		     clickOkOnInformationButton();
@@ -1763,6 +1765,8 @@ public class VendorPage {
 			Sync.waitForSeconds(Constants.WAIT_5);
 
 		}
+		
+		
 
 	
 }

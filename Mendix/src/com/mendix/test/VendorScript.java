@@ -767,14 +767,13 @@ public class VendorScript {
 	SharedDriver.pageContainer.vendorPage.getGlobalIdNew();
 	SharedDriver.pageContainer.homePage.navigateToWorkflow();
 	SharedDriver.pageContainer.vendorPage.switchToMDMPortal();*/
+		
 	SharedDriver.pageContainer.homePage.navigateToWorkflow();
-	SharedDriver.pageContainer.vendorPage.switchToMDMPortal();
+	SharedDriver.pageContainer.vendorPage.switchToMDMPortal();	
 	SharedDriver.pageContainer.vendorPage.navigateToDashboard();
 	SharedDriver.pageContainer.vendorPage.advancedSearch();
 	SharedDriver.pageContainer.materialPage.globalSearch(dataMap.get("Global_ID"));
-	SharedDriver.pageContainer.vendorPage.checkGlobalIdYes();
-	SharedDriver.pageContainer.homePage.navigateToWorkflow();
-	SharedDriver.pageContainer.vendorPage.switchToMDMPortal();
+	SharedDriver.pageContainer.vendorPage.checkGlobalIdYes();	
 	SharedDriver.pageContainer.vendorPage.navigateToDashboard();
 	SharedDriver.pageContainer.vendorPage.advancedSearch();
 	SharedDriver.pageContainer.materialPage.globalSearch(dataMap.get("Global_ID"));
