@@ -80,8 +80,8 @@ public class Vendor_JDE_Script {
 		SharedDriver.pageContainer.vendorPage.getRequestId_Vendor();
 //		SharedDriver.pageContainer.materialPage.getRequestId_Create();
 		
-
 	}
+	
 	@Test(dataProvider="Vendor_Create_Global_Disable_Bank_and_LocalData",dataProviderClass=staticProviderClass.class)
 	public void Vendor_Change_Fill_In_Data_JDE_Local_Finance(Map<String,String> dataMap) throws InterruptedException, FileNotFoundException, IOException, AWTException 
 	{
