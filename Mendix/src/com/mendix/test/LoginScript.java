@@ -79,6 +79,7 @@ public class LoginScript {
 		//String Opco=opcoLogin.replaceAll("\\d","");
 		//String OpL=Opco.length() < 2 ? Opco : Opco.substring(0, 2);
 		SharedDriver.pageContainer.loginPage.login("MDVM_"+opcoLogin+"_LDR","Heineken01");
+		//SharedDriver.pageContainer.loginPage.Login_as_LDR_Vendor_direct_environment("MDVM_"+opcoLogin+"_LDR","Heineken01");
 	}
 	
 	@Test(dataProvider="HeiPort_Login",dataProviderClass=staticProviderClass.class)

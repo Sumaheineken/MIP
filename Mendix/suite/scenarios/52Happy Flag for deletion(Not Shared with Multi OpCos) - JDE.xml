@@ -21,6 +21,66 @@
 			</class>
 		</classes>
 	</test>
+	<test name="Process_Information_Check GDA">
+		<classes>
+			<class name="com.mendix.test.VendorScript">
+				<methods>
+					<include name="Process_Information_Check" />
+				</methods>
+			</class>
+		</classes>
+	</test> 
+	
+	<test name="HeiPort_Login_LDP">
+		<classes>
+			<class name="com.mendix.test.LoginScript">
+				<methods>
+					<include name="openBrowser" />
+					<include name="loginAsLDP" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	
+	<test name="Material_Create_Review_Local_Data_Approve_LDP">
+		<classes>
+			<class name="com.mendix.test.MaterialScript">
+				<methods>
+					<include name="material_Create_Local_Data_Approve_LDP_NAV"/>
+				</methods>
+			</class>
+		</classes>
+	</test>
+	<test name="Process_Information_Check_Syndication">
+		<classes>
+			<class name="com.mendix.test.MaterialScript">
+				<methods>
+					<include name="process_Information_Check_GlobalID_Extend" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	<test name="HeiPort_Login_LDR_Syndication">
+		<classes>
+			<class name="com.mendix.test.LoginScript">
+				<methods>
+					<include name="openBrowser" />
+					<include name="loginAsSGLDR" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	<test name="Material_Create_Syndication_Check">
+		<classes>
+			<class name="com.mendix.test.MaterialScript">
+				<methods>
+					<include name="material_Create_Syndication_Check_GlobalId"/>
+					<include name="launchUFT_JDE_Material"/>
+				</methods>
+			</class>
+		</classes>
+	</test>
+	
 
 </suite> 
 
