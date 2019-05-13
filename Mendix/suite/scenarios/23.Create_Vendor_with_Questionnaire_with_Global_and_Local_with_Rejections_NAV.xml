@@ -236,7 +236,7 @@
 			</class>
 		</classes>
 	</test>
-		<test name="Process_Information_Check_ReApproved_GDA">
+	<test name="Process_Information_Check_ReApproved_GDA">
 		<classes>
 			<class name="com.mendix.test.MaterialScript">
 				<methods>

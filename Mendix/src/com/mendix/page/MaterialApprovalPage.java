@@ -595,6 +595,7 @@ public class MaterialApprovalPage {
 		if (driver.findElements(By.xpath(".//*[text()='Open Record']")).size()>0) {
 			Sync.waitForSeconds(Constants.WAIT_5);
 			this.duplicateCheck();
+			
 		} else if (Button.verifyObject(btnClose)) {
 
 			Sync.waitForSeconds(Constants.WAIT_5);

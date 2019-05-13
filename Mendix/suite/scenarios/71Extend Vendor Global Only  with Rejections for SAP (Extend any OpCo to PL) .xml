@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Extend Global only for SAP"><test name="HeiPort_Login_LDR">
+<suite name="Extend Global only for SAP">
+	<test name="HeiPort_Login_LDR">
 		<classes>
 			<class name="com.mendix.test.LoginScript">
 				<methods>
@@ -35,7 +36,7 @@
 			<class name="com.mendix.test.LoginScript">
 				<methods>
 					<include name="openBrowser" />
-					<include name="loginAsLBDASAPVendor" />
+					<include name="loginAsLBDAVendor" />
 				</methods>
 			</class>
 		</classes>
@@ -59,7 +60,7 @@
 		</classes>
 	</test>
 	 
-   	<test name="HeiPort_ReLogin_LDR">
+	 <test name="HeiPort_ReLogin_Global_Resubmit_LDR">
 		<classes>
 			<class name="com.mendix.test.LoginScript">
 				<methods>
@@ -69,16 +70,16 @@
 			</class>
 		</classes>
 	</test>
-	<test name="Process_Information_Chec_Approvedk">
+	<test name="Vendor_Create_Global_Resubmit">
 		<classes>
 			<class name="com.mendix.test.VendorScript">
 				<methods>
-					<include name="Create_Vendor_Rejections_with_Discard_Extension " />
+					<include name="vendor_Reject_Resubmit_LDR" />
 				</methods>
 			</class>
 		</classes>
 	</test>
-	<test name="Process_Information_Chec_Approvedk">
+	<test name="Process_Information_Check_Resubmit_Global">
 		<classes>
 			<class name="com.mendix.test.VendorScript">
 				<methods>
@@ -86,7 +87,58 @@
 				</methods>
 			</class>
 		</classes>
-	</test>	
+	</test> 
+	
+   	<test name="HeiPort_Relogin LBDA">
+		<classes>
+			<class name="com.mendix.test.LoginScript">
+				<methods>
+					<include name="openBrowser" />
+					<include name="loginAsLBDAVendor" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	
+	<test name="Vendor_Create_Review_Global_Data_Approve_LBDA">
+		<classes>
+			<class name="com.mendix.test.VendorScript">
+				<methods>
+					<include
+						name="vendor_Create_Review_Global_Data_Approve_LBDA" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	<test name="Process_Information_Check_ReApproved_LBDA">
+		<classes>
+			<class name="com.mendix.test.MaterialScript">
+				<methods>
+					<include name="process_Information_Check_GlobalID_Extend" />
+				</methods>
+			</class>
+		</classes>		
+	</test> 
+	 <test name="HeiPort_Login_LDR_Get GlobalID">
+		<classes>
+			<class name="com.mendix.test.LoginScript">
+				<methods>
+					<include name="openBrowser" />
+					<include name="loginAsLDRVendor" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+		<test name="Vendor_Create_Syndication_Check">
+		<classes>
+			<class name="com.mendix.test.VendorScript">
+				<methods>
+					<include name="Vendor_Create_Syndication_Check_SAP" />
+					<include name="launchUFT_SAP_Vendor"/>
+				</methods>
+			</class>
+		</classes>
+	</test> 
 </suite>
 
 
