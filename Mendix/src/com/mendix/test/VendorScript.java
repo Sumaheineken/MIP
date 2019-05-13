@@ -795,6 +795,7 @@ public class VendorScript {
 	//	SharedDriver.pageContainer.materialPage.clickLocalAction();
 	//	SharedDriver.pageContainer.materialApprovalPage.approvalBtnClick();
 		Sync.waitForSeconds(Constants.WAIT_10);
+	
 		SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
 		//SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
 		//SharedDriver.pageContainer.materialPage.browserClose();

@@ -255,6 +255,7 @@
 			</class>
 		</classes>
 	</test>
+	
 		<test name="Vendor_Create_Syndication_Check">
 		<classes>
 			<class name="com.mendix.test.VendorScript">

@@ -79,6 +79,7 @@
 			</class>
 		</classes>
 	</test>
+	
 	<test name="Process_Information_Check_Resubmit_Global">
 		<classes>
 			<class name="com.mendix.test.VendorScript">
