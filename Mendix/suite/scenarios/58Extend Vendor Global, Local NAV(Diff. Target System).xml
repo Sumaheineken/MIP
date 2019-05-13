@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Extend Global only for SAP">
-<!--  	<test name="HeiPort_Login_LDR">
+  	<test name="HeiPort_Login_LDR">
 		<classes>
 			<class name="com.mendix.test.LoginScript">
 				<methods>
@@ -32,8 +32,8 @@
 				</methods>
 			</class>
 		</classes>
-	</test>-->
-<!--  	<test name="HeiPort_Login_LDS">
+	</test>
+	  	<test name="HeiPort_Login_LDS">
 		<classes>
 			<class name="com.mendix.test.LoginScript">
 				<methods>
@@ -60,7 +60,7 @@
 				</methods>
 			</class>
 		</classes>		
-	</test>-->
+	</test>
 	<test name="HeiPort_Login_LBDA">
 		<classes>
 			<class name="com.mendix.test.LoginScript">
@@ -80,35 +80,7 @@
 			</class>
 		</classes>
 	</test>
-		<test name="Process_Information_Cheek_Reject_LBDA">
-		<classes>
-			<class name="com.mendix.test.VendorScript">
-				<methods>
-					<include name="Process_Information_Check" />
-				</methods>
-			</class>
-		</classes>
-	</test>  
-	
-		<test name="HeiPort_Login_GDA">
-		<classes>
-			<class name="com.mendix.test.LoginScript">
-				<methods>
-					<include name="openBrowser" />
-					<include name="loginAsGDA" />
-				</methods>
-			</class>
-		</classes>
-	</test>
- 	<test name="Vendor_Create_Review_Global_Data_Approve_GDA">
-		<classes>
-			<class name="com.mendix.test.VendorScript">
-				<methods>
-					<include name="Vendor_Create_Review_Global_Data_Approve_GDA" />
-				</methods>
-			</class>
-		</classes>
-	</test>
+		
 		<test name="Process_Information_Chec_Approvedk">
 		<classes>
 			<class name="com.mendix.test.VendorScript">
