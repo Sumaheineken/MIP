@@ -1366,8 +1366,8 @@ public class MaterialPage {
 	public void clickFlagForDeletion() throws InterruptedException {
 		
 		Sync.waitForObject(driver, btnDelete);
-		Sync.waitForSeconds(Constants.WAIT_5);
-		Sync.waitForSeconds(Constants.WAIT_5);
+		WebDriverWait wait = new WebDriverWait(driver,50);
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath(".//span[@class='glyphicon glyphicon-flag']")));		
 
 		Button.jsclick("Click Flag for Delete Button", btnDelete, driver);
 

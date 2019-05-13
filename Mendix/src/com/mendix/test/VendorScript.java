@@ -773,6 +773,9 @@ public class VendorScript {
 	SharedDriver.pageContainer.vendorPage.navigateToDashboard();
 	SharedDriver.pageContainer.vendorPage.advancedSearch();
 	SharedDriver.pageContainer.materialPage.globalSearch(dataMap.get("Global_ID"));
+	SharedDriver.pageContainer.vendorPage.GetFullVendorData();	
+	SharedDriver.pageContainer.vendorPage.clickOkOnInformationButton();
+	SharedDriver.pageContainer.vendorPage.clickOkOnInformationButton();	
 	SharedDriver.pageContainer.vendorPage.checkGlobalIdYes();	
 	SharedDriver.pageContainer.vendorPage.navigateToDashboard();
 	SharedDriver.pageContainer.vendorPage.advancedSearch();

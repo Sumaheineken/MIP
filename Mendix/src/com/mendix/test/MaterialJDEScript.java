@@ -259,8 +259,8 @@ public class MaterialJDEScript {
 	{
 		SharedDriver.pageContainer.materialNavPage.enterLocalData();
 		SharedDriver.pageContainer.materialJdePage.clickAddPlantData();
-		//SharedDriver.pageContainer.materialJdePage.SelectingPlant();
-		//SharedDriver.pageContainer.materialJdePage.RemovePlant();
+		SharedDriver.pageContainer.materialJdePage.SelectingPlant();
+		SharedDriver.pageContainer.materialJdePage.RemovePlant();
 		//SharedDriver.pageContainer.materialNavPage.clickLocalAction();
 		SharedDriver.pageContainer.materialNavPage.clickValidatLocalRequest();
 		SharedDriver.pageContainer.materialNavPage.submitGlobalLocalRequestTest();

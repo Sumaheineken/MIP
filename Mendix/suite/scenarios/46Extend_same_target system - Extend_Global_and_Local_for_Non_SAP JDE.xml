@@ -7,7 +7,7 @@
 				<methods>
 					<include name="tasKill" />
 					<include name="openBrowser" />
-					<include name="loginAsSGLDR" />
+					<include name="loginAsLDR" />
 				</methods>
 			</class>
 		</classes>
@@ -42,9 +42,9 @@
 	</test>	    
 	<test name="Process_Information_Check_Extend">
 		<classes>
-			<class name="com.mendix.test.MaterialNavScript">
+			<class name="com.mendix.test.MaterialScript">
 				<methods>
-					<include name="Process_Information_Check_Local" />
+					<include name="Process_Information_Check" />
 				</methods>
 			</class>
 		</classes>
@@ -71,9 +71,9 @@
 	</test>
 	<test name="Process_Information_Check_LDS_Approve">
 		<classes>
-			<class name="com.mendix.test.MaterialNavScript">
+			<class name="com.mendix.test.MaterialScript">
 				<methods>
-					<include name="Process_Information_Check_GlobalID_Extend" />
+					<include name="process_Information_Check_GlobalID_Extend" />
 				</methods>
 			</class>
 		</classes>
@@ -84,7 +84,7 @@
 			<class name="com.mendix.test.LoginScript">
 				<methods>
 					<include name="openBrowser" />
-					<include name="loginAsSGLDR" />
+					<include name="loginAsLDR" />
 				</methods>
 			</class>
 		</classes>
@@ -94,62 +94,13 @@
 			<class name="com.mendix.test.MaterialScript">
 				<methods>
 					<include name="material_Create_Syndication_Check_GlobalId" />
-					<include name="launchUFT_SAP_Material" />
+					<include name="launchUFT_JDE_Material"/>
 				</methods>
 			</class>
 		</classes>
 	</test>
 	
-		<!-- <test name="HeiPort_Login_GDA">
-		<classes>
-			<class name="com.mendix.test.LoginScript">
-				<methods>
-					<include name="openBrowser" />
-					<include name="loginAsGDA" />
-				</methods>
-			</class>
-		</classes>
-	</test>
-	<test name="Material_Change_Review_Global_Data_Approve_GDA">
-		<classes>
-			<class name="com.mendix.test.MaterialScript">
-				<methods>
-					<include
-						name="Material_Create_Review_Global_Data_Approve_GDA" />
-				</methods>
-			</class>
-		</classes>
-	</test>
-	<test name="Process_Information_Check_Syndication_GDA">
-		<classes>
-			<class name="com.mendix.test.MaterialScript">
-				<methods>
-					<include name="Process_Information_Check_GlobalID_Extend" />
-				</methods>
-			</class>
-		</classes>
-	</test>
-	<test name="HeiPort_Login_LDR_Syndication">
-		<classes>
-			<class name="com.mendix.test.LoginScript">
-				<methods>
-					<include name="openBrowser" />
-					<include name="loginAsSGLDR" />
-				</methods>
-			</class>
-		</classes>
-	</test>
-	<test name="Material_Create_Syndication_Check">
-		<classes>
-			<class name="com.mendix.test.MaterialScript">
-				<methods>
-					<include name="material_Create_Syndication_Check_GlobalId" />
-					<include name="launchUFT_SAP_Material" />
-				</methods>
-			</class>
-		</classes>
-	</test>
- -->
+		
  </suite> 
 
 

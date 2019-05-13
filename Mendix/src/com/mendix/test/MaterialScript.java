@@ -616,7 +616,10 @@ public class MaterialScript {
 		SharedDriver.pageContainer.materialPage.globalSearch(dataMap.get("Global_ID"));
 		SharedDriver.pageContainer.materialPage.clickFullMaterialData();
 		SharedDriver.pageContainer.materialPage.clickflagDeletion();
-		SharedDriver.pageContainer.materialPage.clickOkToHandlePopup();
+		SharedDriver.pageContainer.materialPage.clickLocalAction();
+		SharedDriver.pageContainer.materialPage.clickFlagForDeletion();		
+		SharedDriver.pageContainer.materialPage.getRequestId_CreateNew();
+		SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
 	}
 	
 
