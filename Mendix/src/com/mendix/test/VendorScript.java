@@ -723,10 +723,11 @@ public class VendorScript {
 	SharedDriver.pageContainer.vendorPage.switchToMDMPortal();
 	SharedDriver.pageContainer.vendorPage.navigateToDashboard();
 	SharedDriver.pageContainer.vendorPage.advancedSearch();
-	SharedDriver.pageContainer.vendorPage.gobalIDSearchGlobal(dataMap.get("GlobalId"));
-	SharedDriver.pageContainer.vendorPage.globalSearch(dataMap.get("GlobalId"));
-	SharedDriver.pageContainer.vendorPage.GetFullVendorData();	
+	SharedDriver.pageContainer.materialPage.globalSearch(dataMap.get("Global_ID"));
+	SharedDriver.pageContainer.vendorPage.GetFullVendorData();
+	SharedDriver.pageContainer.vendorPage.clickOkToHandlePopup();
 	SharedDriver.pageContainer.vendorPage.clickExtendButton();
+	SharedDriver.pageContainer.vendorPage.clickOkToHandlePopup();
 	SharedDriver.pageContainer.vendorPage.clickGlobalDataButton();
 	SharedDriver.pageContainer.vendorPage.clickToConfirm();
 	SharedDriver.pageContainer.vendorPage.clickConfirmExtension();

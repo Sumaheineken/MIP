@@ -16,7 +16,7 @@
 		<classes>
 			<class name="com.mendix.test.VendorScript">
 				<methods>
-					<include name="vendor_Extend_Global_Sap_With_Rejections" />
+					<include name="Vendor_Extend_Dashboard_Check" />
 				</methods>
 			</class>
 		</classes>
