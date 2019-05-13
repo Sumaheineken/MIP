@@ -640,10 +640,10 @@ Sync.waitForSeconds(Constants.WAIT_5);
 		Sync.waitForSeconds(Constants.WAIT_5);
 
 		Sync.waitForSeconds(Constants.WAIT_5);
+		Sync.waitForElementToBeClickable(driver, driver.findElement(By.xpath(".//*[@class='glyphicon glyphicon-check']")));
 		driver.findElement(By.xpath(".//*[@class='glyphicon glyphicon-check']")).click();
-
-
 	}
+	
 	public boolean clicksearch1()
 	{
 		Sync.waitForSeconds(Constants.WAIT_10);

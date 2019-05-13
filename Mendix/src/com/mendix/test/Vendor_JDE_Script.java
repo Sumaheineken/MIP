@@ -182,8 +182,7 @@ SharedDriver.pageContainer.materialNavPage.submitGlobalRequestTest();
 
 	}
 	
-     @Test(dataProvider="CreateVendor_Fill_In_Local",dataProviderClass=staticProviderClass.class)
-	
+    @Test(dataProvider="CreateVendor_Fill_In_Local",dataProviderClass=staticProviderClass.class)
 	public void Vendor_Extend_Create_Fill_In_Data_JDE_Local_Purchasing(Map<String,String> dataMap) throws InterruptedException, FileNotFoundException, IOException, AWTException 
 	{
 
@@ -231,11 +230,27 @@ SharedDriver.pageContainer.materialNavPage.submitGlobalRequestTest();
  		SharedDriver.pageContainer.vendor_JDE_Page.clickPlanningSaveButton();
 
  	}
+     
+     @Test
+ 	public void vendor_Extend_Fill_In_Data_JDE_Local_Purchasing() throws InterruptedException, FileNotFoundException, IOException, AWTException 
+ 	{
 
+ 		SharedDriver.pageContainer.vendor_JDE_Page.localAddInNewPurchasingJDE();
+ 		SharedDriver.pageContainer.vendorPage.clickLocalAction_Local();
+ 		SharedDriver.pageContainer.vendor_JDE_Page.clickValidatLocalData();
+ 		SharedDriver.pageContainer.vendor_JDE_Page.clickPlanningSaveButton();
+ 	}
+     
+    @Test
+  	public void vendor_Extend_Fill_In_Data_JDE_Local_Finance() throws InterruptedException, FileNotFoundException, IOException, AWTException 
+  	{
+  		SharedDriver.pageContainer.vendor_JDE_Page.clickFinancetab();
+  		SharedDriver.pageContainer.vendor_JDE_Page.localAddInNewFinanceJDE();
+  		SharedDriver.pageContainer.vendorPage.clickLocalAction_Local();
+  		SharedDriver.pageContainer.vendor_JDE_Page.clickValidatLocalData();
+  		SharedDriver.pageContainer.vendor_JDE_Page.clickPlanningSaveButton();
 
-
-	
-	
+  	}
 
 }
 
