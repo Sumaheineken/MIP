@@ -789,13 +789,14 @@ public class VendorScript {
 		SharedDriver.pageContainer.vendorPage.navigateToDashboard();
 		SharedDriver.pageContainer.materialApprovalPage.reqIdSearchMyTasks(dataMap.get("RequestId"));
 		SharedDriver.pageContainer.materialPage.clickLocalAction();
-//		SharedDriver.pageContainer.vendorPage.clickResubmitGlobalApprove();
-//		SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
-		SharedDriver.pageContainer.materialPage.duplicateCheckButton();
+		SharedDriver.pageContainer.vendorPage.clickResubmitGlobalApprove();
+		SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
+//		SharedDriver.pageContainer.materialPage.duplicateCheckButton();
 		SharedDriver.pageContainer.materialApprovalPage.clickDuplicateCheck_GDA();
-		SharedDriver.pageContainer.materialPage.clickLocalAction();
-		SharedDriver.pageContainer.materialApprovalPage.approvalBtnClick();
+	//	SharedDriver.pageContainer.materialPage.clickLocalAction();
+	//	SharedDriver.pageContainer.materialApprovalPage.approvalBtnClick();
 		Sync.waitForSeconds(Constants.WAIT_10);
+	
 		SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
 		//SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
 		//SharedDriver.pageContainer.materialPage.browserClose();
@@ -965,25 +966,16 @@ public class VendorScript {
 	SharedDriver.pageContainer.vendorPage.switchToMDMPortal();
 	SharedDriver.pageContainer.vendorPage.navigateToDashboard();
 	SharedDriver.pageContainer.vendorPage.advancedSearch();
-	//SharedDriver.pageContainer.vendorPage.gobalIDSearchGlobal(dataMap.get("Global_ID"));
-	//SharedDriver.pageContainer.vendorPage.globalSearch(dataMap.get("GlobalId"));
 	SharedDriver.pageContainer.materialPage.globalSearch(dataMap.get("Global_ID"));
-
 	SharedDriver.pageContainer.vendorPage.GetFullVendorData();	
 	SharedDriver.pageContainer.vendorPage.clickOkOnInformationButton();
 	SharedDriver.pageContainer.vendorPage.clickOkOnInformationButton();
 	SharedDriver.pageContainer.vendorPage.clickExtendButton();
 	SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
 	SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
-	//SharedDriver.pageContainer.vendorPage.clickGlobalDataButton();
-	SharedDriver.pageContainer.vendorPage.clickOkOnInformationButton();
-	SharedDriver.pageContainer.vendorPage.clickOkOnInformationButton();	
-	//SharedDriver.pageContainer.vendorPage.clickToConfirm();
 	SharedDriver.pageContainer.materialPage.clickLocalAction();
 	SharedDriver.pageContainer.vendorPage.clickConfirmExtension();
-	SharedDriver.pageContainer.vendorPage.getRequestId_Vendor();
-
-
+	SharedDriver.pageContainer.vendorPage.getRequestId_Extend();
 	SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
 	}
 	
