@@ -13,7 +13,7 @@
 		</classes>
 	</test>
 	
-	<test name="Happy_Flag_Deletion">
+  	<test name="Happy_Flag_Deletion">
 		<classes>
 			<class name="com.mendix.test.VendorScript">
 				<methods>
