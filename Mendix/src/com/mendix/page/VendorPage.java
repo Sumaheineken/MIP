@@ -1724,7 +1724,7 @@ public class VendorPage {
 				
 				SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
 				
-				if(driver.findElement(By.xpath("//*[@class='close mx-dialog-close']")).isDisplayed())
+				if(driver.findElements(By.xpath("//*[@class='close mx-dialog-close']")).size()>0)
 				{
 					SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
 				}
