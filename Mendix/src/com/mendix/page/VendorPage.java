@@ -1086,7 +1086,7 @@ public class VendorPage {
 	public boolean clickExtendButton() throws InterruptedException {
 
 		if (Button.verifyObject(btnExtend)) {
-			Sync.waitForObject(driver, "Extend", btnExtend);
+			//Sync.waitForObject(driver, "Extend", btnExtend);
 			Sync.waitForSeconds(Constants.WAIT_1);
 			return Button.click("Extend", btnExtend);
 		} else {
@@ -1724,7 +1724,10 @@ public class VendorPage {
 				
 				SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
 				
-				SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
+				if(driver.findElement(By.xpath("//*[@class='close mx-dialog-close']")).isDisplayed())
+				{
+					SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
+				}
 				
 				List<WebElement> vendorAccountNumberList = driver.findElements(By.xpath(".//*[text()='Vendor account number']/../../../../../../table[2]/tbody/tr/td[1]"));
 				
