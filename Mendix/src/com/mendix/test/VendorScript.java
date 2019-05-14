@@ -995,8 +995,9 @@ public class VendorScript {
 	SharedDriver.pageContainer.vendorPage.advancedSearch();
 	SharedDriver.pageContainer.vendorPage.globalSearch(dataMap.get("Global_ID"));	
 	SharedDriver.pageContainer.vendorPage.GetFullVendorDataNew();
+	SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
 	SharedDriver.pageContainer.vendorPage.clickflagDeletion();
-	SharedDriver.pageContainer.vendorPage.clickLocalAction();
+	SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();	
 	SharedDriver.pageContainer.vendorPage.clickConfirmFlagForDeletionButton();	
 	SharedDriver.pageContainer.vendorPage.getRequestId_Flag_For_Deletion();
 	SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
