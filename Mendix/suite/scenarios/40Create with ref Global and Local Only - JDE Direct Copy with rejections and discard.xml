@@ -50,7 +50,7 @@
 		</classes>
 	</test>
  	
-	<!-- <test name="HeiPort_Login_GDA">
+	<test name="HeiPort_Login_GDA">
 		<classes>
 			<class name="com.mendix.test.LoginScript">
 				<methods>
@@ -124,6 +124,7 @@
 			<class name="com.mendix.test.MaterialScript">
 				<methods>
 					<include name="Create_Material_Rejections_with_Discard" />
+					<include name="Create_Material_Rejections_with_Discard_Local" />
 				</methods>
 			</class>
 		</classes>
@@ -137,6 +138,6 @@
 			</class>
 		</classes>
 	</test> 	
- --></suite> 
+</suite> 
 
 

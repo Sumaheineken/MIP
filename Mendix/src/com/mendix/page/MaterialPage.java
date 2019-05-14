@@ -1785,9 +1785,8 @@ public class MaterialPage {
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".modal-body.mx-dialog-body>p")));
 
 		Sync.waitForObject(driver, "Wait of Dialog Box Success Message", msgRequestSuccessMsg);
-		// String
-		// reqId=driver.findElement(By.xpath(".//*[@id='mxui_widget_DialogMessage_0']/div[1]/div[2]/p")).getText();
-		String reqId = driver.findElement(By.cssSelector(".modal-body.mx-dialog-body>p")).getText();
+		 String reqId=driver.findElement(By.xpath(".//*[@id='mxui_widget_DialogMessage_0']/div[1]/div[2]/p")).getText();
+		//String reqId = driver.findElement(By.cssSelector(".modal-body.mx-dialog-body>p")).getText();
 		String[] parts = reqId.split(" ");
 		String Id = parts[2];
 		System.out.println(Id);
@@ -2545,7 +2544,7 @@ public void checkSyndicationDoneStatus(String strValue) throws InterruptedExcept
 
 			Sync.waitForSeconds(Constants.WAIT_10);
 
-			SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
+			//SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
 
 			//SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
 

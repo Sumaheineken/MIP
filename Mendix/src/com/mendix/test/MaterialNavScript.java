@@ -312,12 +312,13 @@ public class MaterialNavScript {
 	{
 		Assert.assertTrue(SharedDriver.pageContainer.homePage.navigateToWorkflow());
 		SharedDriver.pageContainer.materialPage.switchToPopup();
-		SharedDriver.pageContainer.materialApprovalPage.reqIdSearchMyTasks(dataMap.get("RequestId"));
-		
+		SharedDriver.pageContainer.materialApprovalPage.reqIdSearchMyTasks(dataMap.get("RequestId"));		
 		SharedDriver.pageContainer.materialApprovalPage.approvalBtnClick_Local();
 		SharedDriver.pageContainer.materialPage.duplicateCheckButton();
 		SharedDriver.pageContainer.materialPage.duplicateCheck_New();
 		SharedDriver.pageContainer.materialPage.submitGlobalRequestExtend();
+		SharedDriver.pageContainer.materialApprovalPage.reqIdSearchMyTasks(dataMap.get("RequestId"));
+		SharedDriver.pageContainer.materialPage.Localactionbutton();
 		SharedDriver.pageContainer.materialNavPage.clickValidatLocalRequest();
 		SharedDriver.pageContainer.materialNavPage.submitLocalRequest();
 		SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();

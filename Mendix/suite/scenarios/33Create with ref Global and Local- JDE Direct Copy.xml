@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Create Material with JDE">
+<suite name="Create with ref Global and Local- JDE Direct Copy">
 	<test name="HeiPort_Login_LDR">
 		<classes>
 			<class name="com.mendix.test.LoginScript">
 				<methods>
 					<include name="tasKill" />
 					<include name="openBrowser" />
-					<include name="loginAsSZLDR" />
+					<include name="loginAsLDR" />
 				</methods>
 			</class>
 		</classes>
@@ -41,11 +41,11 @@
 			</class>
 		</classes>
 	</test>
-	<test name="Process_Information_Check_LDS">
+	<test name="Process_Information_Check">
 		<classes>
-			<class name="com.mendix.test.MaterialNavScript">
+			<class name="com.mendix.test.MaterialScript">
 				<methods>
-					<include name="Process_Information_Check_Local" />
+					<include name="Process_Information_Check" />
 				</methods>
 			</class>
 		</classes>
@@ -70,45 +70,45 @@
 			</class>
 		</classes>
 	</test>
-	<test name="Process_Information_Check_LBDA">
+	<test name="Process_Information_Check_LDS">
 		<classes>
-			<class name="com.mendix.test.MaterialNavScript">
+			<class name="com.mendix.test.MaterialScript">
 				<methods>
-					<include name="Process_Information_Check_Local" />
+					<include name="Process_Information_Check" />
 				</methods>
 			</class>
 		</classes>
 	</test>
-	<!-- <test name="HeiPort_Login_LBDA">
+	<test name="HeiPort_Login_GBDA">
 		<classes>
 			<class name="com.mendix.test.LoginScript">
 				<methods>
 					<include name="openBrowser" />
-					<include name="loginAsLBDA" />
+					<include name="loginAsGBDA" />
 				</methods>
 			</class>
 		</classes>
 	</test>
-	<test name="Material_Create_Review_Global_Data_Approve_LBDA">
+	<test name="Material_Change_Review_Global_Data_Approve_GBDA">
 		<classes>
-			<class name="com.mendix.test.MaterialNavScript">
+			<class name="com.mendix.test.MaterialScript">
 				<methods>
 					<include
-						name="Material_Create_Review_Global_Data_Approve_LBDA" />
+						name="Material_Create_Review_Global_Data_Approve_GBDA" />
 				</methods>
 			</class>
 		</classes>
 	</test>
-	<test name="Process_Information_Check_GDA">
+	<test name="Process_Information_Check_GBDA">
 		<classes>
-			<class name="com.mendix.test.MaterialNavScript">
+			<class name="com.mendix.test.MaterialScript">
 				<methods>
-					<include name="Process_Information_Check_Local" />
+					<include name="Process_Information_Check" />
 				</methods>
 			</class>
 		</classes>
 	</test>
-	 --><test name="HeiPort_Login_GDA">
+	 <test name="HeiPort_Login_GDA">
 		<classes>
 			<class name="com.mendix.test.LoginScript">
 				<methods>
@@ -142,7 +142,7 @@
 			<class name="com.mendix.test.LoginScript">
 				<methods>
 					<include name="openBrowser" />
-					<include name="loginAsSZLDR" />
+					<include name="loginAsLDR" />
 				</methods>
 			</class>
 		</classes>
