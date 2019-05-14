@@ -28,6 +28,7 @@ import com.mendix.tool.Button;
 import com.mendix.tool.Constants;
 import com.mendix.tool.Sync;
 import com.mendix.util.ExcelUtil;
+import com.mendix.util.ResultUtil;
 
 
 public class Material_Change_Page {
@@ -428,6 +429,7 @@ public class Material_Change_Page {
     		Sync.waitForSeconds(Constants.WAIT_5);
     		String errorMsg=driver.findElement(By.cssSelector(".modal-body.mx-dialog-body>p")).getText();
     		System.out.println(errorMsg);
+    		ResultUtil.report(Constants.STATUS_PASS, "Captured"+errorMsg);
     	}
     	else{
     		Sync.waitForSeconds(Constants.WAIT_5);

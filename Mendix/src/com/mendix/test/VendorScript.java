@@ -756,6 +756,7 @@ public class VendorScript {
 	SharedDriver.pageContainer.vendorPage.clickOkOnInformationButton();
 	SharedDriver.pageContainer.vendorPage.clickflagDeletion();
 	SharedDriver.pageContainer.vendorPage.clickOkOnInformationButton();
+	SharedDriver.pageContainer.vendorPage.clickOkOnInformationButton();
 	SharedDriver.pageContainer.material_Change_Page.getErrorPopupMessage();
 	}
 	@Test(dataProvider="Process_Information_Check",dataProviderClass=staticProviderClass.class)

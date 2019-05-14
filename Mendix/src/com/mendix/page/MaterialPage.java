@@ -2547,7 +2547,7 @@ public void checkSyndicationDoneStatus(String strValue) throws InterruptedExcept
 
 			SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
 
-			SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
+			//SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
 
 			List<WebElement> materialNumberlist = driver
 					.findElements(By.xpath(".//*[text()='Material number']/../../../../../../table[2]/tbody/tr/td[1]"));
