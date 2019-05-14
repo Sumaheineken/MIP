@@ -1605,7 +1605,7 @@ public class VendorPage {
 		String reqId = driver.findElement(By.xpath(".//*[@id='mxui_widget_DialogMessage_0']/div[1]/div[2]/p"))
 				.getText();
 		String[] parts = reqId.split(" ");
-		String Id = parts[6];
+		String Id = parts[7];
 		System.out.println("RequestId is: " + Id);
 		// ExcelUtil.excelWrite(Id);
 		ExcelUtil.setCellData_New("TestPlan", "RequestId", Id);
