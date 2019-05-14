@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Extend Global only for SAP">
+<suite name="Vendor_Delete_Record_Shared_With_Multiple_Opcos">
 	<test name="HeiPort_Login_LDR">
 		<classes>
 			<class name="com.mendix.test.LoginScript">
@@ -21,15 +21,7 @@
 			</class>
 		</classes>
 	</test>
-	<test name="Process_Information_Check">
-		<classes>
-			<class name="com.mendix.test.MaterialScript">
-				<methods>
-					<include name="Process_Information_Check" />
-				</methods>
-			</class>
-		</classes>
-	</test> 
+	
 </suite> 
 
 

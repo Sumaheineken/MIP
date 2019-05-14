@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Change Vendor global only">
+<suite name="Happy Flag For Deletion(Not Shared With Multiple Opcos)_SAP">
  	      
-   	   <!--  <test name="HeiPort_Login_LDR">
+   	   <test name="HeiPort_Login_LDR">
 		<classes>
 			<class name="com.mendix.test.LoginScript">
 				<methods>
@@ -31,28 +31,8 @@
 				</methods>
 			</class>
 		</classes>
-	</test>
- --> 	<test name="HeiPort_Login_LDR_Syndication">
-		<classes>
-			<class name="com.mendix.test.LoginScript">
-				<methods>
-					<include name="openBrowser" />
-					<include name="loginAsLDR" />
-				</methods>
-			</class>
-		</classes>
-	</test>
-   <test name="Material_Create_Syndication_Check">
-		<classes>
-			<class name="com.mendix.test.MaterialScript">
-				<methods>
-					 <include name="material_Create_Syndication_Check_GlobalId" /> 
-					<include name="launchUFT_SAP_Material"/>
-				</methods>
-			</class>
-		</classes>
 	</test> 
-
+ 	
 </suite> 
 
 

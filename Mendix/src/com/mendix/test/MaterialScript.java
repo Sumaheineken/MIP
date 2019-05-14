@@ -350,6 +350,7 @@ public class MaterialScript {
 		Sync.waitForSeconds(Constants.WAIT_5);
 		SharedDriver.pageContainer.materialPage.checkSyndicationDoneStatus(dataMap.get("RequestId"));
 		Sync.waitForSeconds(Constants.WAIT_10);
+		Sync.waitForSeconds(Constants.WAIT_5);
 		SharedDriver.pageContainer.processInfoPage.browserClose();
 		
 	}
