@@ -753,7 +753,11 @@ public class VendorScript {
 	SharedDriver.pageContainer.vendorPage.navigateToDashboard();
 	SharedDriver.pageContainer.vendorPage.advancedSearch();
 	SharedDriver.pageContainer.materialPage.globalSearch(dataMap.get("Global_ID"));
+	SharedDriver.pageContainer.vendorPage.GetFullVendorData();
+	SharedDriver.pageContainer.vendorPage.clickOkOnInformationButton();
+	SharedDriver.pageContainer.vendorPage.clickOkOnInformationButton();
 	SharedDriver.pageContainer.vendorPage.clickflagDeletion();
+	SharedDriver.pageContainer.vendorPage.clickOkOnInformationButton();
 	SharedDriver.pageContainer.material_Change_Page.getErrorPopupMessage();
 	}
 	@Test(dataProvider="Process_Information_Check",dataProviderClass=staticProviderClass.class)
@@ -774,6 +778,7 @@ public class VendorScript {
 	SharedDriver.pageContainer.vendorPage.navigateToDashboard();
 	SharedDriver.pageContainer.vendorPage.advancedSearch();
 	SharedDriver.pageContainer.materialPage.globalSearch(dataMap.get("Global_ID"));
+	SharedDriver.pageContainer.vendorPage.GetFullVendorData();
 	SharedDriver.pageContainer.vendorPage.checkGlobalIdYes();	
 	SharedDriver.pageContainer.vendorPage.navigateToDashboard();
 	SharedDriver.pageContainer.vendorPage.advancedSearch();
