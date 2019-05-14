@@ -236,6 +236,11 @@ public class MaterialApprovalPage {
 		return true;
 	}
 	
+	public void clickApprovalButton() {
+		Sync.waitForSeconds(Constants.WAIT_2);
+		Button.jsclick("Click Approve Global button", btnApproveGlobalRequest, driver);
+	}
+	
 	public boolean approvalBtnClickLocal() {
 		Sync.waitForSeconds(Constants.WAIT_2);
 		Sync.waitUntilObjectDisappears(driver, "Wait My tasks to load",
@@ -582,16 +587,10 @@ public class MaterialApprovalPage {
 	
 	
 	public void clickDuplicateCheck_GDA() throws InterruptedException {
-		//Sync.waitUntilObjectDisappears(driver, "Wait for Duplicate check",
-			//	By.xpath(".//*[@id='mxui_widget_Progress_0']/div[2]"));
+	
 		Sync.waitForSeconds(Constants.WAIT_5);
-		//WebDriverWait wait = new WebDriverWait(driver, 50);
-		//wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[text()='My record is not a duplicate! Submit.']")));
-
-		
 		Thread.sleep(20000);
-		//Thread.sleep(20000);
-		//Button.verifyObject(btnDuplicateOpenRecord)
+		
 		if (driver.findElements(By.xpath(".//*[text()='Open Record']")).size()>0) {
 			Sync.waitForSeconds(Constants.WAIT_5);
 			this.duplicateCheck();
@@ -604,8 +603,7 @@ public class MaterialApprovalPage {
 		}
 	}
 
-	// }
-
+	
 	public void okbuttonClick() {
 
 		try {

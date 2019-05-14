@@ -786,18 +786,12 @@ public class VendorScript {
 		SharedDriver.pageContainer.vendorPage.navigateToDashboard();
 		SharedDriver.pageContainer.materialApprovalPage.reqIdSearchMyTasks(dataMap.get("RequestId"));
 		SharedDriver.pageContainer.materialPage.clickLocalAction();
-		SharedDriver.pageContainer.materialApprovalPage.approvalBtnClick();
-		SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
-//		SharedDriver.pageContainer.materialPage.duplicateCheckButton();
+		SharedDriver.pageContainer.materialApprovalPage.clickApprovalButton();
+		
 		SharedDriver.pageContainer.materialApprovalPage.clickDuplicateCheck_GDA();
-	//	SharedDriver.pageContainer.materialPage.clickLocalAction();
-	//	SharedDriver.pageContainer.materialApprovalPage.approvalBtnClick();
 		Sync.waitForSeconds(Constants.WAIT_10);
 	
-		SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
 		//SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
-		//SharedDriver.pageContainer.materialPage.browserClose();
-
 	}
 	
 	@Test(dataProvider="Process_Information_Check",dataProviderClass=staticProviderClass.class)

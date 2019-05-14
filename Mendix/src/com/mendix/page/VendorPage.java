@@ -300,6 +300,8 @@ public class VendorPage {
 	@FindBy(how = How.XPATH, using = ".//*[text()='Target system']/../../../../../../table[2]/tbody/tr/td[2]//*[text()='PH1700']")
 	WebElement vendorTargetSystemBE;
 	
+	@FindBy(how = How.XPATH, using = ".//*[text()='Target system']/../../../../../../table[2]/tbody/tr/td[2]//*[text()='PE2700']")
+	WebElement vendorTargetSystemPL;
 	
 	@FindBy(how=How.XPATH, using="//div[contains(@class,'mx-name-dataView2 searchResults')]//table[2]/tbody/tr[1]/td[1]/div")
 	WebElement txtGlobalLockValue;
@@ -1222,7 +1224,7 @@ public class VendorPage {
 	public boolean clickConfirmExtension() throws InterruptedException {
 
 		if (Button.verifyObject(btnConfirmExtension)) {
-			Sync.waitForObject(driver, "Click Button To Confirm", btnConfirmExtension);
+			//Sync.waitForObject(driver, "Click Button To Confirm", btnConfirmExtension);
 			Sync.waitForSeconds(Constants.WAIT_5);
 			return Button.click("Click Button To Confirm", btnConfirmExtension);
 		} else {
@@ -1689,6 +1691,13 @@ public class VendorPage {
 			else if(vendorTargetSystemBE.getText().equalsIgnoreCase("P41100"))
 			{
 				String vendorAccNumber = vendorAccountNumberBE.getText();
+				System.out.println("The Vendor Account Number is :"+vendorAccNumber);
+				ExcelUtil.setCellData_New_VendorAccNumber("TestPlan", "Material_Number_AH1", vendorAccNumber);
+				System.out.println(""+vendorAccNumber);
+			}
+			else if(vendorTargetSystemPL.getText().equalsIgnoreCase("PE2700"))
+			{
+				String vendorAccNumber = vendorTargetSystemPL.getText();
 				System.out.println("The Vendor Account Number is :"+vendorAccNumber);
 				ExcelUtil.setCellData_New_VendorAccNumber("TestPlan", "Material_Number_AH1", vendorAccNumber);
 				System.out.println(""+vendorAccNumber);
