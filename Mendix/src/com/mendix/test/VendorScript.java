@@ -596,8 +596,6 @@ public class VendorScript {
 		//SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
 		//SharedDriver.pageContainer.vendorPage.getVendorAccountNumber();
 		SharedDriver.pageContainer.processInfoPage.browserClose();
-		//Thread.sleep(1200000);
-		//SharedDriver.pageContainer.materialApprovalPage.launchUFTJDEVendor();
 	}
 
 	@Test
@@ -788,7 +786,7 @@ public class VendorScript {
 		SharedDriver.pageContainer.vendorPage.navigateToDashboard();
 		SharedDriver.pageContainer.materialApprovalPage.reqIdSearchMyTasks(dataMap.get("RequestId"));
 		SharedDriver.pageContainer.materialPage.clickLocalAction();
-		SharedDriver.pageContainer.vendorPage.clickResubmitGlobalApprove();
+		SharedDriver.pageContainer.materialApprovalPage.approvalBtnClick();
 		SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
 //		SharedDriver.pageContainer.materialPage.duplicateCheckButton();
 		SharedDriver.pageContainer.materialApprovalPage.clickDuplicateCheck_GDA();
@@ -822,7 +820,7 @@ public class VendorScript {
 		SharedDriver.pageContainer.materialPage.clickLocalAction();
 		SharedDriver.pageContainer.vendorPage.clickConfirmExtension();
 		SharedDriver.pageContainer.vendorPage.getRequestId_Extend();
-		SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
+		//SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
 	}
 	
 	/**********************************************************************************************************************************/
