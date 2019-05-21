@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Happy Flag for deletion">
-	<test name="HeiPort_Login_LDR">
+<suite name="Extend Global only for SAP">
+	 <test name="HeiPort_Login_LDR">
 		<classes>
 			<class name="com.mendix.test.LoginScript">
 				<methods>
@@ -12,7 +12,8 @@
 			</class>
 		</classes>
 	</test>
-	<test name="Happy_Flag_Deletion">
+	
+  	<test name="Happy_Flag_Deletion">
 		<classes>
 			<class name="com.mendix.test.VendorScript">
 				<methods>
@@ -21,17 +22,15 @@
 			</class>
 		</classes>
 	</test>
-	
+		
 	<test name="Process_Information_Check">
 		<classes>
-			<class name="com.mendix.test.VendorScript">
+			<class name="com.mendix.test.MaterialScript">
 				<methods>
-					<include name="Process_Information_Check" />
+					<include name="Process_Information_Check" />					
 				</methods>
 			</class>
 		</classes>
-		</test>
-	
-</suite> 
-
-
+	</test>
+	 
+</suite>
