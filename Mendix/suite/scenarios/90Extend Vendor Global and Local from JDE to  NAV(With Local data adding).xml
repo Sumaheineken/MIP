@@ -26,7 +26,7 @@
 	</test>
 	<test name="Process_Information_Check">
 		<classes>
-			<class name="com.mendix.test.VendorScript">
+			<class name="com.mendix.test.MaterialScript">
 				<methods>
 					<include name="Process_Information_Check" />
 				</methods>
@@ -60,7 +60,7 @@
 	
 	<test name="Process_Information_Check_Syndication_LDS">
 		<classes>
-			<class name="com.mendix.test.VendorScript">
+			<class name="com.mendix.test.MaterialScript">
 				<methods>
 					<include name="Process_Information_Check" />
 				</methods>
