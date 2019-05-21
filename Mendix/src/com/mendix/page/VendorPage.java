@@ -1766,6 +1766,112 @@ public class VendorPage {
 			}
 			
 		}
+		
+		public void checkDashboardLockVendorExtend(String strValue) throws InterruptedException {
+			// TODO Auto-generated method stub
+			
+			Sync.waitForSeconds(Constants.WAIT_5);
+			globalLockValue = txtGlobalLockValue.getText();		
+			
+			localLockValue = txtLocalLockValue.getText();
+			
+			fFDValue = txtFFDValue.getText();
+			
+			System.out.println("Global lock: "+globalLockValue);
+			System.out.println("Local Lock : "+localLockValue);
+			System.out.println("FFD : "+fFDValue);
+			if((globalLockValue.equalsIgnoreCase("Yes") && localLockValue.equalsIgnoreCase("Yes") && fFDValue.equalsIgnoreCase("No")) || (globalLockValue.equalsIgnoreCase("Yes") && localLockValue.equalsIgnoreCase("No") && fFDValue.equalsIgnoreCase("No")))
+			{
+				Thread.sleep(120000);
+				Textbox.clear("Clear TextBox Value", txtBoxGlobalId);
+				Textbox.enterValue("Enter TextBox Value", txtBoxGlobalId, strValue);
+				Sync.waitForSeconds(Constants.WAIT_5);
+				Button.click("Click Search button", btnReqIdEnter);
+				Sync.waitForSeconds(Constants.WAIT_5);
+				
+				if(globalLockValue.equalsIgnoreCase("No") && localLockValue.equalsIgnoreCase("No") && fFDValue.equalsIgnoreCase("No"))
+				{
+					System.out.println("Syndication Done");
+				
+					SharedDriver.pageContainer.vendorPage.GetFullVendorData();
+				
+					Sync.waitForSeconds(Constants.WAIT_10);
+				
+					SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
+				
+					if(driver.findElements(By.xpath("//*[@class='close mx-dialog-close']")).size()>0)
+					{
+						SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
+					}
+				
+					List<WebElement> vendorAccountNumberList = driver.findElements(By.xpath(".//*[text()='Vendor account number']/../../../../../../table[2]/tbody/tr/td[1]"));
+				
+					List<WebElement> targetSystemList = driver.findElements(By.xpath(".//*[text()='Vendor account number']/../../../../../../table[2]/tbody/tr/td[2]"));
+				
+					Iterator<WebElement> i = targetSystemList.iterator();
+					while(i.hasNext())
+					{
+				
+						WebElement row = i.next();
+						String targetSystem = row.getText();
+					
+						for(WebElement vendorList : vendorAccountNumberList)
+						{	
+					
+							String vendorNumb = vendorList.getText();
+							System.out.println("Vendor Account Number = "+vendorNumb+" for Target System : "+targetSystem);
+						}
+					}
+				}
+				else
+				{
+					System.out.println("Syndiction not done");
+					Assert.assertEquals(globalLockValue, "No", "Global Lock is still active");
+					Assert.assertEquals(localLockValue, "No", "Local lock is still active");
+					Assert.assertEquals(fFDValue, "No", "FFD Value is still active");
+				}
+			}
+			else if(globalLockValue.equalsIgnoreCase("No") && localLockValue.equalsIgnoreCase("No") && fFDValue.equalsIgnoreCase("No"))
+			{
+				System.out.println("Syndication Done");
+				
+				SharedDriver.pageContainer.vendorPage.GetFullVendorData();
+				
+				Sync.waitForSeconds(Constants.WAIT_10);
+				
+				SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
+				
+				if(driver.findElements(By.xpath("//*[@class='close mx-dialog-close']")).size()>0)
+				{
+					SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
+				}
+				
+				List<WebElement> vendorAccountNumberList = driver.findElements(By.xpath(".//*[text()='Vendor account number']/../../../../../../table[2]/tbody/tr/td[1]"));
+				
+				List<WebElement> targetSystemList = driver.findElements(By.xpath(".//*[text()='Vendor account number']/../../../../../../table[2]/tbody/tr/td[2]"));
+				
+				Iterator<WebElement> i = targetSystemList.iterator();
+				while(i.hasNext())
+				{
+				
+					WebElement row = i.next();
+					String targetSystem = row.getText();
+					
+					for(WebElement vendorList : vendorAccountNumberList)
+					{	
+					
+						String vendorNumb = vendorList.getText();
+						System.out.println("Vendor Account Number = "+vendorNumb+" for Target System : "+targetSystem);
+					}
+				}
+				
+			}
+			else
+			{
+				System.out.println("Syndication failed");
+			}
+			
+		}
 				
 		public void submitBankRequest() {
 			Sync.waitForSeconds(Constants.WAIT_1);
