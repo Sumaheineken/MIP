@@ -145,6 +145,7 @@ public class MaterialChangeScript {
 	public void Material_Edit_Desc_JDE(Map<String,String> dataMap) throws InterruptedException, FileNotFoundException, IOException
 	{   Sync.waitForSeconds(Constants.WAIT_3);
 		SharedDriver.pageContainer.materialPage.materialDescCreate(dataMap.get("Description"));
+		SharedDriver.pageContainer.materialPage.materialGrpSelectionTest(dataMap.get("Material Group"));
 		SharedDriver.pageContainer.materialPage.grossWeightEntestTest(dataMap.get("Gross Weight Base UoM"));
 		SharedDriver.pageContainer.materialPage.unitOfWeightSelectionTest(dataMap.get("Unit of Weight"));
 		SharedDriver.pageContainer.materialPage.baseUOMSelectionTest(dataMap.get("Base UoM"));
