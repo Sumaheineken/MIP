@@ -805,9 +805,7 @@ public class VendorScript {
 		SharedDriver.pageContainer.materialApprovalPage.reqIdSearchMyTasks(dataMap.get("RequestId"));
 		SharedDriver.pageContainer.vendorPage.rejectLBDAVendor();
 		Sync.waitForSeconds(Constants.WAIT_10);
-		SharedDriver.pageContainer.materialApprovalPage.submitRequestOkButtonClick();
-		//SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
-		//SharedDriver.pageContainer.materialPage.browserClose();
+	
 	}
 	
 	@Test(dataProvider="Process_Information_Check",dataProviderClass=staticProviderClass.class)

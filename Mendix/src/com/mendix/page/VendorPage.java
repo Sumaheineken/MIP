@@ -1509,7 +1509,7 @@ public class VendorPage {
 		Sync.waitForSeconds(Constants.WAIT_5);
 		Sync.waitForSeconds(Constants.WAIT_5);
 
-		driver.findElement(By.xpath("(.//*[@class='btn mx-button mx-name-newButton2 btn-default'])[1]")).click();
+		Button.jsclick("Add new comments to Reject", driver.findElement(By.xpath(".//*[text()='Comments']/../div/div[2]/div[2]/button[1]")), driver);
 
 		System.out.println("clicked new button");
 		Sync.waitForSeconds(Constants.WAIT_5);
