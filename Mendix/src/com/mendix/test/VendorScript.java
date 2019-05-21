@@ -496,7 +496,7 @@ public class VendorScript {
 		SharedDriver.pageContainer.vendorPage.switchToMDMPortal();
 		SharedDriver.pageContainer.materialApprovalPage.reqIdSearchMyTasks(dataMap.get("RequestId"));
 		SharedDriver.pageContainer.vendorPage.RejectGDA();
-		SharedDriver.pageContainer.vendorPage.getRequestId_Flag_For_Deletion();
+		SharedDriver.pageContainer.vendorPage.getRequestId_ffd();
 		SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
 
 		
@@ -986,8 +986,8 @@ public class VendorScript {
 	SharedDriver.pageContainer.vendorPage.clickflagDeletion();
 	SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();	
 	SharedDriver.pageContainer.vendorPage.clickConfirmFlagForDeletionButton();	
-	SharedDriver.pageContainer.vendorPage.getRequestId_Flag_For_Deletion();
-	SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
+	SharedDriver.pageContainer.vendorPage.getRequestId_ffd();
+	//SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
 	}
 	
 	public void Create_Vendor_Rejections_with_Discard_Extension  (Map<String,String> dataMap) throws InterruptedException, FileNotFoundException, IOException 
