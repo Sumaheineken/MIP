@@ -2339,18 +2339,18 @@ public class MaterialPage {
 		Sync.waitForSeconds(Constants.WAIT_2);
 		System.out.println("checking for new button");
 
-		String text1 = driver.findElement(By.xpath("(.//*[@class='btn mx-button mx-name-newButton2 btn-default'])[2]"))
-				.getText();
-		System.out.println(text1);
-		Sync.waitForSeconds(Constants.WAIT_10);
+		//
+//		String text1 = driver.findElement(By.xpath(".//*[text()='Comments']/../div[1]/div[2]/div[2]/button[1]")).getText();
+//		System.out.println(text1);
+//		Sync.waitForSeconds(Constants.WAIT_10);
 
-		driver.findElement(By.xpath("(.//*[@class='btn mx-button mx-name-newButton2 btn-default'])[2]")).click();
+		Button.jsclick("Click new to add a comment", driver.findElement(By.xpath(".//*[text()='Comments']/../div[1]/div[2]/div[2]/button[1]")), driver);
 		// Button.jsclick("Click on New Button TO Add comment", btnCommentLocalNewNav,
 		// driver);
 		System.out.println("clicked new button");
 		Sync.waitForSeconds(Constants.WAIT_10);
 		Sync.waitForObject(driver, textComment);
-		Textbox.enterValue("typing comment", textComment, "material data");
+		Textbox.enterValue("typing comment", textComment, "Data Rejection");
 		Button.click("Click on Save Button", btnSave);
 		Sync.waitForSeconds(Constants.WAIT_2);
 		//Sync.waitForObject(driver, btnLocalActions);
