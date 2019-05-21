@@ -1624,20 +1624,20 @@ public class VendorPage {
 	/*****************************************************************************************************************/
 	
 	/***********************************************************************************************************************************/
-	public String getRequestId_Flag_For_Deletion() throws InterruptedException, FileNotFoundException, IOException {
+	public String getRequestId_ffd() throws InterruptedException, FileNotFoundException, IOException {
 
 		driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
 		Sync.waitForObject(driver, "Wait of Dialog Box Success Message", msgRequestSuccess);
 		Sync.waitForSeconds(Constants.WAIT_3);
 
-		WebDriverWait wait = new WebDriverWait(driver, 60);
+		WebDriverWait wait = new WebDriverWait(driver, 80);
 		// WebElement text =
 		// driver.findElement(By.xpath(".//*[@id='mxui_widget_DialogMessage_0']/div[1]/div[2]/p"));
 		// wait.until(ExpectedConditions.elementToBeSelected(text));
-		String reqId = driver.findElement(By.xpath(".//*[@id='mxui_widget_DialogMessage_0']/div[1]/div[2]/p"))
+		String reqId = driver.findElement(By.xpath(".//*[text()='Information']/../../div[2]/p"))
 				.getText();
 		String[] parts = reqId.split(" ");
-		String Id = parts[7];
+		String Id = parts[6];
 		System.out.println("RequestId is: " + Id);
 		// ExcelUtil.excelWrite(Id);
 		ExcelUtil.setCellData_New("TestPlan", "RequestId", Id);
