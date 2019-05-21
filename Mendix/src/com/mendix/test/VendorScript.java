@@ -571,6 +571,19 @@ public class VendorScript {
 		//SharedDriver.pageContainer.vendorPage.getVendorAccountNumber();
 		SharedDriver.pageContainer.processInfoPage.browserClose();
 	}
+	
+	@Test(dataProvider="Process_Information_Check",dataProviderClass=staticProviderClass.class)
+	public void vendor_Create_Syndication_Check_Extend_Nav (Map<String,String> dataMap) throws InterruptedException, FileNotFoundException, IOException 
+	{
+		SharedDriver.pageContainer.homePage.navigateToWorkflow();
+		SharedDriver.pageContainer.vendorPage.switchToMDMPortal();
+		SharedDriver.pageContainer.vendorPage.navigateToDashboard();
+		SharedDriver.pageContainer.vendorPage.advancedSearch();
+		SharedDriver.pageContainer.vendorPage.globalSearch(dataMap.get("Global_ID"));
+		SharedDriver.pageContainer.vendorPage.checkDashboardLockVendorExtend(dataMap.get("Global_Id"));
+		SharedDriver.pageContainer.processInfoPage.browserClose();
+	}
+	
 	@Test
 	public void launchUFT_NAV_Vendor() throws IOException, InterruptedException
 	{
