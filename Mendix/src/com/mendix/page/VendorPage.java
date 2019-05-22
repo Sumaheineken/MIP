@@ -1517,7 +1517,7 @@ public class VendorPage {
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(
 				"(.//*[text()='Edit Comments']/../../div[2]/div/div/div/div/div/div[1]/div/div/div/div/div/textarea)")));
 
-		Textbox.enterValue("typing comment", textAreaComment, "material data");
+		Textbox.enterValue("typing comment", textAreaComment, "Data Rejection");
 		Textbox.click("Click on Save Button", btnSave);
 
 		Sync.waitForSeconds(Constants.WAIT_5);
@@ -1652,10 +1652,10 @@ public class VendorPage {
 	 public void DiscardExtensionLDR() throws InterruptedException {
 
 			Sync.waitForSeconds(Constants.WAIT_6);
-			Button.click("Local Actions button click", btnLocalActions);
+			Button.jsclick("Local Actions button click", btnLocalActions, driver);
 			Sync.waitForSeconds(Constants.WAIT_6);
 			Sync.waitForObject(driver,btnDiscardExtension);
-			Button.click("Click on reject button in locl action", btnDiscardExtension);
+			Button.jsclick("Click on reject button in locl action", btnDiscardExtension, driver);
 			Sync.waitForSeconds(Constants.WAIT_6);
 			Sync.waitForObject(driver, btnOK);
 			Button.click("Click On OK button", btnOK);

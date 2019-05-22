@@ -1003,16 +1003,18 @@ public class VendorScript {
 	//SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
 	}
 	
+	@Test(dataProvider="Process_Information_Check",dataProviderClass=staticProviderClass.class)
 	public void Create_Vendor_Rejections_with_Discard_Extension  (Map<String,String> dataMap) throws InterruptedException, FileNotFoundException, IOException 
 	{
 		try{
 		System.out.println("Start:Create_Vendor_Rejections_with_Discard");
 
 		SharedDriver.pageContainer.homePage.navigateToWorkflow();
-		SharedDriver.pageContainer.vendorPage.switchToMDMPortal();
+		SharedDriver.pageContainer.materialPage.switchToPopup();
 		SharedDriver.pageContainer.materialApprovalPage.reqIdSearchMyTasks(dataMap.get("RequestId"));
+		System.out.println("search task opened");
+		//SharedDriver.pageContainer.materialPage.clickLocalAction();
 		SharedDriver.pageContainer.vendorPage.DiscardExtensionLDR();
-		
 		System.out.println("End:Create_Vendor_Rejections_with_Discard-Done");
 		
 	}catch(Exception e){

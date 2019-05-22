@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Extend Global only for SAP">
-	 <test name="HeiPort_Login_LDR">
+<suite name="Extend Vendor Global and Local Nav from Algerial to Panama with rejections and discard">
+	<test name="HeiPort_Login_LDR">
 		<classes>
 			<class name="com.mendix.test.LoginScript">
 				<methods>
@@ -26,43 +26,45 @@
 	</test>
 	<test name="Process_Information_Check_LDR_FirstTime">
 		<classes>
-			<class name="com.mendix.test.MaterialNavScript">
+			<class name="com.mendix.test.MaterialScript">
 				<methods>
 					<include name="Process_Information_Check" />
 				</methods>
 			</class>
 		</classes>
 	</test>
+	 
 	<test name="HeiPort_Login_LDS">
 		<classes>
 			<class name="com.mendix.test.LoginScript">
 				<methods>
 					<include name="openBrowser" />
-					<include name="loginAsVendorLDSNAV " />
+					<include name="loginAsLDSVendor" />
 				</methods>
 			</class>
 		</classes>
 	</test>
 	<test name="Material_Create_Review_Local_Data_Reject_LDS">
 		<classes>
-			<class name="com.mendix.test.MaterialNavScript">
+			<class name="com.mendix.test.MaterialScript">
 				<methods>
 					<include
-						name="vendor_Reject_LDS" />
+						name="material_Reject_LDS" />
 				</methods>
 			</class>
 		</classes>
 	</test>
 	<test name="Process_Information_Check_LDS_RejectStatus">
 		<classes>
-			<class name="com.mendix.test.MaterialNavScript">
+			<class name="com.mendix.test.MaterialScript">
 				<methods>
 					<include name="Process_Information_Check" />
 				</methods>
 			</class>
 		</classes>
 	</test>
-	 <test name="HeiPort_Login_LDR_SecondTime">
+
+	 <test name="HeiPort_ReLogin_LDR_To Submit Local Request">
 		<classes>
 			<class name="com.mendix.test.LoginScript">
 				<methods>
@@ -73,50 +75,51 @@
 			</class>
 		</classes>
 	</test>
-	<test  name="Create_Vendor_Resubmit_Request">
+	<test name="Material_Resubmit_To_Approval_Local">
 		<classes>
-			<class name="com.mendix.test.VendorScript">
+			<class name="com.mendix.test.MaterialScript">
 				<methods>
-					<include name="Create_Vendor_Resubmit_Request" />
+					<include name="navigate_To_MDM_Workflow"/>
+					<include name="material_Resubmit_To_Local_Approval"/>
 				</methods>
 			</class>
 		</classes>
 	</test>
 	<test name="Process_Information_Check_Resubmit_State">
 		<classes>
-			<class name="com.mendix.test.VendorScript">
+			<class name="com.mendix.test.MaterialScript">
 				<methods>
 					<include name="Process_Information_Check" />
 				</methods>
 			</class>
 		</classes>
 	</test>
+	
 	<test name="HeiPort_Login_LDS_Approving">
 		<classes>
 			<class name="com.mendix.test.LoginScript">
 				<methods>
 					<include name="openBrowser" />
-					<include name="loginAsPAVMLDS" />
+					<include name="loginAsLDSVendor" />
 				</methods>
 			</class>
 		</classes>
 	</test> 
 	
-	<test name="Material_Create_Review_Global_Data_Approve_LDS">
+	<test name="vendor local data approve LDS">
 		<classes>
-			<class name="com.mendix.test.MaterialNavScript">
+			<class name="com.mendix.test.MaterialScript">
 				<methods>
-					<include
-						name="Material_Create_Review_Global_Data_Approve_LDS" />
+					<include name="material_Create_Review_Local_Data_Approve_LDS"/>
 				</methods>
 			</class>
 		</classes>
 	</test>
-	<test name="Process_Information_Check_LDS_RejectionStatus_GBDA">
+	<test name="Process_Information_Check_LDS_Syndication">
 		<classes>
-			<class name="com.mendix.test.MaterialNavScript">
+			<class name="com.mendix.test.MaterialScript">
 				<methods>
-					<include name="Process_Information_Check_Local" />
+					<include name="Process_Information_Check" />
 				</methods>
 			</class>
 		</classes>
@@ -127,7 +130,7 @@
 			<class name="com.mendix.test.LoginScript">
 				<methods>
 					<include name="openBrowser" />
-					<include name="loginAsLBDANavVendor" />
+					<include name="loginAsLBDAVendor" />
 				</methods>
 			</class>
 		</classes>
@@ -150,11 +153,11 @@
 			</class>
 		</classes>
 	</test> 
+
 	 <test name="HeiPort_Login_LDR_DiscardExtension">
 		<classes>
 			<class name="com.mendix.test.LoginScript">
 				<methods>
-					
 					<include name="openBrowser" />
 					<include name="loginAsLDRVendor" />
 				</methods>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Extend Vendor Global and Local Nav from Algerial to Panama">
+<suite name="Extend Vendor Global and Local Nav from Algerial to Panama with rejections">
 	<test name="HeiPort_Login_LDR">
 		<classes>
 			<class name="com.mendix.test.LoginScript">
