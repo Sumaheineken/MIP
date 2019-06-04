@@ -2103,15 +2103,13 @@ public class MaterialPage {
    		 System.out.println("Entered into the if loop");
    		 Sync.waitForSeconds(Constants.WAIT_5);
    		 this.duplicateCheck_New();
-   		
-
    	 }
    	 else if(Button.verifyObject(btnClose))
    	 {
    		 Sync.waitForSeconds(Constants.WAIT_5);
    		 Sync.waitForObject(driver, "Wait for the information PopUp", msgRequestSuccess);
-
-   		clickCloseButtonToPopUp();
+   		 clickCloseButtonToPopUp();
+   		 submitGlobalLocalRequest();
    	 }
     }
 
@@ -2149,6 +2147,8 @@ public class MaterialPage {
 			Sync.waitForSeconds(Constants.WAIT_5);
 			//Sync.waitForObject(driver, "Wait for the information PopUp", msgRequestSuccess);
 			this.clickCloseButtonToPopUp();
+			submitGlobalRequestTest();
+			clickCloseButtonToPopUp();
 		}
 	}
 	

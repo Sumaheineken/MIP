@@ -396,7 +396,7 @@ public class MaterialNavScript {
 		//SharedDriver.pageContainer.materialPage.clickLocalAction();
 		SharedDriver.pageContainer.materialPage.duplicateCheckButton();
 		SharedDriver.pageContainer.materialPage.clickDuplicateCheck();
-		SharedDriver.pageContainer.materialPage.submitGlobalLocalRequest();
+		//SharedDriver.pageContainer.materialPage.submitGlobalLocalRequest();
 		//SharedDriver.pageContainer.materialPage.clickDuplicateCheck();
 		SharedDriver.pageContainer.materialPage.getRequestId_CreateNew();
 		SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();

@@ -600,6 +600,8 @@ public class MaterialApprovalPage {
 			Sync.waitForSeconds(Constants.WAIT_5);
 			//Sync.waitForObject(driver, "Wait for the information PopUp", msgRequestSuccess);
 			SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
+			approvalBtnClick();
+			SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
 		}
 	}
 
