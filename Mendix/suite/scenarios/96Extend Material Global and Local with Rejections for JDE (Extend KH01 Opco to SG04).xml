@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Change Material">		
-<!--  	<test name="HeiPort_Login_SGLDR">
+	<test name="HeiPort_Login_SGLDR">
 		<classes>		
 			<class name="com.mendix.test.LoginScript">
 				<methods>
@@ -68,7 +68,7 @@
 				</methods>
 			</class>
 		</classes>
-	</test>-->
+	</test>
 	<test name="HeiPort_Login_LDR_Submitting">
 		<classes>
 			<class name="com.mendix.test.LoginScript">

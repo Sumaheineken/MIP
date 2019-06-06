@@ -454,20 +454,7 @@ public class VendorScript {
 		SharedDriver.pageContainer.materialPage.clickLocalAction();
 		SharedDriver.pageContainer.materialPage.validateAndDuplicateCheckButton();
 		SharedDriver.pageContainer.materialApprovalPage.clickDuplicateCheck_GDA();
-		if(driver.findElements(By.xpath(".//button[text()='Approve Global Request']")).size()>0)
-		{
-			//SharedDriver.pageContainer.materialPage.clickLocalAction();
-			SharedDriver.pageContainer.materialApprovalPage.approvalBtnClick();
-			SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
-			//SharedDriver.pageContainer.vendorPage.duplicateCheck();
-		}
-		else
-		{
-			SharedDriver.pageContainer.materialPage.clickLocalAction();
-			SharedDriver.pageContainer.materialApprovalPage.approvalBtnClick();
-			SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
-		}
-	
+		
 	}
 /****************************************************************************************************/	
 	@Test(dataProvider="Process_Information_Check",dataProviderClass=staticProviderClass.class)
@@ -802,11 +789,10 @@ public class VendorScript {
 		SharedDriver.pageContainer.vendorPage.navigateToDashboard();
 		SharedDriver.pageContainer.materialApprovalPage.reqIdSearchMyTasks(dataMap.get("RequestId"));
 		SharedDriver.pageContainer.materialPage.clickLocalAction();
-		SharedDriver.pageContainer.materialApprovalPage.clickApprovalButton();
-		
+		//SharedDriver.pageContainer.materialApprovalPage.clickApprovalButton();
+		SharedDriver.pageContainer.materialPage.duplicateCheckButton();
 		SharedDriver.pageContainer.materialApprovalPage.clickDuplicateCheck_GDA();
 		Sync.waitForSeconds(Constants.WAIT_10);
-	
 		//SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
 	}
 	
@@ -891,7 +877,7 @@ public class VendorScript {
 		SharedDriver.pageContainer.materialPage.clickLocalAction();
 		SharedDriver.pageContainer.materialPage.duplicateCheckButton();
 		SharedDriver.pageContainer.materialPage.clickDuplicateCheck();
-		SharedDriver.pageContainer.materialPage.submitGlobalLocalRequest();
+		//SharedDriver.pageContainer.materialPage.submitGlobalLocalRequest();
 		//SharedDriver.pageContainer.materialPage.clickDuplicateCheck();
 		SharedDriver.pageContainer.materialPage.getRequestId_CreateNew();
 		SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
