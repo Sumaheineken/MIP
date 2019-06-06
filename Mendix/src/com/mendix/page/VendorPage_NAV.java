@@ -1724,6 +1724,7 @@ public class VendorPage_NAV {
 			paymentTCDropDownSelect.selectByVisibleText(strValue);
 			
 		}else{
+			Sync.waitForObject(driver ,"Wait for Payment Term Code Select", dropdownPurchasingPaymentTC);
 			Sync.waitForSeconds(Constants.WAIT_5);
 			Sync.waitForSeconds(Constants.WAIT_5);
 			Button.click("Click on Payment Term Code Select", dropdownPurchasingPaymentTC);
