@@ -303,7 +303,7 @@ public class MaterialNavScript {
 		//SharedDriver.pageContainer.materialApprovalPage.approvalBtnClick_Local();
 		SharedDriver.pageContainer.materialApprovalPage.markViewsBtnClick_Local();
 		SharedDriver.pageContainer.materialPage.clickOkToHandlePopup();
-	//	SharedDriver.pageContainer.materialPage.rejectLDSBank();
+		SharedDriver.pageContainer.materialPage.rejectLDSBank();
 		//SharedDriver.pageContainer.materialApprovalPage.submitRequestOkButtonClick();	
 
 	}

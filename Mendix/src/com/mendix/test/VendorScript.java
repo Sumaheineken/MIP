@@ -928,8 +928,9 @@ public class VendorScript {
 		SharedDriver.pageContainer.materialApprovalPage.reqIdSearchMyTasks(dataMap.get("RequestId"));
 		//SharedDriver.pageContainer.vendorPage.validateTestCreate();	
 		SharedDriver.pageContainer.materialPage.clickLocalAction();
+		//SharedDriver.pageContainer.materialNavPage.switchToGlobal();
+		SharedDriver.pageContainer.materialPage.DiscardCreateGDA();
 		
-	//	SharedDriver.pageContainer.materialPage.clickdiscardGlobalRequest();
 		//SharedDriver.pageContainer.materialPage.clickDuplicateCheck();
 		SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
 		
