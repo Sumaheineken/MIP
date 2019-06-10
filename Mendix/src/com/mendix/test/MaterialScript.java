@@ -256,8 +256,7 @@ public class MaterialScript {
 
 		SharedDriver.pageContainer.materialPage.validateTestCreate();
 		SharedDriver.pageContainer.materialPage.duplicateCheckButton();
-		SharedDriver.pageContainer.materialPage.clickDuplicateCheck();
-		SharedDriver.pageContainer.materialPage.submitGlobalRequestTest();
+		SharedDriver.pageContainer.materialPage.clickDuplicateCheck_SAP();		
 		SharedDriver.pageContainer.materialPage.getRequestId_CreateNew();
 		SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
 		// SharedDriver.pageContainer.materialPage.getRequestId();
