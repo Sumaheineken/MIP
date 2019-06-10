@@ -261,8 +261,7 @@ public class MaterialChangeScript {
 		SharedDriver.pageContainer.materialPage.clickLocalAction();
 		SharedDriver.pageContainer.materialPage.validate();
 		SharedDriver.pageContainer.materialPage.duplicateCheckButton();
-		SharedDriver.pageContainer.materialPage.clickDuplicateCheck();
-		SharedDriver.pageContainer.materialPage.submitGlobalRequestTest();
+		SharedDriver.pageContainer.materialPage.clickDuplicateCheck_SAP();		
 		SharedDriver.pageContainer.materialPage.getRequestId_CreateNew();
 		SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
 	}

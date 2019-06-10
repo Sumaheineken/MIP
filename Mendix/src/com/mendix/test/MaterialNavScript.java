@@ -499,4 +499,21 @@ public class MaterialNavScript {
 		SharedDriver.pageContainer.processInfoPage.browserClose();
 		// SharedDriver.pageContainer.materialApprovalPage.launchUFT();
 	}
+	@Test(dataProvider="Process_Information_Check",dataProviderClass=staticProviderClass.class)
+	public void Material_LocalGlobal_Submit_LDR_JDE(Map<String,String> dataMap) throws InterruptedException, FileNotFoundException, IOException 
+	{
+		Assert.assertTrue(SharedDriver.pageContainer.homePage.navigateToWorkflow());
+		SharedDriver.pageContainer.materialPage.switchToPopup();
+		SharedDriver.pageContainer.materialApprovalPage.reqIdSearchMyTasks(dataMap.get("RequestId"));
+		SharedDriver.pageContainer.materialApprovalPage.approvalBtnClick_Local();
+		SharedDriver.pageContainer.materialPage.duplicateCheckButton();		
+		SharedDriver.pageContainer.materialPage.clickDuplicateCheck_SAP();		
+		SharedDriver.pageContainer.materialApprovalPage.submitRequestOkButtonClick();
+        SharedDriver.pageContainer.materialApprovalPage.reqIdSearchMyTasks(dataMap.get("RequestId"));
+		SharedDriver.pageContainer.materialApprovalPage.approvalBtnClick_Local();
+		SharedDriver.pageContainer.materialPage.submitGlobalandLocalRequestTest();
+		SharedDriver.pageContainer.materialApprovalPage.submitRequestOkButtonClick();
+
+	}
+
 }
