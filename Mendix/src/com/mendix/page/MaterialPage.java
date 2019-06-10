@@ -229,7 +229,10 @@ public class MaterialPage {
 	WebElement btnSaveAsDraft;
 	@FindBy(how = How.XPATH, using = ".//span[@class='glyphicon glyphicon-saved']")
 	WebElement btnSavingAsDraft;
-
+	
+	@FindBy(how = How.XPATH, using = "//*[text()='Local Actions:']/..//*[text()='Save As Draft']")
+    WebElement btnSaveAsDraftJde;
+    
 	@FindBy(how = How.XPATH, using = "//*[text()='Validate']")
 	WebElement btnValidate;
 
@@ -1034,6 +1037,19 @@ public class MaterialPage {
 		Sync.waitForSeconds(Constants.WAIT_5);
 		// Sync.waitForSeconds(Constants.WAIT_6);
 	}
+	public void saveAsDraftJDE() throws InterruptedException {
+
+		Sync.waitForSeconds(Constants.WAIT_5);
+		WebDriverWait wait=new WebDriverWait(driver,80);
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[text()='Local Actions:']/..//*[text()='Save As Draft']")));
+				
+		//Sync.waitForObject(drivr, "Verify Validate message", txtValidationMsg);
+		/* Button.click("Click Save as Draft", btnSaveAsDraft); */
+		Button.click("Click Save as Draft", btnSaveAsDraftJde);
+		Sync.waitForSeconds(Constants.WAIT_5);
+		// Sync.waitForSeconds(Constants.WAIT_6);
+	}
+
 
 	public String getRequestId_draft() throws InterruptedException, FileNotFoundException, IOException {
 

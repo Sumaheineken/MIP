@@ -107,7 +107,34 @@ public class MaterialJDEScript {
 		SharedDriver.pageContainer.materialPage.getRequestId_CreateNew();
 		SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
 	}
-	
+	@Test(dataProvider="CreateMaterial_Fill_In",dataProviderClass=staticProviderClass.class)
+	public void Material_Create_Fill_In_Data_JDE_Finance_SaveAsDraft(Map<String,String> dataMap) throws InterruptedException, FileNotFoundException, IOException, AWTException 
+	{
+		SharedDriver.pageContainer.materialJdePage.clickFinancetab();
+		SharedDriver.pageContainer.materialJdePage.editPlantFinance();
+		/*SharedDriver.pageContainer.materialApprovalPage.submitRequestOkBtnClick();
+		SharedDriver.pageContainer.materialPage.clickLocalAction();
+		SharedDriver.pageContainer.materialJdePage.clickBackAction();
+		SharedDriver.pageContainer.materialJdePage.clickProceedAction();
+		SharedDriver.pageContainer.materialJdePage.clickPlantData();*/
+//		SharedDriver.pageContainer.materialNavPage.clickEditFinanceData();
+		
+	/*	SharedDriver.pageContainer.materialNavPage.clickEditFinanceData();*/
+		SharedDriver.pageContainer.materialJdePage.selectGLClass();
+		SharedDriver.pageContainer.materialJdePage.selectingCostingMethodPurchasing(dataMap.get("Costing Method - Purchasing"));
+		SharedDriver.pageContainer.materialJdePage.selectingCostingMethodSales(dataMap.get("Costing Method - Sales"));
+		/*SharedDriver.pageContainer.materialNavPage.selectGenProdPostingGroup();
+		SharedDriver.pageContainer.materialNavPage.selectVATPostingGroup();
+		SharedDriver.pageContainer.materialNavPage.selectItemDepositGroupCode();*/
+		SharedDriver.pageContainer.materialNavPage.clickLocalAction();
+		SharedDriver.pageContainer.materialNavPage.clickValidatLocalData();
+		SharedDriver.pageContainer.materialNavPage.clickSaveButton();
+		SharedDriver.pageContainer.materialNavPage.clickLocalAction();
+		SharedDriver.pageContainer.materialNavPage.clickValidatLocalRequest();
+		SharedDriver.pageContainer.materialPage.saveAsDraftJDE();
+	    SharedDriver.pageContainer.materialPage.getRequestId_draft();
+		SharedDriver.pageContainer.materialApprovalPage.submitRequestOkBtnClick();	
+	}
 	@Test(dataProvider="CreateMaterial_Fill_In",dataProviderClass=staticProviderClass.class)
 	public void Material_Create_Fill_In_Data_JDE_Edit_Finance(Map<String,String> dataMap) throws InterruptedException, FileNotFoundException, IOException, AWTException 
 	{
