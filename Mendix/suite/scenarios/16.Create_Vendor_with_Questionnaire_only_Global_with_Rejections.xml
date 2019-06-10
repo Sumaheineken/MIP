@@ -141,7 +141,7 @@
 			<class name="com.mendix.test.VendorScript">
 				<methods>
 					<include name="Vendor_Create_Syndication_Check"/>
-					<include name="launchUFT_JDE" />	
+					<include name="launchUFT_SAP_Vendor" />	
 				</methods>
 			</class>
 		</classes>

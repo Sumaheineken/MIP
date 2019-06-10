@@ -917,11 +917,13 @@ public class VendorScript {
 		SharedDriver.pageContainer.materialApprovalPage.reqIdSearchMyTasks(dataMap.get("RequestId"));
 		//SharedDriver.pageContainer.vendorPage.validateTestCreate();	
 		//SharedDriver.pageContainer.materialPage.clickLocalAction();
-		SharedDriver.pageContainer.vendorPage.clickResubmitGlobalRequest();
-		SharedDriver.pageContainer.materialPage.clickDuplicateCheck();		
-		SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
-		
+		//SharedDriver.pageContainer.vendorPage.clickResubmitGlobalRequest();
+		SharedDriver.pageContainer.materialPage.clickLocalAction();
+		SharedDriver.pageContainer.materialPage.duplicateCheckButton();
+		SharedDriver.pageContainer.materialPage.clickDuplicateCheck_SAP();		
+		SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();	
 	}
+	
 	@Test(dataProvider="Process_Information_Check",dataProviderClass=staticProviderClass.class)
 	public void vendor_Reject_discard_LDR(Map<String,String> dataMap) throws InterruptedException, FileNotFoundException, IOException
 	{
