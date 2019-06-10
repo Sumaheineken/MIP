@@ -413,6 +413,7 @@ public class VendorScript {
 		
 		SharedDriver.pageContainer.vendorPage.SaveAsDraft();
 		SharedDriver.pageContainer.vendorPage.getRequestId_Draft();
+		SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
 		//SharedDriver.pageContainer.processInfoPage.browserClose();
 				
 	}
@@ -429,9 +430,10 @@ public class VendorScript {
 		SharedDriver.pageContainer.materialApprovalPage.reqIdSearchMyTasks(dataMap.get("RequestId"));
 		SharedDriver.pageContainer.vendorPage.Localactionbutton();
 		SharedDriver.pageContainer.vendorPage.validateTestCreate();
-		SharedDriver.pageContainer.vendorPage.submitGlobalRequestTest();
-		SharedDriver.pageContainer.materialPage.clickDuplicateCheck();
-		SharedDriver.pageContainer.vendorPage.submitRequestPopup();
+		//SharedDriver.pageContainer.vendorPage.submitGlobalRequestTest();
+		SharedDriver.pageContainer.materialPage.duplicateCheckButton();
+		SharedDriver.pageContainer.materialPage.clickDuplicateCheck_SAP();
+		SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
 		
 	}
 /****************************************************************************************************/	

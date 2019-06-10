@@ -713,6 +713,7 @@ public class VendorPage {
 		wait.until(ExpectedConditions.elementToBeClickable(btnValidate));
 		return Button.click("Click Validate button on local action ", btnValidate);
 	}
+	
 	public boolean validateTestCreatesap() {
 		Sync.waitForSeconds(Constants.WAIT_3);
 		Button.click("Local Actions button", btnLocalActions);
@@ -753,8 +754,8 @@ public class VendorPage {
 		Sync.waitForSeconds(Constants.WAIT_2);
 		Sync.waitForObject(driver, "Verify Validate message", txtValidationMsg);
 		WebDriverWait wait = new WebDriverWait(driver, 60);
-		wait.until(ExpectedConditions.elementToBeClickable(btnLocalActions));
-		Button.click("Local Actions button", btnLocalActions);
+		//wait.until(ExpectedConditions.elementToBeClickable(btnLocalActions));
+		//Button.click("Local Actions button", btnLocalActions);
 		if(driver.findElements(By.xpath(".//button[text()='Save As Draft']")).size()>0)
 		{
 		Sync.waitForSec(Constants.WAIT_2);
