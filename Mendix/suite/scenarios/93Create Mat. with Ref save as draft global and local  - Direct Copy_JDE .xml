@@ -68,7 +68,7 @@
 			<class name="com.mendix.test.MaterialNavScript">
 				<methods>
 					<include
-						name="Material_LocalGlobal_Submit_LDR" />
+						name="Material_LocalGlobal_Submit_LDR_JDE" />
 				</methods>
 			</class>
 		</classes>

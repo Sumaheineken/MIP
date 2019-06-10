@@ -123,7 +123,7 @@
 			<class name="com.mendix.test.MaterialNavScript">
 				<methods>
 					<include
-						name="Material_Global_LocalData_Submit_LDR" />
+						name="Material_Global_LocalData_Submit_LDR_JDE" />
 				</methods>
 			</class>
 		</classes>
