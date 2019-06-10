@@ -899,7 +899,7 @@ public class VendorPage {
 		Sync.waitForSeconds(Constants.WAIT_2);
 		Sync.waitForElementToBeClickable(driver, btnOK);
 
-		Button.click("Click Ok Button", btnOK);
+		//Button.click("Click Ok Button", btnOK);
 		return Id;
 	}
 
