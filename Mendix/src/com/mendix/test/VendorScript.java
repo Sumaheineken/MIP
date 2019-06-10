@@ -413,6 +413,7 @@ public class VendorScript {
 		
 		SharedDriver.pageContainer.vendorPage.SaveAsDraft();
 		SharedDriver.pageContainer.vendorPage.getRequestId_Draft();
+		SharedDriver.pageContainer.materialPage.clickCloseButtonToPopUp();
 		//SharedDriver.pageContainer.processInfoPage.browserClose();
 				
 	}
