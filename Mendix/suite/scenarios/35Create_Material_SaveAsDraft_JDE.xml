@@ -42,6 +42,26 @@
 			</class>
 		</classes>
 	</test> 
+	
+	<test name="Process_Information_Check">
+		<classes>
+			<class name="com.mendix.test.MaterialScript">
+				<methods>
+					<include name="Process_Information_Check" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	<test name="HeiPort_Login_LDR">
+		<classes>
+			<class name="com.mendix.test.LoginScript">
+				<methods>					
+					<include name="openBrowser" />
+					<include name="loginAsLDR" />
+				</methods>
+			</class>
+		</classes>
+	</test>
 	<test name="Material_LocalData_Submit_LDR">
 		<classes>
 			<class name="com.mendix.test.MaterialNavScript">
