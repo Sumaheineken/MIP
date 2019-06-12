@@ -169,7 +169,7 @@
 <!-- ============================================================LDP Global Approval Level End=========================================================== -->	
 
  <!--  Depending on the CMG value this GBDA is getting added for CMG0472 there is no GBDA approval level so commenting that-->  
-	 <test name="HeiPort_Login_GBDA_Global">
+	<!--  <test name="HeiPort_Login_GBDA_Global">
 		<classes>
 			<class name="com.mendix.test.LoginScript">
 				<methods>
@@ -199,7 +199,7 @@
 			</class>
 		</classes>
 	</test>
-	 
+	  -->
 	<test name="HeiPort_Login_GDA">
 		<classes>
 			<class name="com.mendix.test.LoginScript">
